@@ -1,0 +1,7 @@
+*.json
+*.yaml
+*.yml
+*.md
+*.html
+.gitignore
+*.lock
