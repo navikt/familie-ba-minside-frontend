@@ -46,5 +46,5 @@ jobs:
           SENTRY_RELEASE: ${{ github.sha }}
           BASE_PATH: ${{ env.BASE_PATH }}
         run: |
-          yarn --prefer-offline --frozen-lockfile
+          yarn --prefer-offline --immutable
           yarn build
