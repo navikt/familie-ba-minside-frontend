@@ -1,0 +1,50 @@
+name: Build PR
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  test:
+    name: Kjør typecheck og tester
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Installer node-pakker
+        run: yarn --prefer-offline --frozen-lockfile
+      - name: Kjør prettier 
+        run: yarn prettier
+      - name: Kjør eslint
+        run: yarn lint
+      - name: Kjør tester
+        run: yarn test
+
+  bygg:
+    name: Bygg app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_RELEASE: ${{ github.sha }}
+          BASE_PATH: ${{ env.BASE_PATH }}
+        run: |
+          yarn --prefer-offline --frozen-lockfile
+          yarn build
