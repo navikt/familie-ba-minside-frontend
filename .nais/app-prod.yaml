@@ -1,0 +1,57 @@
+apiVersion: 'nais.io/v1alpha1'
+kind: 'Application'
+metadata:
+  name: familie-ba-minside-frontend
+  namespace: teamfamilie
+  labels:
+    team: teamfamilie
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: '25M'
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '120'
+spec:
+  envFrom:
+    - secret: familie-ba-minside-frontend-unleash-api-token
+  image: { { image } }
+  replicas:
+    min: 2
+    max: 3
+    cpuThresholdPercentage: 50
+  port: 9000
+  liveness:
+    path: /isAlive
+    initialDelay: 5
+  readiness:
+    path: /isReady
+    initialDelay: 5
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
+  prometheus:
+    enabled: true
+    path: /metrics
+  ingresses:
+    - https://www.nav.no/barnetrygd/minside
+  accessPolicy:
+    outbound:
+      external:
+        - host: teamfamilie-unleash-api.nav.cloud.nais.io
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 1024Mi
+    requests:
+      memory: 512Mi
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      autoLogin: true
+      level: Level4
+      autoLoginIgnorePaths:
+        - /barnetrygd/minside/**/*.css
+        - /barnetrygd/minside/**/manifest.json
+  tokenx:
+    enabled: true
+  secureLogs:
+    enabled: true
