@@ -11,7 +11,7 @@ metadata:
 spec:
   envFrom:
     - secret: familie-ba-minside-frontend-unleash-api-token
-  image: { { image } }
+  image: {{ image }}
   replicas:
     min: 2
     max: 2
