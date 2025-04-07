@@ -18,10 +18,10 @@ spec:
     cpuThresholdPercentage: 50
   port: 9000
   liveness:
-    path: /isAlive
+    path: /api/internal/isAlive
     initialDelay: 5
   readiness:
-    path: /isReady
+    path: /api/internal/isReady
     initialDelay: 5
   observability:
     autoInstrumentation:
@@ -29,7 +29,7 @@ spec:
       runtime: nodejs
   prometheus:
     enabled: true
-    path: /metrics
+    path: /api/internal/metrics
   ingresses:
     - https://www.nav.no/barnetrygd/minside
   accessPolicy:
