@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier -l \"src/**/*.{js,jsx,ts,tsx}\""
+    "prettier": "prettier -l \"src/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky",
+    "test": "echo \"Ingen tester\""
   },
   "dependencies": {
     "next": "15.2.4",
@@ -22,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "^10.1.1",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "typescript": "^5"
   }
