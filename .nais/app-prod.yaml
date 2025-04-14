@@ -18,10 +18,10 @@ spec:
     cpuThresholdPercentage: 50
   port: 9000
   liveness:
-    path: /barnetrygd/minside/api/internal/isAlive
+    path: /barnetrygd/min-barnetrygd/api/internal/isAlive
     initialDelay: 5
   readiness:
-    path: /barnetrygd/minside/api/internal/isReady
+    path: /barnetrygd/min-barnetrygd/api/internal/isReady
     initialDelay: 5
   observability:
     autoInstrumentation:
@@ -29,9 +29,10 @@ spec:
       runtime: nodejs
   prometheus:
     enabled: true
-    path: /barnetrygd/minside/api/internal/metrics
+    path: /barnetrygd/min-barnetrygd/api/internal/metrics
   ingresses:
-    - https://www.nav.no/barnetrygd/minside
+    - https://www.nav.no/barnetrygd/min-barnetrygd
+    - https://www.nav.no/utvidetbarnetrygd/min-barnetrygd
   accessPolicy:
     outbound:
       external:
@@ -49,8 +50,8 @@ spec:
       autoLogin: true
       level: Level4
       autoLoginIgnorePaths:
-        - /barnetrygd/minside/**/*.css
-        - /barnetrygd/minside/**/manifest.json
+        - /barnetrygd/min-barnetrygd/**/*.css
+        - /barnetrygd/min-barnetrygd/**/manifest.json
   tokenx:
     enabled: true
   secureLogs:
