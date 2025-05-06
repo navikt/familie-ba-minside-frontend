@@ -34,6 +34,9 @@ spec:
     - 'https://familie-ba-minside.intern.dev.nav.no/barnetrygd/min-barnetrygd'
   accessPolicy:
     outbound:
+      rules:
+            - application: nav-dekoratoren
+              namespace: personbruker
       external:
         - host: teamfamilie-unleash-api.nav.cloud.nais.io
   resources:

@@ -35,6 +35,9 @@ spec:
     - https://www.nav.no/utvidetbarnetrygd/min-barnetrygd
   accessPolicy:
     outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
       external:
         - host: teamfamilie-unleash-api.nav.cloud.nais.io
   resources:

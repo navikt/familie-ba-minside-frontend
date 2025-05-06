@@ -245,6 +245,13 @@
     "@emnapi/runtime" "^1.4.0"
     "@tybys/wasm-util" "^0.9.0"
 
+"@navikt/nav-dekoratoren-moduler@^3.2.3":
+  version "3.2.3"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.2.3/27714473e885ec311e1b91b17bb121750d8d9497#27714473e885ec311e1b91b17bb121750d8d9497"
+  integrity sha512-DF6XNqS/96GZcSoARP/4I035TyXjk3dkgG4Dz7MtYkfErodc2jmkf8QUgtygXn0txBOZeNAVVCZpDds//EOLkg==
+  dependencies:
+    js-cookie "^3.0.5"
+
 "@next/env@15.3.1":
   version "15.3.1"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.3.1.tgz#fca98dcb90d92d555972cdbf03adf9aa982e2115"
@@ -1741,6 +1748,11 @@ iterator.prototype@^1.1.4:
     get-proto "^1.0.0"
     has-symbols "^1.1.0"
     set-function-name "^2.0.2"
+
+js-cookie@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
