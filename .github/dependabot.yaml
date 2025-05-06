@@ -21,8 +21,8 @@ updates:
           - "@babel/*"
       aksel:
         patterns:
-          - "@navikt/aksel-icons"
-          - "@navikt/ds-*"
+          - '@navikt/aksel*'
+          - '@navikt/ds*'
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

@@ -1,5 +1,6 @@
 import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
+import './index.css';
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
     const Decorator = await fetchDecoratorReact({
