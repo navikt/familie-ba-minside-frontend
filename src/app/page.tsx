@@ -14,6 +14,7 @@ import {
     Heading,
     HGrid,
     HStack,
+    Stepper,
     VStack,
 } from '@navikt/ds-react';
 import {
@@ -23,12 +24,13 @@ import {
     ExpansionCardTitle,
 } from '@navikt/ds-react/ExpansionCard';
 import { PageBlock } from '@navikt/ds-react/Page';
+import { StepperStep } from '@navikt/ds-react/Stepper';
 
 export default function Page() {
     return (
         <>
             <PageBlock as="section" width="lg" gutters>
-                <Box paddingBlock={'16 0'}>
+                <Box paddingBlock={'20 0'}>
                     <Heading level={'1'} size="large">
                         Barnetrygden Min
                     </Heading>
@@ -36,7 +38,7 @@ export default function Page() {
             </PageBlock>
 
             <PageBlock as="section" width="lg" gutters>
-                <Box paddingBlock={'16 0'}>
+                <Box paddingBlock={'20 0'}>
                     <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
                         <ExpansionCard aria-label="Informasjon om barnetrygd">
                             <ExpansionCardHeader>
@@ -66,9 +68,9 @@ export default function Page() {
                 </Box>
             </PageBlock>
 
-            <Box background="surface-subtle" marginBlock={'16 0'}>
+            <Box background="surface-subtle" marginBlock={'20 0'}>
                 <PageBlock as="section" width="lg" gutters>
-                    <VStack paddingBlock={'16'} gap={'6'}>
+                    <VStack paddingBlock={'20'} gap={'6'}>
                         <Heading level={'2'} size="medium">
                             Ønsker du å kontakte oss?
                         </Heading>
@@ -159,7 +161,7 @@ export default function Page() {
             </Box>
 
             <PageBlock as="section" width="lg" gutters>
-                <VStack paddingBlock={'16'} gap={'6'}>
+                <VStack paddingBlock={'20 0'} gap={'6'}>
                     <Heading level={'2'} size="medium">
                         Snarveier
                     </Heading>
@@ -248,7 +250,74 @@ export default function Page() {
             </PageBlock>
 
             <PageBlock as="section" width="lg" gutters>
-                <VStack paddingBlock={'16'} gap={'6'}>
+                <VStack paddingBlock={'20 0'} gap={'6'}>
+                    <Heading level={'2'} size="medium">
+                        Hva skjer etter at du har sendt søknad til oss?
+                    </Heading>
+
+                    <Stepper aria-labelledby="stepper-heading" activeStep={1} interactive={false}>
+                        {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
+                        <StepperStep>
+                            <Heading level="3" size="small" spacing>
+                                Vi sjekker om vi har alle opplysninger
+                            </Heading>
+                            <BodyLong>
+                                Hvis du ikke har lagt ved alle vedlegg til søknaden, venter vi 14
+                                dager med å saksbehandle. Etter 14 dager vil vi starte
+                                saksbehandling med de opplysningene vi har. Hvis vi har behov for
+                                flere opplysninger, vil vi sende deg et brev med informasjon om
+                                dette. Da får du også 14 dager på å sende inn informasjonen.
+                            </BodyLong>
+                        </StepperStep>
+                        {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
+                        <StepperStep>
+                            <Heading level="3" size="small" spacing>
+                                Rett på utvidet barnetrygd
+                            </Heading>
+                            <BodyLong>
+                                Vi bruker opplysningene vi har fått til å sjekke om du har rett på
+                                utvidet barnetrygd etter barnetrygdloven kapittel 3.
+                            </BodyLong>
+                        </StepperStep>
+                        {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
+                        <StepperStep>
+                            <Heading level="3" size="small" spacing>
+                                Svar på søknaden din
+                            </Heading>
+                            <BodyLong>
+                                Du får et vedtak med vurderingen vår av om du har rett på utvidet
+                                barnetrygd eller ikke, og hvor mye du vil få utbetalt. Hvis du har
+                                spørsmål til vurderingen, kan du ta kontakt med oss. Hvis du ikke er
+                                enig i vår avgjørelse, kan du klage på vedtaket.
+                            </BodyLong>
+                        </StepperStep>
+                        {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
+                        <StepperStep>
+                            <Heading level="3" size="small" spacing>
+                                Søknaden er ferdig behandlet
+                            </Heading>
+                            <BodyLong>
+                                Når søknaden din er ferdig behandlet får du et svar som du finner
+                                under saksoversikten på Ditt NAV. I tillegg sender vi svar til deg i
+                                posten.
+                            </BodyLong>
+                        </StepperStep>
+                        {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
+                        <StepperStep>
+                            <Heading level="3" size="small" spacing>
+                                Utbetaling
+                            </Heading>
+                            <BodyLong>
+                                Du finner informasjon om utbetaling under «kommende utbetalinger» i
+                                utbetalingsoversikten.
+                            </BodyLong>
+                        </StepperStep>
+                    </Stepper>
+                </VStack>
+            </PageBlock>
+
+            <PageBlock as="section" width="lg" gutters>
+                <VStack paddingBlock={'20 0'} gap={'6'}>
                     <Heading level={'2'} size="medium">
                         Dette kan du ha rett til
                     </Heading>
