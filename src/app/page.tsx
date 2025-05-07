@@ -6,6 +6,7 @@ import {
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
 import {
+    Alert,
     BodyLong,
     BodyShort,
     Box,
@@ -34,6 +35,20 @@ export default function Page() {
                     <Heading level={'1'} size="large">
                         Barnetrygden Min
                     </Heading>
+                </Box>
+            </PageBlock>
+
+            <PageBlock as="section" width="lg" gutters>
+                <Box paddingBlock={'20 0'}>
+                    <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
+                        <Alert variant="warning">
+                            <BodyLong spacing>
+                                Vi mangler dokumentasjon fra deg for å kunne behandle søknaden.
+                                Ettersend dette til oss så raskt du kan.
+                            </BodyLong>
+                            <Button variant="secondary-neutral">Ettersend dokumenter</Button>
+                        </Alert>
+                    </HGrid>
                 </Box>
             </PageBlock>
 
