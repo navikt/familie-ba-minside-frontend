@@ -3,6 +3,7 @@ import {
     ChevronRightIcon,
     ClockIcon,
     GavelIcon,
+    HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
 import {
@@ -31,11 +32,17 @@ export default function Page() {
     return (
         <>
             <PageBlock as="section" width="lg" gutters>
-                <Box paddingBlock={'20 0'}>
+                <VStack paddingBlock={'10 0'} gap={'10'}>
+                    <HStack gap={'2'}>
+                        <HouseIcon title="a11y-title" fontSize="1.5rem" />
+                        <BodyShort>Min side</BodyShort>
+                        <ChevronRightIcon title="a11y-title" fontSize="1.5rem" />
+                        <BodyShort>Barnetrygden min</BodyShort>
+                    </HStack>
                     <Heading level={'1'} size="large">
                         Barnetrygden Min
                     </Heading>
-                </Box>
+                </VStack>
             </PageBlock>
 
             <PageBlock as="section" width="lg" gutters>
