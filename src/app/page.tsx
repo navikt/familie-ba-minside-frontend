@@ -255,9 +255,9 @@ export default function Page() {
                         Hva skjer etter at du har sendt søknad til oss?
                     </Heading>
 
-                    <Stepper aria-labelledby="stepper-heading" activeStep={1} interactive={false}>
+                    <Stepper aria-labelledby="stepper-heading" activeStep={3} interactive={false}>
                         {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                        <StepperStep>
+                        <StepperStep completed>
                             <Heading level="3" size="small" spacing>
                                 Vi sjekker om vi har alle opplysninger
                             </Heading>
@@ -270,7 +270,7 @@ export default function Page() {
                             </BodyLong>
                         </StepperStep>
                         {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                        <StepperStep>
+                        <StepperStep completed>
                             <Heading level="3" size="small" spacing>
                                 Rett på utvidet barnetrygd
                             </Heading>
@@ -298,7 +298,7 @@ export default function Page() {
                             </Heading>
                             <BodyLong>
                                 Når søknaden din er ferdig behandlet får du et svar som du finner
-                                under saksoversikten på Ditt NAV. I tillegg sender vi svar til deg i
+                                under saksoversikten på Ditt Nav. I tillegg sender vi svar til deg i
                                 posten.
                             </BodyLong>
                         </StepperStep>
