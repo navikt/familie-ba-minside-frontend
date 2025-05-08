@@ -5,7 +5,6 @@ import {
     ClockIcon,
     GavelIcon,
     HouseIcon,
-    PersonTallShortIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
 import {
@@ -37,25 +36,26 @@ import {
     TableHeaderCell,
     TableRow,
 } from '@navikt/ds-react/Table';
-import Seksjon from './komponenter/seksjon';
+import Seksjon from './komponenter/Seksjon';
+import LenkePanel from './komponenter/LenkePanel';
 
 export default function Page() {
     return (
         <>
             <Seksjon>
-                <HStack gap={'2'}>
+                <HStack gap="2">
                     <HouseIcon title="a11y-title" fontSize="1.5rem" />
                     <BodyShort>Min side</BodyShort>
                     <ChevronRightIcon title="a11y-title" fontSize="1.5rem" />
                     <BodyShort>Barnetrygden min</BodyShort>
                 </HStack>
-                <Heading level={'1'} size="large">
+                <Heading level="1" size="large">
                     Barnetrygden Min
                 </Heading>
             </Seksjon>
 
             <Seksjon>
-                <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
+                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
                     <Alert variant="warning">
                         <BodyLong spacing>
                             Vi mangler dokumentasjon fra deg for å kunne behandle søknaden.
@@ -92,281 +92,61 @@ export default function Page() {
             </Seksjon>
 
             <Seksjon tittel="Ønsker du å kontakte oss?" graBakgrunn>
-                <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
-                    <Box
-                        as="a"
+                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
+                    <LenkePanel
                         href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-default"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
+                        tittel="Skriv til oss"
+                        ikon={<Chat2Icon fontSize="2rem" />}
                     >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-subtle'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <Chat2Icon fontSize={'2rem'} />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Skriv til oss
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Har du spørsmål til saken din eller vil melde fra om noe annet?
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
+                        <BodyLong textColor="subtle">
+                            Har du spørsmål til saken din eller vil melde fra om noe annet?
+                        </BodyLong>
+                    </LenkePanel>
 
-                    <Box
-                        as="a"
+                    <LenkePanel
                         href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-default"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
+                        tittel="Meld fra om endringer"
+                        ikon={<GavelIcon title="a11y-title" fontSize="2rem" />}
                     >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-subtle'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <GavelIcon title="a11y-title" fontSize="2rem" />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Meld fra om endringer
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Endring i din situasjon, opphold eller arbeidsforhold i
-                                    utlandet.
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
+                        <BodyLong textColor="subtle">
+                            Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
+                        </BodyLong>
+                    </LenkePanel>
                 </HGrid>
             </Seksjon>
 
             <Seksjon tittel="Snarveier">
-                <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
-                    <Box
-                        as="a"
+                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
+                    <LenkePanel
                         href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-subtle"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
+                        tittel="Slik klager du"
+                        ikon={<ThumbDownIcon title="a11y-title" fontSize="2rem" />}
+                        graBakgrunn
                     >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-default'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <ThumbDownIcon title="a11y-title" fontSize="2rem" />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Slik klager du
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Du har rett til å klage eller anke hvis du er uenig i vedtaket.
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
+                        <BodyLong textColor="subtle">
+                            Du har rett til å klage eller anke hvis du er uenig i vedtaket.
+                        </BodyLong>
+                    </LenkePanel>
 
-                    <Box
-                        as="a"
+                    <LenkePanel
                         href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-subtle"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
+                        tittel="Les mer om utvidet barnetrygd"
+                        ikon={<ChildHairEyesIcon title="a11y-title" fontSize="2rem" />}
+                        graBakgrunn
                     >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-default'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <ChildHairEyesIcon title="a11y-title" fontSize="1.5rem" />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Les mer om utvidet barnetrygd
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Informasjon om utvidet barnetrygd
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
+                        <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
+                    </LenkePanel>
 
-                    <Box
-                        as="a"
+                    <LenkePanel
                         href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-subtle"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
+                        tittel="Saksbehandlingstider"
+                        ikon={<ClockIcon title="a11y-title" fontSize="2rem" />}
+                        graBakgrunn
                     >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-default'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <ClockIcon title="a11y-title" fontSize="2rem" />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Saksbehandlingstider
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Se saksbehandlingstider og ventetider for barnetrygd.
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
-
-                    <Box
-                        as="a"
-                        href="#"
-                        paddingInline={'6'}
-                        borderRadius={'xlarge'}
-                        background="surface-subtle"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
-                    >
-                        <HStack wrap={false}>
-                            <Box marginBlock={'auto'} marginInline={'0 6'}>
-                                <Box
-                                    background={'surface-default'}
-                                    borderRadius={'full'}
-                                    height={'4rem'}
-                                    width={'4rem'}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <PersonTallShortIcon title="a11y-title" fontSize="1.5rem" />
-                                </Box>
-                            </Box>
-                            <Box width={'fit-content'} paddingBlock={'6'}>
-                                <Heading
-                                    level={'3'}
-                                    size="small"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    For deg som er helt eller delvis alene med barn
-                                </Heading>
-                                <BodyLong textColor="subtle">
-                                    Ulike støtteordninger du kan ha rett til.
-                                </BodyLong>
-                            </Box>
-                            <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
-                                <ChevronRightIcon fontSize="1.5rem" />
-                            </Box>
-                        </HStack>
-                    </Box>
+                        <BodyLong textColor="subtle">
+                            Se saksbehandlingstider og ventetider for barnetrygd.
+                        </BodyLong>
+                    </LenkePanel>
                 </HGrid>
             </Seksjon>
 
@@ -467,11 +247,11 @@ export default function Page() {
             </Seksjon>
 
             <Seksjon tittel="Dette kan du ha rett til">
-                <HGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={'6'}>
-                    <Box padding={'6'} borderRadius={'xlarge'} shadow="small">
-                        <VStack height={'100%'} justify={'space-between'}>
+                <HGrid columns={{ sm: 1, md: 2, lg: 3 }} gap="6">
+                    <Box padding="6" borderRadius="xlarge" shadow="small">
+                        <VStack height="100%" justify="space-between">
                             <Box>
-                                <Heading level={'3'} size="small" spacing>
+                                <Heading level="3" size="small" spacing>
                                     For deg som er helt eller delvis alene med barn
                                 </Heading>
                                 <BodyLong textColor="subtle" spacing>
@@ -485,10 +265,10 @@ export default function Page() {
                         </VStack>
                     </Box>
 
-                    <Box padding={'6'} borderRadius={'xlarge'} shadow="small">
-                        <VStack height={'100%'} justify={'space-between'}>
+                    <Box padding="6" borderRadius="xlarge" shadow="small">
+                        <VStack height="100%" justify="space-between">
                             <Box>
-                                <Heading level={'3'} size="small" spacing>
+                                <Heading level="3" size="small" spacing>
                                     Les mer om utvidet barnetrygd
                                 </Heading>
                                 <BodyLong textColor="subtle" spacing>
@@ -500,10 +280,10 @@ export default function Page() {
                         </VStack>
                     </Box>
 
-                    <Box padding={'6'} borderRadius={'xlarge'} shadow="small">
-                        <VStack height={'100%'} justify={'space-between'}>
+                    <Box padding="6" borderRadius="xlarge" shadow="small">
+                        <VStack height="100%" justify="space-between">
                             <Box>
-                                <Heading level={'3'} size="small" spacing>
+                                <Heading level="3" size="small" spacing>
                                     Har ansvar for andres barn
                                 </Heading>
                                 <BodyLong textColor="subtle" spacing>
