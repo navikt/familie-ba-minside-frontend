@@ -16,6 +16,7 @@ import {
     Heading,
     HGrid,
     HStack,
+    Link,
     Stepper,
     VStack,
 } from '@navikt/ds-react';
@@ -99,9 +100,15 @@ export default function Page() {
 
                         <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
                             <Box
+                                as="a"
+                                href="#"
                                 paddingInline={'6'}
                                 borderRadius={'xlarge'}
                                 background="surface-default"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                }}
                             >
                                 <HStack wrap={false}>
                                     <Box marginBlock={'auto'} marginInline={'0 6'}>
@@ -120,7 +127,11 @@ export default function Page() {
                                         </Box>
                                     </Box>
                                     <Box width={'fit-content'} paddingBlock={'6'}>
-                                        <Heading level={'3'} size="small">
+                                        <Heading
+                                            level={'3'}
+                                            size="small"
+                                            style={{ textDecoration: 'underline' }}
+                                        >
                                             Skriv til oss
                                         </Heading>
                                         <BodyLong textColor="subtle">
@@ -139,9 +150,15 @@ export default function Page() {
                             </Box>
 
                             <Box
+                                as="a"
+                                href="#"
                                 paddingInline={'6'}
                                 borderRadius={'xlarge'}
                                 background="surface-default"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                }}
                             >
                                 <HStack wrap={false}>
                                     <Box marginBlock={'auto'} marginInline={'0 6'}>
@@ -160,7 +177,11 @@ export default function Page() {
                                         </Box>
                                     </Box>
                                     <Box width={'fit-content'} paddingBlock={'6'}>
-                                        <Heading level={'3'} size="small">
+                                        <Heading
+                                            level={'3'}
+                                            size="small"
+                                            style={{ textDecoration: 'underline' }}
+                                        >
                                             Meld fra om endringer
                                         </Heading>
                                         <BodyLong textColor="subtle">
@@ -190,9 +211,15 @@ export default function Page() {
 
                     <HGrid columns={{ md: 1, lg: 2 }} gap={'6'}>
                         <Box
+                            as="a"
+                            href="#"
                             paddingInline={'6'}
                             borderRadius={'xlarge'}
                             background="surface-subtle"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
                         >
                             <HStack wrap={false}>
                                 <Box marginBlock={'auto'} marginInline={'0 6'}>
@@ -211,7 +238,11 @@ export default function Page() {
                                     </Box>
                                 </Box>
                                 <Box width={'fit-content'} paddingBlock={'6'}>
-                                    <Heading level={'3'} size="small">
+                                    <Heading
+                                        level={'3'}
+                                        size="small"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
                                         Slik klager du
                                     </Heading>
                                     <BodyLong textColor="subtle">
@@ -230,9 +261,15 @@ export default function Page() {
                         </Box>
 
                         <Box
+                            as="a"
+                            href="#"
                             paddingInline={'6'}
                             borderRadius={'xlarge'}
                             background="surface-subtle"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
                         >
                             <HStack wrap={false}>
                                 <Box marginBlock={'auto'} marginInline={'0 6'}>
@@ -251,7 +288,11 @@ export default function Page() {
                                     </Box>
                                 </Box>
                                 <Box width={'fit-content'} paddingBlock={'6'}>
-                                    <Heading level={'3'} size="small">
+                                    <Heading
+                                        level={'3'}
+                                        size="small"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
                                         Saksbehandlingstider
                                     </Heading>
                                     <BodyLong textColor="subtle">
@@ -320,8 +361,8 @@ export default function Page() {
                             </Heading>
                             <BodyLong>
                                 Når søknaden din er ferdig behandlet får du et svar som du finner
-                                under saksoversikten på Ditt Nav. I tillegg sender vi svar til deg i
-                                posten.
+                                under <Link>saksoversikten</Link> på Ditt Nav. I tillegg sender vi
+                                svar til deg i posten.
                             </BodyLong>
                         </StepperStep>
                         {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
@@ -331,7 +372,7 @@ export default function Page() {
                             </Heading>
                             <BodyLong>
                                 Du finner informasjon om utbetaling under «kommende utbetalinger» i
-                                utbetalingsoversikten.
+                                <Link>utbetalingsoversikten</Link>.
                             </BodyLong>
                         </StepperStep>
                     </Stepper>
