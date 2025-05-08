@@ -18,6 +18,7 @@ import {
     HStack,
     Link,
     Stepper,
+    Table,
     VStack,
 } from '@navikt/ds-react';
 import {
@@ -28,6 +29,13 @@ import {
 } from '@navikt/ds-react/ExpansionCard';
 import { PageBlock } from '@navikt/ds-react/Page';
 import { StepperStep } from '@navikt/ds-react/Stepper';
+import {
+    TableBody,
+    TableDataCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+} from '@navikt/ds-react/Table';
 
 export default function Page() {
     return (
@@ -371,11 +379,54 @@ export default function Page() {
                                 Utbetaling
                             </Heading>
                             <BodyLong>
-                                Du finner informasjon om utbetaling under «kommende utbetalinger» i
+                                Du finner informasjon om utbetaling under «kommende utbetalinger» i{' '}
                                 <Link>utbetalingsoversikten</Link>.
                             </BodyLong>
                         </StepperStep>
                     </Stepper>
+                </VStack>
+            </PageBlock>
+
+            <PageBlock as="section" width="lg" gutters>
+                <VStack paddingBlock={'20 0'} gap={'6'}>
+                    <Heading level={'2'} size="medium">
+                        Dokumentoversikt
+                    </Heading>
+
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHeaderCell scope="col">Dokument</TableHeaderCell>
+                                <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
+                                <TableHeaderCell scope="col">Dato</TableHeaderCell>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            <TableRow>
+                                <TableDataCell>
+                                    Dokumentasjon fra den andre forelderen
+                                </TableDataCell>
+                                <TableDataCell>Tredjepart</TableDataCell>
+                                <TableDataCell>13. okt. 2018</TableDataCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableDataCell>
+                                    Ettersendelse til søknad om utvidet barnetrygd
+                                </TableDataCell>
+                                <TableDataCell>Deg</TableDataCell>
+                                <TableDataCell>5. jul. 2018</TableDataCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableDataCell>Annen dokumentasjon</TableDataCell>
+                                <TableDataCell>Nav</TableDataCell>
+                                <TableDataCell>13. okt. 2018</TableDataCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+
+                    <Link href="#">
+                        Har du sendt en søknad eller et dokument som ikke vises her?
+                    </Link>
                 </VStack>
             </PageBlock>
 
