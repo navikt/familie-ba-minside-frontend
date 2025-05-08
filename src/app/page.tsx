@@ -15,7 +15,6 @@ import {
     Button,
     ExpansionCard,
     Heading,
-    HGrid,
     HStack,
     Link,
     Stepper,
@@ -54,100 +53,94 @@ export default function Page() {
                 </Heading>
             </Seksjon>
 
-            <Seksjon>
-                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
-                    <Alert variant="warning">
-                        <BodyLong spacing>
-                            Vi mangler dokumentasjon fra deg for å kunne behandle søknaden.
-                            Ettersend dette til oss så raskt du kan.
-                        </BodyLong>
-                        <Button variant="secondary-neutral">Ettersend dokumenter</Button>
-                    </Alert>
+            <Seksjon antallKolonner={{ md: 1, lg: 2 }}>
+                <Alert variant="warning">
+                    <BodyLong spacing>
+                        Vi mangler dokumentasjon fra deg for å kunne behandle søknaden. Ettersend
+                        dette til oss så raskt du kan.
+                    </BodyLong>
+                    <Button variant="secondary-neutral">Ettersend dokumenter</Button>
+                </Alert>
 
-                    <ExpansionCard aria-label="Informasjon om barnetrygd">
-                        <ExpansionCardHeader>
-                            <ExpansionCardTitle>Du har barnetrygd</ExpansionCardTitle>
-                            <ExpansionCardDescription>
-                                <BodyShort
-                                    style={{ display: 'block' }}
-                                    as="span"
-                                    size="small"
-                                    textColor="subtle"
-                                    spacing
-                                >
-                                    13.09.2023
-                                </BodyShort>
-                                Du har barnetrygd, her vil det komme mer informasjon om hvor mye du
-                                får hver måned samt hvis du har søknader.
-                            </ExpansionCardDescription>
-                        </ExpansionCardHeader>
-                        <ExpansionCardContent>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam
-                            repudiandae quibusdam ipsa fugit dolorem consequuntur rem omnis
-                            obcaecati. Nostrum alias pariatur eum quidem similique incidunt
-                            consequuntur autem aliquid. Ad.
-                        </ExpansionCardContent>
-                    </ExpansionCard>
-                </HGrid>
+                <ExpansionCard aria-label="Informasjon om barnetrygd">
+                    <ExpansionCardHeader>
+                        <ExpansionCardTitle>Du har barnetrygd</ExpansionCardTitle>
+                        <ExpansionCardDescription>
+                            <BodyShort
+                                style={{ display: 'block' }}
+                                as="span"
+                                size="small"
+                                textColor="subtle"
+                                spacing
+                            >
+                                13.09.2023
+                            </BodyShort>
+                            Du har barnetrygd, her vil det komme mer informasjon om hvor mye du får
+                            hver måned samt hvis du har søknader.
+                        </ExpansionCardDescription>
+                    </ExpansionCardHeader>
+                    <ExpansionCardContent>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam
+                        repudiandae quibusdam ipsa fugit dolorem consequuntur rem omnis obcaecati.
+                        Nostrum alias pariatur eum quidem similique incidunt consequuntur autem
+                        aliquid. Ad.
+                    </ExpansionCardContent>
+                </ExpansionCard>
             </Seksjon>
 
-            <Seksjon tittel="Ønsker du å kontakte oss?" graBakgrunn>
-                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
-                    <LenkePanel
-                        href="#"
-                        tittel="Skriv til oss"
-                        ikon={<Chat2Icon fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
-                            Har du spørsmål til saken din eller vil melde fra om noe annet?
-                        </BodyLong>
-                    </LenkePanel>
+            <Seksjon
+                tittel="Ønsker du å kontakte oss?"
+                antallKolonner={{ md: 1, lg: 2 }}
+                graBakgrunn
+            >
+                <LenkePanel href="#" tittel="Skriv til oss" ikon={<Chat2Icon fontSize="2rem" />}>
+                    <BodyLong textColor="subtle">
+                        Har du spørsmål til saken din eller vil melde fra om noe annet?
+                    </BodyLong>
+                </LenkePanel>
 
-                    <LenkePanel
-                        href="#"
-                        tittel="Meld fra om endringer"
-                        ikon={<GavelIcon title="a11y-title" fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
-                            Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
-                        </BodyLong>
-                    </LenkePanel>
-                </HGrid>
+                <LenkePanel
+                    href="#"
+                    tittel="Meld fra om endringer"
+                    ikon={<GavelIcon title="a11y-title" fontSize="2rem" />}
+                >
+                    <BodyLong textColor="subtle">
+                        Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
+                    </BodyLong>
+                </LenkePanel>
             </Seksjon>
 
-            <Seksjon tittel="Snarveier">
-                <HGrid columns={{ md: 1, lg: 2 }} gap="6">
-                    <LenkePanel
-                        href="#"
-                        tittel="Slik klager du"
-                        ikon={<ThumbDownIcon title="a11y-title" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">
-                            Du har rett til å klage eller anke hvis du er uenig i vedtaket.
-                        </BodyLong>
-                    </LenkePanel>
+            <Seksjon tittel="Snarveier" antallKolonner={{ md: 1, lg: 2 }}>
+                <LenkePanel
+                    href="#"
+                    tittel="Slik klager du"
+                    ikon={<ThumbDownIcon title="a11y-title" fontSize="2rem" />}
+                    graBakgrunn
+                >
+                    <BodyLong textColor="subtle">
+                        Du har rett til å klage eller anke hvis du er uenig i vedtaket.
+                    </BodyLong>
+                </LenkePanel>
 
-                    <LenkePanel
-                        href="#"
-                        tittel="Les mer om utvidet barnetrygd"
-                        ikon={<ChildHairEyesIcon title="a11y-title" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
-                    </LenkePanel>
+                <LenkePanel
+                    href="#"
+                    tittel="Les mer om utvidet barnetrygd"
+                    ikon={<ChildHairEyesIcon title="a11y-title" fontSize="2rem" />}
+                    graBakgrunn
+                >
+                    <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
+                </LenkePanel>
 
-                    <LenkePanel
-                        href="#"
-                        tittel="Saksbehandlingstider"
-                        ikon={<ClockIcon title="a11y-title" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">
-                            Se saksbehandlingstider og ventetider for barnetrygd.
-                        </BodyLong>
-                    </LenkePanel>
-                </HGrid>
+                <LenkePanel
+                    href="#"
+                    tittel="Saksbehandlingstider"
+                    ikon={<ClockIcon title="a11y-title" fontSize="2rem" />}
+                    graBakgrunn
+                >
+                    <BodyLong textColor="subtle">
+                        Se saksbehandlingstider og ventetider for barnetrygd.
+                    </BodyLong>
+                </LenkePanel>
             </Seksjon>
 
             <Seksjon tittel="Hva skjer etter at du har sendt søknad til oss?">
@@ -246,55 +239,52 @@ export default function Page() {
                 <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
             </Seksjon>
 
-            <Seksjon tittel="Dette kan du ha rett til">
-                <HGrid columns={{ sm: 1, md: 2, lg: 3 }} gap="6">
-                    <Box padding="6" borderRadius="xlarge" shadow="small">
-                        <VStack height="100%" justify="space-between">
-                            <Box>
-                                <Heading level="3" size="small" spacing>
-                                    For deg som er helt eller delvis alene med barn
-                                </Heading>
-                                <BodyLong textColor="subtle" spacing>
-                                    Når du er alene med barn, finnes det ulike støtteordninger du
-                                    kan ha rett til. Hvilke ordninger du har rett til, avhenger
-                                    blant annet av barnets alder, sivilstanden din og bo- og
-                                    arbeidssituasjonen din.
-                                </BodyLong>
-                            </Box>
-                            <Button variant="secondary">Les mer</Button>
-                        </VStack>
-                    </Box>
+            <Seksjon tittel="Dette kan du ha rett til" antallKolonner={{ sm: 1, md: 2, lg: 3 }}>
+                <Box padding="6" borderRadius="xlarge" shadow="small">
+                    <VStack height="100%" justify="space-between">
+                        <Box>
+                            <Heading level="3" size="small" spacing>
+                                For deg som er helt eller delvis alene med barn
+                            </Heading>
+                            <BodyLong textColor="subtle" spacing>
+                                Når du er alene med barn, finnes det ulike støtteordninger du kan ha
+                                rett til. Hvilke ordninger du har rett til, avhenger blant annet av
+                                barnets alder, sivilstanden din og bo- og arbeidssituasjonen din.
+                            </BodyLong>
+                        </Box>
+                        <Button variant="secondary">Les mer</Button>
+                    </VStack>
+                </Box>
 
-                    <Box padding="6" borderRadius="xlarge" shadow="small">
-                        <VStack height="100%" justify="space-between">
-                            <Box>
-                                <Heading level="3" size="small" spacing>
-                                    Les mer om utvidet barnetrygd
-                                </Heading>
-                                <BodyLong textColor="subtle" spacing>
-                                    Et tillegg til ordinær barnetrygd når du bor alene med barn
-                                    under 18 år.
-                                </BodyLong>
-                            </Box>
-                            <Button variant="secondary">Les mer</Button>
-                        </VStack>
-                    </Box>
+                <Box padding="6" borderRadius="xlarge" shadow="small">
+                    <VStack height="100%" justify="space-between">
+                        <Box>
+                            <Heading level="3" size="small" spacing>
+                                Les mer om utvidet barnetrygd
+                            </Heading>
+                            <BodyLong textColor="subtle" spacing>
+                                Et tillegg til ordinær barnetrygd når du bor alene med barn under 18
+                                år.
+                            </BodyLong>
+                        </Box>
+                        <Button variant="secondary">Les mer</Button>
+                    </VStack>
+                </Box>
 
-                    <Box padding="6" borderRadius="xlarge" shadow="small">
-                        <VStack height="100%" justify="space-between">
-                            <Box>
-                                <Heading level="3" size="small" spacing>
-                                    Har ansvar for andres barn
-                                </Heading>
-                                <BodyLong textColor="subtle" spacing>
-                                    Om pengestøtter for deg som tar vare på andres barn som
-                                    fosterforelder eller annen omsorgsperson.
-                                </BodyLong>
-                            </Box>
-                            <Button variant="secondary">Les mer</Button>
-                        </VStack>
-                    </Box>
-                </HGrid>
+                <Box padding="6" borderRadius="xlarge" shadow="small">
+                    <VStack height="100%" justify="space-between">
+                        <Box>
+                            <Heading level="3" size="small" spacing>
+                                Har ansvar for andres barn
+                            </Heading>
+                            <BodyLong textColor="subtle" spacing>
+                                Om pengestøtter for deg som tar vare på andres barn som
+                                fosterforelder eller annen omsorgsperson.
+                            </BodyLong>
+                        </Box>
+                        <Button variant="secondary">Les mer</Button>
+                    </VStack>
+                </Box>
             </Seksjon>
         </>
     );
