@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import { ChevronRightIcon } from '@navikt/aksel-icons';
-import { Box, Heading, HStack } from '@navikt/ds-react';
-import React, { ReactNode, useState } from 'react';
+import { Box, Heading, HStack, VStack } from '@navikt/ds-react';
 
 interface Props {
     href?: string;
@@ -11,57 +11,42 @@ interface Props {
 }
 
 const LenkePanel: React.FC<Props> = ({ href, tittel, ikon, children, graBakgrunn }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
     return (
         <Box
             as="a"
             href={href}
-            paddingInline={'6'}
-            borderRadius={'xlarge'}
-            background={
-                graBakgrunn
-                    ? isHovered
-                        ? 'surface-default'
-                        : 'surface-subtle'
-                    : isHovered
-                      ? 'surface-subtle'
-                      : 'surface-default'
-            }
+            paddingInline="6"
+            borderRadius="xlarge"
+            background={graBakgrunn ? 'surface-subtle' : 'surface-default'}
             style={{
                 textDecoration: 'none',
                 color: 'inherit',
             }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
-            <HStack wrap={false} height={'100%'}>
-                <Box marginBlock={'auto'} marginInline={'0 6'}>
+            <HStack wrap={false} height="100%">
+                <Box marginBlock="auto" marginInline="0 6">
                     {ikon && (
                         <Box
                             background={graBakgrunn ? 'surface-default' : 'surface-subtle'}
-                            borderRadius={'full'}
-                            height={'4rem'}
-                            width={'4rem'}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
+                            borderRadius="full"
+                            height="4rem"
+                            width="4rem"
                         >
-                            {ikon}
+                            <VStack height="100%" width="100%" align="center" justify="center">
+                                {ikon}
+                            </VStack>
                         </Box>
                     )}
                 </Box>
-                <Box width={'fit-content'} paddingBlock={'6'}>
+                <Box width="fit-content" paddingBlock="6">
                     {tittel && (
-                        <Heading level={'3'} size="small" style={{ textDecoration: 'underline' }}>
+                        <Heading level="3" size="small" style={{ textDecoration: 'underline' }}>
                             {tittel}
                         </Heading>
                     )}
                     {children}
                 </Box>
-                <Box marginBlock={'auto'} marginInline={'auto 0'} paddingInline={'2 0'}>
+                <Box marginBlock="auto" marginInline="auto 0" paddingInline="2 0">
                     <ChevronRightIcon fontSize="1.5rem" />
                 </Box>
             </HStack>
