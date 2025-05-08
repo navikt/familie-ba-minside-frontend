@@ -12,7 +12,11 @@ interface Props {
 const Seksjon: React.FC<Props> = ({ tittel, children, graBakgrunn }) => {
     const content = (
         <PageBlock as="section" width="lg" gutters>
-            <VStack marginBlock={'16 0'} paddingBlock={graBakgrunn ? '16' : '0'} gap={'6'}>
+            <VStack
+                marginBlock={{ xs: '12 0', md: '16 0' }}
+                paddingBlock={graBakgrunn ? { xs: '12', md: '16' } : '0'}
+                gap={{ xs: '4', md: '6' }}
+            >
                 {tittel && (
                     <Heading level="2" size="medium">
                         {tittel}
