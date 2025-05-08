@@ -1,9 +1,11 @@
 import {
     Chat2Icon,
     ChevronRightIcon,
+    ChildHairEyesIcon,
     ClockIcon,
     GavelIcon,
     HouseIcon,
+    PersonTallShortIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
 import {
@@ -292,6 +294,55 @@ export default function Page() {
                                             justifyContent: 'center',
                                         }}
                                     >
+                                        <ChildHairEyesIcon title="a11y-title" fontSize="1.5rem" />
+                                    </Box>
+                                </Box>
+                                <Box width={'fit-content'} paddingBlock={'6'}>
+                                    <Heading
+                                        level={'3'}
+                                        size="small"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        Les mer om utvidet barnetrygd
+                                    </Heading>
+                                    <BodyLong textColor="subtle">
+                                        Informasjon om utvidet barnetrygd
+                                    </BodyLong>
+                                </Box>
+                                <Box
+                                    marginBlock={'auto'}
+                                    marginInline={'auto 0'}
+                                    paddingInline={'2 0'}
+                                >
+                                    <ChevronRightIcon fontSize="1.5rem" />
+                                </Box>
+                            </HStack>
+                        </Box>
+
+                        <Box
+                            as="a"
+                            href="#"
+                            paddingInline={'6'}
+                            borderRadius={'xlarge'}
+                            background="surface-subtle"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
+                        >
+                            <HStack wrap={false}>
+                                <Box marginBlock={'auto'} marginInline={'0 6'}>
+                                    <Box
+                                        background={'surface-default'}
+                                        borderRadius={'full'}
+                                        height={'4rem'}
+                                        width={'4rem'}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
                                         <ClockIcon title="a11y-title" fontSize="2rem" />
                                     </Box>
                                 </Box>
@@ -305,6 +356,55 @@ export default function Page() {
                                     </Heading>
                                     <BodyLong textColor="subtle">
                                         Se saksbehandlingstider og ventetider for barnetrygd.
+                                    </BodyLong>
+                                </Box>
+                                <Box
+                                    marginBlock={'auto'}
+                                    marginInline={'auto 0'}
+                                    paddingInline={'2 0'}
+                                >
+                                    <ChevronRightIcon fontSize="1.5rem" />
+                                </Box>
+                            </HStack>
+                        </Box>
+
+                        <Box
+                            as="a"
+                            href="#"
+                            paddingInline={'6'}
+                            borderRadius={'xlarge'}
+                            background="surface-subtle"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
+                        >
+                            <HStack wrap={false}>
+                                <Box marginBlock={'auto'} marginInline={'0 6'}>
+                                    <Box
+                                        background={'surface-default'}
+                                        borderRadius={'full'}
+                                        height={'4rem'}
+                                        width={'4rem'}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        <PersonTallShortIcon title="a11y-title" fontSize="1.5rem" />
+                                    </Box>
+                                </Box>
+                                <Box width={'fit-content'} paddingBlock={'6'}>
+                                    <Heading
+                                        level={'3'}
+                                        size="small"
+                                        style={{ textDecoration: 'underline' }}
+                                    >
+                                        For deg som er helt eller delvis alene med barn
+                                    </Heading>
+                                    <BodyLong textColor="subtle">
+                                        Ulike støtteordninger du kan ha rett til.
                                     </BodyLong>
                                 </Box>
                                 <Box
@@ -398,7 +498,9 @@ export default function Page() {
                             <TableRow>
                                 <TableHeaderCell scope="col">Dokument</TableHeaderCell>
                                 <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
-                                <TableHeaderCell scope="col">Dato</TableHeaderCell>
+                                <TableHeaderCell scope="col" align="right">
+                                    Dato
+                                </TableHeaderCell>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -407,19 +509,19 @@ export default function Page() {
                                     Dokumentasjon fra den andre forelderen
                                 </TableDataCell>
                                 <TableDataCell>Tredjepart</TableDataCell>
-                                <TableDataCell>13. okt. 2018</TableDataCell>
+                                <TableDataCell align="right">13. okt. 2018</TableDataCell>
                             </TableRow>
                             <TableRow>
                                 <TableDataCell>
                                     Ettersendelse til søknad om utvidet barnetrygd
                                 </TableDataCell>
                                 <TableDataCell>Deg</TableDataCell>
-                                <TableDataCell>5. jul. 2018</TableDataCell>
+                                <TableDataCell align="right">5. jul. 2018</TableDataCell>
                             </TableRow>
                             <TableRow>
                                 <TableDataCell>Annen dokumentasjon</TableDataCell>
                                 <TableDataCell>Nav</TableDataCell>
-                                <TableDataCell>13. okt. 2018</TableDataCell>
+                                <TableDataCell align="right">13. okt. 2018</TableDataCell>
                             </TableRow>
                         </TableBody>
                     </Table>
