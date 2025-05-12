@@ -83,7 +83,7 @@ export default function Page() {
             <Seksjon
                 tittel="Ønsker du å kontakte oss?"
                 antallKolonner={{ md: 1, lg: 2 }}
-                graBakgrunn
+                gråBakgrunn
             >
                 <LenkePanel href="#" tittel="Skriv til oss" ikon={<Chat2Icon fontSize="2rem" />}>
                     <BodyLong textColor="subtle">
@@ -139,7 +139,7 @@ export default function Page() {
                 <SøknadsProsess />
             </Seksjon>
 
-            <Seksjon tittel="Dokumentoversikt" graBakgrunn>
+            <Seksjon tittel="Dokumentoversikt" gråBakgrunn>
                 <Dokumentoversikt />
                 <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
             </Seksjon>

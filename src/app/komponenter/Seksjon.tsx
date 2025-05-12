@@ -7,15 +7,15 @@ interface Props {
     tittel?: ReactNode;
     children?: ReactNode;
     antallKolonner?: HGridProps['columns'];
-    graBakgrunn?: boolean;
+    gråBakgrunn?: boolean;
 }
 
-const Seksjon: React.FC<Props> = ({ tittel, children, antallKolonner, graBakgrunn }) => {
+const Seksjon: React.FC<Props> = ({ tittel, children, antallKolonner, gråBakgrunn }) => {
     const content = (
         <PageBlock as="section" width="lg" gutters>
             <VStack
                 marginBlock={{ xs: '14 0', lg: '16 0' }}
-                paddingBlock={graBakgrunn ? { xs: '14', lg: '16' } : '0'}
+                paddingBlock={gråBakgrunn ? { xs: '14', lg: '16' } : '0'}
                 gap={{ xs: '4', lg: '6' }}
             >
                 {tittel && (
@@ -30,7 +30,7 @@ const Seksjon: React.FC<Props> = ({ tittel, children, antallKolonner, graBakgrun
         </PageBlock>
     );
 
-    return graBakgrunn ? <Box background="surface-subtle">{content}</Box> : content;
+    return gråBakgrunn ? <Box background="surface-subtle">{content}</Box> : content;
 };
 
 export default Seksjon;
