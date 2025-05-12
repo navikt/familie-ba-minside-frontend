@@ -8,7 +8,7 @@ interface Props {
 
 const YtelseKort: React.FC<Props> = ({ tittel, children }) => {
     return (
-        <Box padding="6" borderRadius="xlarge" shadow="small">
+        <Box padding="6" borderRadius="xlarge" shadow="medium">
             <VStack height="100%" justify="space-between">
                 <Box>
                     <Heading level="3" size="small" spacing>
