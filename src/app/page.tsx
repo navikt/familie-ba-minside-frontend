@@ -11,15 +11,11 @@ import {
     Alert,
     BodyLong,
     BodyShort,
-    Box,
     Button,
     ExpansionCard,
     Heading,
     HStack,
     Link,
-    Stepper,
-    Table,
-    VStack,
 } from '@navikt/ds-react';
 import {
     ExpansionCardContent,
@@ -27,16 +23,12 @@ import {
     ExpansionCardHeader,
     ExpansionCardTitle,
 } from '@navikt/ds-react/ExpansionCard';
-import { StepperStep } from '@navikt/ds-react/Stepper';
-import {
-    TableBody,
-    TableDataCell,
-    TableHeader,
-    TableHeaderCell,
-    TableRow,
-} from '@navikt/ds-react/Table';
+
 import Seksjon from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
+import SøknadsProsess from './komponenter/SøknadsProsess';
+import Dokumentoversikt from './komponenter/Dokumentoversikt';
+import YtelseKort from './komponenter/YtelseKort';
 
 export default function Page() {
     return (
@@ -144,147 +136,29 @@ export default function Page() {
             </Seksjon>
 
             <Seksjon tittel="Hva skjer etter at du har sendt søknad til oss?">
-                <Stepper aria-labelledby="stepper-heading" activeStep={3} interactive={false}>
-                    {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                    <StepperStep completed>
-                        <Heading level="3" size="small" spacing>
-                            Vi sjekker om vi har alle opplysninger
-                        </Heading>
-                        <BodyLong>
-                            Hvis du ikke har lagt ved alle vedlegg til søknaden, venter vi 14 dager
-                            med å saksbehandle. Etter 14 dager vil vi starte saksbehandling med de
-                            opplysningene vi har. Hvis vi har behov for flere opplysninger, vil vi
-                            sende deg et brev med informasjon om dette. Da får du også 14 dager på å
-                            sende inn informasjonen.
-                        </BodyLong>
-                    </StepperStep>
-                    {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                    <StepperStep completed>
-                        <Heading level="3" size="small" spacing>
-                            Rett på utvidet barnetrygd
-                        </Heading>
-                        <BodyLong>
-                            Vi bruker opplysningene vi har fått til å sjekke om du har rett på
-                            utvidet barnetrygd etter barnetrygdloven kapittel 3.
-                        </BodyLong>
-                    </StepperStep>
-                    {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                    <StepperStep>
-                        <Heading level="3" size="small" spacing>
-                            Svar på søknaden din
-                        </Heading>
-                        <BodyLong>
-                            Du får et vedtak med vurderingen vår av om du har rett på utvidet
-                            barnetrygd eller ikke, og hvor mye du vil få utbetalt. Hvis du har
-                            spørsmål til vurderingen, kan du ta kontakt med oss. Hvis du ikke er
-                            enig i vår avgjørelse, kan du klage på vedtaket.
-                        </BodyLong>
-                    </StepperStep>
-                    {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                    <StepperStep>
-                        <Heading level="3" size="small" spacing>
-                            Søknaden er ferdig behandlet
-                        </Heading>
-                        <BodyLong>
-                            Når søknaden din er ferdig behandlet får du et svar som du finner under{' '}
-                            <Link>saksoversikten</Link> på Ditt Nav. I tillegg sender vi svar til
-                            deg i posten.
-                        </BodyLong>
-                    </StepperStep>
-                    {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
-                    <StepperStep>
-                        <Heading level="3" size="small" spacing>
-                            Utbetaling
-                        </Heading>
-                        <BodyLong>
-                            Du finner informasjon om utbetaling under «kommende utbetalinger» i{' '}
-                            <Link>utbetalingsoversikten</Link>.
-                        </BodyLong>
-                    </StepperStep>
-                </Stepper>
+                <SøknadsProsess />
             </Seksjon>
 
             <Seksjon tittel="Dokumentoversikt" graBakgrunn>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHeaderCell scope="col">Dokument</TableHeaderCell>
-                            <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
-                            <TableHeaderCell scope="col" align="right">
-                                Dato
-                            </TableHeaderCell>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        <TableRow>
-                            <TableDataCell>Dokumentasjon fra den andre forelderen</TableDataCell>
-                            <TableDataCell>Tredjepart</TableDataCell>
-                            <TableDataCell align="right">13. okt. 2018</TableDataCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableDataCell>
-                                Ettersendelse til søknad om utvidet barnetrygd
-                            </TableDataCell>
-                            <TableDataCell>Deg</TableDataCell>
-                            <TableDataCell align="right">5. jul. 2018</TableDataCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableDataCell>Annen dokumentasjon</TableDataCell>
-                            <TableDataCell>Nav</TableDataCell>
-                            <TableDataCell align="right">13. okt. 2018</TableDataCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-
+                <Dokumentoversikt />
                 <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
             </Seksjon>
 
             <Seksjon tittel="Dette kan du ha rett til" antallKolonner={{ sm: 1, md: 2, lg: 3 }}>
-                <Box padding="6" borderRadius="xlarge" shadow="small">
-                    <VStack height="100%" justify="space-between">
-                        <Box>
-                            <Heading level="3" size="small" spacing>
-                                For deg som er helt eller delvis alene med barn
-                            </Heading>
-                            <BodyLong textColor="subtle" spacing>
-                                Når du er alene med barn, finnes det ulike støtteordninger du kan ha
-                                rett til. Hvilke ordninger du har rett til, avhenger blant annet av
-                                barnets alder, sivilstanden din og bo- og arbeidssituasjonen din.
-                            </BodyLong>
-                        </Box>
-                        <Button variant="secondary">Les mer</Button>
-                    </VStack>
-                </Box>
+                <YtelseKort tittel="For deg som er helt eller delvis alene med barn">
+                    Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett til.
+                    Hvilke ordninger du har rett til, avhenger blant annet av barnets alder,
+                    sivilstanden din og bo- og arbeidssituasjonen din.
+                </YtelseKort>
 
-                <Box padding="6" borderRadius="xlarge" shadow="small">
-                    <VStack height="100%" justify="space-between">
-                        <Box>
-                            <Heading level="3" size="small" spacing>
-                                Les mer om utvidet barnetrygd
-                            </Heading>
-                            <BodyLong textColor="subtle" spacing>
-                                Et tillegg til ordinær barnetrygd når du bor alene med barn under 18
-                                år.
-                            </BodyLong>
-                        </Box>
-                        <Button variant="secondary">Les mer</Button>
-                    </VStack>
-                </Box>
+                <YtelseKort tittel="Les mer om utvidet barnetrygd">
+                    Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
+                </YtelseKort>
 
-                <Box padding="6" borderRadius="xlarge" shadow="small">
-                    <VStack height="100%" justify="space-between">
-                        <Box>
-                            <Heading level="3" size="small" spacing>
-                                Har ansvar for andres barn
-                            </Heading>
-                            <BodyLong textColor="subtle" spacing>
-                                Om pengestøtter for deg som tar vare på andres barn som
-                                fosterforelder eller annen omsorgsperson.
-                            </BodyLong>
-                        </Box>
-                        <Button variant="secondary">Les mer</Button>
-                    </VStack>
-                </Box>
+                <YtelseKort tittel="Har ansvar for andres barn">
+                    Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
+                    annen omsorgsperson.
+                </YtelseKort>
             </Seksjon>
         </>
     );
