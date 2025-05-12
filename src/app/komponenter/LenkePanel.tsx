@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { ChevronRightIcon } from '@navikt/aksel-icons';
 import { Box, Heading, HStack, VStack } from '@navikt/ds-react';
 
 interface Props {
@@ -45,9 +44,6 @@ const LenkePanel: React.FC<Props> = ({ href, tittel, ikon, children, graBakgrunn
                         </Heading>
                     )}
                     {children}
-                </Box>
-                <Box marginBlock="auto" marginInline="auto 0" paddingInline="2 0">
-                    <ChevronRightIcon fontSize="1.5rem" />
                 </Box>
             </HStack>
         </Box>
