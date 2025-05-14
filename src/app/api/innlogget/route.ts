@@ -1,21 +1,21 @@
-import { NextApiRequest } from 'next';
 import { validateToken } from '@navikt/oasis';
+import { NextRequest } from 'next/server';
 
 const erLokalt = () => {
     return process.env.NODE_ENV !== 'production';
 };
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
     if (erLokalt()) {
         return new Response(null, { status: 200 });
     }
 
-    const autorization = req.headers.authorization;
+    const authorization = req.headers.get('authorization');
 
-    if (!autorization) {
+    if (!authorization) {
         return new Response('ingen token', { status: 201 });
     }
-    const token = autorization.replace('Bearer ', '');
+    const token = authorization.replace('Bearer ', '');
 
     const result = await validateToken(token);
 
