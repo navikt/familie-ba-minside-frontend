@@ -33,7 +33,7 @@ jobs:
     name: Deploy dev
     permissions:
       id-token: write
-    needs: [ build ]
+    needs: [build]
     uses: navikt/familie-baks-gha-workflows/.github/workflows/deploy.yaml@main
     with:
       image: ${{ needs.build.outputs.image }}
@@ -44,7 +44,7 @@ jobs:
     name: Deploy prod
     permissions:
       id-token: write
-    needs: [ build, deploy-dev ]
+    needs: [build, deploy-dev]
     uses: navikt/familie-baks-gha-workflows/.github/workflows/deploy.yaml@main
     with:
       image: ${{ needs.build.outputs.image }}
