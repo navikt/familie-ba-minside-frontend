@@ -4,10 +4,6 @@ import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
-    fetch('http://localhost:3000/barnetrygd/min-barnetrygd/api/innlogget').then(response => {
-        console.log(response.body);
-    });
-
     const Decorator = await fetchDecoratorReact({
         env: 'prod',
         // params: {
