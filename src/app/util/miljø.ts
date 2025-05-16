@@ -27,8 +27,8 @@ export const appUrlForMiljø = (): string => {
 };
 
 export const appUrl = appUrlForMiljø();
-export const wonderwallUrl = `${appUrl}oauth2/login?redirect=`;
-export const oauthCallbackUri = `${appUrl}oauth2/callback`;
+export const wonderwallUrl = `${appUrl}/oauth2/login?redirect=`;
+export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
 
 // Vil kun funke for frontend
 export const erAnsattUrl = () => {

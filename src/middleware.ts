@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { appUrl, erLokalt, wonderwallUrl } from '@/app/util/miljø';
-import { validateToken } from '@navikt/oasis';
-
-const loginUrl = `${wonderwallUrl}${appUrl}`;
+import { erLokalt, appUrl } from '@/app/util/miljø';
 
 export async function middleware(request: NextRequest) {
     if (
@@ -13,22 +10,9 @@ export async function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    const authorization = request.headers.get('authorization');
-
-    if (!authorization) {
-        return NextResponse.redirect(new URL(loginUrl, request.url));
-    }
-    const token = authorization.replace('Bearer ', '');
-
-    // Her tryner typecheck i hot-reload. Scanner vi deres bibliotek?
-    // [Error [TypeError]: Cannot read properties of undefined (reading 'substring')]
-    const result = await validateToken(token);
-
-    if (result.ok) {
-        return NextResponse.next();
-    } else {
-        return NextResponse.redirect(new URL(loginUrl, request.url));
-    }
+    await fetch(`${appUrl}/api/auth/validateToken`, {
+        headers: { Authorization: request.headers.get('authorization') ?? '' },
+    });
 }
 
 export const config = {
