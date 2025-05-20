@@ -35,8 +35,8 @@ spec:
     enabled: true
     path: /barnetrygd/min-barnetrygd/api/internal/metrics
   ingresses:
-    - https://www.nav.no/barnetrygd/min-barnetrygd
-    - https://www.nav.no/utvidetbarnetrygd/min-barnetrygd
+    - https://www.ansatt.nav.no/barnetrygd/min-barnetrygd
+    - https://www.ansatt.nav.no/utvidetbarnetrygd/min-barnetrygd
   accessPolicy:
     outbound:
       rules:
