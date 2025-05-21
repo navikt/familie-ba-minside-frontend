@@ -14,6 +14,16 @@ export const erDev = () => {
 
 export const erLokalt = () => !erProd() && !erDev();
 
+// Vil kun funke for frontend
+export const erAnsattUrl = () => {
+    if (typeof window === 'undefined') {
+        return false;
+    }
+    return window.location.hostname.indexOf('ansatt') > -1;
+};
+
+const ansattEllerIntern = erAnsattUrl() ? 'ansatt' : 'intern';
+
 export const appUrlForMiljø = (): string => {
     if (erProd()) {
         return `https://www.ansatt.nav.no${basePath}`;
@@ -28,13 +38,3 @@ export const basePath = '/barnetrygd/min-barnetrygd';
 export const appUrl = appUrlForMiljø();
 export const wonderwallUrl = `${appUrl}/oauth2/login?redirect=`;
 export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
-
-// Vil kun funke for frontend
-export const erAnsattUrl = () => {
-    if (typeof window === 'undefined') {
-        return false;
-    }
-    return window.location.hostname.indexOf('ansatt') > -1;
-};
-
-const ansattEllerIntern = erAnsattUrl() ? 'ansatt' : 'intern';
