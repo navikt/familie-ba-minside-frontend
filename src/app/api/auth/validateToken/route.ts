@@ -1,20 +1,17 @@
-import { validateToken } from '@navikt/oasis';
+import { getToken, parseIdportenToken, validateToken } from '@navikt/oasis';
 import { NextRequest, NextResponse } from 'next/server';
-import { appUrl, wonderwallUrl } from '@/app/util/miljø';
-
-const loginUrl = `${wonderwallUrl}${appUrl}`;
 
 export async function GET(request: NextRequest) {
-    console.log('validateToken');
-    const token = request.headers.get('authorization');
-
+    const token = getToken(request);
     if (!token) {
-        return NextResponse.redirect(new URL(loginUrl, request.url));
+        return new NextResponse('Ingen token', { status: 401 });
     }
-    const result = await validateToken(token);
-    if (result.ok) {
-        return NextResponse.next();
-    } else {
-        return NextResponse.redirect(new URL(loginUrl, request.url));
+
+    const validation = await validateToken(token);
+    if (!validation.ok) {
+        return new NextResponse(validation.error.message, { status: 401 });
     }
+    const payload = parseIdportenToken(token);
+
+    return new NextResponse(JSON.stringify(payload), { status: 200 });
 }

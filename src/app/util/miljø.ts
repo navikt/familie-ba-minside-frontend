@@ -18,7 +18,7 @@ export const erLokalt = () => !erProd() && !erDev();
 
 export const appUrlForMiljø = (): string => {
     if (erProd()) {
-        return `https://www.nav.no${nextConfig.basePath}`;
+        return `https://www.ansatt.nav.no${nextConfig.basePath}`;
     }
     if (erDev()) {
         return `https://familie-ba-minside.${ansattEllerIntern}.dev.nav.no${nextConfig.basePath}`;
