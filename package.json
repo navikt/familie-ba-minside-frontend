@@ -12,7 +12,8 @@
     "prepare": "husky",
     "test": "echo \"Ingen tester\"",
     "clean": "rm -rf dist",
-    "validate": "yarn lint && yarn prettier"
+    "validate": "yarn typecheck && yarn lint && yarn prettier",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@navikt/aksel-icons": "^7.21.1",
