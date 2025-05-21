@@ -1,5 +1,3 @@
-import nextConfig from '../../../next.config';
-
 export const erProd = () => {
     if (typeof window === 'undefined') {
         return process.env.ENV === 'prod';
@@ -18,14 +16,15 @@ export const erLokalt = () => !erProd() && !erDev();
 
 export const appUrlForMiljø = (): string => {
     if (erProd()) {
-        return `https://www.ansatt.nav.no${nextConfig.basePath}`;
+        return `https://www.ansatt.nav.no${basePath}`;
     }
     if (erDev()) {
-        return `https://familie-ba-minside.${ansattEllerIntern}.dev.nav.no${nextConfig.basePath}`;
+        return `https://familie-ba-minside.${ansattEllerIntern}.dev.nav.no${basePath}`;
     }
-    return `http://localhost:3000${nextConfig.basePath}`;
+    return `http://localhost:3000${basePath}`;
 };
 
+export const basePath = '/barnetrygd/min-barnetrygd';
 export const appUrl = appUrlForMiljø();
 export const wonderwallUrl = `${appUrl}/oauth2/login?redirect=`;
 export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
