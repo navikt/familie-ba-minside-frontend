@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, VStack } from '@navikt/ds-react';
-import { appUrl } from '@/app/util/miljø';
+import { appUrl } from '../util/miljø';
 
 const validateToken = async () => {
     return fetch(`${appUrl}/api/auth/validateToken`).then(async response => {
