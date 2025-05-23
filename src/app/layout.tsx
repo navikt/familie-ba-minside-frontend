@@ -15,6 +15,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
         <html lang="no">
             <head>
                 <Decorator.HeadAssets />
+                <title>Barnetrygden Min</title>
             </head>
             <Page
                 as="body"
