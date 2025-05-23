@@ -35,9 +35,9 @@ export default function Page() {
         <>
             <Seksjon>
                 <HStack gap="2">
-                    <HouseIcon title="a11y-title" fontSize="1.5rem" />
+                    <HouseIcon title="Min side" fontSize="1.5rem" />
                     <BodyShort>Min side</BodyShort>
-                    <ChevronRightIcon title="a11y-title" fontSize="1.5rem" />
+                    <ChevronRightIcon title="Neste" fontSize="1.5rem" />
                     <BodyShort>Barnetrygden min</BodyShort>
                 </HStack>
                 <Heading level="1" size="large">
@@ -56,7 +56,7 @@ export default function Page() {
 
                 <ExpansionCard aria-label="Informasjon om barnetrygd">
                     <ExpansionCardHeader>
-                        <ExpansionCardTitle>Du har barnetrygd</ExpansionCardTitle>
+                        <ExpansionCardTitle as="h2">Du har barnetrygd</ExpansionCardTitle>
                         <ExpansionCardDescription>
                             <BodyShort
                                 style={{ display: 'block' }}
@@ -85,7 +85,11 @@ export default function Page() {
                 antallKolonner={{ md: 1, lg: 2 }}
                 gråBakgrunn
             >
-                <LenkePanel href="#" tittel="Skriv til oss" ikon={<Chat2Icon fontSize="2rem" />}>
+                <LenkePanel
+                    href="#"
+                    tittel="Skriv til oss"
+                    ikon={<Chat2Icon title="Snakkeboble" fontSize="2rem" />}
+                >
                     <BodyLong textColor="subtle">
                         Har du spørsmål til saken din eller vil melde fra om noe annet?
                     </BodyLong>
@@ -94,7 +98,7 @@ export default function Page() {
                 <LenkePanel
                     href="#"
                     tittel="Meld fra om endringer"
-                    ikon={<GavelIcon title="a11y-title" fontSize="2rem" />}
+                    ikon={<GavelIcon title="Endringer i din situasjon" fontSize="2rem" />}
                 >
                     <BodyLong textColor="subtle">
                         Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
@@ -106,7 +110,7 @@ export default function Page() {
                 <LenkePanel
                     href="#"
                     tittel="Slik klager du"
-                    ikon={<ThumbDownIcon title="a11y-title" fontSize="2rem" />}
+                    ikon={<ThumbDownIcon title="Klage" fontSize="2rem" />}
                     graBakgrunn
                 >
                     <BodyLong textColor="subtle">
@@ -117,7 +121,7 @@ export default function Page() {
                 <LenkePanel
                     href="#"
                     tittel="Les mer om utvidet barnetrygd"
-                    ikon={<ChildHairEyesIcon title="a11y-title" fontSize="2rem" />}
+                    ikon={<ChildHairEyesIcon title="Utvidet barnetrygd" fontSize="2rem" />}
                     graBakgrunn
                 >
                     <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
@@ -126,7 +130,7 @@ export default function Page() {
                 <LenkePanel
                     href="#"
                     tittel="Saksbehandlingstider"
-                    ikon={<ClockIcon title="a11y-title" fontSize="2rem" />}
+                    ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
                     graBakgrunn
                 >
                     <BodyLong textColor="subtle">
