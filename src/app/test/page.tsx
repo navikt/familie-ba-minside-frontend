@@ -30,11 +30,6 @@ const getKodeverk = () => {
         console.log(response.body);
     });
 };
-const getKodeverk2 = () => {
-    return fetch(`${appUrl}/api/auth/kodeverk2`).then(async response => {
-        console.log(response.body);
-    });
-};
 
 export default function Page() {
     return (
@@ -52,10 +47,7 @@ export default function Page() {
                 Get token
             </Button>
             <Button type="button" variant="secondary" onClick={getKodeverk}>
-                Get token
-            </Button>
-            <Button type="button" variant="secondary" onClick={getKodeverk2}>
-                Get token
+                Get kodeverk med audience
             </Button>
         </VStack>
     );
