@@ -7,9 +7,6 @@ import { erDev } from './util/miljø';
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
     const Decorator = await fetchDecoratorReact({
         env: erDev() ? 'dev' : 'prod',
-        // params: {
-        //     simple: true,
-        // },
     });
 
     return (
