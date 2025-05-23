@@ -44,6 +44,7 @@ spec:
           namespace: personbruker
       external:
         - host: teamfamilie-unleash-api.nav.cloud.nais.io
+        - host: familie-integrasjoner.prod-fss-pub.nais.io
   resources:
     limits:
       cpu: 2000m
