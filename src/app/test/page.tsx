@@ -25,6 +25,17 @@ const getToken = () => {
     });
 };
 
+const getKodeverk = () => {
+    return fetch(`${appUrl}/api/auth/kodeverk`).then(async response => {
+        console.log(response.body);
+    });
+};
+const getKodeverk2 = () => {
+    return fetch(`${appUrl}/api/auth/kodeverk2`).then(async response => {
+        console.log(response.body);
+    });
+};
+
 export default function Page() {
     return (
         <VStack gap={'2'}>
@@ -38,6 +49,12 @@ export default function Page() {
                 Request OBO Token
             </Button>
             <Button type="button" variant="secondary" onClick={getToken}>
+                Get token
+            </Button>
+            <Button type="button" variant="secondary" onClick={getKodeverk}>
+                Get token
+            </Button>
+            <Button type="button" variant="secondary" onClick={getKodeverk2}>
                 Get token
             </Button>
         </VStack>

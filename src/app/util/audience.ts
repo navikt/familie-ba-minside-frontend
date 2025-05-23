@@ -1,1 +1,2 @@
-export const integrasjonerAudience = `${process.env.NAIS_CLUSTER_NAME}:teamfamilie:familie-integrasjoner`;
+export const integrasjonerAudience = `dev-fss:teamfamilie:familie-integrasjoner`;
+export const integrasjonerAudience2 = ` api://dev-fss.teamfamilie.familie-integrasjoner/.default`;

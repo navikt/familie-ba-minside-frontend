@@ -1,4 +1,4 @@
-import { integrasjonerAudience } from '@/app/util/audience';
+import { integrasjonerAudience2 } from '@/app/util/audience';
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
         return new NextResponse(validation.error.message, { status: 401 });
     }
 
-    const obo = await requestOboToken(token, integrasjonerAudience);
+    const obo = await requestOboToken(token, integrasjonerAudience2);
     if (!obo.ok) {
         return new NextResponse(obo.error.message, { status: 401 });
     }
