@@ -25,8 +25,8 @@ const getToken = () => {
     });
 };
 
-const getKodeverk = () => {
-    return fetch(`${appUrl}/api/auth/kodeverk`).then(async response => {
+const getIntegrasjoner = () => {
+    return fetch(`${appUrl}/api/auth/integrasjoner`).then(async response => {
         console.log(response.body);
     });
 };
@@ -46,8 +46,8 @@ export default function Page() {
             <Button type="button" variant="secondary" onClick={getToken}>
                 Get token
             </Button>
-            <Button type="button" variant="secondary" onClick={getKodeverk}>
-                Get kodeverk med audience
+            <Button type="button" variant="secondary" onClick={getIntegrasjoner}>
+                Get integrasjoner
             </Button>
         </VStack>
     );

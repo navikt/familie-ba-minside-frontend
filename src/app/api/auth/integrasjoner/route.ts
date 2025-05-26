@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
         return new NextResponse(onBehalfOfToken.error.message, { status: 401 });
     }
 
-    const url = 'https://familie-integrasjoner.dev-fss-pub.nais.io/api/kodeverk';
+    const url = 'https://familie-integrasjoner.dev-fss-pub.nais.io/api/sluttbrukerdokument';
 
     const response = await fetch(url, {
         headers: {
