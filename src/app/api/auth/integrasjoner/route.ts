@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
     const response = await fetch(url, {
         headers: {
-            Authorization: `Bearer ${onBehalfOfToken}`,
+            Authorization: `Bearer ${onBehalfOfToken.token}`,
             'Nav-Consumer-Id': 'familie-ba-minside-frontend',
             'Nav-Call-Id': '1234', // TODO: fiks uuid
         },
