@@ -33,5 +33,5 @@ export async function GET(req: NextRequest) {
     }
 
     const data = await response.json();
-    return new NextResponse(data, { status: response.status });
+    return NextResponse.json(data, { status: response.status });
 }
