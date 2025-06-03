@@ -18,7 +18,8 @@ export async function GET(req: NextRequest) {
         return new NextResponse(onBehalfOfToken.error.message, { status: 401 });
     }
 
-    const url = 'https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening';
+    const url =
+        'https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/BAR';
 
     const response = await fetch(url, {
         headers: {
