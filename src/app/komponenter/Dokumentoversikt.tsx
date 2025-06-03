@@ -1,3 +1,5 @@
+'use client';
+
 import { Table } from '@navikt/ds-react';
 import {
     TableBody,
