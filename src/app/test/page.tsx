@@ -3,16 +3,27 @@
 import { Button, VStack } from '@navikt/ds-react';
 import { appUrl } from '../util/miljø';
 
-const hentDokumenter = () => {
-    return fetch(`${appUrl}/api/dokumenter`).then(async response => {
-        console.log(response.body);
-    });
+const hentDokumenter = async () => {
+    const response = await fetch(`${appUrl}/api/dokumenter`);
+
+    if (!response.ok) {
+        throw new Error(`Feil ved henting av dokumenter: ${response.statusText}`);
+    }
+    return await response.json();
 };
 
 export default function Page() {
     return (
         <VStack gap={'2'}>
-            <Button type="button" variant="secondary" onClick={hentDokumenter}>
+            <Button
+                type="button"
+                variant="secondary"
+                onClick={() =>
+                    hentDokumenter()
+                        .then(data => console.log(data))
+                        .catch(error => console.error(error))
+                }
+            >
                 Hent dokumenter
             </Button>
         </VStack>
