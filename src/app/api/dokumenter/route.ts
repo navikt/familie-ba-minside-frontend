@@ -1,6 +1,7 @@
 import { integrasjonerAudience } from '@/app/util/audience';
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { NextRequest, NextResponse } from 'next/server';
+import { Dokumentoversikt, Journalpost } from '@/app/typer/api/Dokumentoversikt';
 
 export async function GET(req: NextRequest) {
     const token = getToken(req);
@@ -33,6 +34,8 @@ export async function GET(req: NextRequest) {
         return new NextResponse(response.statusText, { status: response.status });
     }
 
-    const data = await response.json();
-    return NextResponse.json(data, { status: response.status });
+    const dokumentoversikt: Dokumentoversikt = await response.json();
+
+    const journalposter: Journalpost[] = dokumentoversikt.tema.flatMap(t => t.journalposter);
+    return NextResponse.json(journalposter, { status: response.status });
 }
