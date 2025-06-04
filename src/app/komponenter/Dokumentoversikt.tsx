@@ -16,7 +16,8 @@ async function hentDokumenter(): Promise<Journalpost[]> {
     const response = await fetch(`${appUrl}/api/dokumenter`);
 
     if (!response.ok) {
-        throw new Error(`Feil ved henting av dokumenter: ${response.statusText}`);
+        const error = await response.text();
+        console.log(error);
     }
     return await response.json();
 }
@@ -32,7 +33,8 @@ async function hentDokument(journalpostId: string, dokumentInfoId: string): Prom
     );
 
     if (!response.ok) {
-        throw new Error(`Feil ved henting av dokument: ${response.statusText}`);
+        const error = await response.text();
+        console.log(error);
     }
 
     const blob = await response.blob();

@@ -1,7 +1,8 @@
 import { integrasjonerAudience } from '@/app/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
 import { Dokumentoversikt, Journalpost } from '@/app/typer/api/Dokumentoversikt';
-import { hentOboToken, OboTokenResponse } from '@/app/util/auth/hentOboToken';
+import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import { hentOboToken } from '@/server/auth/hentOboToken';
 
 export async function GET(req: NextRequest) {
     const oboToken: OboTokenResponse = await hentOboToken(req, integrasjonerAudience);

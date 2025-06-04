@@ -1,5 +1,8 @@
+'use server';
+
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { NextRequest } from 'next/server';
+import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 
 export async function hentOboToken(req: NextRequest, audience: string): Promise<OboTokenResponse> {
     const token = getToken(req);
@@ -18,18 +21,3 @@ export async function hentOboToken(req: NextRequest, audience: string): Promise<
     }
     return OboTokenResponse.Ok(onBehalfOfToken.token);
 }
-
-export type OboTokenResponse =
-    | {
-          token: string;
-          ok: true;
-      }
-    | {
-          error: string;
-          ok: false;
-      };
-
-export const OboTokenResponse = {
-    Error: (error: string): OboTokenResponse => ({ error, ok: false }),
-    Ok: (token: string): OboTokenResponse => ({ token, ok: true }),
-};
