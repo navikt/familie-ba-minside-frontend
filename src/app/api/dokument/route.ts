@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     const response = await fetch(url, {
         headers: {
             Accept: 'application/pdf',
-            Authorization: `Bearer ${oboToken}`,
+            Authorization: `Bearer ${oboToken.token}`,
             'Nav-Consumer-Id': 'familie-ba-minside-frontend',
             'Nav-Call-Id': '1234', // TODO: fiks uuid
         },
