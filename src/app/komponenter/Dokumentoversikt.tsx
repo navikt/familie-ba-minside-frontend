@@ -10,16 +10,36 @@ import {
 } from '@navikt/ds-react/Table';
 import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
-import { Datotype, Journalpost } from '@/app/typer/api/Dokumentoversikt';
+import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
 
-const hentDokumenter = async (): Promise<Journalpost[]> => {
+async function hentDokumenter(): Promise<Journalpost[]> {
     const response = await fetch(`${appUrl}/api/dokumenter`);
 
     if (!response.ok) {
         throw new Error(`Feil ved henting av dokumenter: ${response.statusText}`);
     }
     return await response.json();
-};
+}
+
+async function hentDokument(journalpostId: string, dokumentInfoId: string): Promise<void> {
+    const response = await fetch(
+        `${appUrl}/api/dokument?journalpostId=${journalpostId}&dokumentInfoId=${dokumentInfoId}`,
+        {
+            headers: {
+                Accept: 'application/pdf',
+            },
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error(`Feil ved henting av dokument: ${response.statusText}`);
+    }
+
+    const blob = await response.blob();
+
+    const url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+}
 
 const Dokumentoversikt: React.FC = () => {
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
@@ -44,9 +64,18 @@ const Dokumentoversikt: React.FC = () => {
                 <TableBody>
                     {journalposter.map(journalpost =>
                         journalpost.dokumenter?.map(dokument => (
-                            <TableRow key={dokument.tittel}>
+                            <TableRow
+                                key={dokument.tittel}
+                                onClick={() =>
+                                    hentDokument(journalpost.journalpostId, dokument.dokumentInfoId)
+                                }
+                            >
                                 <TableDataCell>{dokument.tittel}</TableDataCell>
-                                <TableDataCell>{journalpost.avsender?.type}</TableDataCell>
+                                <TableDataCell>
+                                    {journalpost.journalposttype == Journalposttype.I
+                                        ? 'Deg'
+                                        : 'Nav'}
+                                </TableDataCell>
                                 <TableDataCell align="right">
                                     {new Date(
                                         journalpost.relevanteDatoer.find(
@@ -75,7 +104,11 @@ const Dokumentoversikt: React.FC = () => {
                 </TableHeader>
                 <TableBody>
                     <TableRow>
-                        <TableDataCell>Dokumentasjon fra den andre forelderen</TableDataCell>
+                        <TableDataCell>
+                            <a href={''} onClick={() => hentDokument('1234', '123321')}>
+                                Dokumentasjon fra den andre forelderen
+                            </a>
+                        </TableDataCell>
                         <TableDataCell>Tredjepart</TableDataCell>
                         <TableDataCell align="right">13. okt. 2018</TableDataCell>
                     </TableRow>

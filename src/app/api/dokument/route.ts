@@ -1,6 +1,5 @@
 import { integrasjonerAudience } from '@/app/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
-import { Dokumentoversikt, Journalpost } from '@/app/typer/api/Dokumentoversikt';
 import { hentOboToken } from '@/app/util/auth/hentOboToken';
 
 export async function GET(req: NextRequest) {
@@ -9,11 +8,14 @@ export async function GET(req: NextRequest) {
         return new NextResponse(oboToken.error, { status: 401 });
     }
 
-    const url =
-        'https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/dokumentoversikt/BAR';
+    const dokumentInfoId = req.nextUrl.searchParams.get('dokumentInfoId');
+    const journalpostId = req.nextUrl.searchParams.get('journalpostId');
+
+    const url = `https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/dokument/${journalpostId}/${dokumentInfoId}`;
 
     const response = await fetch(url, {
         headers: {
+            Accept: 'application/pdf',
             Authorization: `Bearer ${oboToken}`,
             'Nav-Consumer-Id': 'familie-ba-minside-frontend',
             'Nav-Call-Id': '1234', // TODO: fiks uuid
@@ -24,8 +26,13 @@ export async function GET(req: NextRequest) {
         return new NextResponse(response.statusText, { status: response.status });
     }
 
-    const dokumentoversikt: Dokumentoversikt = await response.json();
+    const dokument = await response.arrayBuffer();
+    const dokumentBuffer = Buffer.from(dokument);
 
-    const journalposter: Journalpost[] = dokumentoversikt.tema.flatMap(t => t.journalposter);
-    return NextResponse.json(journalposter, { status: response.status });
+    return new NextResponse(dokumentBuffer, {
+        status: response.status,
+        headers: {
+            'Content-Type': 'application/pdf',
+        },
+    });
 }
