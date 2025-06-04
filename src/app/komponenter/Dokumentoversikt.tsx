@@ -70,7 +70,20 @@ const Dokumentoversikt: React.FC = () => {
                                     hentDokument(journalpost.journalpostId, dokument.dokumentInfoId)
                                 }
                             >
-                                <TableDataCell>{dokument.tittel}</TableDataCell>
+                                <TableDataCell>
+                                    <a
+                                        href={''}
+                                        onClick={e => {
+                                            e.preventDefault();
+                                            hentDokument(
+                                                journalpost.journalpostId,
+                                                dokument.dokumentInfoId
+                                            );
+                                        }}
+                                    >
+                                        {dokument.tittel}
+                                    </a>
+                                </TableDataCell>
                                 <TableDataCell>
                                     {journalpost.journalposttype == Journalposttype.I
                                         ? 'Deg'
