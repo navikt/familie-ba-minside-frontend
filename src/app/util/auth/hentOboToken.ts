@@ -29,7 +29,7 @@ export type OboTokenResponse =
           ok: false;
       };
 
-export declare const OboTokenResponse: {
-    Error: (error: string) => OboTokenResponse;
-    Ok: (token: string) => OboTokenResponse;
+export const OboTokenResponse = {
+    Error: (error: string): OboTokenResponse => ({ error, ok: false }),
+    Ok: (token: string): OboTokenResponse => ({ token, ok: true }),
 };

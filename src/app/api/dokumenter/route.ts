@@ -1,10 +1,10 @@
 import { integrasjonerAudience } from '@/app/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
 import { Dokumentoversikt, Journalpost } from '@/app/typer/api/Dokumentoversikt';
-import { hentOboToken } from '@/app/util/auth/hentOboToken';
+import { hentOboToken, OboTokenResponse } from '@/app/util/auth/hentOboToken';
 
 export async function GET(req: NextRequest) {
-    const oboToken = await hentOboToken(req, integrasjonerAudience);
+    const oboToken: OboTokenResponse = await hentOboToken(req, integrasjonerAudience);
     if (!oboToken.ok) {
         return new NextResponse(oboToken.error, { status: 401 });
     }
