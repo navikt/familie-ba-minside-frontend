@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     const dokumentInfoId = req.nextUrl.searchParams.get('dokumentInfoId');
     const journalpostId = req.nextUrl.searchParams.get('journalpostId');
 
-    const url = `https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/dokument/${journalpostId}/${dokumentInfoId}`;
+    const url = `https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/${journalpostId}/dokument/${dokumentInfoId}`;
 
     const response = await fetch(url, {
         headers: {
