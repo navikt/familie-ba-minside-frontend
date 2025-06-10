@@ -1,32 +1,15 @@
 import {
     Chat2Icon,
     ChevronRightIcon,
-    ChildHairEyesIcon,
     ClockIcon,
     GavelIcon,
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import {
-    Alert,
-    BodyLong,
-    BodyShort,
-    Button,
-    ExpansionCard,
-    Heading,
-    HStack,
-    Link,
-} from '@navikt/ds-react';
-import {
-    ExpansionCardContent,
-    ExpansionCardDescription,
-    ExpansionCardHeader,
-    ExpansionCardTitle,
-} from '@navikt/ds-react/ExpansionCard';
+import { BodyLong, BodyShort, Heading, HStack, Link } from '@navikt/ds-react';
 
 import Seksjon from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
-import SøknadsProsess from './komponenter/SøknadsProsess';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
 
@@ -43,41 +26,6 @@ export default function Page() {
                 <Heading level="1" size="large">
                     Barnetrygden Min
                 </Heading>
-            </Seksjon>
-
-            <Seksjon antallKolonner={{ md: 1, lg: 2 }}>
-                <Alert variant="warning">
-                    <BodyLong spacing>
-                        Vi mangler dokumentasjon fra deg for å kunne behandle søknaden. Ettersend
-                        dette til oss så raskt du kan.
-                    </BodyLong>
-                    <Button variant="secondary-neutral">Ettersend dokumenter</Button>
-                </Alert>
-
-                <ExpansionCard aria-label="Informasjon om barnetrygd">
-                    <ExpansionCardHeader>
-                        <ExpansionCardTitle as="h2">Du har barnetrygd</ExpansionCardTitle>
-                        <ExpansionCardDescription>
-                            <BodyShort
-                                style={{ display: 'block' }}
-                                as="span"
-                                size="small"
-                                textColor="subtle"
-                                spacing
-                            >
-                                13.09.2023
-                            </BodyShort>
-                            Du har barnetrygd, her vil det komme mer informasjon om hvor mye du får
-                            hver måned samt hvis du har søknader.
-                        </ExpansionCardDescription>
-                    </ExpansionCardHeader>
-                    <ExpansionCardContent>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam
-                        repudiandae quibusdam ipsa fugit dolorem consequuntur rem omnis obcaecati.
-                        Nostrum alias pariatur eum quidem similique incidunt consequuntur autem
-                        aliquid. Ad.
-                    </ExpansionCardContent>
-                </ExpansionCard>
             </Seksjon>
 
             <Seksjon
@@ -120,15 +68,6 @@ export default function Page() {
 
                 <LenkePanel
                     href="#"
-                    tittel="Les mer om utvidet barnetrygd"
-                    ikon={<ChildHairEyesIcon title="Utvidet barnetrygd" fontSize="2rem" />}
-                    graBakgrunn
-                >
-                    <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
-                </LenkePanel>
-
-                <LenkePanel
-                    href="#"
                     tittel="Saksbehandlingstider"
                     ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
                     graBakgrunn
@@ -139,11 +78,11 @@ export default function Page() {
                 </LenkePanel>
             </Seksjon>
 
-            <Seksjon tittel="Hva skjer etter at du har sendt søknad til oss?">
-                <SøknadsProsess />
-            </Seksjon>
-
             <Seksjon tittel="Dokumentoversikt" gråBakgrunn>
+                <BodyLong>
+                    Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og
+                    meldinger.
+                </BodyLong>
                 <Dokumentoversikt />
                 <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
             </Seksjon>
