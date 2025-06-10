@@ -12,6 +12,10 @@ import Seksjon from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
+import BarnetrygdMedium from './komponenter/pictograms/barnetrygd/medium';
+import AleneSmall from './komponenter/pictograms/alene/small';
+import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
+import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
 
 export default function Page() {
     return (
@@ -24,7 +28,10 @@ export default function Page() {
                     <BodyShort>Barnetrygden min</BodyShort>
                 </HStack>
                 <Heading level="1" size="large">
-                    Barnetrygden min
+                    <HStack align="center" gap="6">
+                        <BarnetrygdMedium />
+                        <span>Barnetrygden min</span>
+                    </HStack>
                 </Heading>
             </Seksjon>
 
@@ -88,17 +95,23 @@ export default function Page() {
             </Seksjon>
 
             <Seksjon tittel="Dette kan du ha rett til" antallKolonner={{ sm: 1, md: 2, lg: 3 }}>
-                <YtelseKort tittel="For deg som er helt eller delvis alene med barn">
+                <YtelseKort
+                    tittel="For deg som er helt eller delvis alene med barn"
+                    ikon={<AleneSmall />}
+                >
                     Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett til.
                     Hvilke ordninger du har rett til, avhenger blant annet av barnets alder,
                     sivilstanden din og bo- og arbeidssituasjonen din.
                 </YtelseKort>
 
-                <YtelseKort tittel="Les mer om utvidet barnetrygd">
+                <YtelseKort
+                    tittel="Les mer om utvidet barnetrygd"
+                    ikon={<UtvidetBarnetrygdSmall />}
+                >
                     Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
                 </YtelseKort>
 
-                <YtelseKort tittel="Har ansvar for andres barn">
+                <YtelseKort tittel="Har ansvar for andres barn" ikon={<AnsvarForAndresBarnSmall />}>
                     Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
                     annen omsorgsperson.
                 </YtelseKort>
