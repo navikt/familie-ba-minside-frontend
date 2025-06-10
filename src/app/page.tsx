@@ -24,7 +24,7 @@ export default function Page() {
                     <BodyShort>Barnetrygden min</BodyShort>
                 </HStack>
                 <Heading level="1" size="large">
-                    Barnetrygden Min
+                    Barnetrygden min
                 </Heading>
             </Seksjon>
 
