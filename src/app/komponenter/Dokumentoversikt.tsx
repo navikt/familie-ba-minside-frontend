@@ -82,6 +82,7 @@ const Dokumentoversikt: React.FC = () => {
                 <Skeleton variant="text" width="100%" />
                 <Skeleton variant="text" width="100%" />
                 <Skeleton variant="text" width="100%" />
+                <Skeleton variant="text" width="100%" />
             </Box>
         );
     } else if (status === Status.Feilet) {
