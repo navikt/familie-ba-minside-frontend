@@ -1,6 +1,6 @@
 'use client';
 
-import { Alert, BodyShort, Button, Link, Table } from '@navikt/ds-react';
+import { Alert, BodyShort, Box, Button, Link, Skeleton, Table } from '@navikt/ds-react';
 import {
     TableBody,
     TableDataCell,
@@ -50,9 +50,11 @@ const manglerDokumentSpørsmålLenke = (
 
 const Dokumentoversikt: React.FC = () => {
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
+    const [laster, setLaster] = useState<boolean>(false);
     const [feil, setFeil] = useState<string | null>(null);
 
     const hentOgSettDokumenter = async () => {
+        setLaster(true);
         try {
             const data = await hentDokumenter();
             setJournalposter(data);
@@ -61,11 +63,23 @@ const Dokumentoversikt: React.FC = () => {
             setFeil('Klarte ikke hente dokumenter. Prøv igjen senere.');
             console.error(error);
         }
+        setLaster(false);
     };
 
     useEffect(() => {
         hentOgSettDokumenter();
     }, []);
+
+    if (laster) {
+        return (
+            <Box>
+                <BodyShort>Henter dokumenter...</BodyShort>
+                <Skeleton variant="text" width="100%" />
+                <Skeleton variant="text" width="100%" />
+                <Skeleton variant="text" width="100%" />
+            </Box>
+        );
+    }
 
     if (feil) {
         return (
