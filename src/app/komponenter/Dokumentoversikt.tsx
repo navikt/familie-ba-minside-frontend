@@ -82,7 +82,6 @@ const Dokumentoversikt: React.FC = () => {
                 <Skeleton variant="text" width="100%" />
                 <Skeleton variant="text" width="100%" />
                 <Skeleton variant="text" width="100%" />
-                <Skeleton variant="text" width="100%" />
             </Box>
         );
     } else if (status === Status.Feilet) {
@@ -90,6 +89,13 @@ const Dokumentoversikt: React.FC = () => {
             <Alert variant="error">
                 <BodyShort spacing>
                     Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.
+                </BodyShort>
+                <BodyShort spacing>
+                    Dersom problemet vedvarer, kan du{' '}
+                    <Link inlineText href="#">
+                        kontakte Nav
+                    </Link>
+                    .
                 </BodyShort>
                 <Button variant="secondary-neutral" onClick={hentOgSettDokumenter}>
                     Prøv på nytt
