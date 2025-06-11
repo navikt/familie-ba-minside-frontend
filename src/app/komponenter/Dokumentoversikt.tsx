@@ -49,18 +49,19 @@ const manglerDokumentSpørsmålLenke = (
 );
 
 const Dokumentoversikt: React.FC = () => {
-    const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
-    const [laster, setLaster] = useState<boolean>(false);
+    const [journalposter, setJournalposter] = useState<Journalpost[] | null>(null);
+    const [laster, setLaster] = useState<boolean>(true);
     const [feil, setFeil] = useState<string | null>(null);
 
     const hentOgSettDokumenter = async () => {
         setLaster(true);
+        setFeil(null);
         try {
             const data = await hentDokumenter();
             setJournalposter(data);
-            setFeil(null);
         } catch (error) {
             setFeil('Klarte ikke hente dokumenter. Prøv igjen senere.');
+            setJournalposter(null);
             console.error(error);
         }
         setLaster(false);
@@ -92,13 +93,17 @@ const Dokumentoversikt: React.FC = () => {
         );
     }
 
-    if (journalposter.length === 0) {
+    if (journalposter !== null && journalposter.length === 0) {
         return (
             <>
                 <Alert variant="info">Ingen dokumenter funnet.</Alert>
                 {manglerDokumentSpørsmålLenke}
             </>
         );
+    }
+
+    if (journalposter === null) {
+        return null;
     }
 
     return (
