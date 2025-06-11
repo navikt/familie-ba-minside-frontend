@@ -48,30 +48,34 @@ const manglerDokumentSpørsmålLenke = (
     <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
 );
 
+enum Status {
+    Laster = 'laster',
+    Lastet = 'lastet',
+    Feilet = 'feilet',
+}
+
 const Dokumentoversikt: React.FC = () => {
-    const [journalposter, setJournalposter] = useState<Journalpost[] | null>(null);
-    const [laster, setLaster] = useState<boolean>(true);
-    const [feil, setFeil] = useState<string | null>(null);
+    const [status, setStatus] = useState<Status>(Status.Laster);
+    const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
 
     const hentOgSettDokumenter = async () => {
-        setLaster(true);
-        setFeil(null);
+        setStatus(Status.Laster);
         try {
             const data = await hentDokumenter();
             setJournalposter(data);
+            setStatus(Status.Lastet);
         } catch (error) {
-            setFeil('Klarte ikke hente dokumenter. Prøv igjen senere.');
-            setJournalposter(null);
             console.error(error);
+            setJournalposter([]);
+            setStatus(Status.Feilet);
         }
-        setLaster(false);
     };
 
     useEffect(() => {
         hentOgSettDokumenter();
     }, []);
 
-    if (laster) {
+    if (status === Status.Laster) {
         return (
             <Box>
                 <BodyShort>Henter dokumenter...</BodyShort>
@@ -80,88 +84,88 @@ const Dokumentoversikt: React.FC = () => {
                 <Skeleton variant="text" width="100%" />
             </Box>
         );
-    }
-
-    if (feil) {
+    } else if (status === Status.Feilet) {
         return (
             <Alert variant="error">
-                <BodyShort spacing>{feil}</BodyShort>
+                <BodyShort spacing>
+                    Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.
+                </BodyShort>
                 <Button variant="secondary-neutral" onClick={hentOgSettDokumenter}>
                     Prøv på nytt
                 </Button>
             </Alert>
         );
-    }
-
-    if (journalposter !== null && journalposter.length === 0) {
-        return (
-            <>
-                <Alert variant="info">Ingen dokumenter funnet.</Alert>
-                {manglerDokumentSpørsmålLenke}
-            </>
-        );
-    }
-
-    if (journalposter === null) {
-        return null;
-    }
-
-    return (
-        <>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHeaderCell scope="col">Dokument</TableHeaderCell>
-                        <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
-                        <TableHeaderCell scope="col" align="right">
-                            Dato
-                        </TableHeaderCell>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {journalposter.map(journalpost =>
-                        journalpost.dokumenter?.map(dokument => (
-                            <TableRow
-                                key={dokument.tittel}
-                                onClick={() =>
-                                    hentDokument(journalpost.journalpostId, dokument.dokumentInfoId)
-                                }
-                            >
-                                <TableDataCell>
-                                    <a
-                                        href={''}
-                                        onClick={e => {
-                                            e.preventDefault();
+    } else if (status === Status.Lastet) {
+        if (journalposter.length === 0) {
+            return (
+                <>
+                    <Alert variant="info">Ingen dokumenter funnet.</Alert>
+                    {manglerDokumentSpørsmålLenke}
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHeaderCell scope="col">Dokument</TableHeaderCell>
+                                <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
+                                <TableHeaderCell scope="col" align="right">
+                                    Dato
+                                </TableHeaderCell>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {journalposter.map(journalpost =>
+                                journalpost.dokumenter?.map(dokument => (
+                                    <TableRow
+                                        key={dokument.tittel}
+                                        onClick={() =>
                                             hentDokument(
                                                 journalpost.journalpostId,
                                                 dokument.dokumentInfoId
-                                            );
-                                        }}
+                                            )
+                                        }
                                     >
-                                        {dokument.tittel}
-                                    </a>
-                                </TableDataCell>
-                                <TableDataCell>
-                                    {journalpost.journalposttype == Journalposttype.I
-                                        ? 'Deg'
-                                        : 'Nav'}
-                                </TableDataCell>
-                                <TableDataCell align="right">
-                                    {new Date(
-                                        journalpost.relevanteDatoer.find(
-                                            relevantDato =>
-                                                relevantDato.datotype == Datotype.DATO_OPPRETTET
-                                        )?.dato ?? ''
-                                    ).toLocaleDateString('nb-NO')}
-                                </TableDataCell>
-                            </TableRow>
-                        ))
-                    )}
-                </TableBody>
-            </Table>
-            {manglerDokumentSpørsmålLenke}
-        </>
-    );
+                                        <TableDataCell>
+                                            <a
+                                                href={''}
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    hentDokument(
+                                                        journalpost.journalpostId,
+                                                        dokument.dokumentInfoId
+                                                    );
+                                                }}
+                                            >
+                                                {dokument.tittel}
+                                            </a>
+                                        </TableDataCell>
+                                        <TableDataCell>
+                                            {journalpost.journalposttype == Journalposttype.I
+                                                ? 'Deg'
+                                                : 'Nav'}
+                                        </TableDataCell>
+                                        <TableDataCell align="right">
+                                            {new Date(
+                                                journalpost.relevanteDatoer.find(
+                                                    relevantDato =>
+                                                        relevantDato.datotype ==
+                                                        Datotype.DATO_OPPRETTET
+                                                )?.dato ?? ''
+                                            ).toLocaleDateString('nb-NO')}
+                                        </TableDataCell>
+                                    </TableRow>
+                                ))
+                            )}
+                        </TableBody>
+                    </Table>
+                    {manglerDokumentSpørsmålLenke}
+                </>
+            );
+        }
+    }
 };
 
 export default Dokumentoversikt;
