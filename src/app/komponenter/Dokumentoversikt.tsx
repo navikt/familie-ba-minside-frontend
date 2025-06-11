@@ -95,7 +95,7 @@ const Dokumentoversikt: React.FC = () => {
                 <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
                     <Link inlineText href="#">
-                        kontakte Nav
+                        ta kontakt med Nav
                     </Link>
                     .
                 </BodyShort>
