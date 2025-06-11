@@ -1,6 +1,6 @@
 'use client';
 
-import { Table } from '@navikt/ds-react';
+import { Alert, Table } from '@navikt/ds-react';
 import {
     TableBody,
     TableDataCell,
@@ -108,42 +108,7 @@ const Dokumentoversikt: React.FC = () => {
             </Table>
         );
     } else {
-        return (
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHeaderCell scope="col">Dokument</TableHeaderCell>
-                        <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
-                        <TableHeaderCell scope="col" align="right">
-                            Dato
-                        </TableHeaderCell>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                        <TableDataCell>
-                            <a href={''} onClick={() => hentDokument('1234', '123321')}>
-                                Dokumentasjon fra den andre forelderen
-                            </a>
-                        </TableDataCell>
-                        <TableDataCell>Tredjepart</TableDataCell>
-                        <TableDataCell align="right">13. okt. 2018</TableDataCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableDataCell>
-                            Ettersendelse til søknad om utvidet barnetrygd
-                        </TableDataCell>
-                        <TableDataCell>Deg</TableDataCell>
-                        <TableDataCell align="right">5. jul. 2018</TableDataCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableDataCell>Annen dokumentasjon</TableDataCell>
-                        <TableDataCell>Nav</TableDataCell>
-                        <TableDataCell align="right">13. okt. 2018</TableDataCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        );
+        return <Alert variant="warning">Ingen dokumenter funnet.</Alert>;
     }
 };
 
