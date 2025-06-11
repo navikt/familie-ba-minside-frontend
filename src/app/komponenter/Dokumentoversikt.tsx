@@ -18,6 +18,7 @@ const hentDokumenter = async (): Promise<Journalpost[]> => {
     if (!response.ok) {
         const error = await response.text();
         console.log(error);
+        throw new Error(error);
     }
 
     return await response.json();
@@ -36,6 +37,7 @@ const hentDokument = async (journalpostId: string, dokumentInfoId: string): Prom
     if (!response.ok) {
         const error = await response.text();
         console.log(error);
+        throw new Error(error);
     }
 
     const blob = await response.blob();
