@@ -12,10 +12,11 @@ import Seksjon from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
-import BarnetrygdMedium from './komponenter/pictograms/barnetrygd/medium';
-import AleneSmall from './komponenter/pictograms/alene/small';
-import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
-import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
+import Pictogram from './komponenter/Pictogram';
+import Barnetrygd from './komponenter/pictogramSvgInnhold/barnetrygd';
+import Alene from './komponenter/pictogramSvgInnhold/alene';
+import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
+import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
 
 const Page: React.FC = () => {
     return (
@@ -29,7 +30,7 @@ const Page: React.FC = () => {
                 </HStack>
                 <Heading level="1" size="large">
                     <HStack align="center" gap="6">
-                        <BarnetrygdMedium />
+                        <Pictogram størrelse="stor" svgInnhold={<Barnetrygd />} />
                         <span>Barnetrygden min</span>
                     </HStack>
                 </Heading>
@@ -96,7 +97,7 @@ const Page: React.FC = () => {
             <Seksjon tittel="Dette kan du ha rett til" antallKolonner={{ sm: 1, md: 2, lg: 3 }}>
                 <YtelseKort
                     tittel="For deg som er helt eller delvis alene med barn"
-                    ikon={<AleneSmall />}
+                    ikon={<Pictogram svgInnhold={<Alene />} />}
                 >
                     Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett til.
                     Hvilke ordninger du har rett til, avhenger blant annet av barnets alder,
@@ -105,12 +106,15 @@ const Page: React.FC = () => {
 
                 <YtelseKort
                     tittel="Les mer om utvidet barnetrygd"
-                    ikon={<UtvidetBarnetrygdSmall />}
+                    ikon={<Pictogram svgInnhold={<UtvidetBarnetrygd />} />}
                 >
                     Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
                 </YtelseKort>
 
-                <YtelseKort tittel="Har ansvar for andres barn" ikon={<AnsvarForAndresBarnSmall />}>
+                <YtelseKort
+                    tittel="Har ansvar for andres barn"
+                    ikon={<Pictogram svgInnhold={<AnsvarForAndresBarn />} />}
+                >
                     Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
                     annen omsorgsperson.
                 </YtelseKort>
