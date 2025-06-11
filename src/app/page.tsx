@@ -17,7 +17,7 @@ import AleneSmall from './komponenter/pictograms/alene/small';
 import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
 import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
 
-export default function Page() {
+const Page: React.FC = () => {
     return (
         <>
             <Seksjon>
@@ -117,4 +117,6 @@ export default function Page() {
             </Seksjon>
         </>
     );
-}
+};
+
+export default Page;
