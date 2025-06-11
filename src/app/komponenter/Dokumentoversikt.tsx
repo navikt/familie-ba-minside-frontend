@@ -12,17 +12,18 @@ import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
 import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
 
-async function hentDokumenter(): Promise<Journalpost[]> {
+const hentDokumenter = async (): Promise<Journalpost[]> => {
     const response = await fetch(`${appUrl}/api/dokumenter`);
 
     if (!response.ok) {
         const error = await response.text();
         console.log(error);
     }
-    return await response.json();
-}
 
-async function hentDokument(journalpostId: string, dokumentInfoId: string): Promise<void> {
+    return await response.json();
+};
+
+const hentDokument = async (journalpostId: string, dokumentInfoId: string): Promise<void> => {
     const response = await fetch(
         `${appUrl}/api/dokument?journalpostId=${journalpostId}&dokumentInfoId=${dokumentInfoId}`,
         {
@@ -41,7 +42,7 @@ async function hentDokument(journalpostId: string, dokumentInfoId: string): Prom
 
     const url = URL.createObjectURL(blob);
     window.open(url, '_blank');
-}
+};
 
 const Dokumentoversikt: React.FC = () => {
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
@@ -51,6 +52,7 @@ const Dokumentoversikt: React.FC = () => {
             .then(data => setJournalposter(data))
             .catch(error => console.error(error));
     }, []);
+
     if (journalposter.length !== 0) {
         return (
             <Table>
