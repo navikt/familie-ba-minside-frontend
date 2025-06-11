@@ -1,34 +1,21 @@
 import {
     Chat2Icon,
     ChevronRightIcon,
-    ChildHairEyesIcon,
     ClockIcon,
     GavelIcon,
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import {
-    Alert,
-    BodyLong,
-    BodyShort,
-    Button,
-    ExpansionCard,
-    Heading,
-    HStack,
-    Link,
-} from '@navikt/ds-react';
-import {
-    ExpansionCardContent,
-    ExpansionCardDescription,
-    ExpansionCardHeader,
-    ExpansionCardTitle,
-} from '@navikt/ds-react/ExpansionCard';
+import { BodyLong, BodyShort, Heading, HStack, Link } from '@navikt/ds-react';
 
 import Seksjon from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
-import SøknadsProsess from './komponenter/SøknadsProsess';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
+import BarnetrygdMedium from './komponenter/pictograms/barnetrygd/medium';
+import AleneSmall from './komponenter/pictograms/alene/small';
+import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
+import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
 
 export default function Page() {
     return (
@@ -41,43 +28,11 @@ export default function Page() {
                     <BodyShort>Barnetrygden min</BodyShort>
                 </HStack>
                 <Heading level="1" size="large">
-                    Barnetrygden Min
+                    <HStack align="center" gap="6">
+                        <BarnetrygdMedium />
+                        <span>Barnetrygden min</span>
+                    </HStack>
                 </Heading>
-            </Seksjon>
-
-            <Seksjon antallKolonner={{ md: 1, lg: 2 }}>
-                <Alert variant="warning">
-                    <BodyLong spacing>
-                        Vi mangler dokumentasjon fra deg for å kunne behandle søknaden. Ettersend
-                        dette til oss så raskt du kan.
-                    </BodyLong>
-                    <Button variant="secondary-neutral">Ettersend dokumenter</Button>
-                </Alert>
-
-                <ExpansionCard aria-label="Informasjon om barnetrygd">
-                    <ExpansionCardHeader>
-                        <ExpansionCardTitle as="h2">Du har barnetrygd</ExpansionCardTitle>
-                        <ExpansionCardDescription>
-                            <BodyShort
-                                style={{ display: 'block' }}
-                                as="span"
-                                size="small"
-                                textColor="subtle"
-                                spacing
-                            >
-                                13.09.2023
-                            </BodyShort>
-                            Du har barnetrygd, her vil det komme mer informasjon om hvor mye du får
-                            hver måned samt hvis du har søknader.
-                        </ExpansionCardDescription>
-                    </ExpansionCardHeader>
-                    <ExpansionCardContent>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam
-                        repudiandae quibusdam ipsa fugit dolorem consequuntur rem omnis obcaecati.
-                        Nostrum alias pariatur eum quidem similique incidunt consequuntur autem
-                        aliquid. Ad.
-                    </ExpansionCardContent>
-                </ExpansionCard>
             </Seksjon>
 
             <Seksjon
@@ -120,15 +75,6 @@ export default function Page() {
 
                 <LenkePanel
                     href="#"
-                    tittel="Les mer om utvidet barnetrygd"
-                    ikon={<ChildHairEyesIcon title="Utvidet barnetrygd" fontSize="2rem" />}
-                    graBakgrunn
-                >
-                    <BodyLong textColor="subtle">Informasjon om utvidet barnetrygd</BodyLong>
-                </LenkePanel>
-
-                <LenkePanel
-                    href="#"
                     tittel="Saksbehandlingstider"
                     ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
                     graBakgrunn
@@ -139,27 +85,33 @@ export default function Page() {
                 </LenkePanel>
             </Seksjon>
 
-            <Seksjon tittel="Hva skjer etter at du har sendt søknad til oss?">
-                <SøknadsProsess />
-            </Seksjon>
-
             <Seksjon tittel="Dokumentoversikt" gråBakgrunn>
+                <BodyLong>
+                    Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og
+                    meldinger.
+                </BodyLong>
                 <Dokumentoversikt />
                 <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
             </Seksjon>
 
             <Seksjon tittel="Dette kan du ha rett til" antallKolonner={{ sm: 1, md: 2, lg: 3 }}>
-                <YtelseKort tittel="For deg som er helt eller delvis alene med barn">
+                <YtelseKort
+                    tittel="For deg som er helt eller delvis alene med barn"
+                    ikon={<AleneSmall />}
+                >
                     Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett til.
                     Hvilke ordninger du har rett til, avhenger blant annet av barnets alder,
                     sivilstanden din og bo- og arbeidssituasjonen din.
                 </YtelseKort>
 
-                <YtelseKort tittel="Les mer om utvidet barnetrygd">
+                <YtelseKort
+                    tittel="Les mer om utvidet barnetrygd"
+                    ikon={<UtvidetBarnetrygdSmall />}
+                >
                     Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
                 </YtelseKort>
 
-                <YtelseKort tittel="Har ansvar for andres barn">
+                <YtelseKort tittel="Har ansvar for andres barn" ikon={<AnsvarForAndresBarnSmall />}>
                     Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
                     annen omsorgsperson.
                 </YtelseKort>
