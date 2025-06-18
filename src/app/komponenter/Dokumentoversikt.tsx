@@ -103,7 +103,9 @@ const Dokumentoversikt: React.FC = () => {
                 <Skeleton variant="text" width="100%" />
             </Box>
         );
-    } else if (status === Status.Feilet) {
+    }
+
+    if (status === Status.Feilet) {
         return (
             <Alert variant="error">
                 <BodyShort spacing>
@@ -121,7 +123,9 @@ const Dokumentoversikt: React.FC = () => {
                 </Button>
             </Alert>
         );
-    } else if (status === Status.Lastet) {
+    }
+
+    if (status === Status.Lastet) {
         if (journalposter.length === 0) {
             return (
                 <>
@@ -129,75 +133,72 @@ const Dokumentoversikt: React.FC = () => {
                     {manglerDokumentSpørsmålLenke}
                 </>
             );
-        } else {
-            return (
-                <>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHeaderCell scope="col">Dokument</TableHeaderCell>
-                                <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
-                                <TableHeaderCell scope="col" align="right">
-                                    Dato
-                                </TableHeaderCell>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {visteDokumenter.map(({ journalpost, dokument }) => (
-                                <TableRow
-                                    key={dokument.dokumentInfoId}
-                                    onClick={() =>
-                                        hentDokument(
-                                            journalpost.journalpostId,
-                                            dokument.dokumentInfoId
-                                        )
-                                    }
-                                >
-                                    <TableDataCell>
-                                        <a
-                                            href={''}
-                                            onClick={e => {
-                                                e.preventDefault();
-                                                hentDokument(
-                                                    journalpost.journalpostId,
-                                                    dokument.dokumentInfoId
-                                                );
-                                            }}
-                                        >
-                                            {dokument.tittel}
-                                        </a>
-                                    </TableDataCell>
-                                    <TableDataCell>
-                                        {journalpost.journalposttype == Journalposttype.I
-                                            ? 'Deg'
-                                            : 'Nav'}
-                                    </TableDataCell>
-                                    <TableDataCell align="right">
-                                        {new Date(
-                                            journalpost.relevanteDatoer.find(
-                                                relevantDato =>
-                                                    relevantDato.datotype == Datotype.DATO_OPPRETTET
-                                            )?.dato ?? ''
-                                        ).toLocaleDateString('nb-NO')}
-                                    </TableDataCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                    {visPagination && (
-                        <Pagination
-                            page={valgtSide}
-                            onPageChange={setValgtSide}
-                            count={Math.ceil(
-                                dokumenterMedTilhørendeJournalpost.length / maksAntallRaderPerSide
-                            )}
-                            size="small"
-                        />
-                    )}
-                    {manglerDokumentSpørsmålLenke}
-                </>
-            );
         }
+
+        return (
+            <>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHeaderCell scope="col">Dokument</TableHeaderCell>
+                            <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
+                            <TableHeaderCell scope="col" align="right">
+                                Dato
+                            </TableHeaderCell>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {visteDokumenter.map(({ journalpost, dokument }) => (
+                            <TableRow
+                                key={dokument.dokumentInfoId}
+                                onClick={() =>
+                                    hentDokument(journalpost.journalpostId, dokument.dokumentInfoId)
+                                }
+                            >
+                                <TableDataCell>
+                                    <a
+                                        href={''}
+                                        onClick={e => {
+                                            e.preventDefault();
+                                            hentDokument(
+                                                journalpost.journalpostId,
+                                                dokument.dokumentInfoId
+                                            );
+                                        }}
+                                    >
+                                        {dokument.tittel}
+                                    </a>
+                                </TableDataCell>
+                                <TableDataCell>
+                                    {journalpost.journalposttype == Journalposttype.I
+                                        ? 'Deg'
+                                        : 'Nav'}
+                                </TableDataCell>
+                                <TableDataCell align="right">
+                                    {new Date(
+                                        journalpost.relevanteDatoer.find(
+                                            relevantDato =>
+                                                relevantDato.datotype == Datotype.DATO_OPPRETTET
+                                        )?.dato ?? ''
+                                    ).toLocaleDateString('nb-NO')}
+                                </TableDataCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                {visPagination && (
+                    <Pagination
+                        page={valgtSide}
+                        onPageChange={setValgtSide}
+                        count={Math.ceil(
+                            dokumenterMedTilhørendeJournalpost.length / maksAntallRaderPerSide
+                        )}
+                        size="small"
+                    />
+                )}
+                {manglerDokumentSpørsmålLenke}
+            </>
+        );
     }
 };
 
