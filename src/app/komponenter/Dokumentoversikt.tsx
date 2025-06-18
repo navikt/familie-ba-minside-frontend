@@ -76,6 +76,7 @@ const Dokumentoversikt: React.FC = () => {
     );
 
     const visPagination = dokumenterMedTilhørendeJournalpost.length > maksAntallRaderPerSide;
+    const antallTommeRader = visPagination ? maksAntallRaderPerSide - visteDokumenter.length : 0;
 
     const hentOgSettDokumenter = async () => {
         setStatus(Status.Laster);
@@ -182,6 +183,11 @@ const Dokumentoversikt: React.FC = () => {
                                         )?.dato ?? ''
                                     ).toLocaleDateString('nb-NO')}
                                 </TableDataCell>
+                            </TableRow>
+                        ))}
+                        {Array.from({ length: antallTommeRader }).map((_, idx) => (
+                            <TableRow key={`tom-rad-${idx}`}>
+                                <TableDataCell colSpan={3}>&nbsp;</TableDataCell>
                             </TableRow>
                         ))}
                     </TableBody>
