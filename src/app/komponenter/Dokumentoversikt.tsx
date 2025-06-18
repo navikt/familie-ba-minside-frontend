@@ -1,6 +1,16 @@
 'use client';
 
-import { Alert, BodyShort, Box, Button, Link, Pagination, Skeleton, Table } from '@navikt/ds-react';
+import {
+    Alert,
+    BodyShort,
+    Box,
+    Button,
+    Link,
+    Pagination,
+    Skeleton,
+    Table,
+    VStack,
+} from '@navikt/ds-react';
 import {
     TableBody,
     TableDataCell,
@@ -11,6 +21,7 @@ import {
 import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
 import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
+import { EyeSlashIcon, FilePdfIcon } from '@navikt/aksel-icons';
 
 const hentDokumenter = async (): Promise<Journalpost[]> => {
     const response = await fetch(`${appUrl}/api/dokumenter`);
@@ -141,6 +152,7 @@ const Dokumentoversikt: React.FC = () => {
                 <Table>
                     <TableHeader>
                         <TableRow>
+                            <TableHeaderCell scope="col"></TableHeaderCell>
                             <TableHeaderCell scope="col">Dokument</TableHeaderCell>
                             <TableHeaderCell scope="col">Sendt inn av</TableHeaderCell>
                             <TableHeaderCell scope="col" align="right">
@@ -149,42 +161,73 @@ const Dokumentoversikt: React.FC = () => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {visteDokumenter.map(({ journalpost, dokument }) => (
-                            <TableRow
-                                key={dokument.dokumentInfoId}
-                                onClick={() =>
-                                    hentDokument(journalpost.journalpostId, dokument.dokumentInfoId)
-                                }
-                            >
-                                <TableDataCell>
-                                    <a
-                                        href={''}
-                                        onClick={e => {
-                                            e.preventDefault();
-                                            hentDokument(
-                                                journalpost.journalpostId,
-                                                dokument.dokumentInfoId
-                                            );
-                                        }}
-                                    >
-                                        {dokument.tittel}
-                                    </a>
-                                </TableDataCell>
-                                <TableDataCell>
-                                    {journalpost.journalposttype == Journalposttype.I
-                                        ? 'Deg'
-                                        : 'Nav'}
-                                </TableDataCell>
-                                <TableDataCell align="right">
-                                    {new Date(
-                                        journalpost.relevanteDatoer.find(
-                                            relevantDato =>
-                                                relevantDato.datotype == Datotype.DATO_OPPRETTET
-                                        )?.dato ?? ''
-                                    ).toLocaleDateString('nb-NO')}
-                                </TableDataCell>
-                            </TableRow>
-                        ))}
+                        {visteDokumenter.map(({ journalpost, dokument }) => {
+                            const harTilgang = (dokument.dokumentvarianter ?? []).some(
+                                variant => variant?.brukerHarTilgang
+                            );
+                            return (
+                                <TableRow key={dokument.dokumentInfoId} shadeOnHover>
+                                    <TableDataCell>
+                                        <VStack justify="start" align="start">
+                                            {!harTilgang ? (
+                                                <EyeSlashIcon
+                                                    title="a11y-title"
+                                                    fontSize="1.75rem"
+                                                />
+                                            ) : (
+                                                <FilePdfIcon
+                                                    title="a11y-title"
+                                                    fontSize="1.75rem"
+                                                />
+                                            )}
+                                        </VStack>
+                                    </TableDataCell>
+                                    <TableDataCell>
+                                        {harTilgang ? (
+                                            <a
+                                                href={''}
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    hentDokument(
+                                                        journalpost.journalpostId,
+                                                        dokument.dokumentInfoId
+                                                    );
+                                                }}
+                                            >
+                                                {dokument.tittel}
+                                            </a>
+                                        ) : (
+                                            <VStack gap="1">
+                                                <span>{dokument.tittel}</span>
+                                                <Alert
+                                                    variant="info"
+                                                    size="small"
+                                                    style={{
+                                                        width: 'min-content',
+                                                        textWrap: 'nowrap',
+                                                    }}
+                                                >
+                                                    Du har ikke tilgang til dette dokumentet.
+                                                </Alert>
+                                            </VStack>
+                                        )}
+                                    </TableDataCell>
+                                    <TableDataCell>
+                                        {journalpost.journalposttype == Journalposttype.I
+                                            ? 'Deg'
+                                            : 'Nav'}
+                                    </TableDataCell>
+                                    <TableDataCell align="right">
+                                        {new Date(
+                                            journalpost.relevanteDatoer.find(
+                                                relevantDato =>
+                                                    relevantDato.datotype == Datotype.DATO_OPPRETTET
+                                            )?.dato ?? ''
+                                        ).toLocaleDateString('nb-NO')}
+                                    </TableDataCell>
+                                </TableRow>
+                            );
+                        })}
                         {Array.from({ length: antallTommeRader }).map((_, idx) => (
                             <TableRow key={`tom-rad-${idx}`}>
                                 <TableDataCell colSpan={3}>&nbsp;</TableDataCell>
