@@ -1,6 +1,6 @@
 'use client';
 
-import { Alert, BodyShort, Box, Button, Link, Skeleton, Table } from '@navikt/ds-react';
+import { Alert, BodyShort, Box, Button, Link, Pagination, Skeleton, Table } from '@navikt/ds-react';
 import {
     TableBody,
     TableDataCell,
@@ -59,6 +59,23 @@ enum Status {
 const Dokumentoversikt: React.FC = () => {
     const [status, setStatus] = useState<Status>(Status.Laster);
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
+
+    const [valgtSide, setValgtSide] = useState<number>(1);
+    const maksAntallRaderPerSide = 10;
+
+    const dokumenterMedTilhørendeJournalpost = journalposter.flatMap(journalpost =>
+        (journalpost.dokumenter || []).map(dokument => ({
+            dokument,
+            journalpost,
+        }))
+    );
+
+    const visteDokumenter = dokumenterMedTilhørendeJournalpost.slice(
+        (valgtSide - 1) * maksAntallRaderPerSide,
+        valgtSide * maksAntallRaderPerSide
+    );
+
+    const visPagination = dokumenterMedTilhørendeJournalpost.length > maksAntallRaderPerSide;
 
     const hentOgSettDokumenter = async () => {
         setStatus(Status.Laster);
@@ -126,50 +143,57 @@ const Dokumentoversikt: React.FC = () => {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {journalposter.map(journalpost =>
-                                journalpost.dokumenter?.map(dokument => (
-                                    <TableRow
-                                        key={dokument.tittel}
-                                        onClick={() =>
-                                            hentDokument(
-                                                journalpost.journalpostId,
-                                                dokument.dokumentInfoId
-                                            )
-                                        }
-                                    >
-                                        <TableDataCell>
-                                            <a
-                                                href={''}
-                                                onClick={e => {
-                                                    e.preventDefault();
-                                                    hentDokument(
-                                                        journalpost.journalpostId,
-                                                        dokument.dokumentInfoId
-                                                    );
-                                                }}
-                                            >
-                                                {dokument.tittel}
-                                            </a>
-                                        </TableDataCell>
-                                        <TableDataCell>
-                                            {journalpost.journalposttype == Journalposttype.I
-                                                ? 'Deg'
-                                                : 'Nav'}
-                                        </TableDataCell>
-                                        <TableDataCell align="right">
-                                            {new Date(
-                                                journalpost.relevanteDatoer.find(
-                                                    relevantDato =>
-                                                        relevantDato.datotype ==
-                                                        Datotype.DATO_OPPRETTET
-                                                )?.dato ?? ''
-                                            ).toLocaleDateString('nb-NO')}
-                                        </TableDataCell>
-                                    </TableRow>
-                                ))
-                            )}
+                            {visteDokumenter.map(({ journalpost, dokument }) => (
+                                <TableRow
+                                    key={dokument.dokumentInfoId}
+                                    onClick={() =>
+                                        hentDokument(
+                                            journalpost.journalpostId,
+                                            dokument.dokumentInfoId
+                                        )
+                                    }
+                                >
+                                    <TableDataCell>
+                                        <a
+                                            href={''}
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                hentDokument(
+                                                    journalpost.journalpostId,
+                                                    dokument.dokumentInfoId
+                                                );
+                                            }}
+                                        >
+                                            {dokument.tittel}
+                                        </a>
+                                    </TableDataCell>
+                                    <TableDataCell>
+                                        {journalpost.journalposttype == Journalposttype.I
+                                            ? 'Deg'
+                                            : 'Nav'}
+                                    </TableDataCell>
+                                    <TableDataCell align="right">
+                                        {new Date(
+                                            journalpost.relevanteDatoer.find(
+                                                relevantDato =>
+                                                    relevantDato.datotype == Datotype.DATO_OPPRETTET
+                                            )?.dato ?? ''
+                                        ).toLocaleDateString('nb-NO')}
+                                    </TableDataCell>
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
+                    {visPagination && (
+                        <Pagination
+                            page={valgtSide}
+                            onPageChange={setValgtSide}
+                            count={Math.ceil(
+                                dokumenterMedTilhørendeJournalpost.length / maksAntallRaderPerSide
+                            )}
+                            size="small"
+                        />
+                    )}
                     {manglerDokumentSpørsmålLenke}
                 </>
             );
