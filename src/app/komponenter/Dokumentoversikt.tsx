@@ -5,6 +5,7 @@ import {
     BodyShort,
     Box,
     Button,
+    HStack,
     Link,
     Pagination,
     Skeleton,
@@ -14,6 +15,7 @@ import {
 import {
     TableBody,
     TableDataCell,
+    TableExpandableRow,
     TableHeader,
     TableHeaderCell,
     TableRow,
@@ -21,7 +23,6 @@ import {
 import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
 import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
-import { EyeSlashIcon, FilePdfIcon } from '@navikt/aksel-icons';
 
 const hentDokumenter = async (): Promise<Journalpost[]> => {
     const response = await fetch(`${appUrl}/api/dokumenter`);
@@ -74,20 +75,13 @@ const Dokumentoversikt: React.FC = () => {
     const [valgtSide, setValgtSide] = useState<number>(1);
     const maksAntallRaderPerSide = 10;
 
-    const dokumenterMedTilhørendeJournalpost = journalposter.flatMap(journalpost =>
-        (journalpost.dokumenter || []).map(dokument => ({
-            dokument,
-            journalpost,
-        }))
-    );
-
-    const visteDokumenter = dokumenterMedTilhørendeJournalpost.slice(
+    const visteJournalposter = journalposter.slice(
         (valgtSide - 1) * maksAntallRaderPerSide,
         valgtSide * maksAntallRaderPerSide
     );
 
-    const visPagination = dokumenterMedTilhørendeJournalpost.length > maksAntallRaderPerSide;
-    const antallTommeRader = visPagination ? maksAntallRaderPerSide - visteDokumenter.length : 0;
+    const visPagination = visteJournalposter.length > maksAntallRaderPerSide;
+    const antallTommeRader = visPagination ? maksAntallRaderPerSide - visteJournalposter.length : 0;
 
     const hentOgSettDokumenter = async () => {
         setStatus(Status.Laster);
@@ -161,57 +155,65 @@ const Dokumentoversikt: React.FC = () => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {visteDokumenter.map(({ journalpost, dokument }) => {
-                            const harTilgang = (dokument.dokumentvarianter ?? []).some(
-                                variant => variant?.brukerHarTilgang
-                            );
+                        {visteJournalposter.map(journalpost => {
                             return (
-                                <TableRow key={dokument.dokumentInfoId} shadeOnHover>
-                                    <TableDataCell>
-                                        <VStack justify="start" align="start">
-                                            {!harTilgang ? (
-                                                <EyeSlashIcon
-                                                    title="a11y-title"
-                                                    fontSize="1.75rem"
-                                                />
-                                            ) : (
-                                                <FilePdfIcon
-                                                    title="a11y-title"
-                                                    fontSize="1.75rem"
-                                                />
-                                            )}
+                                <TableExpandableRow
+                                    key={journalpost.journalpostId}
+                                    shadeOnHover
+                                    content={
+                                        <VStack gap="2">
+                                            {journalpost.dokumenter?.map(dokument => {
+                                                const harTilgang = dokument.dokumentvarianter.some(
+                                                    variant => variant?.brukerHarTilgang
+                                                );
+                                                return (
+                                                    <HStack
+                                                        align="center"
+                                                        gap="4"
+                                                        key={dokument.dokumentInfoId}
+                                                        minHeight="36px"
+                                                    >
+                                                        {/* TODO: Skal filer som bruker ikke har tilgang på skjules i frontend eller bør dette heller gjøres i backend slik at det ikke er mulig å finne informasjon gjennom "inspect element" > "network"? */}
+                                                        {harTilgang ? (
+                                                            <Link
+                                                                href="#"
+                                                                onClick={e => {
+                                                                    e.preventDefault();
+                                                                    hentDokument(
+                                                                        journalpost.journalpostId,
+                                                                        dokument.dokumentInfoId
+                                                                    );
+                                                                }}
+                                                            >
+                                                                {dokument.tittel ||
+                                                                    'Dokument uten tittel'}
+                                                            </Link>
+                                                        ) : (
+                                                            <HStack gap="4" align="center">
+                                                                <span>
+                                                                    {dokument.tittel ||
+                                                                        'Dokument uten tittel'}
+                                                                </span>
+                                                                <Alert
+                                                                    variant="info"
+                                                                    size="small"
+                                                                    style={{
+                                                                        padding: '0.2rem',
+                                                                        paddingRight: '0.5rem',
+                                                                    }}
+                                                                >
+                                                                    Du har ikke tilgang til dette
+                                                                    dokumentet.
+                                                                </Alert>
+                                                            </HStack>
+                                                        )}
+                                                    </HStack>
+                                                );
+                                            })}
                                         </VStack>
-                                    </TableDataCell>
-                                    <TableDataCell>
-                                        {harTilgang ? (
-                                            <a
-                                                href={''}
-                                                onClick={e => {
-                                                    e.preventDefault();
-                                                    hentDokument(
-                                                        journalpost.journalpostId,
-                                                        dokument.dokumentInfoId
-                                                    );
-                                                }}
-                                            >
-                                                {dokument.tittel}
-                                            </a>
-                                        ) : (
-                                            <VStack gap="1">
-                                                <span>{dokument.tittel}</span>
-                                                <Alert
-                                                    variant="info"
-                                                    size="small"
-                                                    style={{
-                                                        width: 'min-content',
-                                                        textWrap: 'nowrap',
-                                                    }}
-                                                >
-                                                    Du har ikke tilgang til dette dokumentet.
-                                                </Alert>
-                                            </VStack>
-                                        )}
-                                    </TableDataCell>
+                                    }
+                                >
+                                    <TableHeaderCell>{journalpost.tittel}</TableHeaderCell>
                                     <TableDataCell>
                                         {journalpost.journalposttype == Journalposttype.I
                                             ? 'Deg'
@@ -225,7 +227,7 @@ const Dokumentoversikt: React.FC = () => {
                                             )?.dato ?? ''
                                         ).toLocaleDateString('nb-NO')}
                                     </TableDataCell>
-                                </TableRow>
+                                </TableExpandableRow>
                             );
                         })}
                         {Array.from({ length: antallTommeRader }).map((_, idx) => (
@@ -239,9 +241,7 @@ const Dokumentoversikt: React.FC = () => {
                     <Pagination
                         page={valgtSide}
                         onPageChange={setValgtSide}
-                        count={Math.ceil(
-                            dokumenterMedTilhørendeJournalpost.length / maksAntallRaderPerSide
-                        )}
+                        count={Math.ceil(journalposter.length / maksAntallRaderPerSide)}
                         size="small"
                     />
                 )}
