@@ -6,7 +6,7 @@ import {
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Heading, HStack, Link } from '@navikt/ds-react';
+import { BodyLong, BodyShort, Heading, HStack } from '@navikt/ds-react';
 
 import { Seksjon } from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
@@ -31,7 +31,7 @@ const Page: React.FC = () => {
                     </HStack>
                     <Heading level="1" size="large">
                         <HStack align="center" gap="6">
-                            <Pictogram svgInnhold={<Barnetrygd />} />
+                            <Pictogram størrelse="stor" svgInnhold={<Barnetrygd />} />
                             <span>Barnetrygden min</span>
                         </HStack>
                     </Heading>
@@ -97,9 +97,6 @@ const Page: React.FC = () => {
                         meldinger.
                     </BodyLong>
                     <Dokumentoversikt />
-                    <Link href="#">
-                        Har du sendt en søknad eller et dokument som ikke vises her?
-                    </Link>
                 </Seksjon.Innhold>
             </Seksjon>
 
