@@ -1,8 +1,12 @@
-const BarnetrygdMedium: React.FC = () => {
+interface Props {
+    size?: string;
+}
+
+export function BarnetrygdIkon({ size = '64' }: Props) {
     return (
         <svg
-            width="64"
-            height="64"
+            width={size}
+            height={size}
             viewBox="0 0 96 96"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +58,4 @@ const BarnetrygdMedium: React.FC = () => {
             </defs>
         </svg>
     );
-};
-
-export default BarnetrygdMedium;
+}

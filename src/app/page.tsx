@@ -12,10 +12,12 @@ import { Seksjon } from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
-import BarnetrygdMedium from './komponenter/pictograms/barnetrygd/medium';
+import { BarnetrygdIkon } from '@/app/komponenter/pictograms/barnetrygd/BarnetrygdIkon';
 import AleneSmall from './komponenter/pictograms/alene/small';
 import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
 import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
+import { Suspense } from 'react';
+import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
 
 export default function Page() {
     return (
@@ -30,16 +32,24 @@ export default function Page() {
                     </HStack>
                     <Heading level="1" size="large">
                         <HStack align="center" gap="6">
-                            <BarnetrygdMedium />
+                            <BarnetrygdIkon />
                             <span>Barnetrygden min</span>
                         </HStack>
                     </Heading>
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon bakgrunn={'surface-subtle'}>
+            <Seksjon marginBlock={'space-0'}>
+                <Seksjon.Innhold>
+                    <Suspense fallback={<BarnetrygdOversikt.Fallback />}>
+                        <BarnetrygdOversikt />
+                    </Suspense>
+                </Seksjon.Innhold>
+            </Seksjon>
+
+            <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
+                <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LenkePanel
                         href="#"
                         tittel="Skriv til oss"
@@ -63,7 +73,7 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
+                <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LenkePanel
                         href="#"
                         tittel="Slik klager du"
@@ -88,7 +98,7 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon bakgrunn={'surface-subtle'}>
+            <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
                 <Seksjon.Innhold>
                     <BodyLong>
@@ -104,7 +114,7 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ sm: 1, md: 2, lg: 3 }}>
+                <Seksjon.Innhold columns={{ sm: 1, md: 2, lg: 3 }}>
                     <YtelseKort
                         tittel="For deg som er helt eller delvis alene med barn"
                         ikon={<AleneSmall />}
