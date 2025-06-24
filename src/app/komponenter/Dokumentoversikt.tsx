@@ -7,6 +7,7 @@ import {
     Button,
     HStack,
     Link,
+    Loader,
     Pagination,
     Skeleton,
     Table,
@@ -22,7 +23,12 @@ import {
 } from '@navikt/ds-react/Table';
 import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
-import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
+import {
+    Datotype,
+    DokumentInfo,
+    Journalpost,
+    Journalposttype,
+} from '@/app/typer/api/Dokumentoversikt';
 
 const hentDokumenter = async (): Promise<Journalpost[]> => {
     const response = await fetch(`${appUrl}/api/dokumenter`);
@@ -34,28 +40,6 @@ const hentDokumenter = async (): Promise<Journalpost[]> => {
     }
 
     return await response.json();
-};
-
-const hentDokument = async (journalpostId: string, dokumentInfoId: string): Promise<void> => {
-    const response = await fetch(
-        `${appUrl}/api/dokument?journalpostId=${journalpostId}&dokumentInfoId=${dokumentInfoId}`,
-        {
-            headers: {
-                Accept: 'application/pdf',
-            },
-        }
-    );
-
-    if (!response.ok) {
-        const error = await response.text();
-        console.log(error);
-        throw new Error(error);
-    }
-
-    const blob = await response.blob();
-
-    const url = URL.createObjectURL(blob);
-    window.open(url, '_blank');
 };
 
 const manglerDokumentSpørsmålLenke = (
@@ -162,54 +146,13 @@ const Dokumentoversikt: React.FC = () => {
                                     shadeOnHover
                                     content={
                                         <VStack gap="2">
-                                            {journalpost.dokumenter?.map(dokument => {
-                                                const harTilgang = dokument.dokumentvarianter.some(
-                                                    variant => variant?.brukerHarTilgang
-                                                );
-                                                return (
-                                                    <HStack
-                                                        align="center"
-                                                        gap="4"
-                                                        key={dokument.dokumentInfoId}
-                                                        minHeight="36px"
-                                                    >
-                                                        {/* TODO: Skal filer som bruker ikke har tilgang på skjules i frontend eller bør dette heller gjøres i backend slik at det ikke er mulig å finne informasjon gjennom "inspect element" > "network"? */}
-                                                        {harTilgang ? (
-                                                            <Link
-                                                                href="#"
-                                                                onClick={e => {
-                                                                    e.preventDefault();
-                                                                    hentDokument(
-                                                                        journalpost.journalpostId,
-                                                                        dokument.dokumentInfoId
-                                                                    );
-                                                                }}
-                                                            >
-                                                                {dokument.tittel ||
-                                                                    'Dokument uten tittel'}
-                                                            </Link>
-                                                        ) : (
-                                                            <>
-                                                                <span>
-                                                                    {dokument.tittel ||
-                                                                        'Dokument uten tittel'}
-                                                                </span>
-                                                                <Alert
-                                                                    variant="info"
-                                                                    size="small"
-                                                                    style={{
-                                                                        padding: '0.2rem',
-                                                                        paddingRight: '0.5rem',
-                                                                    }}
-                                                                >
-                                                                    Du har ikke tilgang til dette
-                                                                    dokumentet.
-                                                                </Alert>
-                                                            </>
-                                                        )}
-                                                    </HStack>
-                                                );
-                                            })}
+                                            {journalpost.dokumenter?.map(dokument => (
+                                                <DokumentRad
+                                                    key={dokument.dokumentInfoId}
+                                                    journalpost={journalpost}
+                                                    dokument={dokument}
+                                                />
+                                            ))}
                                         </VStack>
                                     }
                                 >
@@ -249,6 +192,93 @@ const Dokumentoversikt: React.FC = () => {
             </>
         );
     }
+};
+
+const DokumentRad: React.FC<{
+    journalpost: Journalpost;
+    dokument: DokumentInfo;
+}> = ({ journalpost, dokument }) => {
+    const harTilgang = dokument.dokumentvarianter.some(variant => variant?.brukerHarTilgang);
+    const [laster, setLaster] = useState<boolean>(false);
+    const [harFeilet, setHarFeilet] = useState<boolean>(false);
+
+    const hentDokument = async (): Promise<void> => {
+        if (laster) return;
+
+        setLaster(true);
+        setHarFeilet(false);
+
+        const response = await fetch(
+            `${appUrl}/api/dokument?journalpostId=${journalpost.journalpostId}&dokumentInfoId=${dokument.dokumentInfoId}`,
+            {
+                headers: {
+                    Accept: 'application/pdf',
+                },
+            }
+        );
+
+        if (!response.ok) {
+            const error = await response.text();
+            console.log(error);
+            setHarFeilet(true);
+            setLaster(false);
+            throw new Error(error);
+        }
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+        window.open(url, '_blank');
+
+        setLaster(false);
+    };
+
+    return (
+        <HStack minHeight="36px" align="center" gap="1 4">
+            {/* TODO: Skal filer som bruker ikke har tilgang på skjules i frontend eller bør dette heller gjøres i backend slik at det ikke er mulig å finne informasjon gjennom "inspect element" > "network"? */}
+            {harTilgang ? (
+                <>
+                    <Link
+                        href="#"
+                        onClick={e => {
+                            e.preventDefault();
+                            hentDokument();
+                        }}
+                    >
+                        {dokument.tittel || 'Dokument uten tittel'}
+                    </Link>
+                    {laster && <Loader size="small" />}
+                    {harFeilet && (
+                        <Alert
+                            variant="error"
+                            size="small"
+                            style={{
+                                padding: '0.2rem',
+                                paddingRight: '0.5rem',
+                            }}
+                        >
+                            Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen
+                            senere.
+                        </Alert>
+                    )}
+                </>
+            ) : (
+                <>
+                    <span>{dokument.tittel || 'Dokument uten tittel'}</span>
+                    <Alert
+                        variant="info"
+                        size="small"
+                        style={{
+                            padding: '0.2rem',
+                            paddingRight: '0.5rem',
+                        }}
+                    >
+                        Du har ikke tilgang til dette dokumentet.
+                    </Alert>
+                </>
+            )}
+        </HStack>
+    );
 };
 
 export default Dokumentoversikt;
