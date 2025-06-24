@@ -189,7 +189,7 @@ const Dokumentoversikt: React.FC = () => {
                                                                     'Dokument uten tittel'}
                                                             </Link>
                                                         ) : (
-                                                            <HStack gap="4" align="center">
+                                                            <>
                                                                 <span>
                                                                     {dokument.tittel ||
                                                                         'Dokument uten tittel'}
@@ -205,7 +205,7 @@ const Dokumentoversikt: React.FC = () => {
                                                                     Du har ikke tilgang til dette
                                                                     dokumentet.
                                                                 </Alert>
-                                                            </HStack>
+                                                            </>
                                                         )}
                                                     </HStack>
                                                 );
