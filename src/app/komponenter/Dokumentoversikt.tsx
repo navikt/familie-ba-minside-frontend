@@ -52,7 +52,7 @@ enum Status {
     Feilet = 'feilet',
 }
 
-const Dokumentoversikt: React.FC = () => {
+export default function Dokumentoversikt() {
     const [status, setStatus] = useState<Status>(Status.Laster);
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
 
@@ -192,12 +192,14 @@ const Dokumentoversikt: React.FC = () => {
             </>
         );
     }
-};
+}
 
-const DokumentRad: React.FC<{
+type DokumentRadProps = {
     journalpost: Journalpost;
     dokument: DokumentInfo;
-}> = ({ journalpost, dokument }) => {
+};
+
+function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     const harTilgang = dokument.dokumentvarianter.some(variant => variant?.brukerHarTilgang);
     const [laster, setLaster] = useState<boolean>(false);
     const [harFeilet, setHarFeilet] = useState<boolean>(false);
@@ -279,6 +281,4 @@ const DokumentRad: React.FC<{
             )}
         </HStack>
     );
-};
-
-export default Dokumentoversikt;
+}
