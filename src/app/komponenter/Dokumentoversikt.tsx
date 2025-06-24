@@ -201,55 +201,53 @@ type DokumentRadProps = {
 
 function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     const harTilgang = dokument.dokumentvarianter.some(variant => variant?.brukerHarTilgang);
-    const [laster, setLaster] = useState<boolean>(false);
-    const [harFeilet, setHarFeilet] = useState<boolean>(false);
+    const [laster, setLaster] = useState(false);
+    const [harFeilet, setHarFeilet] = useState(false);
 
-    const hentDokument = async (): Promise<void> => {
+    const hentDokument = async () => {
         if (laster) return;
-
         setLaster(true);
         setHarFeilet(false);
 
-        const response = await fetch(
-            `${appUrl}/api/dokument?journalpostId=${journalpost.journalpostId}&dokumentInfoId=${dokument.dokumentInfoId}`,
-            {
-                headers: {
-                    Accept: 'application/pdf',
-                },
+        let isMounted = true;
+        try {
+            const response = await fetch(
+                `${appUrl}/api/dokument?journalpostId=${journalpost.journalpostId}&dokumentInfoId=${dokument.dokumentInfoId}`,
+                { headers: { Accept: 'application/pdf' } }
+            );
+            if (!response.ok) {
+                if (isMounted) setHarFeilet(true);
+                return;
             }
-        );
-
-        if (!response.ok) {
-            const error = await response.text();
-            console.log(error);
-            setHarFeilet(true);
-            setLaster(false);
-            throw new Error(error);
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        } catch (error) {
+            console.error('Feil ved henting av dokument:', error);
+            if (isMounted) setHarFeilet(true);
+        } finally {
+            if (isMounted) setLaster(false);
         }
-
-        const blob = await response.blob();
-
-        const url = URL.createObjectURL(blob);
-        window.open(url, '_blank');
-
-        setLaster(false);
+        return () => {
+            isMounted = false;
+        };
     };
 
     return (
         <HStack minHeight="36px" align="center" gap="1 4">
-            {/* TODO: Skal filer som bruker ikke har tilgang på skjules i frontend eller bør dette heller gjøres i backend slik at det ikke er mulig å finne informasjon gjennom "inspect element" > "network"? */}
             {harTilgang ? (
                 <>
                     <Link
                         href="#"
+                        aria-busy={laster}
                         onClick={e => {
                             e.preventDefault();
                             hentDokument();
                         }}
                     >
                         {dokument.tittel || 'Dokument uten tittel'}
+                        {laster && <Loader size="xsmall" title="Laster..." />}
                     </Link>
-                    {laster && <Loader size="small" />}
                     {harFeilet && (
                         <Alert
                             variant="error"
