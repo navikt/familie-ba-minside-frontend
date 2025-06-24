@@ -5,7 +5,6 @@ import {
     BodyShort,
     Box,
     Button,
-    HStack,
     Link,
     Loader,
     Pagination,
@@ -29,6 +28,7 @@ import {
     Journalpost,
     Journalposttype,
 } from '@/app/typer/api/Dokumentoversikt';
+import { List, ListItem } from '@navikt/ds-react/List';
 
 const hentDokumenter = async (): Promise<Journalpost[]> => {
     const response = await fetch(`${appUrl}/api/dokumenter`);
@@ -41,10 +41,6 @@ const hentDokumenter = async (): Promise<Journalpost[]> => {
 
     return await response.json();
 };
-
-const manglerDokumentSpørsmålLenke = (
-    <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
-);
 
 enum Status {
     Laster = 'laster',
@@ -145,7 +141,7 @@ export default function Dokumentoversikt() {
                                     key={journalpost.journalpostId}
                                     shadeOnHover
                                     content={
-                                        <VStack gap="2">
+                                        <List>
                                             {journalpost.dokumenter?.map(dokument => (
                                                 <DokumentRad
                                                     key={dokument.dokumentInfoId}
@@ -153,7 +149,7 @@ export default function Dokumentoversikt() {
                                                     dokument={dokument}
                                                 />
                                             ))}
-                                        </VStack>
+                                        </List>
                                     }
                                 >
                                     <TableHeaderCell>{journalpost.tittel}</TableHeaderCell>
@@ -194,20 +190,36 @@ export default function Dokumentoversikt() {
     }
 }
 
+enum DokumentStatus {
+    IDLE = 'IDLE',
+    IKKE_TILGANG = 'IKKE_TILGANG',
+    LASTER = 'LASTER',
+    FEIL = 'FEIL',
+}
+
 type DokumentRadProps = {
     journalpost: Journalpost;
     dokument: DokumentInfo;
 };
 
 function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
+    const dokumentTittel = dokument.tittel || 'Dokument uten tittel';
+
     const harTilgang = dokument.dokumentvarianter.some(variant => variant?.brukerHarTilgang);
 
-    type Visning = 'IDLE' | 'IKKE_TILGANG' | 'LASTER' | 'FEIL';
-    const [visning, setVisning] = useState<Visning>(harTilgang ? 'IDLE' : 'IKKE_TILGANG');
+    const [dokumentStatus, setDokumentStatus] = useState(
+        harTilgang ? DokumentStatus.IDLE : DokumentStatus.IKKE_TILGANG
+    );
 
     const hentDokument = async () => {
-        if (visning === 'IKKE_TILGANG' || visning === 'LASTER') return;
-        setVisning('LASTER');
+        if (
+            dokumentStatus === DokumentStatus.IKKE_TILGANG ||
+            dokumentStatus === DokumentStatus.LASTER
+        ) {
+            return;
+        }
+
+        setDokumentStatus(DokumentStatus.LASTER);
 
         try {
             const response = await fetch(
@@ -215,62 +227,59 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                 { headers: { Accept: 'application/pdf' } }
             );
             if (!response.ok) {
-                setVisning('FEIL');
+                setDokumentStatus(DokumentStatus.FEIL);
                 return;
             }
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
             window.open(url, '_blank');
-            setVisning('IDLE');
+            setDokumentStatus(DokumentStatus.IDLE);
         } catch (error) {
             console.error('Feil ved henting og visning av dokument:', error);
-            setVisning('FEIL');
+            setDokumentStatus(DokumentStatus.FEIL);
         }
     };
 
     return (
-        <HStack minHeight="36px" align="center" gap="1 3">
-            {harTilgang ? (
-                <>
-                    <Link
-                        href="#"
-                        aria-busy={visning === 'LASTER'}
-                        onClick={e => {
-                            e.preventDefault();
-                            hentDokument();
-                        }}
-                    >
-                        {dokument.tittel || 'Dokument uten tittel'}
-                    </Link>
-                    {visning === 'LASTER' && <Loader size="small" title="Laster..." />}
-                    {visning === 'FEIL' && (
-                        <Alert
-                            variant="error"
-                            size="small"
-                            style={{
-                                padding: '0.2rem',
-                                paddingRight: '0.5rem',
-                            }}
-                        >
-                            Det oppstod en feil under vising av dokumentet.
+        <ListItem>
+            <VStack>
+                {harTilgang ? (
+                    <>
+                        <span>
+                            <Link
+                                href="#"
+                                aria-busy={dokumentStatus === 'LASTER'}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    hentDokument();
+                                }}
+                            >
+                                {dokumentTittel}
+                            </Link>
+                            {dokumentStatus === 'LASTER' && (
+                                <Loader size="xsmall" title="Laster..." />
+                            )}
+                        </span>
+                        {dokumentStatus === 'FEIL' && (
+                            <Alert variant="error" size="small">
+                                Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen
+                                senere.
+                            </Alert>
+                        )}
+                    </>
+                ) : (
+                    <>
+                        <span>{dokumentTittel}</span>
+                        <Alert variant="info" size="small">
+                            Du har ikke tilgang til dette dokumentet.
                         </Alert>
-                    )}
-                </>
-            ) : (
-                <>
-                    <span>{dokument.tittel || 'Dokument uten tittel'}</span>
-                    <Alert
-                        variant="info"
-                        size="small"
-                        style={{
-                            padding: '0.2rem',
-                            paddingRight: '0.5rem',
-                        }}
-                    >
-                        Du har ikke tilgang til dette dokumentet.
-                    </Alert>
-                </>
-            )}
-        </HStack>
+                    </>
+                )}
+            </VStack>
+        </ListItem>
     );
 }
+
+const manglerDokumentSpørsmålLenke = (
+    <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
+);
