@@ -201,36 +201,31 @@ type DokumentRadProps = {
 
 function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     const harTilgang = dokument.dokumentvarianter.some(variant => variant?.brukerHarTilgang);
-    const [laster, setLaster] = useState(false);
-    const [harFeilet, setHarFeilet] = useState(false);
+
+    type Visning = 'IDLE' | 'IKKE_TILGANG' | 'LASTER' | 'FEIL';
+    const [visning, setVisning] = useState<Visning>(harTilgang ? 'IDLE' : 'IKKE_TILGANG');
 
     const hentDokument = async () => {
-        if (laster) return;
-        setLaster(true);
-        setHarFeilet(false);
+        if (visning !== 'IDLE') return;
+        setVisning('LASTER');
 
-        let isMounted = true;
         try {
             const response = await fetch(
                 `${appUrl}/api/dokument?journalpostId=${journalpost.journalpostId}&dokumentInfoId=${dokument.dokumentInfoId}`,
                 { headers: { Accept: 'application/pdf' } }
             );
             if (!response.ok) {
-                if (isMounted) setHarFeilet(true);
+                setVisning('FEIL');
                 return;
             }
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
             window.open(url, '_blank');
+            setVisning('IDLE');
         } catch (error) {
-            console.error('Feil ved henting av dokument:', error);
-            if (isMounted) setHarFeilet(true);
-        } finally {
-            if (isMounted) setLaster(false);
+            console.error('Feil ved henting og visning av dokument:', error);
+            setVisning('FEIL');
         }
-        return () => {
-            isMounted = false;
-        };
     };
 
     return (
@@ -239,16 +234,16 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                 <>
                     <Link
                         href="#"
-                        aria-busy={laster}
+                        aria-busy={visning === 'LASTER'}
                         onClick={e => {
                             e.preventDefault();
                             hentDokument();
                         }}
                     >
                         {dokument.tittel || 'Dokument uten tittel'}
-                        {laster && <Loader size="xsmall" title="Laster..." />}
+                        {visning === 'LASTER' && <Loader size="small" title="Laster..." />}
                     </Link>
-                    {harFeilet && (
+                    {visning === 'FEIL' && (
                         <Alert
                             variant="error"
                             size="small"
@@ -257,8 +252,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                                 paddingRight: '0.5rem',
                             }}
                         >
-                            Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen
-                            senere.
+                            Det oppstod en feil under vising av dokumentet.
                         </Alert>
                     )}
                 </>
