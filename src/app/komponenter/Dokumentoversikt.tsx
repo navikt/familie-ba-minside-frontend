@@ -206,7 +206,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     const [visning, setVisning] = useState<Visning>(harTilgang ? 'IDLE' : 'IKKE_TILGANG');
 
     const hentDokument = async () => {
-        if (visning !== 'IDLE') return;
+        if (visning === 'IKKE_TILGANG' || visning === 'LASTER') return;
         setVisning('LASTER');
 
         try {
@@ -229,7 +229,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     };
 
     return (
-        <HStack minHeight="36px" align="center" gap="1 4">
+        <HStack minHeight="36px" align="center" gap="1 3">
             {harTilgang ? (
                 <>
                     <Link
@@ -241,8 +241,8 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                         }}
                     >
                         {dokument.tittel || 'Dokument uten tittel'}
-                        {visning === 'LASTER' && <Loader size="small" title="Laster..." />}
                     </Link>
+                    {visning === 'LASTER' && <Loader size="small" title="Laster..." />}
                     {visning === 'FEIL' && (
                         <Alert
                             variant="error"
