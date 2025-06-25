@@ -257,7 +257,9 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                                 {dokumentTittel}
                             </Link>
                             {dokumentStatus === 'LASTER' && (
-                                <Loader size="xsmall" title="Laster..." />
+                                <Box as="span" marginInline="2 0">
+                                    <Loader size="xsmall" title="Laster..." />
+                                </Box>
                             )}
                         </span>
                         {dokumentStatus === 'FEIL' && (
