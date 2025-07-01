@@ -16,8 +16,10 @@ import BarnetrygdMedium from './komponenter/pictograms/barnetrygd/medium';
 import AleneSmall from './komponenter/pictograms/alene/small';
 import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
 import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
+import { logger } from '@navikt/next-logger';
 
 export default function Page() {
+    logger.warn('Testadvarsel');
     return (
         <>
             <Seksjon>
