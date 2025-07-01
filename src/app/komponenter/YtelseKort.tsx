@@ -2,12 +2,13 @@ import { BodyLong, Box, Button, Heading, HStack, VStack } from '@navikt/ds-react
 import { ReactNode } from 'react';
 
 interface Props {
+    href?: string;
     tittel?: ReactNode;
     ikon?: ReactNode;
     children?: ReactNode;
 }
 
-export default function YtelseKort({ tittel, ikon, children }: Props) {
+export default function YtelseKort({ href, tittel, ikon, children }: Props) {
     return (
         <Box padding="6" borderRadius="xlarge" shadow="medium">
             <VStack height="100%" justify="space-between">
@@ -22,7 +23,9 @@ export default function YtelseKort({ tittel, ikon, children }: Props) {
                         {children}
                     </BodyLong>
                 </Box>
-                <Button variant="secondary">Les mer</Button>
+                <Button as="a" href={href} variant="secondary">
+                    Les mer
+                </Button>
             </VStack>
         </Box>
     );

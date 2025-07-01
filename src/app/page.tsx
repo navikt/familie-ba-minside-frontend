@@ -42,21 +42,23 @@ export default function Page() {
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
                 <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
                     <LenkePanel
-                        href="#"
+                        href="https://www.nav.no/kontaktoss"
                         tittel="Skriv til oss"
                         ikon={<Chat2Icon title="Snakkeboble" fontSize="2rem" />}
                     >
                         <BodyLong textColor="subtle">
-                            Har du spørsmål til saken din eller vil melde fra om noe annet?
+                            Har du spørsmål til saken din eller vil melde fra om annet enn din
+                            situasjon?
                         </BodyLong>
                     </LenkePanel>
                     <LenkePanel
-                        href="#"
+                        href="https://www.nav.no/person/kontakt-oss/meld-fra-om-endringer-innbokser/meld-fra-om-endring-barnetrygd-og-utvidet-barnetrygd"
                         tittel="Meld fra om endringer"
                         ikon={<GavelIcon title="Endringer i din situasjon" fontSize="2rem" />}
                     >
                         <BodyLong textColor="subtle">
-                            Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
+                            Vil du melde fra om endringer i din situasjon, opphold eller
+                            arbeidsforhold i utlandet?
                         </BodyLong>
                     </LenkePanel>
                 </Seksjon.Innhold>
@@ -66,25 +68,23 @@ export default function Page() {
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
                 <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
                     <LenkePanel
-                        href="#"
+                        href="https://www.nav.no/klage#barnetrygd"
                         tittel="Slik klager du"
                         ikon={<ThumbDownIcon title="Klage" fontSize="2rem" />}
                         graBakgrunn
                     >
                         <BodyLong textColor="subtle">
-                            Du har rett til å klage eller anke hvis du er uenig i vedtaket.
+                            Du har rett til å klage eller anke hvis du er uenig i vedtaket
                         </BodyLong>
                     </LenkePanel>
 
                     <LenkePanel
-                        href="#"
+                        href="https://www.nav.no/saksbehandlingstider#barnetrygd"
                         tittel="Saksbehandlingstider"
                         ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
                         graBakgrunn
                     >
-                        <BodyLong textColor="subtle">
-                            Se saksbehandlingstider og ventetider for barnetrygd.
-                        </BodyLong>
+                        <BodyLong textColor="subtle">Se saksbehandlingstider</BodyLong>
                     </LenkePanel>
                 </Seksjon.Innhold>
             </Seksjon>
@@ -104,6 +104,7 @@ export default function Page() {
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
                 <Seksjon.Innhold kolonner={{ sm: 1, md: 2, lg: 3 }}>
                     <YtelseKort
+                        href="https://www.nav.no/alene-med-barn"
                         tittel="For deg som er helt eller delvis alene med barn"
                         ikon={<Pictogram svgInnhold={<Alene />} />}
                     >
@@ -113,6 +114,7 @@ export default function Page() {
                     </YtelseKort>
 
                     <YtelseKort
+                        href="https://www.nav.no/utvidet-barnetrygd"
                         tittel="Les mer om utvidet barnetrygd"
                         ikon={<Pictogram svgInnhold={<UtvidetBarnetrygd />} />}
                     >
@@ -120,6 +122,7 @@ export default function Page() {
                     </YtelseKort>
 
                     <YtelseKort
+                        href="https://www.nav.no/andres-barn"
                         tittel="Har ansvar for andres barn"
                         ikon={<Pictogram svgInnhold={<AnsvarForAndresBarn />} />}
                     >

@@ -37,14 +37,14 @@ export default function LenkePanel({ href, tittel, ikon, children, graBakgrunn }
                         </Box>
                     )}
                 </Box>
-                <Box width="fit-content" paddingBlock="6">
+                <VStack width="fit-content" paddingBlock="6" gap="1">
                     {tittel && (
                         <Heading level="3" size="small" style={{ textDecoration: 'underline' }}>
                             {tittel}
                         </Heading>
                     )}
                     {children}
-                </Box>
+                </VStack>
             </HStack>
         </Box>
     );
