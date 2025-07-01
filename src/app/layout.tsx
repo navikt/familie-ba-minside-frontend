@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev } from './util/miljø';
+import { LoggerWrapper } from './komponenter/LoggerWrapper';
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
     const Decorator = await fetchDecoratorReact({
@@ -26,7 +27,7 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
             >
                 <Decorator.Header />
                 <PageBlock as="main">
-                    <>{children}</>
+                    <LoggerWrapper>{children}</LoggerWrapper>
                 </PageBlock>
             </Page>
         </html>
