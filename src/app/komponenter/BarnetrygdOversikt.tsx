@@ -11,7 +11,7 @@ import { AsyncResult } from '@/app/typer/api/AsyncResult';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     try {
-        const response = await fetch(new URL(`${appUrl}/api/minside/barnetrygd`));
+        const response = await fetch(new URL(`${appUrl}/api/barnetrygd`));
         if (!response.ok) {
             const feilDto = (await response.json()) as HentMinSideBarnetrygdFeilDto;
             return AsyncResult.failure(feilDto.feilmelding);
@@ -116,8 +116,18 @@ function Fallback() {
                     </VStack>
                 </div>
                 <Box width={'100%'} padding={'6'}>
-                    <Skeleton variant={'text'} width={'75%'} height={'2.5rem'} />
-                    <Skeleton variant={'text'} width={'75%'} height={'2.5rem'} />
+                    <Skeleton
+                        data-testid={'skeleton1'}
+                        variant={'text'}
+                        width={'75%'}
+                        height={'2.5rem'}
+                    />
+                    <Skeleton
+                        data-testid={'skeleton2'}
+                        variant={'text'}
+                        width={'75%'}
+                        height={'2.5rem'}
+                    />
                 </Box>
             </HStack>
         </Box>

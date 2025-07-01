@@ -4,10 +4,7 @@ import { hentOboToken } from '@/server/auth/hentOboToken';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { erProd, hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
 import { v4 as uuidv4 } from 'uuid';
-import {
-    HentMinSideBarnetrygdFeilDto,
-    HentMinSideBarnetrygdSuksessDto,
-} from '@/app/typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdDto, HentMinSideBarnetrygdFeilDto } from '@/app/typer/api/Barnetrygd';
 
 export async function GET(req: NextRequest) {
     const oboToken: OboTokenResponse = await hentOboToken(
@@ -34,8 +31,8 @@ export async function GET(req: NextRequest) {
                 'Nav-Call-Id': uuidv4(),
             },
         });
-        const data = await response.json();
-        return NextResponse.json<HentMinSideBarnetrygdSuksessDto>(data, {
+        const data = (await response.json()) as HentMinSideBarnetrygdDto;
+        return NextResponse.json<HentMinSideBarnetrygdDto>(data, {
             status: response.status,
             headers: response.headers,
         });
