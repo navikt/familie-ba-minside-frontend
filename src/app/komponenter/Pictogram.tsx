@@ -5,7 +5,7 @@ type Props = {
     størrelse?: 'stor' | 'medium' | 'liten' | number;
 };
 
-const AleneSmall: React.FC<Props> = ({ svgInnhold, størrelse = 'medium' }) => {
+export default function AleneSmall({ svgInnhold, størrelse = 'medium' }: Props) {
     const størrelseIPx =
         størrelse === 'stor'
             ? 64
@@ -26,6 +26,4 @@ const AleneSmall: React.FC<Props> = ({ svgInnhold, størrelse = 'medium' }) => {
             {svgInnhold}
         </svg>
     );
-};
-
-export default AleneSmall;
+}

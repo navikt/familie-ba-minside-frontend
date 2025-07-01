@@ -1,4 +1,4 @@
-const Barnetrygd: React.FC = () => {
+export default function Barnetrygd() {
     return (
         <>
             <g clipPath="url(#clip0_1_408)">
@@ -55,6 +55,4 @@ const Barnetrygd: React.FC = () => {
             </defs>
         </>
     );
-};
-
-export default Barnetrygd;
+}

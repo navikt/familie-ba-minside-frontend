@@ -9,7 +9,7 @@ interface Props {
     graBakgrunn?: boolean;
 }
 
-const LenkePanel: React.FC<Props> = ({ href, tittel, ikon, children, graBakgrunn }) => {
+export default function LenkePanel({ href, tittel, ikon, children, graBakgrunn }: Props) {
     return (
         <Box
             as="a"
@@ -48,6 +48,4 @@ const LenkePanel: React.FC<Props> = ({ href, tittel, ikon, children, graBakgrunn
             </HStack>
         </Box>
     );
-};
-
-export default LenkePanel;
+}

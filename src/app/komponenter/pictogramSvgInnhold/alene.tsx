@@ -1,4 +1,4 @@
-const Alene: React.FC = () => {
+export default function Alene() {
     return (
         <>
             <g clipPath="url(#clip0_1_3673)">
@@ -52,6 +52,4 @@ const Alene: React.FC = () => {
             </defs>
         </>
     );
-};
-
-export default Alene;
+}

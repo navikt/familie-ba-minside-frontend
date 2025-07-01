@@ -18,7 +18,7 @@ import Alene from './komponenter/pictogramSvgInnhold/alene';
 import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
 import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
 
-const Page: React.FC = () => {
+export default function Page() {
     return (
         <>
             <Seksjon>
@@ -130,6 +130,4 @@ const Page: React.FC = () => {
             </Seksjon>
         </>
     );
-};
-
-export default Page;
+}

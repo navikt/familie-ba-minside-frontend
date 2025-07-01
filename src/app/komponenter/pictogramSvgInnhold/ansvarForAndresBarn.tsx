@@ -1,4 +1,4 @@
-const AnsvarForAndresBarn: React.FC = () => {
+export default function AnsvarForAndresBarn() {
     return (
         <>
             <g clipPath="url(#clip0_290_920)">
@@ -67,6 +67,4 @@ const AnsvarForAndresBarn: React.FC = () => {
             </defs>
         </>
     );
-};
-
-export default AnsvarForAndresBarn;
+}

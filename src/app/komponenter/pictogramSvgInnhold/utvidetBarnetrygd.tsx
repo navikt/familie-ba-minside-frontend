@@ -1,4 +1,4 @@
-const UtvidetBarnetrygd: React.FC = () => {
+export default function UtvidetBarnetrygd() {
     return (
         <>
             <g clipPath="url(#clip0_1_2180)">
@@ -162,6 +162,4 @@ const UtvidetBarnetrygd: React.FC = () => {
             </defs>
         </>
     );
-};
-
-export default UtvidetBarnetrygd;
+}

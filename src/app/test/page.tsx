@@ -12,7 +12,7 @@ const hentDokumenter = async () => {
     return await response.json();
 };
 
-const Page: React.FC = () => {
+export default function Page() {
     return (
         <VStack gap={'2'}>
             <Button
@@ -28,6 +28,4 @@ const Page: React.FC = () => {
             </Button>
         </VStack>
     );
-};
-
-export default Page;
+}

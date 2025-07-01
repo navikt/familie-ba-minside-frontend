@@ -7,7 +7,7 @@ interface Props {
     children?: ReactNode;
 }
 
-const YtelseKort: React.FC<Props> = ({ tittel, ikon, children }) => {
+export default function YtelseKort({ tittel, ikon, children }: Props) {
     return (
         <Box padding="6" borderRadius="xlarge" shadow="medium">
             <VStack height="100%" justify="space-between">
@@ -26,6 +26,4 @@ const YtelseKort: React.FC<Props> = ({ tittel, ikon, children }) => {
             </VStack>
         </Box>
     );
-};
-
-export default YtelseKort;
+}
