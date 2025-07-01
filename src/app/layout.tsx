@@ -2,11 +2,11 @@ import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
-import { erDev } from './util/miljø';
+import { erProd } from './util/miljø';
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
     const Decorator = await fetchDecoratorReact({
-        env: erDev() ? 'dev' : 'prod',
+        env: erProd() ? 'prod' : 'dev',
     });
 
     return (
