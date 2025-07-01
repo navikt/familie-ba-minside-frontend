@@ -13,10 +13,10 @@ export default function YtelseKort({ tittel, ikon, children }: Props) {
             <VStack height="100%" justify="space-between">
                 <Box>
                     <HStack align="start" gap="4" marginBlock="0 4">
-                        {ikon}
                         <Heading level="3" size="small" style={{ flex: 1 }}>
                             {tittel}
                         </Heading>
+                        {ikon}
                     </HStack>
                     <BodyLong textColor="subtle" spacing>
                         {children}
