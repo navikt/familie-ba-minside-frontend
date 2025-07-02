@@ -97,13 +97,14 @@ export default function Dokumentoversikt() {
                 <BodyShort spacing>
                     Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.
                 </BodyShort>
-                <BodyShort spacing>
+                {/* TODO: Skal dette være med i feilmelding? Hvis ja, hva skal det lenke til? */}
+                {/* <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
                     <Link inlineText href="#">
                         ta kontakt med Nav
                     </Link>
                     .
-                </BodyShort>
+                </BodyShort> */}
                 <Button variant="secondary-neutral" onClick={hentOgSettDokumenter}>
                     Prøv på nytt
                 </Button>
