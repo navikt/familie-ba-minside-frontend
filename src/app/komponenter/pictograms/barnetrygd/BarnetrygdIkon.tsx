@@ -1,10 +1,13 @@
 interface Props {
+    label?: string;
     size?: string;
 }
 
-export function BarnetrygdIkon({ size = '64' }: Props) {
+export function BarnetrygdIkon({ label = 'Barnetrygd', size = '64' }: Props) {
     return (
         <svg
+            aria-label={label}
+            role={'img'}
             width={size}
             height={size}
             viewBox="0 0 96 96"

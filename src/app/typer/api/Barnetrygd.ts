@@ -14,3 +14,7 @@ export interface HentMinSideBarnetrygdSuksessDto {
 export interface HentMinSideBarnetrygdFeilDto {
     feilmelding: string;
 }
+
+export type HentMinSideBarnetrygdDto =
+    | HentMinSideBarnetrygdSuksessDto
+    | HentMinSideBarnetrygdFeilDto;
