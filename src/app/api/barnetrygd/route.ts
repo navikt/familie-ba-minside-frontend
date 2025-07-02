@@ -1,8 +1,8 @@
-import { integrasjonerAudience } from '@/app/util/audience';
+import { AudienceBaSak } from '@/app/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
-import { hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
+import { erProd, hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
 import { v4 as uuidv4 } from 'uuid';
 import {
     HentMinSideBarnetrygdFeilDto,
@@ -10,7 +10,10 @@ import {
 } from '@/app/typer/api/Barnetrygd';
 
 export async function GET(req: NextRequest) {
-    const oboToken: OboTokenResponse = await hentOboToken(req, integrasjonerAudience);
+    const oboToken: OboTokenResponse = await hentOboToken(
+        req,
+        erProd() ? AudienceBaSak.PROD : AudienceBaSak.DEV
+    );
 
     if (!oboToken.ok) {
         return NextResponse.json<HentMinSideBarnetrygdFeilDto>(
