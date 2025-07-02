@@ -1,13 +1,13 @@
 export const erProd = () => {
     if (typeof window === 'undefined') {
-        return process.env.ENV === 'prod';
+        return process.env.NODE_ENV === 'production';
     }
     return window.location.hostname.indexOf('www') > -1;
 };
 
 export const erDev = () => {
     if (typeof window === 'undefined') {
-        return process.env.ENV === 'dev';
+        return process.env.NODE_ENV === 'development';
     }
     return window.location.hostname.indexOf('dev') > -1;
 };
@@ -41,10 +41,11 @@ export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
 
 export function hentFamilieBaSakBaseUrl(): string {
     if (erProd()) {
-        return 'https://familie-ba-sak.intern.nav.no/familie-ba-sak';
+        return 'https://familie-ba-sak.intern.nav.no';
     }
     if (erDev()) {
-        return 'https://familie-ba-sak.intern.dev.nav.no/familie-ba-sak';
+        return 'https://familie-ba-sak.intern.dev.nav.no';
     }
-    return 'http://127.0.0.1:8000/familie-ba-sak';
+    return 'https://familie-ba-sak.intern.dev.nav.no';
+    //return 'http://127.0.0.1:8000';
 }

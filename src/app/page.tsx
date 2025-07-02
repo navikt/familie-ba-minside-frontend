@@ -16,7 +16,6 @@ import { BarnetrygdIkon } from '@/app/komponenter/pictograms/barnetrygd/Barnetry
 import AleneSmall from './komponenter/pictograms/alene/small';
 import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/small';
 import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
-import { Suspense } from 'react';
 import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
 
 export default function Page() {
@@ -41,9 +40,7 @@ export default function Page() {
 
             <Seksjon marginBlock={'space-0'}>
                 <Seksjon.Innhold>
-                    <Suspense fallback={<BarnetrygdOversikt.Fallback />}>
-                        <BarnetrygdOversikt />
-                    </Suspense>
+                    <BarnetrygdOversikt />
                 </Seksjon.Innhold>
             </Seksjon>
 
