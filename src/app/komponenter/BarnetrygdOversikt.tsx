@@ -72,7 +72,7 @@ export async function BarnetrygdOversikt() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <BarnetrygdIkon size={'8rem'} />
+                        <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
                     </VStack>
                 </div>
                 <Box width={'100%'} padding={'6'}>
