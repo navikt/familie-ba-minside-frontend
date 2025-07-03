@@ -1,22 +1,27 @@
-import { BoxProps, Heading, HGrid, HGridProps, VStack } from '@navikt/ds-react';
+import { BoxProps, Heading, HGrid, HGridProps, VStack, VStackProps } from '@navikt/ds-react';
 import { PageBlock } from '@navikt/ds-react/Page';
 import { Box } from '@navikt/ds-react';
-import React, { PropsWithChildren } from 'react';
+import React, { ReactNode, PropsWithChildren } from 'react';
 
 interface SeksjonProps {
-    bakgrunn?: BoxProps['background'];
-    children: React.ReactNode;
+    background?: BoxProps['background'];
+    marginBlock?: VStackProps['marginBlock'];
+    paddingBlock?: VStackProps['paddingBlock'];
+    gap?: VStackProps['gap'];
+    children: ReactNode;
 }
 
-export function Seksjon({ bakgrunn, children }: SeksjonProps) {
+export function Seksjon({
+    background,
+    marginBlock = { xs: '14 0', lg: '16 0' },
+    paddingBlock = { xs: '14', lg: '16' },
+    gap = { xs: '4', lg: '6' },
+    children,
+}: SeksjonProps) {
     return (
-        <Box background={bakgrunn}>
+        <Box background={background}>
             <PageBlock as={'section'} width={'lg'} gutters={true}>
-                <VStack
-                    marginBlock={{ xs: '14 0', lg: '16 0' }}
-                    paddingBlock={{ xs: '14', lg: '16' }}
-                    gap={{ xs: '4', lg: '6' }}
-                >
+                <VStack marginBlock={marginBlock} paddingBlock={paddingBlock} gap={gap}>
                     {children}
                 </VStack>
             </PageBlock>
@@ -25,18 +30,19 @@ export function Seksjon({ bakgrunn, children }: SeksjonProps) {
 }
 
 interface InnholdProps extends PropsWithChildren {
-    kolonner?: HGridProps['columns'];
+    columns?: HGridProps['columns'];
+    gap?: HGridProps['gap'];
 }
 
-function SeksjonInnhold({ kolonner = 1, children }: InnholdProps) {
+function Innhold({ columns = 1, gap = { xs: '4', lg: '6' }, children }: InnholdProps) {
     return (
-        <HGrid columns={kolonner} gap={{ xs: '4', lg: '6' }}>
+        <HGrid columns={columns} gap={gap}>
             {children}
         </HGrid>
     );
 }
 
-function SeksjonTittel({ children }: PropsWithChildren) {
+function Tittel({ children }: PropsWithChildren) {
     return (
         <Heading level={'2'} size={'medium'}>
             {children}
@@ -44,5 +50,5 @@ function SeksjonTittel({ children }: PropsWithChildren) {
     );
 }
 
-Seksjon.Tittel = SeksjonTittel;
-Seksjon.Innhold = SeksjonInnhold;
+Seksjon.Tittel = Tittel;
+Seksjon.Innhold = Innhold;

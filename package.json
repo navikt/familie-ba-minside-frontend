@@ -10,7 +10,7 @@
     "lint": "next lint",
     "prettier": "prettier -l \"src/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky",
-    "test": "echo \"Ingen tester\"",
+    "test": "vitest",
     "clean": "rm -rf dist",
     "validate": "yarn typecheck && yarn lint && yarn prettier",
     "typecheck": "tsc --noEmit -p tsconfig.json"
@@ -26,19 +26,28 @@
     "jsdom": "^26.1.0",
     "next": "15.3.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.6.0",
     "concurrently": "^9.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^10.1.1",
     "husky": "^9.1.7",
+    "msw": "^2.10.2",
     "prettier": "^3.6.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   }
 }

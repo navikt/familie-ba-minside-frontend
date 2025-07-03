@@ -17,6 +17,8 @@ import Barnetrygd from './komponenter/pictogramSvgInnhold/barnetrygd';
 import Alene from './komponenter/pictogramSvgInnhold/alene';
 import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
 import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
+import { Suspense } from 'react';
+import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
 
 export default function Page() {
     return (
@@ -38,9 +40,17 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon bakgrunn={'surface-subtle'}>
+            <Seksjon marginBlock={'space-0'}>
+                <Seksjon.Innhold>
+                    <Suspense fallback={<BarnetrygdOversikt.Fallback />}>
+                        <BarnetrygdOversikt />
+                    </Suspense>
+                </Seksjon.Innhold>
+            </Seksjon>
+
+            <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
+                <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LenkePanel
                         href="https://www.nav.no/kontaktoss"
                         tittel="Skriv til oss"
@@ -66,7 +76,7 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ md: 1, lg: 2 }}>
+                <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LenkePanel
                         href="https://www.nav.no/klage#barnetrygd"
                         tittel="Slik klager du"
@@ -89,7 +99,7 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon bakgrunn={'surface-subtle'}>
+            <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
                 <Seksjon.Innhold>
                     <BodyLong>
@@ -102,7 +112,7 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
-                <Seksjon.Innhold kolonner={{ sm: 1, md: 2, lg: 3 }}>
+                <Seksjon.Innhold columns={{ sm: 1, md: 2, lg: 3 }}>
                     <YtelseKort
                         href="https://www.nav.no/alene-med-barn"
                         tittel="For deg som er helt eller delvis alene med barn"
