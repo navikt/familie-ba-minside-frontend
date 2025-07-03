@@ -5,9 +5,10 @@ import {
     HentMinSideBarnetrygdSuksessDto,
 } from '@/app/typer/api/Barnetrygd';
 import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
-import { BarnetrygdIkon } from '@/app/komponenter/pictograms/barnetrygd/BarnetrygdIkon';
 import { appUrl, erProd } from '@/app/util/miljø';
 import { AsyncResult } from '@/app/typer/api/AsyncResult';
+import Pictogram from './Pictogram';
+import BarnetrygdIkon from './pictogramSvgInnhold/barnetrygd';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     try {
@@ -38,7 +39,7 @@ export async function BarnetrygdOversikt() {
                             align={'center'}
                             justify={'center'}
                         >
-                            <BarnetrygdIkon size={'8rem'} />
+                            <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
                         </VStack>
                     </div>
                     <Box width={'100%'} padding={'6'}>
@@ -112,7 +113,7 @@ function Fallback() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <BarnetrygdIkon size={'8rem'} />
+                        <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
                     </VStack>
                 </div>
                 <Box width={'100%'} padding={'6'}>
