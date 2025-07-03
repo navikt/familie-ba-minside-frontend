@@ -10,7 +10,6 @@ import { BodyLong, BodyShort, Heading, HStack } from '@navikt/ds-react';
 
 import { Seksjon } from './komponenter/Seksjon';
 import LenkePanel from './komponenter/LenkePanel';
-import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
 import Pictogram from './komponenter/Pictogram';
 import Barnetrygd from './komponenter/pictogramSvgInnhold/barnetrygd';
@@ -19,6 +18,7 @@ import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetry
 import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
+import { Dokumentoversikt } from './komponenter/Dokumentoversikt';
 
 export default function Page() {
     return (

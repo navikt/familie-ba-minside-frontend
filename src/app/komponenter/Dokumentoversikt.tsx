@@ -30,7 +30,7 @@ import {
 } from '@/app/typer/api/Dokumentoversikt';
 import { List, ListItem } from '@navikt/ds-react/List';
 
-const hentDokumenter = async (): Promise<Journalpost[]> => {
+async function hentDokumenter(): Promise<Journalpost[]> {
     const response = await fetch(`${appUrl}/api/dokumenter`);
 
     if (!response.ok) {
@@ -40,7 +40,7 @@ const hentDokumenter = async (): Promise<Journalpost[]> => {
     }
 
     return await response.json();
-};
+}
 
 enum Status {
     Laster = 'laster',
@@ -48,7 +48,7 @@ enum Status {
     Feilet = 'feilet',
 }
 
-export default function Dokumentoversikt() {
+export function Dokumentoversikt() {
     const [status, setStatus] = useState<Status>(Status.Laster);
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
 
@@ -97,14 +97,13 @@ export default function Dokumentoversikt() {
                 <BodyShort spacing>
                     Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.
                 </BodyShort>
-                {/* TODO: Skal dette være med i feilmelding? Hvis ja, hva skal det lenke til? */}
-                {/* <BodyShort spacing>
+                <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
                     <Link inlineText href="#">
                         ta kontakt med Nav
                     </Link>
                     .
-                </BodyShort> */}
+                </BodyShort>
                 <Button variant="secondary-neutral" onClick={hentOgSettDokumenter}>
                     Prøv på nytt
                 </Button>
@@ -203,6 +202,19 @@ type DokumentRadProps = {
     dokument: DokumentInfo;
 };
 
+async function hentDokument(journalpostId: string, dokumentInfoId: string): Promise<Blob> {
+    const response = await fetch(
+        `${appUrl}/api/dokument?journalpostId=${journalpostId}&dokumentInfoId=${dokumentInfoId}`,
+        { headers: { Accept: 'application/pdf' } }
+    );
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch document: ${response.statusText}`);
+    }
+
+    return await response.blob();
+}
+
 function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     const dokumentTittel = dokument.tittel || 'Dokument uten tittel';
 
@@ -212,7 +224,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
         harTilgang ? DokumentStatus.IDLE : DokumentStatus.IKKE_TILGANG
     );
 
-    const hentDokument = async () => {
+    const hentOgVisDokument = async () => {
         if (
             dokumentStatus === DokumentStatus.IKKE_TILGANG ||
             dokumentStatus === DokumentStatus.LASTER
@@ -223,15 +235,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
         setDokumentStatus(DokumentStatus.LASTER);
 
         try {
-            const response = await fetch(
-                `${appUrl}/api/dokument?journalpostId=${journalpost.journalpostId}&dokumentInfoId=${dokument.dokumentInfoId}`,
-                { headers: { Accept: 'application/pdf' } }
-            );
-            if (!response.ok) {
-                setDokumentStatus(DokumentStatus.FEIL);
-                return;
-            }
-            const blob = await response.blob();
+            const blob = await hentDokument(journalpost.journalpostId, dokument.dokumentInfoId);
             const url = URL.createObjectURL(blob);
             window.open(url, '_blank');
             setDokumentStatus(DokumentStatus.IDLE);
@@ -252,7 +256,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                                 aria-busy={dokumentStatus === 'LASTER'}
                                 onClick={e => {
                                     e.preventDefault();
-                                    hentDokument();
+                                    hentOgVisDokument();
                                 }}
                             >
                                 {dokumentTittel}
