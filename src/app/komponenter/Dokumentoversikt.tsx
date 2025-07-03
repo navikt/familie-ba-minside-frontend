@@ -43,13 +43,13 @@ async function hentDokumenter(): Promise<Journalpost[]> {
 }
 
 enum Status {
-    Laster = 'laster',
-    Lastet = 'lastet',
-    Feilet = 'feilet',
+    LASTER = 'LASTER',
+    LASTET = 'LASTET',
+    FEILET = 'FEILET',
 }
 
 export function Dokumentoversikt() {
-    const [status, setStatus] = useState<Status>(Status.Laster);
+    const [status, setStatus] = useState<Status>(Status.LASTER);
     const [journalposter, setJournalposter] = useState<Journalpost[]>([]);
 
     const [valgtSide, setValgtSide] = useState<number>(1);
@@ -64,15 +64,15 @@ export function Dokumentoversikt() {
     const antallTommeRader = visPagination ? maksAntallRaderPerSide - visteJournalposter.length : 0;
 
     const hentOgSettDokumenter = async () => {
-        setStatus(Status.Laster);
+        setStatus(Status.LASTER);
         try {
             const data = await hentDokumenter();
             setJournalposter(data);
-            setStatus(Status.Lastet);
+            setStatus(Status.LASTET);
         } catch (error) {
             console.error(error);
             setJournalposter([]);
-            setStatus(Status.Feilet);
+            setStatus(Status.FEILET);
         }
     };
 
@@ -80,7 +80,7 @@ export function Dokumentoversikt() {
         hentOgSettDokumenter();
     }, []);
 
-    if (status === Status.Laster) {
+    if (status === Status.LASTER) {
         return (
             <Box>
                 <BodyShort>Henter dokumenter...</BodyShort>
@@ -91,7 +91,7 @@ export function Dokumentoversikt() {
         );
     }
 
-    if (status === Status.Feilet) {
+    if (status === Status.FEILET) {
         return (
             <Alert variant="error">
                 <BodyShort spacing>
@@ -111,7 +111,7 @@ export function Dokumentoversikt() {
         );
     }
 
-    if (status === Status.Lastet) {
+    if (status === Status.LASTET) {
         if (journalposter.length === 0) {
             return (
                 <>
