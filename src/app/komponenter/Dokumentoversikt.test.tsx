@@ -17,20 +17,22 @@ describe('Dokumentoversikt', () => {
     const spørsmålOmDokumenterManglerTekst =
         'Har du sendt en søknad eller et dokument som ikke vises her?';
 
-    const dokumentvariantMock = (): Dokumentvariant => ({
+    const dokumentvariantMock = (overrides: Partial<Dokumentvariant> = {}): Dokumentvariant => ({
         variantformat: Variantformat.ARKIV,
         code: ['code'],
         filtype: 'PDF',
         brukerHarTilgang: true,
+        ...overrides,
     });
 
-    const dokumentMock = (): DokumentInfo => ({
+    const dokumentMock = (overrides: Partial<DokumentInfo> = {}): DokumentInfo => ({
         dokumentInfoId: 'abc',
         tittel: 'Test dokument',
         dokumentvarianter: [dokumentvariantMock()],
+        ...overrides,
     });
 
-    const journalpostMock = (): Journalpost => ({
+    const journalpostMock = (overrides: Partial<Journalpost> = {}): Journalpost => ({
         journalpostId: '123',
         tittel: 'Test journalpost',
         journalposttype: 'I' as Journalposttype,
@@ -38,6 +40,7 @@ describe('Dokumentoversikt', () => {
             { datotype: 'DATO_OPPRETTET' as Datotype, dato: new Date('2024-01-01T12:00:00Z') },
         ],
         dokumenter: [dokumentMock()],
+        ...overrides,
     });
 
     test('viser henter tekst mens dokumenter lastes', async () => {
@@ -100,8 +103,66 @@ describe('Dokumentoversikt', () => {
         const førsteRad = container.querySelector('tr');
         const førsteDataCell = førsteRad?.querySelector('td');
         const utvidRadKnapp = førsteDataCell?.querySelector('button') as HTMLButtonElement;
-
         userEvent.click(utvidRadKnapp);
+
         await screen.findByText('Test dokument');
+    });
+
+    test('viser dokumentrad uten tilgang', async () => {
+        server.use(
+            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () =>
+                HttpResponse.json([
+                    journalpostMock({
+                        dokumenter: [
+                            dokumentMock({
+                                tittel: 'Ikke tilgang dokument',
+                                dokumentvarianter: [
+                                    dokumentvariantMock({ brukerHarTilgang: false }),
+                                ],
+                            }),
+                        ],
+                    }),
+                ])
+            )
+        );
+
+        const { screen, container } = render(<Dokumentoversikt />);
+
+        await screen.findByText('Test journalpost');
+
+        const førsteRad = container.querySelector('tr');
+        const førsteDataCell = førsteRad?.querySelector('td');
+        const utvidRadKnapp = førsteDataCell?.querySelector('button') as HTMLButtonElement;
+        userEvent.click(utvidRadKnapp);
+
+        await screen.findByText('Ikke tilgang dokument');
+        expect(screen.getByText('Du har ikke tilgang til dette dokumentet.')).toBeInTheDocument();
+    });
+
+    test('viser feilmelding hvis dokumentvisning feiler', async () => {
+        server.use(
+            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () =>
+                HttpResponse.json([journalpostMock()])
+            ),
+            http.get('/barnetrygd/min-barnetrygd/api/dokument', () =>
+                HttpResponse.text('Feil!', { status: 500 })
+            )
+        );
+
+        const { screen, container } = render(<Dokumentoversikt />);
+
+        await screen.findByText('Test journalpost');
+
+        const førsteRad = container.querySelector('tr');
+        const førsteDataCell = førsteRad?.querySelector('td');
+        const utvidRadKnapp = førsteDataCell?.querySelector('button') as HTMLButtonElement;
+        userEvent.click(utvidRadKnapp);
+
+        const dokumentLenke = await screen.findByText('Test dokument');
+        userEvent.click(dokumentLenke);
+
+        await screen.findByText(
+            'Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen senere.'
+        );
     });
 });
