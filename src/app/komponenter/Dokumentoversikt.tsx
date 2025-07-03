@@ -116,7 +116,7 @@ export function Dokumentoversikt() {
             return (
                 <>
                     <Alert variant="info">Ingen dokumenter funnet.</Alert>
-                    {manglerDokumentSpørsmålLenke}
+                    {spørsmålOmDokumenterMangler}
                 </>
             );
         }
@@ -184,7 +184,7 @@ export function Dokumentoversikt() {
                         size="small"
                     />
                 )}
-                {manglerDokumentSpørsmålLenke}
+                {spørsmålOmDokumenterMangler}
             </>
         );
     }
@@ -287,6 +287,6 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
     );
 }
 
-const manglerDokumentSpørsmålLenke = (
+const spørsmålOmDokumenterMangler = (
     <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
 );
