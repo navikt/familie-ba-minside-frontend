@@ -39,7 +39,11 @@ export async function BarnetrygdOversikt() {
                             align={'center'}
                             justify={'center'}
                         >
-                            <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
+                            <Pictogram
+                                svgInnhold={<BarnetrygdIkon />}
+                                ariaLabel="Barnetrygd"
+                                størrelse="stor"
+                            />
                         </VStack>
                     </div>
                     <Box width={'100%'} padding={'6'}>
@@ -72,7 +76,11 @@ export async function BarnetrygdOversikt() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
+                        <Pictogram
+                            svgInnhold={<BarnetrygdIkon />}
+                            ariaLabel="Barnetrygd"
+                            størrelse="stor"
+                        />
                     </VStack>
                 </div>
                 <Box width={'100%'} padding={'6'}>
@@ -113,7 +121,11 @@ function Fallback() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <Pictogram størrelse="stor" svgInnhold={<BarnetrygdIkon />} />
+                        <Pictogram
+                            svgInnhold={<BarnetrygdIkon />}
+                            ariaLabel="Barnetrygd"
+                            størrelse="stor"
+                        />
                     </VStack>
                 </div>
                 <Box width={'100%'} padding={'6'}>

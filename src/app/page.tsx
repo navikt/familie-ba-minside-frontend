@@ -33,7 +33,11 @@ export default function Page() {
                     </HStack>
                     <Heading level="1" size="large">
                         <HStack align="center" gap="6">
-                            <Pictogram størrelse="stor" svgInnhold={<Barnetrygd />} />
+                            <Pictogram
+                                svgInnhold={<Barnetrygd />}
+                                ariaLabel="Barnetrygd"
+                                størrelse="stor"
+                            />
                             <span>Barnetrygden min</span>
                         </HStack>
                     </Heading>
@@ -116,7 +120,7 @@ export default function Page() {
                     <YtelseKort
                         href="https://www.nav.no/alene-med-barn"
                         tittel="For deg som er helt eller delvis alene med barn"
-                        ikon={<Pictogram svgInnhold={<Alene />} />}
+                        ikon={<Pictogram svgInnhold={<Alene />} ariaLabel="Alene med barn" />}
                     >
                         Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett
                         til. Hvilke ordninger du har rett til, avhenger blant annet av barnets
@@ -126,7 +130,12 @@ export default function Page() {
                     <YtelseKort
                         href="https://www.nav.no/utvidet-barnetrygd"
                         tittel="Les mer om utvidet barnetrygd"
-                        ikon={<Pictogram svgInnhold={<UtvidetBarnetrygd />} />}
+                        ikon={
+                            <Pictogram
+                                svgInnhold={<UtvidetBarnetrygd />}
+                                ariaLabel="Utvidet barnetrygd"
+                            />
+                        }
                     >
                         Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
                     </YtelseKort>
@@ -134,7 +143,12 @@ export default function Page() {
                     <YtelseKort
                         href="https://www.nav.no/andres-barn"
                         tittel="Har ansvar for andres barn"
-                        ikon={<Pictogram svgInnhold={<AnsvarForAndresBarn />} />}
+                        ikon={
+                            <Pictogram
+                                svgInnhold={<AnsvarForAndresBarn />}
+                                ariaLabel="Har ansvar for andres barn"
+                            />
+                        }
                     >
                         Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
                         annen omsorgsperson.

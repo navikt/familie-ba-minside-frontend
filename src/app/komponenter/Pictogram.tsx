@@ -2,10 +2,11 @@ import React from 'react';
 
 type Props = {
     svgInnhold: React.ReactNode;
+    ariaLabel?: string;
     størrelse?: 'stor' | 'medium' | 'liten' | number;
 };
 
-export default function AleneSmall({ svgInnhold, størrelse = 'medium' }: Props) {
+export default function AleneSmall({ svgInnhold, ariaLabel, størrelse = 'medium' }: Props) {
     const størrelseIPx =
         størrelse === 'stor'
             ? 64
@@ -17,6 +18,8 @@ export default function AleneSmall({ svgInnhold, størrelse = 'medium' }: Props)
 
     return (
         <svg
+            aria-label={ariaLabel}
+            role="img"
             width={størrelseIPx}
             height={størrelseIPx}
             viewBox="0 0 64 64"
