@@ -252,7 +252,7 @@ function DokumentRad({ journalpost, dokument }: DokumentRadProps) {
                     <>
                         <span>
                             <Link
-                                href="#"
+                                href=""
                                 aria-busy={dokumentStatus === 'LASTER'}
                                 onClick={e => {
                                     e.preventDefault();
