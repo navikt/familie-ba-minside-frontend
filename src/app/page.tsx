@@ -6,10 +6,9 @@ import {
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Heading, HStack, Link } from '@navikt/ds-react';
+import { BodyLong, BodyShort, Box, Heading, HStack, Link, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from './komponenter/Seksjon';
-import LenkePanel from './komponenter/LenkePanel';
 import Dokumentoversikt from './komponenter/Dokumentoversikt';
 import YtelseKort from './komponenter/YtelseKort';
 import { BarnetrygdIkon } from '@/app/komponenter/pictograms/barnetrygd/BarnetrygdIkon';
@@ -18,6 +17,12 @@ import UtvidetBarnetrygdSmall from './komponenter/pictograms/utvidetBarnetrygd/s
 import AnsvarForAndresBarnSmall from './komponenter/pictograms/ansvarForAndresBarn/small';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
+import {
+    LinkCardAnchor,
+    LinkCardDescription,
+    LinkCardIcon,
+    LinkCardTitle,
+} from '@navikt/ds-react/LinkCard';
 
 export default function Page() {
     return (
@@ -50,51 +55,64 @@ export default function Page() {
             <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
-                    <LenkePanel
-                        href="#"
-                        tittel="Skriv til oss"
-                        ikon={<Chat2Icon title="Snakkeboble" fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <Chat2Icon title="Snakkeboble" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="#">Skriv til oss</LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
                             Har du spørsmål til saken din eller vil melde fra om noe annet?
-                        </BodyLong>
-                    </LenkePanel>
-                    <LenkePanel
-                        href="#"
-                        tittel="Meld fra om endringer"
-                        ikon={<GavelIcon title="Endringer i din situasjon" fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <GavelIcon title="Endringer i din situasjon" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="#">Meld fra om endringer</LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
                             Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
-                        </BodyLong>
-                    </LenkePanel>
+                        </LinkCardDescription>
+                    </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
 
             <Seksjon>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
-                    <LenkePanel
-                        href="#"
-                        tittel="Slik klager du"
-                        ikon={<ThumbDownIcon title="Klage" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <ThumbDownIcon title="Klage" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="#">Slik klager du</LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
                             Du har rett til å klage eller anke hvis du er uenig i vedtaket.
-                        </BodyLong>
-                    </LenkePanel>
-
-                    <LenkePanel
-                        href="#"
-                        tittel="Saksbehandlingstider"
-                        ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <ClockIcon title="Saksbehandlingstid" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="#">Saksbehandlingstider</LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
                             Se saksbehandlingstider og ventetider for barnetrygd.
-                        </BodyLong>
-                    </LenkePanel>
+                        </LinkCardDescription>
+                    </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
 
