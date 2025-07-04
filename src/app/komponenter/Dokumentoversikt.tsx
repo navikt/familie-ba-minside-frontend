@@ -22,13 +22,13 @@ import {
 } from '@navikt/ds-react/Table';
 import { appUrl } from '@/app/util/miljø';
 import React, { useEffect, useState } from 'react';
-import { List, ListItem } from '@navikt/ds-react/List';
 import {
     Datotype,
     DokumentInfo,
     Journalpost,
     Journalposttype,
 } from '@/app/typer/api/Dokumentoversikt';
+import { List, ListItem } from '@navikt/ds-react/List';
 
 async function hentDokumenter(): Promise<Journalpost[]> {
     const response = await fetch(`${appUrl}/api/dokumenter`);
