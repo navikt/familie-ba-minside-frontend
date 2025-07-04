@@ -1,9 +1,11 @@
+import { YearMonth } from '@/app/util/date';
+
 export interface Barnetrygd {
     ordinær?: {
-        startmåned: string;
+        startmåned: YearMonth;
     };
     utvidet?: {
-        startmåned: string;
+        startmåned: YearMonth;
     };
 }
 
