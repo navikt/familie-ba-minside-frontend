@@ -37,7 +37,7 @@ describe('Barnetrygd Route', () => {
                     {
                         barnetrygd: {
                             ordinær: {
-                                startmåned: '10/2025',
+                                startmåned: '2024-10',
                             },
                         },
                     },
@@ -52,7 +52,7 @@ describe('Barnetrygd Route', () => {
 
         // Expect
         expect(response.status).toBe(200);
-        expect(dto.barnetrygd?.ordinær?.startmåned).toBe('10/2025');
+        expect(dto.barnetrygd?.ordinær?.startmåned).toBe('2024-10');
         expect(dto.barnetrygd?.utvidet).toBeUndefined();
     });
 
