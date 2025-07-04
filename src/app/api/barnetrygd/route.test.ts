@@ -32,7 +32,7 @@ describe('Barnetrygd Route', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get('http://localhost:8089/api/minside/barnetrygd', () => {
                 return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>(
                     {
                         barnetrygd: {
@@ -62,7 +62,7 @@ describe('Barnetrygd Route', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get('http://localhost:8089/api/minside/barnetrygd', () => {
                 return HttpResponse.json<HentMinSideBarnetrygdFeilDto>(
                     { feilmelding: 'Ops! Her gikk noe galt...' },
                     { status: 400 }
@@ -85,7 +85,7 @@ describe('Barnetrygd Route', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get('http://localhost:8089/api/minside/barnetrygd', () => {
                 return HttpResponse.error();
             })
         );

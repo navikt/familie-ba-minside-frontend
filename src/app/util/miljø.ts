@@ -41,10 +41,10 @@ export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
 
 export function hentFamilieBaSakBaseUrl(): string {
     if (erProd()) {
-        return 'https://familie-ba-sak.intern.nav.no/familie-ba-sak';
+        return 'https://familie-ba-sak.intern.nav.no';
     }
     if (erDev()) {
-        return 'https://familie-ba-sak.intern.dev.nav.no/familie-ba-sak';
+        return 'https://familie-ba-sak.intern.dev.nav.no';
     }
-    return 'http://127.0.0.1:8000/familie-ba-sak';
+    return 'http://localhost:8089';
 }
