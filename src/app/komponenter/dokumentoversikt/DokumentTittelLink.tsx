@@ -1,8 +1,8 @@
 'use client';
 
+import { appUrl } from '@/app/util/miljø';
 import { Link } from '@navikt/ds-react';
 import React, { useState } from 'react';
-import { appUrl } from '../util/miljø';
 
 export enum DokumentStatus {
     IDLE = 'IDLE',

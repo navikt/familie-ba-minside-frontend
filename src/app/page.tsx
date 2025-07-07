@@ -23,7 +23,7 @@ import {
     LinkCardIcon,
     LinkCardTitle,
 } from '@navikt/ds-react/LinkCard';
-import { Dokumentoversikt } from './komponenter/Dokumentoversikt';
+import { Dokumentoversikt } from './komponenter/dokumentoversikt/Dokumentoversikt';
 
 export default function Page() {
     return (
