@@ -1,18 +1,22 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { render } from '@/test/testrender';
 import { BarnetrygdOversikt } from '@/app/komponenter/BarnetrygdOversikt';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
-import {
-    HentMinSideBarnetrygdFeilDto,
-    HentMinSideBarnetrygdSuksessDto,
-} from '@/app/typer/api/Barnetrygd';
+import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/api/Barnetrygd';
+import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 
 describe('BarnetrygdOversikt', () => {
+    vi.mock('next/headers', () => {
+        return { headers: async () => new Headers() };
+    });
+
+    const barnetrygdUrl = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';
+
     test('skal rendre komponent med feilmelding hvis API-kallet feilet', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/barnetrygd', () => {
-                return HttpResponse.json<HentMinSideBarnetrygdFeilDto>(
+            http.get(barnetrygdUrl, () => {
+                return HttpResponse.json<HentMinSideBarnetrygdFeil>(
                     { feilmelding: 'Ops! Noe gikk galt' },
                     { status: 500 }
                 );
@@ -34,8 +38,8 @@ describe('BarnetrygdOversikt', () => {
 
     test('skal rendre komponent med ordinær barnetrygd', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/barnetrygd', () => {
-                return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>({
+            http.get(barnetrygdUrl, () => {
+                return HttpResponse.json<HentMinSideBarnetrygd>({
                     barnetrygd: {
                         ordinær: {
                             startmåned: '2024-10',
@@ -58,8 +62,8 @@ describe('BarnetrygdOversikt', () => {
 
     test('skal rendre komponent med ordinær og utvidet barnetrygd', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/barnetrygd', () => {
-                return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>({
+            http.get(barnetrygdUrl, () => {
+                return HttpResponse.json<HentMinSideBarnetrygd>({
                     barnetrygd: {
                         ordinær: {
                             startmåned: '2024-10',
@@ -91,8 +95,8 @@ describe('BarnetrygdOversikt', () => {
 
     test('skal rendre komponent uten barnetrygd', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/barnetrygd', () => {
-                return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>({
+            http.get(barnetrygdUrl, () => {
+                return HttpResponse.json<HentMinSideBarnetrygd>({
                     barnetrygd: undefined,
                 });
             })
