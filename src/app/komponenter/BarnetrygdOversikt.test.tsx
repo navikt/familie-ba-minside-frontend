@@ -3,7 +3,10 @@ import { render } from '@/test/testrender';
 import { BarnetrygdOversikt } from '@/app/komponenter/BarnetrygdOversikt';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
-import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/api/Barnetrygd';
+import {
+    HentMinSideBarnetrygdSuksess,
+    HentMinSideBarnetrygdFeil,
+} from '@/app/typer/api/Barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 import { afterEach } from 'node:test';
 
@@ -44,7 +47,7 @@ describe('BarnetrygdOversikt', () => {
     test('skal rendre komponent med ordinær barnetrygd', async () => {
         server.use(
             http.get(barnetrygdUrl, () => {
-                return HttpResponse.json<HentMinSideBarnetrygd>({
+                return HttpResponse.json<HentMinSideBarnetrygdSuksess>({
                     barnetrygd: {
                         ordinær: {
                             startmåned: '2024-10',
@@ -68,7 +71,7 @@ describe('BarnetrygdOversikt', () => {
     test('skal rendre komponent med ordinær og utvidet barnetrygd', async () => {
         server.use(
             http.get(barnetrygdUrl, () => {
-                return HttpResponse.json<HentMinSideBarnetrygd>({
+                return HttpResponse.json<HentMinSideBarnetrygdSuksess>({
                     barnetrygd: {
                         ordinær: {
                             startmåned: '2024-10',
@@ -101,7 +104,7 @@ describe('BarnetrygdOversikt', () => {
     test('skal rendre komponent uten barnetrygd', async () => {
         server.use(
             http.get(barnetrygdUrl, () => {
-                return HttpResponse.json<HentMinSideBarnetrygd>({
+                return HttpResponse.json<HentMinSideBarnetrygdSuksess>({
                     barnetrygd: undefined,
                 });
             })

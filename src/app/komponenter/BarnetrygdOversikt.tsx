@@ -6,12 +6,15 @@ import { erProd } from '@/app/util/miljø';
 import { AsyncResult } from '@/app/typer/api/AsyncResult';
 import { formatYearMonth } from '@/app/util/date';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
-import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/api/Barnetrygd';
+import {
+    HentMinSideBarnetrygdSuksess,
+    HentMinSideBarnetrygdFeil,
+} from '@/app/typer/api/Barnetrygd';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();
 
-    const suksess = data as HentMinSideBarnetrygd;
+    const suksess = data as HentMinSideBarnetrygdSuksess;
     const feil = data as HentMinSideBarnetrygdFeil;
 
     if (feil.feilmelding) {

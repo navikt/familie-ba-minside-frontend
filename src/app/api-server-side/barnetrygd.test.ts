@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import { hentBarnetrygdOversikt } from './barnetrygd';
-import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '../typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '../typer/api/Barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 
 describe('Barnetrygd server side henting', () => {
@@ -38,7 +38,7 @@ describe('Barnetrygd server side henting', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
             http.get(barnetrygdUrl, () => {
-                return HttpResponse.json<HentMinSideBarnetrygd>(
+                return HttpResponse.json<HentMinSideBarnetrygdSuksess>(
                     {
                         barnetrygd: {
                             ordinær: {
@@ -52,7 +52,7 @@ describe('Barnetrygd server side henting', () => {
         );
 
         // Act
-        const barnetrygdOversikt = (await hentBarnetrygdOversikt()) as HentMinSideBarnetrygd;
+        const barnetrygdOversikt = (await hentBarnetrygdOversikt()) as HentMinSideBarnetrygdSuksess;
 
         // Expect
         expect(barnetrygdOversikt.barnetrygd?.ordinær?.startmåned).toBe('2024-10');

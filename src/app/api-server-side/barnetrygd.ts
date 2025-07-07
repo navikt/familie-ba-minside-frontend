@@ -4,12 +4,15 @@ import { AudienceBaSak } from '@/app/util/audience';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { erProd, hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
 import { v4 as uuidv4 } from 'uuid';
-import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/api/Barnetrygd';
+import {
+    HentMinSideBarnetrygdSuksess,
+    HentMinSideBarnetrygdFeil,
+} from '@/app/typer/api/Barnetrygd';
 import { headers } from 'next/headers';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 
 export async function hentBarnetrygdOversikt(): Promise<
-    HentMinSideBarnetrygd | HentMinSideBarnetrygdFeil
+    HentMinSideBarnetrygdSuksess | HentMinSideBarnetrygdFeil
 > {
     try {
         const reqHeaders = await headers();

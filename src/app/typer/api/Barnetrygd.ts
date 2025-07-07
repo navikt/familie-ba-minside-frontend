@@ -9,7 +9,7 @@ export interface Barnetrygd {
     };
 }
 
-export interface HentMinSideBarnetrygd {
+export interface HentMinSideBarnetrygdSuksess {
     barnetrygd?: Barnetrygd;
 }
 
