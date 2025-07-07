@@ -10,6 +10,7 @@ import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/ap
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();
+    console.log('Hva er data?', data);
 
     const suksess = data as HentMinSideBarnetrygd;
     const feil = data as HentMinSideBarnetrygdFeil;
