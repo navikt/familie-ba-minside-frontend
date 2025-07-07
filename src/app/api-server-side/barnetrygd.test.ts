@@ -3,6 +3,7 @@ import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import { hentBarnetrygdOversikt } from './barnetrygd';
 import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '../typer/api/Barnetrygd';
+import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 
 describe('Barnetrygd server side henting', () => {
     vi.mock('next/headers', () => {
@@ -12,6 +13,8 @@ describe('Barnetrygd server side henting', () => {
     afterEach(() => {
         vi.resetAllMocks();
     });
+
+    const barnetrygdUrl = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';
 
     test('skal feile hvis hvis token ikke er gyldig', async () => {
         // Arrange
@@ -34,7 +37,7 @@ describe('Barnetrygd server side henting', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get(barnetrygdUrl, () => {
                 return HttpResponse.json<HentMinSideBarnetrygd>(
                     {
                         barnetrygd: {
@@ -62,7 +65,7 @@ describe('Barnetrygd server side henting', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get(barnetrygdUrl, () => {
                 return HttpResponse.json<HentMinSideBarnetrygdFeil>(
                     { feilmelding: 'Ops! Her gikk noe galt...' },
                     { status: 400 }
@@ -83,7 +86,7 @@ describe('Barnetrygd server side henting', () => {
             http.get('http://fakedings.intern.dev.nav.no/fake/tokenx', () => {
                 return HttpResponse.json('1234', { status: 200 });
             }),
-            http.get('http://127.0.0.1:8000/familie-ba-sak/api/minside/barnetrygd', () => {
+            http.get(barnetrygdUrl, () => {
                 return HttpResponse.error();
             })
         );
