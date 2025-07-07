@@ -86,3 +86,13 @@ export enum Variantformat {
     ARKIV = 'ARKIV',
     SLADDET = 'SLADDET',
 }
+
+export interface HentDokumenterSuksessDto {
+    journalposter?: Journalpost[];
+}
+
+export interface HentDokumenterFeilDto {
+    feilmelding: string;
+}
+
+export type HentDokumenterDto = HentDokumenterSuksessDto | HentDokumenterFeilDto;
