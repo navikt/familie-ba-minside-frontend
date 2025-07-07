@@ -5,10 +5,15 @@ import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '@/app/typer/api/Barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '../util/miljø';
+import { afterEach } from 'node:test';
 
 describe('BarnetrygdOversikt', () => {
     vi.mock('next/headers', () => {
         return { headers: async () => new Headers() };
+    });
+
+    afterEach(() => {
+        vi.resetAllMocks();
     });
 
     const barnetrygdUrl = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';

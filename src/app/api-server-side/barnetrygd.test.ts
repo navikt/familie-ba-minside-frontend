@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import { hentBarnetrygdOversikt } from './barnetrygd';
@@ -7,6 +7,10 @@ import { HentMinSideBarnetrygd, HentMinSideBarnetrygdFeil } from '../typer/api/B
 describe('Barnetrygd server side henting', () => {
     vi.mock('next/headers', () => {
         return { headers: async () => new Headers() };
+    });
+
+    afterEach(() => {
+        vi.resetAllMocks();
     });
 
     test('skal feile hvis hvis token ikke er gyldig', async () => {
