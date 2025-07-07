@@ -75,7 +75,7 @@ export async function BarnetrygdOversikt() {
                 </div>
                 <Box width={'100%'} padding={'6'}>
                     <VStack gap={'8'}>
-                        {data === undefined && (
+                        {!data && (
                             <div>
                                 <BodyShort>Du har ingen innvilget barnetrygd.</BodyShort>
                             </div>
