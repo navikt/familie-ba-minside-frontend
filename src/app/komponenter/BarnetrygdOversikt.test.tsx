@@ -38,7 +38,7 @@ describe('BarnetrygdOversikt', () => {
                 return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>({
                     barnetrygd: {
                         ordinær: {
-                            startmåned: '10/2025',
+                            startmåned: '2024-10',
                         },
                     },
                 });
@@ -49,7 +49,7 @@ describe('BarnetrygdOversikt', () => {
 
         const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
         const ordinær = screen.getByText('Barnetrygd ordinær');
-        const dato = screen.getByText('Innvilget fra: 10/2025');
+        const dato = screen.getByText('Innvilget fra: 10.2024');
 
         expect(ikon).toBeInTheDocument();
         expect(ordinær).toBeInTheDocument();
@@ -62,10 +62,10 @@ describe('BarnetrygdOversikt', () => {
                 return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>({
                     barnetrygd: {
                         ordinær: {
-                            startmåned: '10/2025',
+                            startmåned: '2024-10',
                         },
                         utvidet: {
-                            startmåned: '11/2025',
+                            startmåned: '2024-11',
                         },
                     },
                 });
@@ -77,10 +77,10 @@ describe('BarnetrygdOversikt', () => {
         const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
 
         const ordinær = screen.getByText('Barnetrygd ordinær');
-        const datoOrdinær = screen.getByText('Innvilget fra: 10/2025');
+        const datoOrdinær = screen.getByText('Innvilget fra: 10.2024');
 
         const utvidet = screen.getByText('Barnetrygd utvidet');
-        const datoUtvidet = screen.getByText('Innvilget fra: 10/2025');
+        const datoUtvidet = screen.getByText('Innvilget fra: 11.2024');
 
         expect(ikon).toBeInTheDocument();
         expect(ordinær).toBeInTheDocument();

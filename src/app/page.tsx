@@ -6,10 +6,9 @@ import {
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Heading, HStack } from '@navikt/ds-react';
+import { BodyLong, BodyShort, Box, Heading, HStack, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from './komponenter/Seksjon';
-import LenkePanel from './komponenter/LenkePanel';
 import YtelseKort from './komponenter/YtelseKort';
 import Pictogram from './komponenter/Pictogram';
 import Barnetrygd from './komponenter/pictogramSvgInnhold/barnetrygd';
@@ -18,6 +17,12 @@ import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetry
 import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
+import {
+    LinkCardAnchor,
+    LinkCardDescription,
+    LinkCardIcon,
+    LinkCardTitle,
+} from '@navikt/ds-react/LinkCard';
 import { Dokumentoversikt } from './komponenter/Dokumentoversikt';
 
 export default function Page() {
@@ -55,51 +60,72 @@ export default function Page() {
             <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
-                    <LenkePanel
-                        href="https://www.nav.no/kontaktoss"
-                        tittel="Skriv til oss"
-                        ikon={<Chat2Icon title="Snakkeboble" fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
-                            Har du spørsmål til saken din eller vil melde fra om annet enn din
-                            situasjon?
-                        </BodyLong>
-                    </LenkePanel>
-                    <LenkePanel
-                        href="https://www.nav.no/person/kontakt-oss/meld-fra-om-endringer-innbokser/meld-fra-om-endring-barnetrygd-og-utvidet-barnetrygd"
-                        tittel="Meld fra om endringer"
-                        ikon={<GavelIcon title="Endringer i din situasjon" fontSize="2rem" />}
-                    >
-                        <BodyLong textColor="subtle">
-                            Vil du melde fra om endringer i din situasjon, opphold eller
-                            arbeidsforhold i utlandet?
-                        </BodyLong>
-                    </LenkePanel>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <Chat2Icon title="Snakkeboble" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/kontaktoss">
+                                Skriv til oss
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Har du spørsmål til saken din eller vil melde fra om noe annet?
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <GavelIcon title="Endringer i din situasjon" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/person/kontakt-oss/meld-fra-om-endringer-innbokser/meld-fra-om-endring-barnetrygd-og-utvidet-barnetrygd">
+                                Meld fra om endringer
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Endring i din situasjon, opphold eller arbeidsforhold i utlandet.
+                        </LinkCardDescription>
+                    </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
 
             <Seksjon>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
-                    <LenkePanel
-                        href="https://www.nav.no/klage#barnetrygd"
-                        tittel="Slik klager du"
-                        ikon={<ThumbDownIcon title="Klage" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">
-                            Du har rett til å klage eller anke hvis du er uenig i vedtaket
-                        </BodyLong>
-                    </LenkePanel>
-
-                    <LenkePanel
-                        href="https://www.nav.no/saksbehandlingstider#barnetrygd"
-                        tittel="Saksbehandlingstider"
-                        ikon={<ClockIcon title="Saksbehandlingstid" fontSize="2rem" />}
-                        graBakgrunn
-                    >
-                        <BodyLong textColor="subtle">Se saksbehandlingstider</BodyLong>
-                    </LenkePanel>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <ThumbDownIcon title="Klage" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/klage#barnetrygd">
+                                Slik klager du
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Du har rett til å klage eller anke hvis du er uenig i vedtaket.
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                            <LinkCardIcon>
+                                <ClockIcon title="Saksbehandlingstid" fontSize="2rem" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/saksbehandlingstider#barnetrygd">
+                                Saksbehandlingstider
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Se saksbehandlingstider og ventetider for barnetrygd.
+                        </LinkCardDescription>
+                    </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
 

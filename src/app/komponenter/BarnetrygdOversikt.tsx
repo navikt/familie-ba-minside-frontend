@@ -9,6 +9,7 @@ import { appUrl, erProd } from '@/app/util/miljø';
 import { AsyncResult } from '@/app/typer/api/AsyncResult';
 import Pictogram from './Pictogram';
 import BarnetrygdIkon from './pictogramSvgInnhold/barnetrygd';
+import { formatYearMonth } from '@/app/util/date';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     try {
@@ -92,13 +93,17 @@ export async function BarnetrygdOversikt() {
                         )}
                         {data?.ordinær && (
                             <div>
-                                <BodyShort>Innvilget fra: {data.ordinær.startmåned}</BodyShort>
+                                <BodyShort>
+                                    Innvilget fra: {formatYearMonth(data.ordinær.startmåned)}
+                                </BodyShort>
                                 <BodyShort weight={'semibold'}>Barnetrygd ordinær</BodyShort>
                             </div>
                         )}
                         {data?.utvidet && (
                             <div>
-                                <BodyShort>Innvilget fra: {data.utvidet.startmåned}</BodyShort>
+                                <BodyShort>
+                                    Innvilget fra: {formatYearMonth(data.utvidet.startmåned)}
+                                </BodyShort>
                                 <BodyShort weight={'semibold'}>Barnetrygd utvidet</BodyShort>
                             </div>
                         )}
