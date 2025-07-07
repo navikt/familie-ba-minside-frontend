@@ -18,7 +18,7 @@ import {
     Journalposttype,
 } from '@/app/typer/api/Dokumentoversikt';
 import { List, ListItem } from '@navikt/ds-react/List';
-import { AsyncResult } from '../typer/api/AsyncResult';
+import { AsyncResult } from '@/app/typer/api/AsyncResult';
 import { DokumentTittelLink } from './DokumentTittelLink';
 
 async function hentDokumenter(): Promise<AsyncResult<Journalpost[] | undefined>> {

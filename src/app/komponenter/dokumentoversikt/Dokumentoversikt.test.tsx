@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'vitest';
 import { render } from '@/test/testrender';
-import { Dokumentoversikt } from './Dokumentoversikt';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import {
@@ -10,8 +9,9 @@ import {
     Journalpost,
     Journalposttype,
     Variantformat,
-} from '../typer/api/Dokumentoversikt';
+} from '../../typer/api/Dokumentoversikt';
 import userEvent from '@testing-library/user-event';
+import { Dokumentoversikt } from './Dokumentoversikt';
 
 describe('Dokumentoversikt', () => {
     const spørsmålOmDokumenterManglerTekst =
