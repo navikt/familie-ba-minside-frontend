@@ -45,7 +45,7 @@ describe('Dokumentoversikt', () => {
 
     test('viser henter tekst mens dokumenter lastes', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => new Promise(() => {})) // never resolves
+            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => new Promise(() => {}))
         );
 
         const { screen } = render(<Dokumentoversikt />);
@@ -64,12 +64,12 @@ describe('Dokumentoversikt', () => {
 
         const { screen } = render(<Dokumentoversikt />);
 
-        const feilmelding = await screen.findByText(
+        const feilmeldingAlert = await screen.findByText(
             'Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.'
         );
         const prøvPåNyttKnapp = screen.getByRole('button', { name: 'Prøv på nytt' });
 
-        expect(feilmelding).toBeInTheDocument();
+        expect(feilmeldingAlert).toBeInTheDocument();
         expect(prøvPåNyttKnapp).toBeInTheDocument();
     });
 
@@ -161,8 +161,9 @@ describe('Dokumentoversikt', () => {
         const dokumentLenke = await screen.findByText('Test dokument');
         userEvent.click(dokumentLenke);
 
-        await screen.findByText(
+        const feilmeldingAlert = await screen.findByText(
             'Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen senere.'
         );
+        expect(feilmeldingAlert).toBeInTheDocument();
     });
 });

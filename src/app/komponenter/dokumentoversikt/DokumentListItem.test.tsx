@@ -42,20 +42,22 @@ describe('DokumentListItem', () => {
 
     test('viser dokument med tilgang og åpner dokument ved klikk', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokument', () =>
-                HttpResponse.text('PDFDATA', { status: 200 })
-            )
+            http.get('/barnetrygd/min-barnetrygd/api/dokument', async () => {
+                await new Promise(() => {});
+            })
         );
+
         window.open = vi.fn();
 
         const { screen } = render(
             <DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />
         );
 
-        const link = screen.getByText('Test dokument');
-        expect(link).toBeInTheDocument();
-        await userEvent.click(link);
-        expect(screen.getByLabelText('Laster...')).toBeInTheDocument();
+        const dokumentLenke = screen.getByText('Test dokument');
+        expect(dokumentLenke).toBeInTheDocument();
+
+        await userEvent.click(dokumentLenke);
+        expect(screen.getByTitle('Laster...')).toBeInTheDocument();
     });
 
     test('viser info alert hvis bruker ikke har tilgang', () => {
@@ -69,8 +71,11 @@ describe('DokumentListItem', () => {
             />
         );
 
-        expect(screen.getByText('Ikke tilgang dokument')).toBeInTheDocument();
-        expect(screen.getByText('Du har ikke tilgang til dette dokumentet.')).toBeInTheDocument();
+        const dokument = screen.getByText('Ikke tilgang dokument');
+        expect(dokument).toBeInTheDocument();
+
+        const infoAlert = screen.getByText('Du har ikke tilgang til dette dokumentet.');
+        expect(infoAlert).toBeInTheDocument();
     });
 
     test('viser feilmelding hvis dokumentvisning feiler', async () => {
@@ -79,14 +84,17 @@ describe('DokumentListItem', () => {
                 HttpResponse.text('Feil!', { status: 500 })
             )
         );
+
         const { screen } = render(
             <DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />
         );
 
-        const link = screen.getByText('Test dokument');
-        await userEvent.click(link);
-        await screen.findByText(
+        const dokumentLenke = screen.getByText('Test dokument');
+        await userEvent.click(dokumentLenke);
+
+        const feilmeldingAlert = await screen.findByText(
             'Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen senere.'
         );
+        expect(feilmeldingAlert).toBeInTheDocument();
     });
 });
