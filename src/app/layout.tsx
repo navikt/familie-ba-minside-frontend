@@ -4,7 +4,11 @@ import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev, erLokalt } from './util/miljø';
 
-const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
+interface RootLayoutProps {
+    children: React.ReactNode;
+}
+
+export default async function RootLayout({ children }: Readonly<RootLayoutProps>) {
     const Decorator = await fetchDecoratorReact({
         env: erDev() ? 'dev' : 'prod',
     });
@@ -45,6 +49,4 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
             </Page>
         </html>
     );
-};
-
-export default RootLayout;
+}
