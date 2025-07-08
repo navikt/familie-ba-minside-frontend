@@ -1,12 +1,6 @@
-const AnsvarForAndresBarnSmall: React.FC = () => {
+export function AnsvarForAndresBarn() {
     return (
-        <svg
-            width="48"
-            height="48"
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <>
             <g clipPath="url(#clip0_290_920)">
                 <circle cx="45.9997" cy="44.6667" r="6.66667" fill="#FFECCC" />
                 <circle cx="18.6663" cy="18" r="6.66667" fill="#FFECCC" />
@@ -71,8 +65,6 @@ const AnsvarForAndresBarnSmall: React.FC = () => {
                     <rect width="64" height="64" fill="white" />
                 </clipPath>
             </defs>
-        </svg>
+        </>
     );
-};
-
-export default AnsvarForAndresBarnSmall;
+}
