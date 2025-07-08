@@ -1,27 +1,27 @@
 import React from 'react';
-import {
-    Barnetrygd,
-    HentMinSideBarnetrygdFeilDto,
-    HentMinSideBarnetrygdSuksessDto,
-} from '@/app/typer/api/Barnetrygd';
+import { Barnetrygd } from '@/app/typer/api/Barnetrygd';
 import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
-import { appUrl, erProd } from '@/app/util/miljø';
+import { erProd } from '@/app/util/miljø';
 import { AsyncResult } from '@/app/typer/api/AsyncResult';
 import { Pictogram } from './Pictogram';
 import { Barnetrygd as BarnetrygdIkon } from './pictogramSvgInnhold/barnetrygd';
 import { formatYearMonth } from '@/app/util/date';
+import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
+import {
+    HentMinSideBarnetrygdSuksess,
+    HentMinSideBarnetrygdFeil,
+} from '@/app/typer/api/Barnetrygd';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
-    try {
-        const response = await fetch(new URL(`${appUrl}/api/barnetrygd`));
-        if (!response.ok) {
-            const feilDto = (await response.json()) as HentMinSideBarnetrygdFeilDto;
-            return AsyncResult.failure(feilDto.feilmelding);
-        }
-        const suksessDto = (await response.json()) as HentMinSideBarnetrygdSuksessDto;
-        return AsyncResult.success(suksessDto.barnetrygd);
-    } catch (error) {
-        return AsyncResult.failure(error);
+    const data = await hentBarnetrygdOversikt();
+
+    const suksess = data as HentMinSideBarnetrygdSuksess;
+    const feil = data as HentMinSideBarnetrygdFeil;
+
+    if (feil.feilmelding) {
+        return AsyncResult.failure(feil.feilmelding);
+    } else {
+        return AsyncResult.success(suksess.barnetrygd);
     }
 }
 
@@ -86,7 +86,7 @@ export async function BarnetrygdOversikt() {
                 </div>
                 <Box width={'100%'} padding={'6'}>
                     <VStack gap={'8'}>
-                        {data === undefined && (
+                        {!data && (
                             <div>
                                 <BodyShort>Du har ingen innvilget barnetrygd.</BodyShort>
                             </div>

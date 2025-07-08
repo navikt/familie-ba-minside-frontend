@@ -9,14 +9,10 @@ export interface Barnetrygd {
     };
 }
 
-export interface HentMinSideBarnetrygdSuksessDto {
+export interface HentMinSideBarnetrygdSuksess {
     barnetrygd?: Barnetrygd;
 }
 
-export interface HentMinSideBarnetrygdFeilDto {
+export interface HentMinSideBarnetrygdFeil {
     feilmelding: string;
 }
-
-export type HentMinSideBarnetrygdDto =
-    | HentMinSideBarnetrygdSuksessDto
-    | HentMinSideBarnetrygdFeilDto;
