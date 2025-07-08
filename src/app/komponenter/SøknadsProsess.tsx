@@ -1,7 +1,7 @@
 import { BodyLong, Heading, Link, Stepper } from '@navikt/ds-react';
 import { StepperStep } from '@navikt/ds-react/Stepper';
 
-const SøknadsProsess: React.FC = () => {
+export function SøknadsProsess() {
     return (
         <Stepper aria-labelledby="stepper-heading" activeStep={3} interactive={false}>
             {/* @ts-expect-error: StepperStep tar kun imot "string" som children, men nå bruker vi komponenter for å teste utseende. */}
@@ -61,6 +61,4 @@ const SøknadsProsess: React.FC = () => {
             </StepperStep>
         </Stepper>
     );
-};
-
-export default SøknadsProsess;
+}
