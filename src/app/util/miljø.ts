@@ -46,5 +46,5 @@ export function hentFamilieBaSakBaseUrl(): string {
     if (erDev()) {
         return 'https://familie-ba-sak.intern.dev.nav.no';
     }
-    return 'http://127.0.0.1:8000/familie-ba-sak';
+    return 'http://localhost:8089';
 }
