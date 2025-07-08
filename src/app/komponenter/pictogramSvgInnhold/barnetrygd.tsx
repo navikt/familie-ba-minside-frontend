@@ -1,4 +1,4 @@
-export default function Barnetrygd() {
+export function Barnetrygd() {
     return (
         <>
             <g clipPath="url(#clip0_1_408)">

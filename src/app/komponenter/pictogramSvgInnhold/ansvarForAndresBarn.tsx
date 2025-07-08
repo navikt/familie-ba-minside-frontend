@@ -1,4 +1,4 @@
-export default function AnsvarForAndresBarn() {
+export function AnsvarForAndresBarn() {
     return (
         <>
             <g clipPath="url(#clip0_290_920)">

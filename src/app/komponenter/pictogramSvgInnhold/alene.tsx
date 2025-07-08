@@ -1,4 +1,4 @@
-export default function Alene() {
+export function Alene() {
     return (
         <>
             <g clipPath="url(#clip0_1_3673)">

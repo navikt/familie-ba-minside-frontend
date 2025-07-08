@@ -9,12 +9,12 @@ import {
 import { BodyLong, BodyShort, Box, Heading, HStack, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from './komponenter/Seksjon';
-import YtelseKort from './komponenter/YtelseKort';
-import Pictogram from './komponenter/Pictogram';
-import Barnetrygd from './komponenter/pictogramSvgInnhold/barnetrygd';
-import Alene from './komponenter/pictogramSvgInnhold/alene';
-import UtvidetBarnetrygd from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
-import AnsvarForAndresBarn from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
+import { YtelseKort } from './komponenter/YtelseKort';
+import { Pictogram } from './komponenter/Pictogram';
+import { Barnetrygd } from './komponenter/pictogramSvgInnhold/barnetrygd';
+import { Alene } from './komponenter/pictogramSvgInnhold/alene';
+import { UtvidetBarnetrygd } from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
+import { AnsvarForAndresBarn } from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
 import {

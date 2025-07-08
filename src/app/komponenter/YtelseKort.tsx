@@ -8,7 +8,7 @@ interface Props {
     children?: ReactNode;
 }
 
-export default function YtelseKort({ href, tittel, ikon, children }: Props) {
+export function YtelseKort({ href, tittel, ikon, children }: Props) {
     return (
         <Box padding="6" borderRadius="xlarge" shadow="medium">
             <VStack height="100%" justify="space-between">

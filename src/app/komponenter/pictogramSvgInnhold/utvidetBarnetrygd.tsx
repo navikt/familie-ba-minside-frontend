@@ -1,4 +1,4 @@
-export default function UtvidetBarnetrygd() {
+export function UtvidetBarnetrygd() {
     return (
         <>
             <g clipPath="url(#clip0_1_2180)">

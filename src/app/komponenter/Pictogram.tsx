@@ -6,7 +6,7 @@ type Props = {
     størrelse?: 'stor' | 'medium' | 'liten' | number;
 };
 
-export default function AleneSmall({ svgInnhold, ariaLabel, størrelse = 'medium' }: Props) {
+export function Pictogram({ svgInnhold, ariaLabel, størrelse = 'medium' }: Props) {
     const størrelseIPx =
         størrelse === 'stor'
             ? 64

@@ -7,8 +7,8 @@ import {
 import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
 import { appUrl, erProd } from '@/app/util/miljø';
 import { AsyncResult } from '@/app/typer/api/AsyncResult';
-import Pictogram from './Pictogram';
-import BarnetrygdIkon from './pictogramSvgInnhold/barnetrygd';
+import { Pictogram } from './Pictogram';
+import { Barnetrygd as BarnetrygdIkon } from './pictogramSvgInnhold/barnetrygd';
 import { formatYearMonth } from '@/app/util/date';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
