@@ -1,3 +1,4 @@
+import { HentMinSideBarnetrygdSuksess } from '@/app/typer/api/Barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
 import { http, HttpResponse } from 'msw';
 
@@ -6,7 +7,7 @@ export const handlers = [
         return HttpResponse.json('1234', { status: 200 });
     }),
     http.get(hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd', () => {
-        return HttpResponse.json<HentMinSideBarnetrygdSuksessDto>(
+        return HttpResponse.json<HentMinSideBarnetrygdSuksess>(
             {
                 barnetrygd: {
                     ordinær: {
