@@ -11,7 +11,7 @@ import {
     Journalpost,
     Journalposttype,
     Variantformat,
-} from '@/app/typer/api/Dokumentoversikt';
+} from '@/typer/api/dokumentoversikt';
 
 describe('DokumentListItem', () => {
     const dokumentvariantMock = (overrides: Partial<Dokumentvariant> = {}): Dokumentvariant => ({

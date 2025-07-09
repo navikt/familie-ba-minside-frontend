@@ -1,4 +1,4 @@
-import { integrasjonerAudience } from '@/app/util/audience';
+import { integrasjonerAudience } from '@/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';

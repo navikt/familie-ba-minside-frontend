@@ -8,22 +8,22 @@ import {
 } from '@navikt/aksel-icons';
 import { BodyLong, BodyShort, Box, Heading, HStack, LinkCard } from '@navikt/ds-react';
 
-import { Seksjon } from './komponenter/Seksjon';
-import { YtelseKort } from './komponenter/YtelseKort';
-import { Pictogram } from './komponenter/Pictogram';
-import { Barnetrygd } from './komponenter/pictogramSvgInnhold/barnetrygd';
-import { Alene } from './komponenter/pictogramSvgInnhold/alene';
-import { UtvidetBarnetrygd } from './komponenter/pictogramSvgInnhold/utvidetBarnetrygd';
-import { AnsvarForAndresBarn } from './komponenter/pictogramSvgInnhold/ansvarForAndresBarn';
+import { Seksjon } from '@/komponenter/Seksjon';
+import { YtelseKort } from '@/komponenter/YtelseKort';
+import { Pictogram } from '@/komponenter/Pictogram';
+import { Barnetrygd } from '@/komponenter/pictogramSvgInnhold/Barnetrygd';
+import { Alene } from '@/komponenter/pictogramSvgInnhold/Alene';
+import { UtvidetBarnetrygd } from '@/komponenter/pictogramSvgInnhold/UtvidetBarnetrygd';
+import { AnsvarForAndresBarn } from '@/komponenter/pictogramSvgInnhold/AnsvarForAndresBarn';
 import { Suspense } from 'react';
-import { BarnetrygdOversikt } from './komponenter/BarnetrygdOversikt';
+import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
 import {
     LinkCardAnchor,
     LinkCardDescription,
     LinkCardIcon,
     LinkCardTitle,
 } from '@navikt/ds-react/LinkCard';
-import { Dokumentoversikt } from './komponenter/dokumentoversikt/Dokumentoversikt';
+import { Dokumentoversikt } from '@/komponenter/dokumentoversikt/Dokumentoversikt';
 
 export default function Page() {
     return (

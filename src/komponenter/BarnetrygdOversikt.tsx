@@ -1,16 +1,13 @@
 import React from 'react';
-import { Barnetrygd } from '@/app/typer/api/Barnetrygd';
+import { Barnetrygd } from '@/typer/api/barnetrygd';
 import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
-import { erProd } from '@/app/util/miljø';
-import { AsyncResult } from '@/app/typer/api/AsyncResult';
+import { erProd } from '@/util/miljø';
+import { AsyncResult } from '@/typer/api/asyncResult';
 import { Pictogram } from './Pictogram';
-import { Barnetrygd as BarnetrygdIkon } from './pictogramSvgInnhold/barnetrygd';
-import { formatYearMonth } from '@/app/util/date';
+import { Barnetrygd as BarnetrygdIkon } from './pictogramSvgInnhold/Barnetrygd';
+import { formatYearMonth } from '@/util/date';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
-import {
-    HentMinSideBarnetrygdSuksess,
-    HentMinSideBarnetrygdFeil,
-} from '@/app/typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();

@@ -1,12 +1,9 @@
 import { describe, expect, test, vi } from 'vitest';
 import { render } from '@/test/testrender';
-import { BarnetrygdOversikt } from '@/app/komponenter/BarnetrygdOversikt';
+import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
-import {
-    HentMinSideBarnetrygdSuksess,
-    HentMinSideBarnetrygdFeil,
-} from '@/app/typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 import { afterEach } from 'node:test';
 

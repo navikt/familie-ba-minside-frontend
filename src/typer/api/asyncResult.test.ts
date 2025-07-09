@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
-import { AsyncResult } from '@/app/typer/api/AsyncResult';
+import { AsyncResult } from './asyncResult';
 
-describe('AsyncResult', () => {
+describe('asyncResult', () => {
     test('skal opprette AsyncResult success', () => {
         // Act
         const asyncResult = AsyncResult.success('msg');

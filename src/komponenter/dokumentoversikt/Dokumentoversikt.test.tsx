@@ -9,7 +9,7 @@ import {
     Journalpost,
     Journalposttype,
     Variantformat,
-} from '../../typer/api/Dokumentoversikt';
+} from '../../typer/api/dokumentoversikt';
 import userEvent from '@testing-library/user-event';
 import { Dokumentoversikt } from './Dokumentoversikt';
 

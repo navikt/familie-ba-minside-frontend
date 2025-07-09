@@ -3,7 +3,7 @@
 import { getToken, requestOboToken, validateToken } from '@navikt/oasis';
 import { NextRequest } from 'next/server';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
-import { erLokalt } from '@/app/util/miljø';
+import { erLokalt } from '@/util/miljø';
 
 export async function hentOboToken(
     req: NextRequest | Headers,
