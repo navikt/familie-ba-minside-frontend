@@ -2,6 +2,7 @@ import { integrasjonerAudience } from '@/app/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import { v4 as uuid } from 'uuid';
 
 export async function GET(req: NextRequest) {
     const oboToken: OboTokenResponse = await hentOboToken(req, integrasjonerAudience);
@@ -19,7 +20,7 @@ export async function GET(req: NextRequest) {
             Accept: 'application/pdf',
             Authorization: `Bearer ${oboToken.token}`,
             'Nav-Consumer-Id': 'familie-ba-minside-frontend',
-            'Nav-Call-Id': '1234', // TODO: fiks uuid
+            'Nav-Call-Id': uuid(),
         },
     });
 
