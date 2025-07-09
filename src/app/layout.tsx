@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev, erLokalt } from './util/miljø';
+import { LoggerWrapper } from './komponenter/LoggerWrapper';
 
 interface RootLayoutProps {
     children: React.ReactNode;
@@ -33,20 +34,20 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
                 <Decorator.HeadAssets />
                 <title>Barnetrygden min</title>
             </head>
-            <Page
-                as="body"
-                footer={
-                    <>
-                        <Decorator.Footer />
-                        <Decorator.Scripts loader={Script} />
-                    </>
-                }
-            >
-                <Decorator.Header />
-                <PageBlock as="main">
-                    <>{children}</>
-                </PageBlock>
-            </Page>
+            <LoggerWrapper>
+                <Page
+                    as="body"
+                    footer={
+                        <>
+                            <Decorator.Footer />
+                            <Decorator.Scripts loader={Script} />
+                        </>
+                    }
+                >
+                    <Decorator.Header />
+                    <PageBlock as="main">{children}</PageBlock>
+                </Page>
+            </LoggerWrapper>
         </html>
     );
 }
