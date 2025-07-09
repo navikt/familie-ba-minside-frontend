@@ -24,10 +24,8 @@ import {
     LinkCardTitle,
 } from '@navikt/ds-react/LinkCard';
 import { Dokumentoversikt } from './komponenter/dokumentoversikt/Dokumentoversikt';
-import { logger } from '@navikt/next-logger';
 
 export default function Page() {
-    logger.warn('Testadvarsel');
     return (
         <>
             <Seksjon>
