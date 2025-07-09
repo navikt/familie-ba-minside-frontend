@@ -34,20 +34,20 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
                 <Decorator.HeadAssets />
                 <title>Barnetrygden min</title>
             </head>
-            <Page
-                as="body"
-                footer={
-                    <>
-                        <Decorator.Footer />
-                        <Decorator.Scripts loader={Script} />
-                    </>
-                }
-            >
-                <Decorator.Header />
-                <PageBlock as="main">
-                    <LoggerWrapper>{children}</LoggerWrapper>
-                </PageBlock>
-            </Page>
+            <LoggerWrapper>
+                <Page
+                    as="body"
+                    footer={
+                        <>
+                            <Decorator.Footer />
+                            <Decorator.Scripts loader={Script} />
+                        </>
+                    }
+                >
+                    <Decorator.Header />
+                    <PageBlock as="main">{children}</PageBlock>
+                </Page>
+            </LoggerWrapper>
         </html>
     );
 }
