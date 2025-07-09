@@ -2,13 +2,31 @@ import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
-import { erDev } from './util/miljø';
+import { erDev, erLokalt } from './util/miljø';
 import { LoggerWrapper } from './komponenter/LoggerWrapper';
 
-const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
+interface RootLayoutProps {
+    children: React.ReactNode;
+}
+
+export default async function RootLayout({ children }: Readonly<RootLayoutProps>) {
     const Decorator = await fetchDecoratorReact({
         env: erDev() ? 'dev' : 'prod',
     });
+
+    if (erLokalt()) {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const { server } = require('../test/mock/node');
+        server.listen({
+            onUnhandledRequest(request: Request, print: { warning: () => void }) {
+                if (request.url.includes('dekoratoren/api/version')) {
+                    return;
+                }
+
+                print.warning();
+            },
+        });
+    }
 
     return (
         <html lang="no">
@@ -32,6 +50,4 @@ const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>)
             </Page>
         </html>
     );
-};
-
-export default RootLayout;
+}

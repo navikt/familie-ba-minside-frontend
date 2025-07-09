@@ -10,22 +10,22 @@
     "lint": "next lint",
     "prettier": "prettier -l \"src/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky",
-    "test": "echo \"Ingen tester\"",
+    "test": "vitest",
     "clean": "rm -rf dist",
     "validate": "yarn typecheck && yarn lint && yarn prettier",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@navikt/aksel-icons": "^7.21.1",
-    "@navikt/ds-css": "^7.21.1",
-    "@navikt/ds-react": "^7.21.1",
+    "@navikt/aksel-icons": "^7.24.0",
+    "@navikt/ds-css": "^7.24.0",
+    "@navikt/ds-react": "^7.24.0",
     "@navikt/nav-dekoratoren-moduler": "^3.2.3",
     "@navikt/next-logger": "^4.0.1",
     "@navikt/oasis": "^3.8.0",
     "csp-header": "^6.1.0",
     "html-react-parser": "^5.2.3",
     "jsdom": "^26.1.0",
-    "next": "15.3.1",
+    "next": "15.3.3",
     "pino": "^9.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -33,16 +33,29 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.6.0",
     "concurrently": "^9.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^10.1.1",
     "husky": "^9.1.7",
+    "msw": "^2.10.2",
     "pino-pretty": "^13.0.0",
     "prettier": "^3.6.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

@@ -38,3 +38,13 @@ export const basePath = '/barnetrygd/min-barnetrygd';
 export const appUrl = appUrlForMiljø();
 export const wonderwallUrl = `${appUrl}/oauth2/login?redirect=`;
 export const oauthCallbackUri = `${appUrl}/oauth2/callback`;
+
+export function hentFamilieBaSakBaseUrl(): string {
+    if (erProd()) {
+        return 'https://familie-ba-sak.intern.nav.no';
+    }
+    if (erDev()) {
+        return 'https://familie-ba-sak.intern.dev.nav.no';
+    }
+    return 'http://localhost:8089';
+}

@@ -1,12 +1,6 @@
-const AleneSmall: React.FC = () => {
+export function Alene() {
     return (
-        <svg
-            width="48"
-            height="48"
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <>
             <g clipPath="url(#clip0_1_3673)">
                 <path
                     d="M50 26.4445C50 20.308 45.299 15.3334 39.5 15.3334C36.5615 15.3334 33.9049 16.6108 32.0009 18.6694C30.0951 16.6108 27.4385 15.3334 24.5 15.3334C18.701 15.3334 14 20.308 14 26.4445C14 29.5549 15.2077 32.3667 17.154 34.3836L17 34.381L32 48.6668L47 34.381L46.846 34.3836C48.7923 32.3667 50 29.5549 50 26.4445Z"
@@ -56,8 +50,6 @@ const AleneSmall: React.FC = () => {
                     <rect width="64" height="64" fill="white" />
                 </clipPath>
             </defs>
-        </svg>
+        </>
     );
-};
-
-export default AleneSmall;
+}
