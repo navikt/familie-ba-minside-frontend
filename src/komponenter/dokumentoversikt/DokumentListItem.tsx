@@ -2,9 +2,9 @@
 
 import { Alert, Box, Link, Loader, VStack } from '@navikt/ds-react';
 
-import { appUrl } from '@/app/util/miljø';
+import { appUrl } from '@/util/miljø';
 import React, { useState } from 'react';
-import { DokumentInfo, Journalpost } from '@/app/typer/api/Dokumentoversikt';
+import { DokumentInfo, Journalpost } from '@/typer/api/dokumentoversikt';
 import { ListItem } from '@navikt/ds-react/List';
 
 enum DokumentStatus {

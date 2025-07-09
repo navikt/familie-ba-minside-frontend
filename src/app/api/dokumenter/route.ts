@@ -1,6 +1,6 @@
-import { integrasjonerAudience } from '@/app/util/audience';
+import { integrasjonerAudience } from '@/util/audience';
 import { NextRequest, NextResponse } from 'next/server';
-import { Dokumentoversikt, Journalpost } from '@/app/typer/api/Dokumentoversikt';
+import { Dokumentoversikt, Journalpost } from '@/typer/api/dokumentoversikt';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { v4 as uuid } from 'uuid';

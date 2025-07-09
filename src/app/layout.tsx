@@ -2,8 +2,8 @@ import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
-import { erDev, erLokalt } from './util/miljø';
-import { LoggerWrapper } from './komponenter/LoggerWrapper';
+import { erDev, erLokalt } from '@/util/miljø';
+import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
 
 interface RootLayoutProps {
     children: React.ReactNode;

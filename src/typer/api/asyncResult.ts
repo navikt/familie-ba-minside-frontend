@@ -24,4 +24,4 @@ export function success<T>(data: T) {
     return { data };
 }
 
-export * as AsyncResult from './AsyncResult';
+export * as AsyncResult from './asyncResult';

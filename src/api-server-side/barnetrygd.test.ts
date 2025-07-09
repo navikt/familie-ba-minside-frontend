@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest';
 import { server } from '@/test/mock/node';
 import { http, HttpResponse } from 'msw';
 import { hentBarnetrygdOversikt } from './barnetrygd';
-import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '../typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 
 describe('Barnetrygd server side henting', () => {

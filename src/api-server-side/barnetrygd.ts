@@ -1,13 +1,10 @@
 'use server';
 
-import { AudienceBaSak } from '@/app/util/audience';
+import { AudienceBaSak } from '@/util/audience';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
-import { erProd, hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
+import { erProd, hentFamilieBaSakBaseUrl } from '@/util/miljø';
 import { v4 as uuidv4 } from 'uuid';
-import {
-    HentMinSideBarnetrygdSuksess,
-    HentMinSideBarnetrygdFeil,
-} from '@/app/typer/api/Barnetrygd';
+import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
 import { headers } from 'next/headers';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 

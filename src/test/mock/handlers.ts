@@ -1,5 +1,5 @@
-import { HentMinSideBarnetrygdSuksess } from '@/app/typer/api/Barnetrygd';
-import { hentFamilieBaSakBaseUrl } from '@/app/util/miljø';
+import { HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
+import { hentFamilieBaSakBaseUrl } from '@/util/miljø';
 import { http, HttpResponse } from 'msw';
 
 export const handlers = [

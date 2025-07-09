@@ -9,9 +9,9 @@ import {
     TableHeaderCell,
     TableRow,
 } from '@navikt/ds-react/Table';
-import { appUrl } from '@/app/util/miljø';
+import { appUrl } from '@/util/miljø';
 import React, { useEffect, useState } from 'react';
-import { Datotype, Journalpost, Journalposttype } from '@/app/typer/api/Dokumentoversikt';
+import { Datotype, Journalpost, Journalposttype } from '@/typer/api/dokumentoversikt';
 import { List } from '@navikt/ds-react/List';
 import { DokumentListItem } from './DokumentListItem';
 

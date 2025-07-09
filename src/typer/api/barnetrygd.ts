@@ -1,4 +1,4 @@
-import { YearMonth } from '@/app/util/date';
+import { YearMonth } from '@/util/date';
 
 export interface Barnetrygd {
     ordinær?: {

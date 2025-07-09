@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { formatYearMonth, Locale } from '@/app/util/date';
+import { formatYearMonth, Locale } from './date';
 
 describe('FormatYearMonth', () => {
     test('skal formatere YearMonth til nb-no', () => {
