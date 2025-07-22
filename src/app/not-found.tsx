@@ -2,10 +2,8 @@
 import { Seksjon } from '@/komponenter/Seksjon';
 import { BodyShort, Button, Heading, Link, List, VStack } from '@navikt/ds-react';
 import { BugIcon } from '@navikt/aksel-icons';
-import { usePathname } from 'next/navigation';
 
 export default function NotFound() {
-    const pathname = usePathname();
     return (
         <Seksjon>
             <Seksjon.Innhold>
@@ -26,12 +24,10 @@ export default function NotFound() {
                                 </List.Item>
                             </List>
                         </div>
-                        <Button as="a" href="/barnetrygd">
+                        <Button as="a" href="/barnetrygd/min-barnetrygd">
                             Gå til Min side
                         </Button>
-                        <Link
-                            href={`https://github.com/navikt/familie-ba-minside-frontend/issues/new?assignees=&labels=bug+%F0%9F%90%9B&projects=&template=bug-report.md&title=[${pathname}%20-%20404]`}
-                        >
+                        <Link href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">
                             <BugIcon aria-hidden />
                             Meld gjerne fra om at lenken ikke virker
                         </Link>
@@ -42,8 +38,8 @@ export default function NotFound() {
                         </Heading>
                         <BodyShort spacing>The page you requested cannot be found.</BodyShort>
                         <BodyShort>
-                            Go to the <Link href="/barnetrygd">front page</Link>, or use one of the
-                            links in the menu.
+                            Go to the <Link href="https://nav.no">front page</Link>, or use one of
+                            the links in the menu.
                         </BodyShort>
                     </VStack>
                 </VStack>
