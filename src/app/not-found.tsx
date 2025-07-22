@@ -38,8 +38,8 @@ export default function NotFound() {
                         </Heading>
                         <BodyShort spacing>The page you requested cannot be found.</BodyShort>
                         <BodyShort>
-                            Go to the <Link href="https://nav.no">front page</Link>, or use one of
-                            the links in the menu.
+                            Go to the <Link href="https://nav.no/en">front page</Link>, or use one
+                            of the links in the menu.
                         </BodyShort>
                     </VStack>
                 </VStack>
