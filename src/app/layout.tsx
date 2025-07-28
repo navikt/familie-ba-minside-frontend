@@ -4,6 +4,7 @@ import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev, erLokalt } from '@/util/miljø';
 import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
+import { AxeCoreReact } from '@/komponenter/AxeCoreReact';
 
 interface RootLayoutProps {
     children: React.ReactNode;
@@ -35,6 +36,7 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
                 <title>Barnetrygden min</title>
             </head>
             <LoggerWrapper>
+                <AxeCoreReact />
                 <Page
                     as="body"
                     footer={
