@@ -4,7 +4,7 @@ import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev, erLokalt } from '@/util/miljø';
 import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
-import { AxeCoreReact } from '@/komponenter/AxeCoreReact';
+import { AxeCoreReact } from '@/test/AxeCoreReact';
 
 interface RootLayoutProps {
     children: React.ReactNode;
