@@ -77,7 +77,7 @@ export async function BarnetrygdOversikt() {
                         justify={'center'}
                     >
                         <TeddyBearIcon
-                            title="teddybear"
+                            title="teddy bear"
                             fontSize="4rem"
                             color="var(--a-purple-400)"
                         />
@@ -132,7 +132,7 @@ function Fallback() {
                         justify={'center'}
                     >
                         <TeddyBearIcon
-                            title="teddybear"
+                            title="teddy bear"
                             fontSize="4rem"
                             color="var(--a-purple-400)"
                         />
