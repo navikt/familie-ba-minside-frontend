@@ -1,13 +1,15 @@
 import React from 'react';
-import { Barnetrygd } from '@/typer/api/barnetrygd';
+import {
+    Barnetrygd,
+    HentMinSideBarnetrygdFeil,
+    HentMinSideBarnetrygdSuksess,
+} from '@/typer/api/barnetrygd';
 import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
 import { erProd } from '@/util/miljø';
 import { AsyncResult } from '@/typer/api/asyncResult';
-import { Pictogram } from './Pictogram';
-import { Barnetrygd as BarnetrygdIkon } from './pictogramSvgInnhold/Barnetrygd';
 import { formatYearMonth } from '@/util/date';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
-import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
+import { TeddyBearIcon } from '@navikt/aksel-icons';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();
@@ -37,10 +39,10 @@ export async function BarnetrygdOversikt() {
                             align={'center'}
                             justify={'center'}
                         >
-                            <Pictogram
-                                svgInnhold={<BarnetrygdIkon />}
-                                ariaLabel="Barnetrygd"
-                                størrelse="stor"
+                            <TeddyBearIcon
+                                title="teddy bear"
+                                fontSize="4rem"
+                                color="var(--a-purple-400)"
                             />
                         </VStack>
                     </div>
@@ -74,10 +76,10 @@ export async function BarnetrygdOversikt() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <Pictogram
-                            svgInnhold={<BarnetrygdIkon />}
-                            ariaLabel="Barnetrygd"
-                            størrelse="stor"
+                        <TeddyBearIcon
+                            title="teddybear"
+                            fontSize="4rem"
+                            color="var(--a-purple-400)"
                         />
                     </VStack>
                 </div>
@@ -85,23 +87,29 @@ export async function BarnetrygdOversikt() {
                     <VStack gap={'8'}>
                         {!data && (
                             <div>
-                                <BodyShort>Du har ingen innvilget barnetrygd.</BodyShort>
+                                <BodyShort size={'large'}>
+                                    Du har ingen innvilget barnetrygd.
+                                </BodyShort>
                             </div>
                         )}
                         {data?.ordinær && (
                             <div>
-                                <BodyShort>
+                                <BodyShort size={'large'} weight={'semibold'}>
+                                    Barnetrygd ordinær
+                                </BodyShort>
+                                <BodyShort size={'large'}>
                                     Innvilget fra: {formatYearMonth(data.ordinær.startmåned)}
                                 </BodyShort>
-                                <BodyShort weight={'semibold'}>Barnetrygd ordinær</BodyShort>
                             </div>
                         )}
                         {data?.utvidet && (
                             <div>
-                                <BodyShort>
+                                <BodyShort size={'large'} weight={'semibold'}>
+                                    Barnetrygd utvidet
+                                </BodyShort>
+                                <BodyShort size={'large'}>
                                     Innvilget fra: {formatYearMonth(data.utvidet.startmåned)}
                                 </BodyShort>
-                                <BodyShort weight={'semibold'}>Barnetrygd utvidet</BodyShort>
                             </div>
                         )}
                     </VStack>
@@ -123,10 +131,10 @@ function Fallback() {
                         align={'center'}
                         justify={'center'}
                     >
-                        <Pictogram
-                            svgInnhold={<BarnetrygdIkon />}
-                            ariaLabel="Barnetrygd"
-                            størrelse="stor"
+                        <TeddyBearIcon
+                            title="teddybear"
+                            fontSize="4rem"
+                            color="var(--a-purple-400)"
                         />
                     </VStack>
                 </div>

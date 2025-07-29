@@ -9,7 +9,6 @@ import {
 import { BodyLong, BodyShort, Box, Heading, HStack, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from '@/komponenter/Seksjon';
-import { YtelseKort } from '@/komponenter/YtelseKort';
 import { Pictogram } from '@/komponenter/Pictogram';
 import { Barnetrygd } from '@/komponenter/pictogramSvgInnhold/Barnetrygd';
 import { Alene } from '@/komponenter/pictogramSvgInnhold/Alene';
@@ -24,6 +23,7 @@ import {
     LinkCardTitle,
 } from '@navikt/ds-react/LinkCard';
 import { Dokumentoversikt } from '@/komponenter/dokumentoversikt/Dokumentoversikt';
+import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkkeBarnehageplass';
 
 export default function Page() {
     return (
@@ -36,16 +36,16 @@ export default function Page() {
                         <ChevronRightIcon title="Neste" fontSize="1.5rem" />
                         <BodyShort>Barnetrygden min</BodyShort>
                     </HStack>
-                    <Heading level="1" size="large">
-                        <HStack align="center" gap="6">
-                            <Pictogram
-                                svgInnhold={<Barnetrygd />}
-                                ariaLabel="Barnetrygd"
-                                størrelse="stor"
-                            />
-                            <span>Barnetrygden min</span>
-                        </HStack>
-                    </Heading>
+                    <HStack align="center" gap="6">
+                        <Pictogram
+                            svgInnhold={<Barnetrygd />}
+                            ariaLabel="Barnetrygd"
+                            størrelse="stor"
+                        />
+                        <Heading level="1" size="large">
+                            Barnetrygden min
+                        </Heading>
+                    </HStack>
                 </Seksjon.Innhold>
             </Seksjon>
 
@@ -67,7 +67,7 @@ export default function Page() {
                             </LinkCardIcon>
                         </Box>
                         <LinkCardTitle>
-                            <LinkCardAnchor href="https://www.nav.no/kontaktoss">
+                            <LinkCardAnchor href="https://www.nav.no/kontaktoss#skriv-til-oss">
                                 Skriv til oss
                             </LinkCardAnchor>
                         </LinkCardTitle>
@@ -142,43 +142,80 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
-                <Seksjon.Innhold columns={{ sm: 1, md: 2, lg: 3 }}>
-                    <YtelseKort
-                        href="https://www.nav.no/alene-med-barn"
-                        tittel="For deg som er helt eller delvis alene med barn"
-                        ikon={<Pictogram svgInnhold={<Alene />} ariaLabel="Alene med barn" />}
-                    >
-                        Når du er alene med barn, finnes det ulike støtteordninger du kan ha rett
-                        til. Hvilke ordninger du har rett til, avhenger blant annet av barnets
-                        alder, sivilstanden din og bo- og arbeidssituasjonen din.
-                    </YtelseKort>
+                <Seksjon.Innhold columns={{ sm: 1, md: 2, lg: 2 }}>
+                    <LinkCard>
+                        <Box asChild>
+                            <LinkCardIcon>
+                                <Pictogram svgInnhold={<Alene />} ariaLabel="Alene med barn" />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/alene-med-barn">
+                                Er helt eller delvis alene med barn
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Om pengestøtte, bidrag og andre ordninger du kan ha rett til når du er
+                            alene med barn.
+                        </LinkCardDescription>
+                    </LinkCard>
 
-                    <YtelseKort
-                        href="https://www.nav.no/utvidet-barnetrygd"
-                        tittel="Les mer om utvidet barnetrygd"
-                        ikon={
-                            <Pictogram
-                                svgInnhold={<UtvidetBarnetrygd />}
-                                ariaLabel="Utvidet barnetrygd"
-                            />
-                        }
-                    >
-                        Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
-                    </YtelseKort>
-
-                    <YtelseKort
-                        href="https://www.nav.no/andres-barn"
-                        tittel="Har ansvar for andres barn"
-                        ikon={
-                            <Pictogram
-                                svgInnhold={<AnsvarForAndresBarn />}
-                                ariaLabel="Har ansvar for andres barn"
-                            />
-                        }
-                    >
-                        Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller
-                        annen omsorgsperson.
-                    </YtelseKort>
+                    <LinkCard>
+                        <Box asChild>
+                            <LinkCardIcon>
+                                <Pictogram
+                                    svgInnhold={<UtvidetBarnetrygd />}
+                                    ariaLabel="Utvidet barnetrygd"
+                                />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/utvidet-barnetrygd">
+                                Utvidet barnetrygd
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Et tillegg til ordinær barnetrygd når du bor alene med barn under 18 år.
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild>
+                            <LinkCardIcon>
+                                <Pictogram
+                                    svgInnhold={<AnsvarForAndresBarn />}
+                                    ariaLabel="Har ansvar for andres barn"
+                                />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/andres-barn">
+                                Har ansvar for andres barn
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Om pengestøtter for deg som tar vare på andres barn som fosterforelder
+                            eller annen omsorgsperson.
+                        </LinkCardDescription>
+                    </LinkCard>
+                    <LinkCard>
+                        <Box asChild>
+                            <LinkCardIcon>
+                                <Pictogram
+                                    svgInnhold={<HarIkkeBarnehageplass />}
+                                    ariaLabel="Har ikke barnehageplass"
+                                />
+                            </LinkCardIcon>
+                        </Box>
+                        <LinkCardTitle>
+                            <LinkCardAnchor href="https://www.nav.no/ikke-barnehageplass">
+                                Har barn som ikke har full barnehageplass
+                            </LinkCardAnchor>
+                        </LinkCardTitle>
+                        <LinkCardDescription>
+                            Om kontantstøtte når du har barn mellom 13 og 19 måneder som ikke har
+                            fulltidsplass i barnehage.
+                        </LinkCardDescription>
+                    </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
         </>

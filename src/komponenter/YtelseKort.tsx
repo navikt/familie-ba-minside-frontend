@@ -23,7 +23,7 @@ export function YtelseKort({ href, tittel, ikon, children }: Props) {
                         {children}
                     </BodyLong>
                 </Box>
-                <Button as="a" href={href} variant="secondary">
+                <Button as="a" href={href} variant="secondary" aria-label={'les mer om ' + tittel}>
                     Les mer
                 </Button>
             </VStack>
