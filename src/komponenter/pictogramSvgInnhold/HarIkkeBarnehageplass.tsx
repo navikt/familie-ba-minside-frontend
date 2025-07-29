@@ -1,12 +1,6 @@
 export function HarIkkeBarnehageplass() {
     return (
-        <svg
-            width="64"
-            height="64"
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <>
             <g clip-path="url(#clip0_1_646)">
                 <path
                     d="M49.3333 29.8887L33.6667 14.3331L18 29.8887V51.6665H49.3333V29.8887Z"
@@ -46,6 +40,6 @@ export function HarIkkeBarnehageplass() {
                     <rect width="64" height="64" fill="white" />
                 </clipPath>
             </defs>
-        </svg>
+        </>
     );
 }

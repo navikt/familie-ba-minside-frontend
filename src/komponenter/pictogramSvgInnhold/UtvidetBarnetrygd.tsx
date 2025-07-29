@@ -1,12 +1,6 @@
 export function UtvidetBarnetrygd() {
     return (
-        <svg
-            width="64"
-            height="64"
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <>
             <g clip-path="url(#clip0_1_2180)">
                 <rect x="30.6667" width="2.66667" height="8" fill="#CCF1D6" />
                 <rect x="30.6667" y="55.9998" width="2.66667" height="8" fill="#CCF1D6" />
@@ -166,6 +160,6 @@ export function UtvidetBarnetrygd() {
                     <rect width="64" height="64" fill="white" />
                 </clipPath>
             </defs>
-        </svg>
+        </>
     );
 }
