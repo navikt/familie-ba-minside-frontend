@@ -30,7 +30,7 @@ describe('BarnetrygdOversikt', () => {
 
         const { screen } = render(await BarnetrygdOversikt());
 
-        const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
+        const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const feilmelding = screen.getByText(
             'Det oppstod et teknisk problem, og vi klarte ikke å hente ' +
                 'informasjon om din barnetrygd. Dette skyldes ikke noe du har ' +
@@ -56,7 +56,7 @@ describe('BarnetrygdOversikt', () => {
 
         const { screen } = render(await BarnetrygdOversikt());
 
-        const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
+        const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const ordinær = screen.getByText('Barnetrygd ordinær');
         const dato = screen.getByText('Innvilget fra: 10.2024');
 
@@ -83,7 +83,7 @@ describe('BarnetrygdOversikt', () => {
 
         const { screen } = render(await BarnetrygdOversikt());
 
-        const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
+        const ikon = screen.getByRole('img', { name: 'teddy bear' });
 
         const ordinær = screen.getByText('Barnetrygd ordinær');
         const datoOrdinær = screen.getByText('Innvilget fra: 10.2024');
@@ -109,7 +109,7 @@ describe('BarnetrygdOversikt', () => {
 
         const { screen } = render(await BarnetrygdOversikt());
 
-        const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
+        const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const ingenInnvilgetBarnetrygd = screen.getByText('Du har ingen innvilget barnetrygd.');
 
         expect(ikon).toBeInTheDocument();
@@ -119,7 +119,7 @@ describe('BarnetrygdOversikt', () => {
     test('skal rendre fallback komponent korrekt', () => {
         const { screen } = render(<BarnetrygdOversikt.Fallback />);
 
-        const ikon = screen.getByRole('img', { name: 'Barnetrygd' });
+        const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const skeleton1 = screen.getByTestId('skeleton1');
         const skeleton2 = screen.getByTestId('skeleton2');
 

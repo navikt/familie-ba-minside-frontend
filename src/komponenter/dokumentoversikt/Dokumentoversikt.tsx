@@ -84,7 +84,7 @@ export function Dokumentoversikt() {
                 </BodyShort>
                 <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
-                    <Link inlineText href="#">
+                    <Link inlineText href="https://www.nav.no/kontaktoss#skriv-til-oss">
                         ta kontakt med Nav
                     </Link>
                     .
@@ -176,5 +176,7 @@ export function Dokumentoversikt() {
 }
 
 const spørsmålOmDokumenterMangler = (
-    <Link href="#">Har du sendt en søknad eller et dokument som ikke vises her?</Link>
+    <Link href="https://www.nav.no/kontaktoss#skriv-til-oss">
+        Har du sendt en søknad eller et dokument som ikke vises her?
+    </Link>
 );
