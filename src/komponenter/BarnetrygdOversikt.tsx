@@ -4,8 +4,7 @@ import {
     HentMinSideBarnetrygdFeil,
     HentMinSideBarnetrygdSuksess,
 } from '@/typer/api/barnetrygd';
-import { Alert, BodyLong, BodyShort, Box, HStack, Skeleton, VStack } from '@navikt/ds-react';
-import { erProd } from '@/util/miljø';
+import { Alert, BodyShort, Box, HStack, Link, Skeleton, VStack } from '@navikt/ds-react';
 import { AsyncResult } from '@/typer/api/asyncResult';
 import { formatYearMonth } from '@/util/date';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
@@ -24,136 +23,80 @@ async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     }
 }
 
-export async function BarnetrygdOversikt() {
-    const { data, error } = await hentBarnetrygd();
-
-    if (error) {
-        return (
-            <Box padding={'6'} borderRadius={'xlarge'} background={'surface-subtle'}>
-                <HStack wrap={false}>
-                    <div>
-                        <VStack
-                            paddingInline={'12'}
-                            height={'100%'}
-                            width={'100%'}
-                            align={'center'}
-                            justify={'center'}
-                        >
-                            <TeddyBearIcon
-                                title="teddy bear"
-                                fontSize="4rem"
-                                color="var(--a-purple-400)"
-                            />
-                        </VStack>
-                    </div>
-                    <Box width={'100%'} padding={'6'}>
-                        <Alert variant={'warning'} inline={false}>
-                            <VStack gap={'4'}>
-                                <BodyLong>
-                                    Det oppstod et teknisk problem, og vi klarte ikke å hente
-                                    informasjon om din barnetrygd. Dette skyldes ikke noe du har
-                                    gjort. Vennligst prøv igjen senere.
-                                </BodyLong>
-                                {!erProd() && error.message && (
-                                    <BodyLong>Feilmelding: {error.message}</BodyLong>
-                                )}
-                            </VStack>
-                        </Alert>
-                    </Box>
-                </HStack>
-            </Box>
-        );
-    }
-
+function InnholdContainer({ children }: { children: React.ReactNode }) {
     return (
-        <Box padding={'6'} borderRadius={'xlarge'} background={'surface-subtle'}>
-            <HStack wrap={false}>
-                <div>
-                    <VStack
-                        paddingInline={'12'}
-                        height={'100%'}
-                        width={'100%'}
-                        align={'center'}
-                        justify={'center'}
-                    >
-                        <TeddyBearIcon
-                            title="teddy bear"
-                            fontSize="4rem"
-                            color="var(--a-purple-400)"
-                        />
-                    </VStack>
-                </div>
-                <Box width={'100%'} padding={'6'}>
-                    <VStack gap={'8'}>
-                        {!data && (
-                            <div>
-                                <BodyShort size={'large'}>
-                                    Du har ingen innvilget barnetrygd.
-                                </BodyShort>
-                            </div>
-                        )}
-                        {data?.ordinær && (
-                            <div>
-                                <BodyShort size={'large'} weight={'semibold'}>
-                                    Barnetrygd ordinær
-                                </BodyShort>
-                                <BodyShort size={'large'}>
-                                    Innvilget fra: {formatYearMonth(data.ordinær.startmåned)}
-                                </BodyShort>
-                            </div>
-                        )}
-                        {data?.utvidet && (
-                            <div>
-                                <BodyShort size={'large'} weight={'semibold'}>
-                                    Barnetrygd utvidet
-                                </BodyShort>
-                                <BodyShort size={'large'}>
-                                    Innvilget fra: {formatYearMonth(data.utvidet.startmåned)}
-                                </BodyShort>
-                            </div>
-                        )}
-                    </VStack>
-                </Box>
+        <Box padding={{ xs: '4', lg: '8' }} borderRadius="xlarge" background="surface-subtle">
+            <HStack gap={{ xs: '4', lg: '8' }} align="center">
+                <TeddyBearIcon title="teddy bear" fontSize="4rem" color="var(--a-purple-400)" />
+                <VStack gap={{ xs: '4', lg: '8' }}>{children}</VStack>
             </HStack>
         </Box>
     );
 }
 
+export async function BarnetrygdOversikt() {
+    const { data, error } = await hentBarnetrygd();
+
+    if (error) {
+        return (
+            <Alert variant="error">
+                <BodyShort weight="semibold" spacing>
+                    Det har oppstått en teknisk feil. Dette skyldes ikke noe du har gjort.
+                </BodyShort>
+                <BodyShort spacing>
+                    Vi klarte ikke å hente informasjon om din barnetrygd. Vennligst prøv igjen
+                    senere.
+                </BodyShort>
+                <BodyShort>
+                    Dersom problemet vedvarer, kan du{' '}
+                    <Link inlineText href="https://www.nav.no/kontaktoss#skriv-til-oss">
+                        ta kontakt med Nav
+                    </Link>
+                    .
+                </BodyShort>
+            </Alert>
+        );
+    }
+
+    return (
+        <InnholdContainer>
+            {!data && (
+                <div>
+                    <BodyShort size="large">Du har ingen innvilget barnetrygd.</BodyShort>
+                </div>
+            )}
+            {data?.ordinær && (
+                <div>
+                    <BodyShort size="large" weight="semibold">
+                        Du har ordinær barnetrygd
+                    </BodyShort>
+                    <BodyShort size="large">
+                        Innvilget fra: {formatYearMonth(data.ordinær.startmåned)}
+                    </BodyShort>
+                </div>
+            )}
+            {data?.utvidet && (
+                <div>
+                    <BodyShort size="large" weight="semibold">
+                        Du har utvidet barnetrygd
+                    </BodyShort>
+                    <BodyShort size="large">
+                        Innvilget fra: {formatYearMonth(data.utvidet.startmåned)}
+                    </BodyShort>
+                </div>
+            )}
+        </InnholdContainer>
+    );
+}
+
 function Fallback() {
     return (
-        <Box padding={'6'} borderRadius={'xlarge'} background={'surface-subtle'}>
-            <HStack wrap={false}>
-                <div>
-                    <VStack
-                        paddingInline={'12'}
-                        height={'100%'}
-                        width={'100%'}
-                        align={'center'}
-                        justify={'center'}
-                    >
-                        <TeddyBearIcon
-                            title="teddy bear"
-                            fontSize="4rem"
-                            color="var(--a-purple-400)"
-                        />
-                    </VStack>
-                </div>
-                <Box width={'100%'} padding={'6'}>
-                    <Skeleton
-                        data-testid={'skeleton1'}
-                        variant={'text'}
-                        width={'75%'}
-                        height={'2.5rem'}
-                    />
-                    <Skeleton
-                        data-testid={'skeleton2'}
-                        variant={'text'}
-                        width={'75%'}
-                        height={'2.5rem'}
-                    />
-                </Box>
-            </HStack>
-        </Box>
+        <InnholdContainer>
+            <div>
+                <Skeleton data-testid="skeleton1" variant="text" height="2rem" width="12rem" />
+                <Skeleton data-testid="skeleton2" variant="text" height="2rem" width="12rem" />
+            </div>
+        </InnholdContainer>
     );
 }
 
