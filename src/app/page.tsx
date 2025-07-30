@@ -142,7 +142,7 @@ export default function Page() {
 
             <Seksjon>
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
-                <Seksjon.Innhold columns={{ sm: 1, md: 2, lg: 2 }}>
+                <Seksjon.Innhold columns={{ sm: 1, md: 2 }}>
                     <LinkCard>
                         <Box asChild>
                             <LinkCardIcon>
