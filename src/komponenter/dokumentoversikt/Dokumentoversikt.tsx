@@ -79,8 +79,11 @@ export function Dokumentoversikt() {
     if (status === Status.FEILET) {
         return (
             <Alert variant="error">
+                <BodyShort weight="semibold" spacing>
+                    Det har oppstått en teknisk feil. Dette skyldes ikke noe du har gjort.
+                </BodyShort>
                 <BodyShort spacing>
-                    Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.
+                    Vi klarte ikke å hente dokumenter. Vennligst prøv igjen senere.
                 </BodyShort>
                 <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
