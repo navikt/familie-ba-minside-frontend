@@ -30,14 +30,10 @@ describe('BarnetrygdOversikt', () => {
 
         const { screen } = render(await BarnetrygdOversikt());
 
-        const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const feilmelding = screen.getByText(
-            'Det oppstod et teknisk problem, og vi klarte ikke å hente ' +
-                'informasjon om din barnetrygd. Dette skyldes ikke noe du har ' +
-                'gjort. Vennligst prøv igjen senere.'
+            'Vi klarte ikke å hente informasjon om din barnetrygd. Vennligst prøv igjen senere.'
         );
 
-        expect(ikon).toBeInTheDocument();
         expect(feilmelding).toBeInTheDocument();
     });
 
@@ -57,7 +53,7 @@ describe('BarnetrygdOversikt', () => {
         const { screen } = render(await BarnetrygdOversikt());
 
         const ikon = screen.getByRole('img', { name: 'teddy bear' });
-        const ordinær = screen.getByText('Barnetrygd ordinær');
+        const ordinær = screen.getByText('Du har ordinær barnetrygd');
         const dato = screen.getByText('Innvilget fra: 10.2024');
 
         expect(ikon).toBeInTheDocument();
@@ -85,10 +81,10 @@ describe('BarnetrygdOversikt', () => {
 
         const ikon = screen.getByRole('img', { name: 'teddy bear' });
 
-        const ordinær = screen.getByText('Barnetrygd ordinær');
+        const ordinær = screen.getByText('Du har ordinær barnetrygd');
         const datoOrdinær = screen.getByText('Innvilget fra: 10.2024');
 
-        const utvidet = screen.getByText('Barnetrygd utvidet');
+        const utvidet = screen.getByText('Du har utvidet barnetrygd');
         const datoUtvidet = screen.getByText('Innvilget fra: 11.2024');
 
         expect(ikon).toBeInTheDocument();

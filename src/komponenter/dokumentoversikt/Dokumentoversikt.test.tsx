@@ -65,7 +65,7 @@ describe('Dokumentoversikt', () => {
         const { screen } = render(<Dokumentoversikt />);
 
         const feilmeldingAlert = await screen.findByText(
-            'Det oppstod en feil under henting av dokumenter. Vennligst prøv igjen senere.'
+            'Vi klarte ikke å hente dokumenter. Vennligst prøv igjen senere.'
         );
         const prøvPåNyttKnapp = screen.getByRole('button', { name: 'Prøv på nytt' });
 
