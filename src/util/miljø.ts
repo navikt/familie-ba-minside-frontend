@@ -26,7 +26,7 @@ const ansattEllerIntern = erAnsattUrl() ? 'ansatt' : 'intern';
 
 export const appUrlForMiljø = (): string => {
     if (erProd()) {
-        return `https://www.ansatt.nav.no${basePath}`;
+        return `https://www.nav.no${basePath}`;
     }
     if (erDev()) {
         return `https://familie-ba-minside.${ansattEllerIntern}.dev.nav.no${basePath}`;
