@@ -4,7 +4,7 @@ import { Dokumentoversikt, Journalpost } from '@/typer/api/dokumentoversikt';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { v4 as uuid } from 'uuid';
-import { erProd } from '@/util/miljø';
+import { erProd, hentFamilieIntegrasjonerBaseUrl } from '@/util/miljø';
 
 export async function GET(req: NextRequest) {
     const oboToken: OboTokenResponse = await hentOboToken(
@@ -14,8 +14,7 @@ export async function GET(req: NextRequest) {
     if (!oboToken.ok) {
         return new NextResponse(oboToken.error, { status: 401 });
     }
-    const url =
-        'https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/dokumentoversikt/BAR';
+    const url = `${hentFamilieIntegrasjonerBaseUrl()}/api/journalpostselvbetjening/dokumentoversikt/BAR`;
 
     const response = await fetch(url, {
         headers: {

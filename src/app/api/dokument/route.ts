@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { v4 as uuid } from 'uuid';
-import { erProd } from '@/util/miljø';
+import { erProd, hentFamilieIntegrasjonerBaseUrl } from '@/util/miljø';
 
 export async function GET(req: NextRequest) {
     const oboToken: OboTokenResponse = await hentOboToken(
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     const dokumentInfoId = req.nextUrl.searchParams.get('dokumentInfoId');
     const journalpostId = req.nextUrl.searchParams.get('journalpostId');
 
-    const url = `https://familie-integrasjoner.dev-fss-pub.nais.io/api/journalpostselvbetjening/${journalpostId}/dokument/${dokumentInfoId}`;
+    const url = `${hentFamilieIntegrasjonerBaseUrl()}/api/journalpostselvbetjening/${journalpostId}/dokument/${dokumentInfoId}`;
 
     const response = await fetch(url, {
         headers: {
