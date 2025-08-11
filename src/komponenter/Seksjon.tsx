@@ -13,7 +13,7 @@ interface SeksjonProps {
 
 export function Seksjon({
     background,
-    marginBlock = '12 0',
+    marginBlock = '0',
     paddingBlock = '12',
     gap = '4',
     children,

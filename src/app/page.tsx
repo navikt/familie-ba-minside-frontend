@@ -28,7 +28,7 @@ import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkke
 export default function Page() {
     return (
         <>
-            <Seksjon marginBlock="0" paddingBlock="12 0">
+            <Seksjon paddingBlock="12 0">
                 <Seksjon.Innhold>
                     <HStack gap="2" align="center">
                         <HouseIcon title="Min side" fontSize="1.5rem" />
@@ -49,7 +49,7 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon marginBlock="0">
+            <Seksjon>
                 <Seksjon.Innhold>
                     <Suspense fallback={<BarnetrygdOversikt.Fallback />}>
                         <BarnetrygdOversikt />
@@ -140,7 +140,7 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon>
+            <Seksjon paddingBlock="12 0">
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ sm: 1, md: 2 }}>
                     <LinkCard>
