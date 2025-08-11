@@ -50,3 +50,11 @@ export function hentFamilieBaSakBaseUrl(): string {
     }
     return 'http://localhost:8089';
 }
+
+export function hentFamilieIntegrasjonerBaseUrl(): string {
+    if (erProd()) {
+        return 'https://familie-integrasjoner.prod-fss-pub.nais.io';
+    } else {
+        return 'https://familie-integrasjoner.dev-fss-pub.nais.io';
+    }
+}
