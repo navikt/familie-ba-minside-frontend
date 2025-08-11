@@ -2,14 +2,16 @@ export const erProd = () => {
     if (typeof window === 'undefined') {
         return process.env.ENV === 'prod';
     }
-    return window.location.hostname.indexOf('www') > -1;
+
+    return window.location.hostname === 'www.nav.no';
 };
 
 export const erDev = () => {
     if (typeof window === 'undefined') {
         return process.env.ENV === 'dev';
     }
-    return window.location.hostname.indexOf('dev') > -1;
+
+    return window.location.hostname === 'familie-ba-minside.intern.dev.nav.no';
 };
 
 export const erLokalt = () => !erProd() && !erDev();
