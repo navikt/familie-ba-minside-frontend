@@ -4,10 +4,21 @@ import {
     HentMinSideBarnetrygdFeil,
     HentMinSideBarnetrygdSuksess,
 } from '@/typer/api/barnetrygd';
-import { Alert, BodyShort, Box, HStack, Link, Skeleton, VStack } from '@navikt/ds-react';
+import {
+    Alert,
+    BodyShort,
+    Box,
+    Heading,
+    HStack,
+    Link,
+    List,
+    Skeleton,
+    VStack,
+} from '@navikt/ds-react';
 import { AsyncResult } from '@/typer/api/asyncResult';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
 import { TeddyBearIcon } from '@navikt/aksel-icons';
+import { ListItem } from '@navikt/ds-react/List';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();
@@ -35,6 +46,8 @@ function InnholdContainer({ children }: { children: React.ReactNode }) {
 
 export async function BarnetrygdOversikt() {
     const { data, error } = await hentBarnetrygd();
+    const harIkkeBarnetrygd = !data;
+    const harKombinertBarnetrygd = data && data.ordinær && data.utvidet;
 
     if (error) {
         return (
@@ -57,29 +70,51 @@ export async function BarnetrygdOversikt() {
         );
     }
 
-    return (
-        <InnholdContainer>
-            {!data && (
+    if (harIkkeBarnetrygd) {
+        return (
+            <InnholdContainer>
                 <div>
                     <BodyShort size="large">Du har ingen innvilget barnetrygd.</BodyShort>
                 </div>
-            )}
-            {data?.ordinær && (
+            </InnholdContainer>
+        );
+    }
+
+    if (harKombinertBarnetrygd) {
+        return (
+            <InnholdContainer>
                 <div>
-                    <BodyShort size="large" weight="semibold">
-                        Du har ordinær barnetrygd
-                    </BodyShort>
+                    <Heading size="small" level="2">
+                        Du har:
+                    </Heading>
+                    <List>
+                        <ListItem>Ordinær barnetrygd</ListItem>
+                        <ListItem>Utvidet barnetrygd</ListItem>
+                    </List>
                 </div>
-            )}
-            {data?.utvidet && (
-                <div>
-                    <BodyShort size="large" weight="semibold">
-                        Du har utvidet barnetrygd
-                    </BodyShort>
-                </div>
-            )}
-        </InnholdContainer>
-    );
+            </InnholdContainer>
+        );
+    } else {
+        return (
+            <InnholdContainer>
+                {data.ordinær && (
+                    <div>
+                        <BodyShort size="large" weight="semibold">
+                            Du har ordinær barnetrygd
+                        </BodyShort>
+                    </div>
+                )}
+
+                {data.utvidet && (
+                    <div>
+                        <BodyShort size="large" weight="semibold">
+                            Du har utvidet barnetrygd
+                        </BodyShort>
+                    </div>
+                )}
+            </InnholdContainer>
+        );
+    }
 }
 
 function Fallback() {

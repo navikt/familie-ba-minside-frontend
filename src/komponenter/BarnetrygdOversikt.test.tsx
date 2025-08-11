@@ -79,9 +79,9 @@ describe('BarnetrygdOversikt', () => {
 
         const ikon = screen.getByRole('img', { name: 'teddy bear' });
 
-        const ordinær = screen.getByText('Du har ordinær barnetrygd');
+        const ordinær = screen.getByText('Ordinær barnetrygd');
 
-        const utvidet = screen.getByText('Du har utvidet barnetrygd');
+        const utvidet = screen.getByText('Utvidet barnetrygd');
 
         expect(ikon).toBeInTheDocument();
         expect(ordinær).toBeInTheDocument();
