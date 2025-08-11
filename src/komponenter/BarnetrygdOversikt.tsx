@@ -6,7 +6,6 @@ import {
 } from '@/typer/api/barnetrygd';
 import { Alert, BodyShort, Box, HStack, Link, Skeleton, VStack } from '@navikt/ds-react';
 import { AsyncResult } from '@/typer/api/asyncResult';
-import { formatYearMonth } from '@/util/date';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
 import { TeddyBearIcon } from '@navikt/aksel-icons';
 
@@ -70,18 +69,12 @@ export async function BarnetrygdOversikt() {
                     <BodyShort size="large" weight="semibold">
                         Du har ordinær barnetrygd
                     </BodyShort>
-                    <BodyShort size="large">
-                        Innvilget fra: {formatYearMonth(data.ordinær.startmåned)}
-                    </BodyShort>
                 </div>
             )}
             {data?.utvidet && (
                 <div>
                     <BodyShort size="large" weight="semibold">
                         Du har utvidet barnetrygd
-                    </BodyShort>
-                    <BodyShort size="large">
-                        Innvilget fra: {formatYearMonth(data.utvidet.startmåned)}
                     </BodyShort>
                 </div>
             )}
