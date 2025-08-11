@@ -28,15 +28,15 @@ import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkke
 export default function Page() {
     return (
         <>
-            <Seksjon marginBlock="0" paddingBlock={{ xs: '14 0', lg: '16 0' }}>
+            <Seksjon marginBlock="0" paddingBlock="12 0">
                 <Seksjon.Innhold>
-                    <HStack gap="2">
+                    <HStack gap="2" align="center">
                         <HouseIcon title="Min side" fontSize="1.5rem" />
                         <BodyShort>Min side</BodyShort>
                         <ChevronRightIcon title="Neste" fontSize="1.5rem" />
                         <BodyShort>Barnetrygden min</BodyShort>
                     </HStack>
-                    <HStack align="center" gap="6">
+                    <HStack align="center" gap="4">
                         <Pictogram
                             svgInnhold={<Barnetrygd />}
                             ariaLabel="Barnetrygd"
@@ -58,6 +58,17 @@ export default function Page() {
             </Seksjon>
 
             <Seksjon background={'surface-subtle'}>
+                <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
+                <Seksjon.Innhold>
+                    <BodyLong>
+                        Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og
+                        meldinger.
+                    </BodyLong>
+                    <Dokumentoversikt />
+                </Seksjon.Innhold>
+            </Seksjon>
+
+            <Seksjon>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LinkCard>
@@ -93,7 +104,7 @@ export default function Page() {
                 </Seksjon.Innhold>
             </Seksjon>
 
-            <Seksjon>
+            <Seksjon background={'surface-subtle'}>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LinkCard>
@@ -126,17 +137,6 @@ export default function Page() {
                             Se saksbehandlingstider og ventetider for barnetrygd.
                         </LinkCardDescription>
                     </LinkCard>
-                </Seksjon.Innhold>
-            </Seksjon>
-
-            <Seksjon background={'surface-subtle'}>
-                <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
-                <Seksjon.Innhold>
-                    <BodyLong>
-                        Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og
-                        meldinger.
-                    </BodyLong>
-                    <Dokumentoversikt />
                 </Seksjon.Innhold>
             </Seksjon>
 
