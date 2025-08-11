@@ -6,7 +6,7 @@ import {
     HouseIcon,
     ThumbDownIcon,
 } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Box, Heading, HStack, LinkCard } from '@navikt/ds-react';
+import { BodyLong, BodyShort, Box, Heading, HStack, Link, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from '@/komponenter/Seksjon';
 import { Pictogram } from '@/komponenter/Pictogram';
@@ -32,8 +32,10 @@ export default function Page() {
                 <Seksjon.Innhold>
                     <HStack gap="2" align="center">
                         <HouseIcon title="Min side" fontSize="1.5rem" />
-                        <BodyShort>Min side</BodyShort>
-                        <ChevronRightIcon title="Neste" fontSize="1.5rem" />
+                        <Link href="https://www.nav.no">nav.no</Link>
+                        <ChevronRightIcon title="Neste" />
+                        <Link href="https://www.nav.no/minside">Min side</Link>
+                        <ChevronRightIcon title="Neste" />
                         <BodyShort>Barnetrygden min</BodyShort>
                     </HStack>
                     <HStack align="center" gap="4">
