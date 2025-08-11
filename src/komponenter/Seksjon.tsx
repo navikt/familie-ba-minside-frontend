@@ -13,9 +13,9 @@ interface SeksjonProps {
 
 export function Seksjon({
     background,
-    marginBlock = { xs: '14 0', lg: '16 0' },
-    paddingBlock = { xs: '14', lg: '16' },
-    gap = { xs: '4', lg: '6' },
+    marginBlock = '12 0',
+    paddingBlock = '12',
+    gap = '4',
     children,
 }: SeksjonProps) {
     return (
@@ -34,7 +34,7 @@ interface InnholdProps extends PropsWithChildren {
     gap?: HGridProps['gap'];
 }
 
-function Innhold({ columns = 1, gap = { xs: '4', lg: '6' }, children }: InnholdProps) {
+function Innhold({ columns = 1, gap = '4', children }: InnholdProps) {
     return (
         <HGrid columns={columns} gap={gap}>
             {children}
