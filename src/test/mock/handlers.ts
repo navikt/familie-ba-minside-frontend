@@ -14,6 +14,9 @@ export const handlers = [
                     ordinær: {
                         startmåned: '2024-10',
                     },
+                    utvidet: {
+                        startmåned: '2024-11',
+                    },
                 },
             },
             { status: 200 }

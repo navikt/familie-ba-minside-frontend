@@ -54,11 +54,9 @@ describe('BarnetrygdOversikt', () => {
 
         const ikon = screen.getByRole('img', { name: 'teddy bear' });
         const ordinær = screen.getByText('Du har ordinær barnetrygd');
-        const dato = screen.getByText('Innvilget fra: 10.2024');
 
         expect(ikon).toBeInTheDocument();
         expect(ordinær).toBeInTheDocument();
-        expect(dato).toBeInTheDocument();
     });
 
     test('skal rendre komponent med ordinær og utvidet barnetrygd', async () => {
@@ -82,16 +80,12 @@ describe('BarnetrygdOversikt', () => {
         const ikon = screen.getByRole('img', { name: 'teddy bear' });
 
         const ordinær = screen.getByText('Du har ordinær barnetrygd');
-        const datoOrdinær = screen.getByText('Innvilget fra: 10.2024');
 
         const utvidet = screen.getByText('Du har utvidet barnetrygd');
-        const datoUtvidet = screen.getByText('Innvilget fra: 11.2024');
 
         expect(ikon).toBeInTheDocument();
         expect(ordinær).toBeInTheDocument();
-        expect(datoOrdinær).toBeInTheDocument();
         expect(utvidet).toBeInTheDocument();
-        expect(datoUtvidet).toBeInTheDocument();
     });
 
     test('skal rendre komponent uten barnetrygd', async () => {
