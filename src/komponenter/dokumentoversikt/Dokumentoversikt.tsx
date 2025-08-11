@@ -1,6 +1,16 @@
 'use client';
 
-import { Alert, BodyShort, Box, Button, Link, Pagination, Skeleton, Table } from '@navikt/ds-react';
+import {
+    Alert,
+    BodyShort,
+    Box,
+    Button,
+    Heading,
+    Link,
+    Pagination,
+    Skeleton,
+    Table,
+} from '@navikt/ds-react';
 import {
     TableBody,
     TableDataCell,
@@ -12,7 +22,7 @@ import {
 import { appUrl } from '@/util/miljø';
 import React, { useEffect, useState } from 'react';
 import { Datotype, Journalpost, Journalposttype } from '@/typer/api/dokumentoversikt';
-import { List } from '@navikt/ds-react/List';
+import { List, ListItem } from '@navikt/ds-react/List';
 import { DokumentListItem } from './DokumentListItem';
 
 async function hentDokumenter(): Promise<Journalpost[]> {
@@ -104,7 +114,9 @@ export function Dokumentoversikt() {
             return (
                 <>
                     <Alert variant="info">Ingen dokumenter funnet.</Alert>
-                    {spørsmålOmDokumenterMangler}
+                    <Link href="https://www.nav.no/kontaktoss#skriv-til-oss">
+                        Har du sendt en søknad eller et dokument som ikke vises her?
+                    </Link>
                 </>
             );
         }
@@ -172,14 +184,21 @@ export function Dokumentoversikt() {
                         size="small"
                     />
                 )}
-                {spørsmålOmDokumenterMangler}
+
+                <Box marginBlock={'4 0'}>
+                    <Heading level="3" size="xsmall">
+                        Finner du ikke det du leter etter?
+                    </Heading>
+                    <List size="small">
+                        <ListItem>Vi viser dokumenter i saker fra midten av 2016.</ListItem>
+                        <ListItem>
+                            <Link href="https://www.nav.no/kontaktoss#skriv-til-oss">
+                                Har du sendt en søknad eller et dokument som ikke vises her?
+                            </Link>
+                        </ListItem>
+                    </List>
+                </Box>
             </>
         );
     }
 }
-
-const spørsmålOmDokumenterMangler = (
-    <Link href="https://www.nav.no/kontaktoss#skriv-til-oss">
-        Har du sendt en søknad eller et dokument som ikke vises her?
-    </Link>
-);
