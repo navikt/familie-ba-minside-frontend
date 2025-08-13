@@ -1,3 +1,4 @@
+import { connection } from 'next/server';
 import { startUnleash, Unleash } from 'unleash-client';
 
 export enum UnleashToggle {
@@ -11,6 +12,8 @@ const url = process.env.UNLEASH_SERVER_API_URL
 let unleash: Unleash;
 
 export async function initialiserUnleash() {
+    await connection();
+
     if (!unleash) {
         unleash = await startUnleash({
             url: url,
