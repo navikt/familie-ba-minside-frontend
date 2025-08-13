@@ -2,6 +2,8 @@
 import { Seksjon } from '@/komponenter/Seksjon';
 import { BodyShort, Button, Heading, Link, List, VStack } from '@navikt/ds-react';
 
+// Error brukes også i KillSwitch-komponenten.
+// Den må også testes hvis denne siden endrer seg.
 export default function Error() {
     return (
         <Seksjon>
