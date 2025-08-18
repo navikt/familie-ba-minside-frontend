@@ -5,7 +5,8 @@ import { Page, PageBlock } from '@navikt/ds-react/Page';
 import { erDev, erLokalt } from '@/util/miljø';
 import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
 import { AxeCoreReact } from '@/test/AxeCoreReact';
-
+import { KillSwitch } from '@/komponenter/KillSwitch';
+import { initialiserUnleash } from '@/util/unleash';
 interface RootLayoutProps {
     children: React.ReactNode;
 }
@@ -14,6 +15,8 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
     const Decorator = await fetchDecoratorReact({
         env: erDev() ? 'dev' : 'prod',
     });
+
+    await initialiserUnleash();
 
     if (erLokalt()) {
         // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -47,7 +50,9 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
                     }
                 >
                     <Decorator.Header />
-                    <PageBlock as="main">{children}</PageBlock>
+                    <PageBlock as="main">
+                        <KillSwitch>{children}</KillSwitch>
+                    </PageBlock>
                 </Page>
             </LoggerWrapper>
         </html>
