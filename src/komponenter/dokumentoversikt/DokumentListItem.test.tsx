@@ -33,9 +33,7 @@ describe('DokumentListItem', () => {
         journalpostId: '123',
         tittel: 'Test journalpost',
         journalposttype: 'I' as Journalposttype,
-        relevanteDatoer: [
-            { datotype: 'DATO_OPPRETTET' as Datotype, dato: new Date('2024-01-01T12:00:00Z') },
-        ],
+        relevanteDatoer: [{ datotype: 'DATO_OPPRETTET' as Datotype, dato: new Date('2024-01-01T12:00:00Z') }],
         dokumenter: [dokumentMock()],
         ...overrides,
     });
@@ -49,9 +47,7 @@ describe('DokumentListItem', () => {
 
         window.open = vi.fn();
 
-        const { screen } = render(
-            <DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />
-        );
+        const { screen } = render(<DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />);
 
         const dokumentLenke = screen.getByText('Test dokument');
         expect(dokumentLenke).toBeInTheDocument();
@@ -80,14 +76,10 @@ describe('DokumentListItem', () => {
 
     test('viser feilmelding hvis dokumentvisning feiler', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokument', () =>
-                HttpResponse.text('Feil!', { status: 500 })
-            )
+            http.get('/barnetrygd/min-barnetrygd/api/dokument', () => HttpResponse.text('Feil!', { status: 500 }))
         );
 
-        const { screen } = render(
-            <DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />
-        );
+        const { screen } = render(<DokumentListItem journalpost={journalpostMock()} dokument={dokumentMock()} />);
 
         const dokumentLenke = screen.getByText('Test dokument');
         await userEvent.click(dokumentLenke);

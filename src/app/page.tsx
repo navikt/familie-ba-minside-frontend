@@ -1,11 +1,4 @@
-import {
-    Chat2Icon,
-    ChevronRightIcon,
-    ClockIcon,
-    GavelIcon,
-    HouseIcon,
-    ThumbDownIcon,
-} from '@navikt/aksel-icons';
+import { Chat2Icon, ChevronRightIcon, ClockIcon, GavelIcon, HouseIcon, ThumbDownIcon } from '@navikt/aksel-icons';
 import { BodyLong, BodyShort, Box, Heading, HStack, Link, LinkCard } from '@navikt/ds-react';
 
 import { Seksjon } from '@/komponenter/Seksjon';
@@ -16,12 +9,7 @@ import { UtvidetBarnetrygd } from '@/komponenter/pictogramSvgInnhold/UtvidetBarn
 import { AnsvarForAndresBarn } from '@/komponenter/pictogramSvgInnhold/AnsvarForAndresBarn';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
-import {
-    LinkCardAnchor,
-    LinkCardDescription,
-    LinkCardIcon,
-    LinkCardTitle,
-} from '@navikt/ds-react/LinkCard';
+import { LinkCardAnchor, LinkCardDescription, LinkCardIcon, LinkCardTitle } from '@navikt/ds-react/LinkCard';
 import { Dokumentoversikt } from '@/komponenter/dokumentoversikt/Dokumentoversikt';
 import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkkeBarnehageplass';
 
@@ -39,11 +27,7 @@ export default function Page() {
                         <BodyShort>Barnetrygden min</BodyShort>
                     </HStack>
                     <HStack align="center" gap="4">
-                        <Pictogram
-                            svgInnhold={<Barnetrygd />}
-                            ariaLabel="Barnetrygd"
-                            størrelse="stor"
-                        />
+                        <Pictogram svgInnhold={<Barnetrygd />} ariaLabel="Barnetrygd" størrelse="stor" />
                         <Heading level="1" size="large">
                             Barnetrygden min
                         </Heading>
@@ -63,8 +47,7 @@ export default function Page() {
                 <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
                 <Seksjon.Innhold>
                     <BodyLong>
-                        Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og
-                        meldinger.
+                        Her finner du alle søknader, vedlegg, vedtak, brev, samtalereferater og meldinger.
                     </BodyLong>
                     <Dokumentoversikt />
                 </Seksjon.Innhold>
@@ -116,9 +99,7 @@ export default function Page() {
                             </LinkCardIcon>
                         </Box>
                         <LinkCardTitle>
-                            <LinkCardAnchor href="https://www.nav.no/klage#barnetrygd">
-                                Slik klager du
-                            </LinkCardAnchor>
+                            <LinkCardAnchor href="https://www.nav.no/klage#barnetrygd">Slik klager du</LinkCardAnchor>
                         </LinkCardTitle>
                         <LinkCardDescription>
                             Du har rett til å klage eller anke hvis du er uenig i vedtaket.
@@ -135,9 +116,7 @@ export default function Page() {
                                 Saksbehandlingstider
                             </LinkCardAnchor>
                         </LinkCardTitle>
-                        <LinkCardDescription>
-                            Se saksbehandlingstider og ventetider for barnetrygd.
-                        </LinkCardDescription>
+                        <LinkCardDescription>Se saksbehandlingstider og ventetider for barnetrygd.</LinkCardDescription>
                     </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
@@ -157,18 +136,14 @@ export default function Page() {
                             </LinkCardAnchor>
                         </LinkCardTitle>
                         <LinkCardDescription>
-                            Om pengestøtte, bidrag og andre ordninger du kan ha rett til når du er
-                            alene med barn.
+                            Om pengestøtte, bidrag og andre ordninger du kan ha rett til når du er alene med barn.
                         </LinkCardDescription>
                     </LinkCard>
 
                     <LinkCard>
                         <Box asChild>
                             <LinkCardIcon>
-                                <Pictogram
-                                    svgInnhold={<UtvidetBarnetrygd />}
-                                    ariaLabel="Utvidet barnetrygd"
-                                />
+                                <Pictogram svgInnhold={<UtvidetBarnetrygd />} ariaLabel="Utvidet barnetrygd" />
                             </LinkCardIcon>
                         </Box>
                         <LinkCardTitle>
@@ -195,17 +170,14 @@ export default function Page() {
                             </LinkCardAnchor>
                         </LinkCardTitle>
                         <LinkCardDescription>
-                            Om pengestøtter for deg som tar vare på andres barn som fosterforelder
-                            eller annen omsorgsperson.
+                            Om pengestøtter for deg som tar vare på andres barn som fosterforelder eller annen
+                            omsorgsperson.
                         </LinkCardDescription>
                     </LinkCard>
                     <LinkCard>
                         <Box asChild>
                             <LinkCardIcon>
-                                <Pictogram
-                                    svgInnhold={<HarIkkeBarnehageplass />}
-                                    ariaLabel="Har ikke barnehageplass"
-                                />
+                                <Pictogram svgInnhold={<HarIkkeBarnehageplass />} ariaLabel="Har ikke barnehageplass" />
                             </LinkCardIcon>
                         </Box>
                         <LinkCardTitle>
@@ -214,8 +186,8 @@ export default function Page() {
                             </LinkCardAnchor>
                         </LinkCardTitle>
                         <LinkCardDescription>
-                            Om kontantstøtte når du har barn mellom 13 og 19 måneder som ikke har
-                            fulltidsplass i barnehage.
+                            Om kontantstøtte når du har barn mellom 13 og 19 måneder som ikke har fulltidsplass i
+                            barnehage.
                         </LinkCardDescription>
                     </LinkCard>
                 </Seksjon.Innhold>

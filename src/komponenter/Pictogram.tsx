@@ -8,13 +8,7 @@ type Props = {
 
 export function Pictogram({ svgInnhold, ariaLabel, størrelse = 'medium' }: Props) {
     const størrelseIPx =
-        størrelse === 'stor'
-            ? 64
-            : størrelse === 'medium'
-              ? 48
-              : størrelse === 'liten'
-                ? 32
-                : størrelse;
+        størrelse === 'stor' ? 64 : størrelse === 'medium' ? 48 : størrelse === 'liten' ? 32 : størrelse;
 
     return (
         <svg

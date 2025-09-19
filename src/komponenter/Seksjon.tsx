@@ -11,13 +11,7 @@ interface SeksjonProps {
     children: ReactNode;
 }
 
-export function Seksjon({
-    background,
-    marginBlock = '0',
-    paddingBlock = '12',
-    gap = '4',
-    children,
-}: SeksjonProps) {
+export function Seksjon({ background, marginBlock = '0', paddingBlock = '12', gap = '4', children }: SeksjonProps) {
     return (
         <Box background={background}>
             <PageBlock as={'section'} width={'lg'} gutters={true}>

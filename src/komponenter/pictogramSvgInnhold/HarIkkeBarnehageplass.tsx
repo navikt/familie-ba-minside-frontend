@@ -2,10 +2,7 @@ export function HarIkkeBarnehageplass() {
     return (
         <>
             <g clipPath="url(#clip0_1_646)">
-                <path
-                    d="M49.3333 29.8887L33.6667 14.3331L18 29.8887V51.6665H49.3333V29.8887Z"
-                    fill="#CCF1D6"
-                />
+                <path d="M49.3333 29.8887L33.6667 14.3331L18 29.8887V51.6665H49.3333V29.8887Z" fill="#CCF1D6" />
                 <circle cx="53.6666" cy="13.3333" r="9.33333" stroke="#23262A" strokeWidth="2" />
                 <path
                     d="M60.6667 34.3333V34.3333C60.6667 30.2832 57.3834 27 53.3333 27V27C49.2832 27 46 30.2832 46 34.3333V34.3333"
