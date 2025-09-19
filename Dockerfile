@@ -1,6 +1,6 @@
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-dev
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 WORKDIR /app
 COPY .next/standalone ./
@@ -10,4 +10,4 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+CMD ["server.js"]
