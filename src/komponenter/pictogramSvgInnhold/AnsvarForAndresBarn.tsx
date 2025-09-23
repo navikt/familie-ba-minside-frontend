@@ -29,36 +29,11 @@ export function AnsvarForAndresBarn() {
                     strokeLinejoin="round"
                 />
                 <path d="M1.33301 14.4444H29.333" stroke="#262626" strokeWidth="2" />
-                <path
-                    d="M9.11096 2V9.77778"
-                    stroke="#262626"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
-                <path
-                    d="M21.5551 2V9.77778"
-                    stroke="#262626"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
-                <path
-                    d="M5.99963 20.6667H9.11074"
-                    stroke="#262626"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
-                <path
-                    d="M13.7777 26.8889H16.8888"
-                    stroke="#262626"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
-                <path
-                    d="M21.5551 26.8889H24.6662"
-                    stroke="#262626"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
+                <path d="M9.11096 2V9.77778" stroke="#262626" strokeWidth="2" strokeLinecap="round" />
+                <path d="M21.5551 2V9.77778" stroke="#262626" strokeWidth="2" strokeLinecap="round" />
+                <path d="M5.99963 20.6667H9.11074" stroke="#262626" strokeWidth="2" strokeLinecap="round" />
+                <path d="M13.7777 26.8889H16.8888" stroke="#262626" strokeWidth="2" strokeLinecap="round" />
+                <path d="M21.5551 26.8889H24.6662" stroke="#262626" strokeWidth="2" strokeLinecap="round" />
             </g>
             <defs>
                 <clipPath id="clip0_290_920">

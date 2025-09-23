@@ -12,9 +12,7 @@ describe('asyncResult', () => {
 
     test('skal opprette AsyncResult failure for error', () => {
         // Act
-        const asyncResult = AsyncResult.failure(
-            new Error('Ops! Ops! Noe gikk galt!', { cause: 'cause' })
-        );
+        const asyncResult = AsyncResult.failure(new Error('Ops! Ops! Noe gikk galt!', { cause: 'cause' }));
 
         // Expect
         expect(asyncResult.error.message).toBe('Ops! Ops! Noe gikk galt!');

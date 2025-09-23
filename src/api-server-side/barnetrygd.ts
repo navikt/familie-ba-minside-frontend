@@ -8,9 +8,7 @@ import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer
 import { headers } from 'next/headers';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 
-export async function hentBarnetrygdOversikt(): Promise<
-    HentMinSideBarnetrygdSuksess | HentMinSideBarnetrygdFeil
-> {
+export async function hentBarnetrygdOversikt(): Promise<HentMinSideBarnetrygdSuksess | HentMinSideBarnetrygdFeil> {
     try {
         const reqHeaders = await headers();
         const oboToken: OboTokenResponse = await hentOboToken(

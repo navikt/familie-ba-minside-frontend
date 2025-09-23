@@ -14,8 +14,7 @@ export default function NotFound() {
                                 Beklager, vi fant ikke siden
                             </Heading>
                             <BodyShort spacing>
-                                Denne siden kan være slettet eller flyttet, eller det er en feil i
-                                lenken.
+                                Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.
                             </BodyShort>
                             <List>
                                 <List.Item>Bruk gjerne søket eller menyen</List.Item>
@@ -38,8 +37,8 @@ export default function NotFound() {
                         </Heading>
                         <BodyShort spacing>The page you requested cannot be found.</BodyShort>
                         <BodyShort>
-                            Go to the <Link href="https://nav.no/en">front page</Link>, or use one
-                            of the links in the menu.
+                            Go to the <Link href="https://nav.no/en">front page</Link>, or use one of the links in the
+                            menu.
                         </BodyShort>
                     </VStack>
                 </VStack>
