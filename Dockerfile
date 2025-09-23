@@ -10,4 +10,6 @@ EXPOSE 3000
 
 ENV PORT=3000
 
+ENV NODE_OPTIONS="--disable-warning=DEP0169"
+
 CMD ["server.js"]
