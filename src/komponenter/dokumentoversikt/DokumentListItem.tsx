@@ -42,10 +42,7 @@ export function DokumentListItem({ journalpost, dokument }: DokumentRadProps) {
     );
 
     const hentOgVisDokument = async () => {
-        if (
-            dokumentStatus === DokumentStatus.IKKE_TILGANG ||
-            dokumentStatus === DokumentStatus.LASTER
-        ) {
+        if (dokumentStatus === DokumentStatus.IKKE_TILGANG || dokumentStatus === DokumentStatus.LASTER) {
             return;
         }
 
@@ -86,8 +83,7 @@ export function DokumentListItem({ journalpost, dokument }: DokumentRadProps) {
                         </span>
                         {dokumentStatus === 'FEIL' && (
                             <Alert variant="error" size="small">
-                                Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen
-                                senere.
+                                Det oppstod en feil under vising av dokumentet. Vennligst prøv igjen senere.
                             </Alert>
                         )}
                     </>

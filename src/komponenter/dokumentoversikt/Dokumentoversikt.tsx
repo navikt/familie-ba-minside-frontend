@@ -83,9 +83,7 @@ export function Dokumentoversikt() {
                 <BodyShort weight="semibold" spacing>
                     Det har oppstått en teknisk feil. Dette skyldes ikke noe du har gjort.
                 </BodyShort>
-                <BodyShort spacing>
-                    Vi klarte ikke å hente dokumenter. Vennligst prøv igjen senere.
-                </BodyShort>
+                <BodyShort spacing>Vi klarte ikke å hente dokumenter. Vennligst prøv igjen senere.</BodyShort>
                 <BodyShort spacing>
                     Dersom problemet vedvarer, kan du{' '}
                     <Link inlineText href="https://www.nav.no/kontaktoss#skriv-til-oss">
@@ -143,15 +141,12 @@ export function Dokumentoversikt() {
                                 >
                                     <TableHeaderCell>{journalpost.tittel}</TableHeaderCell>
                                     <TableDataCell>
-                                        {journalpost.journalposttype == Journalposttype.I
-                                            ? 'Deg'
-                                            : 'Nav'}
+                                        {journalpost.journalposttype == Journalposttype.I ? 'Deg' : 'Nav'}
                                     </TableDataCell>
                                     <TableDataCell align="right">
                                         {new Date(
                                             journalpost.relevanteDatoer.find(
-                                                relevantDato =>
-                                                    relevantDato.datotype == Datotype.DATO_OPPRETTET
+                                                relevantDato => relevantDato.datotype == Datotype.DATO_OPPRETTET
                                             )?.dato ?? ''
                                         ).toLocaleDateString('nb-NO')}
                                     </TableDataCell>
