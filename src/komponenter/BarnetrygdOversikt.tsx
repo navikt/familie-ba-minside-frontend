@@ -1,20 +1,6 @@
 import React from 'react';
-import {
-    Barnetrygd,
-    HentMinSideBarnetrygdFeil,
-    HentMinSideBarnetrygdSuksess,
-} from '@/typer/api/barnetrygd';
-import {
-    Alert,
-    BodyShort,
-    Box,
-    Heading,
-    HStack,
-    Link,
-    List,
-    Skeleton,
-    VStack,
-} from '@navikt/ds-react';
+import { Barnetrygd, HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
+import { Alert, BodyShort, Box, Heading, HStack, Link, List, Skeleton, VStack } from '@navikt/ds-react';
 import { AsyncResult } from '@/typer/api/asyncResult';
 import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
 import { TeddyBearIcon } from '@navikt/aksel-icons';
@@ -56,8 +42,7 @@ export async function BarnetrygdOversikt() {
                     Det har oppstått en teknisk feil. Dette skyldes ikke noe du har gjort.
                 </BodyShort>
                 <BodyShort spacing>
-                    Vi klarte ikke å hente informasjon om din barnetrygd. Vennligst prøv igjen
-                    senere.
+                    Vi klarte ikke å hente informasjon om din barnetrygd. Vennligst prøv igjen senere.
                 </BodyShort>
                 <BodyShort>
                     Dersom problemet vedvarer, kan du{' '}

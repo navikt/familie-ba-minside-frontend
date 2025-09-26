@@ -13,8 +13,8 @@ export default function Error() {
                                 Beklager, noe gikk galt
                             </Heading>
                             <BodyShort spacing>
-                                En teknisk feil på våre servere gjør at siden er utilgjengelig.
-                                Dette skyldes ikke noe du gjorde.
+                                En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe
+                                du gjorde.
                             </BodyShort>
                             <BodyShort>Du kan prøve å</BodyShort>
                             <List>
@@ -49,8 +49,8 @@ export default function Error() {
                             Something went wrong
                         </Heading>
                         <BodyShort spacing>
-                            This was caused by a technical fault on our servers. Please refresh this
-                            page or try again in a few minutes.
+                            This was caused by a technical fault on our servers. Please refresh this page or try again
+                            in a few minutes.
                         </BodyShort>
                         <BodyShort>
                             <Link href="https://www.nav.no/kontaktoss/en" target="_blank">

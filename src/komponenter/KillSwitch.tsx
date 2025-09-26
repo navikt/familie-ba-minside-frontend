@@ -17,9 +17,8 @@ export function KillSwitch(props: PropsWithChildren) {
                                     Vi jobber med å forbedre siden
                                 </Heading>
                                 <BodyShort>
-                                    Denne siden er midlertidig utilgjengelig mens vi legger til nytt
-                                    innhold og gjør forbedringer. Takk for tålmodigheten – prøv
-                                    gjerne igjen litt senere.
+                                    Denne siden er midlertidig utilgjengelig mens vi legger til nytt innhold og gjør
+                                    forbedringer. Takk for tålmodigheten – prøv gjerne igjen litt senere.
                                 </BodyShort>
                             </div>
                             <Button as="a" href="https://www.nav.no/minside">
@@ -31,9 +30,8 @@ export function KillSwitch(props: PropsWithChildren) {
                                 We’re working on this page
                             </Heading>
                             <BodyShort>
-                                This page is temporarily unavailable while we add new content and
-                                improvements. Thank you for your patience – please check back a bit
-                                later.
+                                This page is temporarily unavailable while we add new content and improvements. Thank
+                                you for your patience – please check back a bit later.
                             </BodyShort>
                         </div>
                     </VStack>

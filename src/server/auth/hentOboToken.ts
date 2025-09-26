@@ -5,10 +5,7 @@ import { NextRequest } from 'next/server';
 import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
 import { erLokalt } from '@/util/miljø';
 
-export async function hentOboToken(
-    req: NextRequest | Headers,
-    audience: string
-): Promise<OboTokenResponse> {
+export async function hentOboToken(req: NextRequest | Headers, audience: string): Promise<OboTokenResponse> {
     if (erLokalt()) {
         const clientId = 'dev-gcp:teamfamilie:familie-ba-minside-soknad';
         const audience = `dev-gcp:teamfamilie:familie-integrasjoner`; // Hva skal være her?

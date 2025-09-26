@@ -14,8 +14,7 @@ import userEvent from '@testing-library/user-event';
 import { Dokumentoversikt } from './Dokumentoversikt';
 
 describe('Dokumentoversikt', () => {
-    const spørsmålOmDokumenterManglerTekst =
-        'Har du sendt en søknad eller et dokument som ikke vises her?';
+    const spørsmålOmDokumenterManglerTekst = 'Har du sendt en søknad eller et dokument som ikke vises her?';
 
     const dokumentvariantMock = (overrides: Partial<Dokumentvariant> = {}): Dokumentvariant => ({
         variantformat: Variantformat.ARKIV,
@@ -36,17 +35,13 @@ describe('Dokumentoversikt', () => {
         journalpostId: '123',
         tittel: 'Test journalpost',
         journalposttype: 'I' as Journalposttype,
-        relevanteDatoer: [
-            { datotype: 'DATO_OPPRETTET' as Datotype, dato: new Date('2024-01-01T12:00:00Z') },
-        ],
+        relevanteDatoer: [{ datotype: 'DATO_OPPRETTET' as Datotype, dato: new Date('2024-01-01T12:00:00Z') }],
         dokumenter: [dokumentMock()],
         ...overrides,
     });
 
     test('viser henter tekst mens dokumenter lastes', async () => {
-        server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => new Promise(() => {}))
-        );
+        server.use(http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => new Promise(() => {})));
 
         const { screen } = render(<Dokumentoversikt />);
 
@@ -57,9 +52,7 @@ describe('Dokumentoversikt', () => {
 
     test('viser feilmelding og retry-knapp ved feil', async () => {
         server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () =>
-                HttpResponse.text('Feil!', { status: 500 })
-            )
+            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => HttpResponse.text('Feil!', { status: 500 }))
         );
 
         const { screen } = render(<Dokumentoversikt />);
@@ -74,9 +67,7 @@ describe('Dokumentoversikt', () => {
     });
 
     test('viser info hvis dokumenter api-et lastes, men ingen dokumenter finnes', async () => {
-        server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => HttpResponse.json([]))
-        );
+        server.use(http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => HttpResponse.json([])));
 
         const { screen } = render(<Dokumentoversikt />);
 
@@ -88,11 +79,7 @@ describe('Dokumentoversikt', () => {
     });
 
     test('viser dokumenter i tabell', async () => {
-        server.use(
-            http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () =>
-                HttpResponse.json([journalpostMock()])
-            )
-        );
+        server.use(http.get('/barnetrygd/min-barnetrygd/api/dokumenter', () => HttpResponse.json([journalpostMock()])));
 
         const { screen, container } = render(<Dokumentoversikt />);
 

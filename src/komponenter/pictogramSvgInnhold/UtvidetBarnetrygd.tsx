@@ -4,22 +4,8 @@ export function UtvidetBarnetrygd() {
             <g clipPath="url(#clip0_1_2180)">
                 <rect x="30.6667" width="2.66667" height="8" fill="#CCF1D6" />
                 <rect x="30.6667" y="55.9998" width="2.66667" height="8" fill="#CCF1D6" />
-                <rect
-                    x="8"
-                    y="30.6665"
-                    width="2.66667"
-                    height="8"
-                    transform="rotate(90 8 30.6665)"
-                    fill="#CCF1D6"
-                />
-                <rect
-                    x="64"
-                    y="30.6665"
-                    width="2.66667"
-                    height="8"
-                    transform="rotate(90 64 30.6665)"
-                    fill="#CCF1D6"
-                />
+                <rect x="8" y="30.6665" width="2.66667" height="8" transform="rotate(90 8 30.6665)" fill="#CCF1D6" />
+                <rect x="64" y="30.6665" width="2.66667" height="8" transform="rotate(90 64 30.6665)" fill="#CCF1D6" />
                 <rect
                     x="21.0203"
                     y="53.3828"
