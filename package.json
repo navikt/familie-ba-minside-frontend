@@ -26,7 +26,7 @@
     "html-react-parser": "^5.2.3",
     "jsdom": "^27.0.0",
     "next": "15.5.0",
-    "pino": "^9.9.0",
+    "pino": "^9.11.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "unleash-client": "^6.7.0",
