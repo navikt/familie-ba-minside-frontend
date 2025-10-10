@@ -1356,9 +1356,9 @@
     undici-types "~7.12.0"
 
 "@types/react-dom@^19":
-  version "19.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.1.0.tgz#29f4b0400edbef5166359cec39dca9ffd4f7ad51"
-  integrity sha512-21E2zejNNRtjG4hKIyJz4aWswGEcNFTgttA0bZIRGjj1HA/tbSUxIJnIcYbn98pwJck0cS1bsQhn6eaKqbcFWw==
+  version "19.2.1"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.2.1.tgz#2a16d84466e5cbaab97809f3e6f3bded6b5dbac7"
+  integrity sha512-/EEvYBdT3BflCWvTMO7YkYBHVE9Ci6XdqZciZANQgKpaiDRGOLIlRo91jbTNRQjgPFWVaRxcYc0luVNFitz57A==
 
 "@types/react@^19":
   version "19.2.2"
