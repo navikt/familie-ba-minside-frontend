@@ -911,12 +911,12 @@
   dependencies:
     js-cookie "^3.0.5"
 
-"@navikt/next-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.1.5/40d028e0d8ec8a978b6e58f464f255ce7605836c#40d028e0d8ec8a978b6e58f464f255ce7605836c"
-  integrity sha512-tdswF2z8FZaiRcbCAH9avcPUQJh93upXGBSkT6Bf/MKVQbzNC8Td1SqrFgxMhYKnCT+XlCVdb+e6P84ktW8gbw==
+"@navikt/next-logger@^4.3.3":
+  version "4.3.3"
+  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.3.3/aa1c32684f7aad80ab7614e4122dadbb02b83cdf#aa1c32684f7aad80ab7614e4122dadbb02b83cdf"
+  integrity sha512-6gHnQXL+ruyrmB5QzJTqUtjPKeryYwRbCc8yg0aFw/BFjyCFyxkeGWXJnF1wRzScHK4NcUxdMjKMwopbKwCdow==
   dependencies:
-    "@navikt/pino-logger" "^4.1.5"
+    "@navikt/pino-logger" "^4.3.3"
   optionalDependencies:
     pino-roll "3"
 
@@ -929,10 +929,10 @@
     openid-client "^5.6.5"
     prom-client "^15.1.0"
 
-"@navikt/pino-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.1.5/5911c77581ba052ec69878f86e6de4634c980b57#5911c77581ba052ec69878f86e6de4634c980b57"
-  integrity sha512-erdFXYVDmaxdZUH7zTPy+f5bFwio+izoKr/qZVhq0GLdid8ugRB+xE6vh86adD6GKdXkEIDZv2buP/ZD6z8eMA==
+"@navikt/pino-logger@^4.3.3":
+  version "4.3.3"
+  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.3.3/c67b3263e9eb9d1b4dccaf45b21bcfe3c0acb8d4#c67b3263e9eb9d1b4dccaf45b21bcfe3c0acb8d4"
+  integrity sha512-JSPCbR9MBV+gyZXEdfYLoV38gtZEkDM/06ZDdAhfD/9WUeaXBGHvT5EScfaP6ADbfcgZTms/nj43QsM9a970sA==
   optionalDependencies:
     pino-roll "3"
     pino-socket "7"
