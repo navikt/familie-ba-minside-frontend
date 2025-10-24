@@ -911,12 +911,12 @@
   dependencies:
     js-cookie "^3.0.5"
 
-"@navikt/next-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.1.5/40d028e0d8ec8a978b6e58f464f255ce7605836c#40d028e0d8ec8a978b6e58f464f255ce7605836c"
-  integrity sha512-tdswF2z8FZaiRcbCAH9avcPUQJh93upXGBSkT6Bf/MKVQbzNC8Td1SqrFgxMhYKnCT+XlCVdb+e6P84ktW8gbw==
+"@navikt/next-logger@^4.4.0":
+  version "4.4.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.4.0/c69c8e2959e11c338259fd65d47e3022c31ab161#c69c8e2959e11c338259fd65d47e3022c31ab161"
+  integrity sha512-6NGnSCGUNm61+fKE1FwqtKLaJ72j4NoI3Gz9sl9+pBGUIa6H5NPpvgiM14TL0xo4AveYQTBSr/0TXEJhhKF1uQ==
   dependencies:
-    "@navikt/pino-logger" "^4.1.5"
+    "@navikt/pino-logger" "^4.4.0"
   optionalDependencies:
     pino-roll "3"
 
@@ -929,10 +929,12 @@
     openid-client "^5.6.5"
     prom-client "^15.1.0"
 
-"@navikt/pino-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.1.5/5911c77581ba052ec69878f86e6de4634c980b57#5911c77581ba052ec69878f86e6de4634c980b57"
-  integrity sha512-erdFXYVDmaxdZUH7zTPy+f5bFwio+izoKr/qZVhq0GLdid8ugRB+xE6vh86adD6GKdXkEIDZv2buP/ZD6z8eMA==
+"@navikt/pino-logger@^4.4.0":
+  version "4.4.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.4.0/0aca6b6fbbab57d6d3fd608f24557fd914bca303#0aca6b6fbbab57d6d3fd608f24557fd914bca303"
+  integrity sha512-GNhVTLlFV9xZSWKl0M2oxbBWr2tlatM70/e1UYGRSQBWXxAtku2D2RidDzuwSAlhSw3bLexTXSt47aQw+ODBYQ==
+  dependencies:
+    "@opentelemetry/api" "^1.9.0"
   optionalDependencies:
     pino-roll "3"
     pino-socket "7"
@@ -1051,7 +1053,7 @@
   resolved "https://registry.yarnpkg.com/@open-draft/until/-/until-2.1.0.tgz#0acf32f470af2ceaf47f095cdecd40d68666efda"
   integrity sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==
 
-"@opentelemetry/api@^1.4.0":
+"@opentelemetry/api@^1.4.0", "@opentelemetry/api@^1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.9.0.tgz#d03eba68273dc0f7509e2a3d5cba21eae10379fe"
   integrity sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==

@@ -20,7 +20,7 @@
     "@navikt/ds-css": "^7.31.0",
     "@navikt/ds-react": "^7.31.0",
     "@navikt/nav-dekoratoren-moduler": "^3.4.0",
-    "@navikt/next-logger": "^4.1.5",
+    "@navikt/next-logger": "^4.4.0",
     "@navikt/oasis": "^3.8.0",
     "csp-header": "^6.1.0",
     "html-react-parser": "^5.2.3",
