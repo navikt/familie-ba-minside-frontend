@@ -10,7 +10,7 @@ jobs:
     name: Kjør typecheck og tester
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
@@ -34,7 +34,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
