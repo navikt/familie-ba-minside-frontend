@@ -4670,10 +4670,10 @@ semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.3.5, semver@^7.6.0, semver@^7.6.2, semver@^7.7.1, semver@^7.7.2:
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.2.tgz#67d99fdcd35cec21e6f8b87a7fd515a33f982b58"
-  integrity sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==
+semver@^7.3.5, semver@^7.6.0, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3:
+  version "7.7.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.3.tgz#4b5f4143d007633a8dc671cd0a6ef9147b8bb946"
+  integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
 
 set-function-length@^1.2.2:
   version "1.2.2"
@@ -5317,10 +5317,10 @@ unique-slug@^4.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
-unleash-client@^6.7.0:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.7.0.tgz#ca73a3ec563878bff276893adced2010d702ff9e"
-  integrity sha512-lvZXOZIZEQsnsGMQaITzv2JEpuzPPW4e7TRNY58VEqzNFW+UDSOmygFrBlkEbCS2hG6vqduC8Luss5N4jjoXPw==
+unleash-client@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.9.0.tgz#d85adff85130e549d390639b49568beb00c9f5cd"
+  integrity sha512-slaBsH813j8qaXJ1RgjkwP2W56Gld4I7Spw7OBWw5QZBqOSQ4XlgOixUz3xGv8shF3yIcSMIqsdqWVEF6obcyw==
   dependencies:
     http-proxy-agent "^7.0.2"
     https-proxy-agent "^7.0.5"
@@ -5329,7 +5329,7 @@ unleash-client@^6.7.0:
     make-fetch-happen "^13.0.1"
     murmurhash3js "^3.0.1"
     proxy-from-env "^1.1.0"
-    semver "^7.6.2"
+    semver "^7.7.3"
 
 unrs-resolver@^1.3.2:
   version "1.3.3"
