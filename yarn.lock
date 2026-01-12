@@ -525,7 +525,7 @@
   dependencies:
     "@types/json-schema" "^7.0.15"
 
-"@eslint/eslintrc@3":
+"@eslint/eslintrc@3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-3.3.3.tgz#26393a0806501b5e2b6a43aa588a4d8df67880ac"
   integrity sha512-Kr+LPIUVKz2qkx1HAMH8q1q6azbqBAsXJUxBl/ODDuVPX45Z9DfwB8tPjTi6nNZ8BuM3nbJxC5zCAg5elnBUTQ==
@@ -1017,10 +1017,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.5.9.tgz#53c2c34dc17cd87b61f70c6cc211e303123b2ab8"
   integrity sha512-4GlTZ+EJM7WaW2HEZcyU317tIQDjkQIyENDLxYJfSWlfqguN+dHkZgyQTV/7ykvobU7yEH5gKvreNrH4B6QgIg==
 
-"@next/eslint-plugin-next@15.5.0":
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.5.0.tgz#bee716b8d435e3c8496391770c6eff5dcf848e51"
-  integrity sha512-+k83U/fST66eQBjTltX2T9qUYd43ntAe+NZ5qeZVTQyTiFiHvTLtkpLKug4AnZAtuI/lwz5tl/4QDJymjVkybg==
+"@next/eslint-plugin-next@15.5.9":
+  version "15.5.9"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.5.9.tgz#629c34b6f4979df252afeaa6027dba52a0c619bd"
+  integrity sha512-kUzXx0iFiXw27cQAViE1yKWnz/nF8JzRmwgMRTMh8qMY90crNsdXJRh2e+R0vBpFR3kk1yvAR7wev7+fCCb79Q==
   dependencies:
     fast-glob "3.3.1"
 
@@ -1435,22 +1435,22 @@
   dependencies:
     undici-types "~7.12.0"
 
-"@types/node@24":
-  version "24.10.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.10.7.tgz#516502e408f6d00afd230f291bfe3ad38105a73e"
-  integrity sha512-+054pVMzVTmRQV8BhpGv3UyfZ2Llgl8rdpDTon+cUH9+na0ncBVXj3wTUKh14+Kiz18ziM3b4ikpP5/Pc0rQEQ==
+"@types/node@24.10.4":
+  version "24.10.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.10.4.tgz#9d27c032a1b2c42a4eab8fb65c5856a8b8e098c4"
+  integrity sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==
   dependencies:
     undici-types "~7.16.0"
 
-"@types/react-dom@19":
+"@types/react-dom@19.2.3":
   version "19.2.3"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.2.3.tgz#c1e305d15a52a3e508d54dca770d202cb63abf2c"
   integrity sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==
 
-"@types/react@19":
-  version "19.2.8"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.8.tgz#307011c9f5973a6abab8e17d0293f48843627994"
-  integrity sha512-3MbSL37jEchWZz2p2mjntRZtPt837ij10ApxKfgmXCTuHWagYg7iA5bqPw6C8BMPfwidlvfPI/fxOc42HLhcyg==
+"@types/react@19.2.7":
+  version "19.2.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.7.tgz#84e62c0f23e8e4e5ac2cadcea1ffeacccae7f62f"
+  integrity sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==
   dependencies:
     csstype "^3.2.2"
 
@@ -2580,12 +2580,12 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-next@15.5.0:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-15.5.0.tgz#3b9ec8ceb175986a7781b4106646da6a8d09c08f"
-  integrity sha512-Yl4hlOdBqstAuHnlBfx2RimBzWQwysM2SJNu5EzYVa2qS2ItPs7lgxL0sJJDudEx5ZZHfWPZ/6U8+FtDFWs7/w==
+eslint-config-next@15.5.9:
+  version "15.5.9"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-15.5.9.tgz#007f390a3567bce41b50b16c93af053aaa8e4454"
+  integrity sha512-852JYI3NkFNzW8CqsMhI0K2CDRxTObdZ2jQJj5CtpEaOkYHn13107tHpNuD/h0WRpU4FAbCdUaxQsrfBtNK9Kw==
   dependencies:
-    "@next/eslint-plugin-next" "15.5.0"
+    "@next/eslint-plugin-next" "15.5.9"
     "@rushstack/eslint-patch" "^1.10.3"
     "@typescript-eslint/eslint-plugin" "^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
     "@typescript-eslint/parser" "^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
@@ -2596,10 +2596,10 @@ eslint-config-next@15.5.0:
     eslint-plugin-react "^7.37.0"
     eslint-plugin-react-hooks "^5.0.0"
 
-eslint-config-prettier@10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.1.tgz#cf0ff6e5c4e7e15f129f1f1ce2a5ecba92dec132"
-  integrity sha512-4EQQr6wXwS+ZJSzaR5ZCrYgLxqvUjdXctaEtBqHcbkW944B1NQyO4qpdHQbXBONfwxXdkAY81HH4+LUfrg+zPw==
+eslint-config-prettier@10.1.8:
+  version "10.1.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz#15734ce4af8c2778cc32f0b01b37b0b5cd1ecb97"
+  integrity sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==
 
 eslint-import-resolver-node@^0.3.6, eslint-import-resolver-node@^0.3.9:
   version "0.3.9"
@@ -2723,7 +2723,7 @@ eslint-visitor-keys@^4.2.0, eslint-visitor-keys@^4.2.1:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-4.2.1.tgz#4cfea60fe7dd0ad8e816e1ed026c1d5251b512c1"
   integrity sha512-Uhdk5sfqcee/9H/rCOJikYz67o0a2Tw2hGRPOG2Y1R2dg7brRe1uG0yaNQDHu+TO/uQPF/5eCapvYSmHUjt7JQ==
 
-eslint@9:
+eslint@9.39.2:
   version "9.39.2"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-9.39.2.tgz#cb60e6d16ab234c0f8369a3fe7cc87967faf4b6c"
   integrity sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==
@@ -2820,10 +2820,10 @@ expect@^30.0.0:
     jest-mock "30.0.5"
     jest-util "30.0.5"
 
-fast-copy@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/fast-copy/-/fast-copy-3.0.2.tgz#59c68f59ccbcac82050ba992e0d5c389097c9d35"
-  integrity sha512-dl0O9Vhju8IrcLndv2eU4ldt1ftXMqqfgN4H1cpmGV7P6jeB9FwpN9a2c8DPGE1Ys88rNUJVYDHq73CGAGOPfQ==
+fast-copy@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/fast-copy/-/fast-copy-4.0.2.tgz#57f14115e1edbec274f69090072a480aa29cbedd"
+  integrity sha512-ybA6PDXIXOXivLJK/z9e+Otk7ve13I4ckBvGO5I2RRmBU1gMHLVDJYEuJYhGwez7YNlYji2M2DvVU+a9mSFDlw==
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -4243,20 +4243,27 @@ pino-abstract-transport@^2.0.0:
   dependencies:
     split2 "^4.0.0"
 
-pino-pretty@13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-13.1.1.tgz#70130b9ff3737c8757f53e42d69e9f96835142b8"
-  integrity sha512-TNNEOg0eA0u+/WuqH0MH0Xui7uqVk9D74ESOpjtebSQYbNWJk/dIxCXIxFsNfeN53JmtWqYHP2OrIZjT/CBEnA==
+pino-abstract-transport@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/pino-abstract-transport/-/pino-abstract-transport-3.0.0.tgz#b21e5f33a297e8c4c915c62b3ce5dd4a87a52c23"
+  integrity sha512-wlfUczU+n7Hy/Ha5j9a/gZNy7We5+cXp8YL+X+PG8S0KXxw7n/JXA3c46Y0zQznIJ83URJiwy7Lh56WLokNuxg==
+  dependencies:
+    split2 "^4.0.0"
+
+pino-pretty@13.1.3:
+  version "13.1.3"
+  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-13.1.3.tgz#2274cccda925dd355c104079a5029f6598d0381b"
+  integrity sha512-ttXRkkOz6WWC95KeY9+xxWL6AtImwbyMHrL1mSwqwW9u+vLp/WIElvHvCSDg0xO/Dzrggz1zv3rN5ovTRVowKg==
   dependencies:
     colorette "^2.0.7"
     dateformat "^4.6.3"
-    fast-copy "^3.0.2"
+    fast-copy "^4.0.0"
     fast-safe-stringify "^2.1.1"
     help-me "^5.0.0"
     joycon "^3.1.1"
     minimist "^1.2.6"
     on-exit-leak-free "^2.1.0"
-    pino-abstract-transport "^2.0.0"
+    pino-abstract-transport "^3.0.0"
     pump "^3.0.0"
     secure-json-parse "^4.0.0"
     sonic-boom "^4.0.1"
@@ -5305,7 +5312,7 @@ typed-array-length@^1.0.7:
     possible-typed-array-names "^1.0.0"
     reflect.getprototypeof "^1.0.6"
 
-typescript@5:
+typescript@5.9.3:
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
