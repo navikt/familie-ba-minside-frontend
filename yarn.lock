@@ -916,14 +916,14 @@
   dependencies:
     js-cookie "^3.0.5"
 
-"@navikt/next-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.1.5/40d028e0d8ec8a978b6e58f464f255ce7605836c#40d028e0d8ec8a978b6e58f464f255ce7605836c"
-  integrity sha512-tdswF2z8FZaiRcbCAH9avcPUQJh93upXGBSkT6Bf/MKVQbzNC8Td1SqrFgxMhYKnCT+XlCVdb+e6P84ktW8gbw==
+"@navikt/next-logger@^4.4.5":
+  version "4.4.5"
+  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.4.5/fa0045a0018358aad90b6532643b78b3b0870f06#fa0045a0018358aad90b6532643b78b3b0870f06"
+  integrity sha512-2t+OoMkuxeMs88r35cCfP/C5pjfGHVSd7w5Ax4oHB4YyudwiV95LunyoTRcs8hqnsCH1wuFACmXHHd3pH/nP6Q==
   dependencies:
-    "@navikt/pino-logger" "^4.1.5"
+    "@navikt/pino-logger" "^4.4.5"
   optionalDependencies:
-    pino-roll "3"
+    pino-roll "4.0.0"
 
 "@navikt/oasis@^3.8.0":
   version "3.8.0"
@@ -934,13 +934,15 @@
     openid-client "^5.6.5"
     prom-client "^15.1.0"
 
-"@navikt/pino-logger@^4.1.5":
-  version "4.1.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.1.5/5911c77581ba052ec69878f86e6de4634c980b57#5911c77581ba052ec69878f86e6de4634c980b57"
-  integrity sha512-erdFXYVDmaxdZUH7zTPy+f5bFwio+izoKr/qZVhq0GLdid8ugRB+xE6vh86adD6GKdXkEIDZv2buP/ZD6z8eMA==
+"@navikt/pino-logger@^4.4.5":
+  version "4.4.5"
+  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.4.5/3752f4c06ea1920571ca2f2b744985163a19e106#3752f4c06ea1920571ca2f2b744985163a19e106"
+  integrity sha512-/AgRsAZGME+TtCfdgox0r+41LhG9q2Ci0rH+IiUUtJBvTfYIG7jYLF8W9wbpoukoPw8dIGkBRYRk8YoVAOvLtg==
+  dependencies:
+    "@opentelemetry/api" "^1.9.0"
   optionalDependencies:
-    pino-roll "3"
-    pino-socket "7"
+    pino-roll "4.0.0"
+    pino-socket "7.4.0"
 
 "@next/env@15.5.9":
   version "15.5.9"
@@ -1056,7 +1058,7 @@
   resolved "https://registry.yarnpkg.com/@open-draft/until/-/until-2.1.0.tgz#0acf32f470af2ceaf47f095cdecd40d68666efda"
   integrity sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==
 
-"@opentelemetry/api@^1.4.0":
+"@opentelemetry/api@^1.4.0", "@opentelemetry/api@^1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.9.0.tgz#d03eba68273dc0f7509e2a3d5cba21eae10379fe"
   integrity sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==
@@ -4239,15 +4241,15 @@ pino-pretty@^13.1.1:
     sonic-boom "^4.0.1"
     strip-json-comments "^5.0.2"
 
-pino-roll@3:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/pino-roll/-/pino-roll-3.1.0.tgz#4ba1171f5832f31ff3e2a0ee5def462e1ac6624d"
-  integrity sha512-UimuzDe5FJSqzHZjBOQIgXArc6GE8rcJ7XsmhMkTI37msWqeI8yOqNKdPH3qucrvSxdL+y+GksqPTgQlSFWFEQ==
+pino-roll@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/pino-roll/-/pino-roll-4.0.0.tgz#cae376045fee327753f924215cc67a1515afc04c"
+  integrity sha512-axI1aQaIxXdw1F4OFFli1EDxIrdYNGLowkw/ZoZogX8oCSLHUghzwVVXUS8U+xD/Savwa5IXpiXmsSGKFX/7Sg==
   dependencies:
     date-fns "^4.1.0"
     sonic-boom "^4.0.1"
 
-pino-socket@7:
+pino-socket@7.4.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/pino-socket/-/pino-socket-7.4.0.tgz#86732fd150dd1fc526aa2e004c07d9527cbd29c7"
   integrity sha512-UBXkwDRz9RM5pG8gWKxxsonmqM3kk0fx8PbueWlg4LywNT2+Jl0C2xGVPNUyNYn5OjbZopodV8d/UZbuKVEf4w==
