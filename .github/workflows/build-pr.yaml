@@ -18,8 +18,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Installer node-pakker
-        run: yarn --prefer-offline --frozen-lockfile
-      - name: Kjør prettier 
+        run: yarn --prefer-offline --frozen-lockfile --ignore-scripts
+      - name: Kjør prettier
         run: yarn prettier
       - name: Kjør eslint
         run: yarn lint
@@ -46,5 +46,5 @@ jobs:
           SENTRY_RELEASE: ${{ github.sha }}
           BASE_PATH: ${{ env.BASE_PATH }}
         run: |
-          yarn --prefer-offline --immutable
+          yarn --prefer-offline --frozen-lockfile --ignore-scripts
           yarn build
