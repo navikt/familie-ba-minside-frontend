@@ -16,9 +16,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@navikt/aksel-icons": "7.37.0",
-    "@navikt/ds-css": "7.37.0",
-    "@navikt/ds-react": "7.37.0",
+    "@navikt/aksel-icons": "7.38.0",
+    "@navikt/ds-css": "7.38.0",
+    "@navikt/ds-react": "7.38.0",
     "@navikt/nav-dekoratoren-moduler": "3.6.1",
     "@navikt/next-logger": "4.4.5",
     "@navikt/oasis": "3.8.0",
