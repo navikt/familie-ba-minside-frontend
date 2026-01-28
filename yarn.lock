@@ -875,14 +875,12 @@
   dependencies:
     js-cookie "^3.0.5"
 
-"@navikt/next-logger@4.4.5":
-  version "4.4.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.4.5/fa0045a0018358aad90b6532643b78b3b0870f06#fa0045a0018358aad90b6532643b78b3b0870f06"
-  integrity sha512-2t+OoMkuxeMs88r35cCfP/C5pjfGHVSd7w5Ax4oHB4YyudwiV95LunyoTRcs8hqnsCH1wuFACmXHHd3pH/nP6Q==
+"@navikt/next-logger@4.5.0":
+  version "4.5.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/next-logger/4.5.0/7a2dbe51ae548215429c961c3c97919cde5f5d6e#7a2dbe51ae548215429c961c3c97919cde5f5d6e"
+  integrity sha512-uM0T3vF2q5/L6KaczUuozxg9PGrVjPYoUOeMk/+tbmKOzfLsgnmGFMzZldoJprMHwAHm7CfsUshxOiwRInumKg==
   dependencies:
-    "@navikt/pino-logger" "^4.4.5"
-  optionalDependencies:
-    pino-roll "4.0.0"
+    "@navikt/pino-logger" "^4.5.0"
 
 "@navikt/oasis@3.8.0":
   version "3.8.0"
@@ -893,14 +891,13 @@
     openid-client "^5.6.5"
     prom-client "^15.1.0"
 
-"@navikt/pino-logger@^4.4.5":
-  version "4.4.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.4.5/3752f4c06ea1920571ca2f2b744985163a19e106#3752f4c06ea1920571ca2f2b744985163a19e106"
-  integrity sha512-/AgRsAZGME+TtCfdgox0r+41LhG9q2Ci0rH+IiUUtJBvTfYIG7jYLF8W9wbpoukoPw8dIGkBRYRk8YoVAOvLtg==
+"@navikt/pino-logger@^4.5.0":
+  version "4.5.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/pino-logger/4.5.0/fb8ef5d9337db96d9a7bb0f4e2375e2f652f4b08#fb8ef5d9337db96d9a7bb0f4e2375e2f652f4b08"
+  integrity sha512-b3upfBtQIwiUG1upvHVHSefHpo+f4M5LnFWD36k1RkiX0JCu2OwojpR2XLGs8aXbub8BUxlKNxSc7GQYJ6dyAA==
   dependencies:
     "@opentelemetry/api" "^1.9.0"
   optionalDependencies:
-    pino-roll "4.0.0"
     pino-socket "7.4.0"
 
 "@next/env@15.5.9":
@@ -2171,7 +2168,7 @@ date-fns-jalali@4.1.0-0:
   resolved "https://registry.yarnpkg.com/date-fns-jalali/-/date-fns-jalali-4.1.0-0.tgz#9c7fb286004fab267a300d3e9f1ada9f10b4b6b0"
   integrity sha512-hTIP/z+t+qKwBDcmmsnmjWTduxCg+5KfdqWQvb2X/8C9+knYY6epN/pfxdDuyVlSVeFz0sM5eEfwIUQ70U4ckg==
 
-date-fns@4.1.0, date-fns@^4.0.0, date-fns@^4.1.0:
+date-fns@4.1.0, date-fns@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-4.1.0.tgz#64b3d83fff5aa80438f5b1a633c2e83b8a1c2d14"
   integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
@@ -4203,14 +4200,6 @@ pino-pretty@13.1.3:
     secure-json-parse "^4.0.0"
     sonic-boom "^4.0.1"
     strip-json-comments "^5.0.2"
-
-pino-roll@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/pino-roll/-/pino-roll-4.0.0.tgz#cae376045fee327753f924215cc67a1515afc04c"
-  integrity sha512-axI1aQaIxXdw1F4OFFli1EDxIrdYNGLowkw/ZoZogX8oCSLHUghzwVVXUS8U+xD/Savwa5IXpiXmsSGKFX/7Sg==
-  dependencies:
-    date-fns "^4.1.0"
-    sonic-boom "^4.0.1"
 
 pino-socket@7.4.0:
   version "7.4.0"
