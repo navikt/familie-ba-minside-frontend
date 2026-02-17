@@ -3,7 +3,7 @@ import { ListItem } from '@navikt/ds-react/List';
 
 export function DokumentoversiktInfo() {
     return (
-        <Box marginBlock={'4 0'}>
+        <Box marginBlock={'space-16 space-0'}>
             <Heading level="3" size="xsmall">
                 Finner du ikke det du leter etter?
             </Heading>

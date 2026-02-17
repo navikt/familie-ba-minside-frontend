@@ -16,9 +16,9 @@ import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkke
 export default function Page() {
     return (
         <>
-            <Seksjon paddingBlock="12 0">
+            <Seksjon paddingBlock="space-48 space-0">
                 <Seksjon.Innhold>
-                    <HStack gap="2" align="center">
+                    <HStack gap="space-2" align="center">
                         <HouseIcon title="Min side" fontSize="1.5rem" />
                         <Link href="https://www.nav.no">nav.no</Link>
                         <ChevronRightIcon title="Neste" />
@@ -26,7 +26,7 @@ export default function Page() {
                         <ChevronRightIcon title="Neste" />
                         <BodyShort>Barnetrygden min</BodyShort>
                     </HStack>
-                    <HStack align="center" gap="4">
+                    <HStack align="center" gap="space-4">
                         <Pictogram svgInnhold={<Barnetrygd />} ariaLabel="Barnetrygd" størrelse="stor" />
                         <Heading level="1" size="large">
                             Barnetrygden min
@@ -34,7 +34,6 @@ export default function Page() {
                     </HStack>
                 </Seksjon.Innhold>
             </Seksjon>
-
             <Seksjon>
                 <Seksjon.Innhold>
                     <Suspense fallback={<BarnetrygdOversikt.Fallback />}>
@@ -42,8 +41,7 @@ export default function Page() {
                     </Suspense>
                 </Seksjon.Innhold>
             </Seksjon>
-
-            <Seksjon background={'surface-subtle'}>
+            <Seksjon background={'neutral-soft'}>
                 <Seksjon.Tittel>Dokumentoversikt</Seksjon.Tittel>
                 <Seksjon.Innhold>
                     <BodyLong>
@@ -52,12 +50,11 @@ export default function Page() {
                     <Dokumentoversikt />
                 </Seksjon.Innhold>
             </Seksjon>
-
             <Seksjon>
                 <Seksjon.Tittel>Ønsker du å kontakte oss?</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LinkCard>
-                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                        <Box asChild borderRadius="12" padding="space-12" background={'neutral-soft'}>
                             <LinkCardIcon>
                                 <Chat2Icon title="Snakkeboble" fontSize="2rem" />
                             </LinkCardIcon>
@@ -72,7 +69,7 @@ export default function Page() {
                         </LinkCardDescription>
                     </LinkCard>
                     <LinkCard>
-                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                        <Box asChild borderRadius="12" padding="space-12" background={'neutral-soft'}>
                             <LinkCardIcon>
                                 <GavelIcon title="Endringer i din situasjon" fontSize="2rem" />
                             </LinkCardIcon>
@@ -88,12 +85,11 @@ export default function Page() {
                     </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
-
-            <Seksjon background={'surface-subtle'}>
+            <Seksjon background={'neutral-soft'}>
                 <Seksjon.Tittel>Snarveier</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ md: 1, lg: 2 }}>
                     <LinkCard>
-                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                        <Box asChild borderRadius="12" padding="space-12" background={'neutral-soft'}>
                             <LinkCardIcon>
                                 <ThumbDownIcon title="Klage" fontSize="2rem" />
                             </LinkCardIcon>
@@ -106,7 +102,7 @@ export default function Page() {
                         </LinkCardDescription>
                     </LinkCard>
                     <LinkCard>
-                        <Box asChild borderRadius="12" padding="3" background={'surface-subtle'}>
+                        <Box asChild borderRadius="12" padding="space-12" background={'neutral-soft'}>
                             <LinkCardIcon>
                                 <ClockIcon title="Saksbehandlingstid" fontSize="2rem" />
                             </LinkCardIcon>
@@ -120,8 +116,7 @@ export default function Page() {
                     </LinkCard>
                 </Seksjon.Innhold>
             </Seksjon>
-
-            <Seksjon paddingBlock="12 0">
+            <Seksjon paddingBlock="space-48 space-0">
                 <Seksjon.Tittel>Dette kan du ha rett til</Seksjon.Tittel>
                 <Seksjon.Innhold columns={{ sm: 1, md: 2 }}>
                     <LinkCard>

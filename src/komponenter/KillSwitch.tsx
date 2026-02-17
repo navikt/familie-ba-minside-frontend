@@ -10,8 +10,8 @@ export function KillSwitch(props: PropsWithChildren) {
         return (
             <Seksjon>
                 <Seksjon.Innhold>
-                    <VStack gap="16">
-                        <VStack gap="12" align="start">
+                    <VStack gap="space-16">
+                        <VStack gap="space-12" align="start">
                             <div>
                                 <Heading level="1" size="large" spacing>
                                     Vi jobber med å forbedre siden

@@ -7,8 +7,8 @@ export default function NotFound() {
     return (
         <Seksjon>
             <Seksjon.Innhold>
-                <VStack gap="16">
-                    <VStack align="start" gap="12">
+                <VStack gap="space-16">
+                    <VStack align="start" gap="space-12">
                         <div>
                             <Heading level="1" size="large" spacing>
                                 Beklager, vi fant ikke siden
