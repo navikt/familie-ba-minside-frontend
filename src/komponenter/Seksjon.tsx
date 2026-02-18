@@ -1,7 +1,6 @@
-import { BoxProps, Heading, HGrid, HGridProps, VStack, VStackProps } from '@navikt/ds-react';
+import { Box, BoxProps, Heading, HGrid, HGridProps, VStack, VStackProps } from '@navikt/ds-react';
 import { PageBlock } from '@navikt/ds-react/Page';
-import { Box } from '@navikt/ds-react';
-import React, { ReactNode, PropsWithChildren } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 
 interface SeksjonProps {
     background?: BoxProps['background'];
@@ -11,7 +10,13 @@ interface SeksjonProps {
     children: ReactNode;
 }
 
-export function Seksjon({ background, marginBlock = '0', paddingBlock = '12', gap = '4', children }: SeksjonProps) {
+export function Seksjon({
+    background,
+    marginBlock = 'space-0',
+    paddingBlock = 'space-48',
+    gap = 'space-16',
+    children,
+}: SeksjonProps) {
     return (
         <Box background={background}>
             <PageBlock as={'section'} width={'lg'} gutters={true}>
@@ -28,7 +33,7 @@ interface InnholdProps extends PropsWithChildren {
     gap?: HGridProps['gap'];
 }
 
-function Innhold({ columns = 1, gap = '4', children }: InnholdProps) {
+function Innhold({ columns = 1, gap = 'space-16', children }: InnholdProps) {
     return (
         <HGrid columns={columns} gap={gap}>
             {children}

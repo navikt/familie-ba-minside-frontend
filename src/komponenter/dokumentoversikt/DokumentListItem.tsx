@@ -76,7 +76,7 @@ export function DokumentListItem({ journalpost, dokument }: DokumentRadProps) {
                                 {dokumentTittel}
                             </Link>
                             {dokumentStatus === 'LASTER' && (
-                                <Box as="span" marginInline="2 0">
+                                <Box as="span" marginInline="space-8 space-0">
                                     <Loader size="xsmall" title="Laster..." />
                                 </Box>
                             )}
