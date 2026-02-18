@@ -24,7 +24,7 @@
     "@navikt/oasis": "3.8.0",
     "csp-header": "6.3.0",
     "html-react-parser": "5.2.3",
-    "jsdom": "27.4.0",
+    "jsdom": "28.0.0",
     "next": "15.5.9",
     "pino": "10.3.0",
     "react": "19.2.3",
