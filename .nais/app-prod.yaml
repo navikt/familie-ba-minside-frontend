@@ -62,7 +62,6 @@ spec:
         - /barnetrygd/min-barnetrygd/**/manifest.json
   tokenx:
     enabled: true
-  secureLogs:
   env:
     - name: ENV
       value: prod
