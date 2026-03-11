@@ -1,30 +1,69 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
+
 updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
       interval: daily
-      time: "13:45"
+      time: "09:00"
       timezone: "Europe/Oslo"
     cooldown:
       default-days: 7
     open-pull-requests-limit: 20
     ignore:
-    - dependency-name: "*"
-      update-types: ["version-update:semver-patch"]
+      - dependency-name: "@types/node"
+        versions:
+          - "25"
     groups:
-      babel:
-        patterns:
-          - "@babel/*"
       aksel:
         patterns:
-          - '@navikt/aksel*'
-          - '@navikt/ds*'
+          - '@navikt/aksel-icons'
+          - '@navikt/ds-react'
+          - '@navikt/ds-css'
+          - '@navikt/aksel'
+      dekoratoren:
+        patterns:
+          - '@navikt/nav-dekoratoren-moduler'
+          - 'csp-header'
+          - 'html-react-parser'
+      logging:
+        patterns:
+          - '@navikt/logging'
+          - 'pino'
+          - 'pino-pretty'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+      next:
+        patterns:
+          - 'next'
+          - 'eslint-config-next'
+      testing:
+        patterns:
+          - '@testing-library/dom'
+          - '@testing-library/jest-dom'
+          - '@testing-library/react'
+          - '@testing-library/user-event'
+          - '@types/jest-axe'
+          - 'jest-axe'
+          - 'msw'
+          - 'vitest'
+          - 'vite-tsconfig-paths'
+          - '@vitejs/plugin-react'
+      tooling:
+        patterns:
+          - '@eslint/eslintrc'
+          - 'eslint'
+          - 'eslint-config-next'
+          - 'eslint-config-prettier'
+          - 'husky'
+          - 'prettier'
+      patch-updates:
+        update-types:
+          - patch
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
