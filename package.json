@@ -33,7 +33,7 @@
     "uuid": "13.0.0"
   },
   "devDependencies": {
-    "@axe-core/react": "4.11.0",
+    "@axe-core/react": "4.11.1",
     "@eslint/eslintrc": "3.3.3",
     "@navikt/aksel": "^8.5.0",
     "@testing-library/dom": "10.4.0",
@@ -45,7 +45,7 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.2",
-    "concurrently": "9.2.0",
+    "concurrently": "9.2.1",
     "eslint": "9.39.2",
     "eslint-config-next": "15.5.9",
     "eslint-config-prettier": "10.1.8",
