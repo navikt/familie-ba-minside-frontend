@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack | pino-pretty --messageKey=message",
+    "dev": "next dev | pino-pretty --messageKey=message",
     "build": "next build",
     "start": "next start",
     "start:dev": "yarn clean && concurrently \"yarn dev\" \"open http://localhost:3000/barnetrygd/min-barnetrygd\"",
-    "lint": "next lint",
+    "lint": "eslint .",
     "prettier": "prettier -l \"src/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky",
     "test": "vitest",
@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "@axe-core/react": "4.11.1",
-    "@eslint/eslintrc": "3.3.4",
     "@navikt/aksel": "^8.5.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
