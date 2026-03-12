@@ -1589,10 +1589,10 @@
   dependencies:
     undici-types "~7.16.0"
 
-"@types/node@24.10.4":
-  version "24.10.4"
-  resolved "https://registry.npmjs.org/@types/node/-/node-24.10.4.tgz"
-  integrity sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==
+"@types/node@24.11.0":
+  version "24.11.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.11.0.tgz#34e8f9603ada03fdc36a532faefdb8e1bb3693a0"
+  integrity sha512-fPxQqz4VTgPI/IQ+lj9r0h+fDR66bzoeMGHp8ASee+32OSGIkeASsoZuJixsQoVef1QJbeubcPBxKk22QVoWdw==
   dependencies:
     undici-types "~7.16.0"
 
