@@ -46,7 +46,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.4",
     "concurrently": "9.2.1",
-    "eslint": "9.39.2",
+    "eslint": "10.0.2",
     "eslint-config-next": "15.5.12",
     "eslint-config-prettier": "10.1.8",
     "husky": "9.1.7",
