@@ -2,7 +2,7 @@ import React from 'react';
 import { Barnetrygd, HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
 import { Alert, BodyShort, Box, Heading, HStack, Link, List, Skeleton, VStack } from '@navikt/ds-react';
 import { AsyncResult } from '@/typer/api/asyncResult';
-import { hentBarnetrygdOversikt } from '../api-server-side/barnetrygd';
+import { hentBarnetrygdOversikt } from '@/api-server-side/barnetrygd';
 import { TeddyBearIcon } from '@navikt/aksel-icons';
 import { ListItem } from '@navikt/ds-react/List';
 
