@@ -57,7 +57,6 @@ updates:
         patterns:
           - '@eslint/eslintrc'
           - 'eslint'
-          - 'eslint-config-next'
           - 'eslint-config-prettier'
           - 'husky'
           - 'prettier'
