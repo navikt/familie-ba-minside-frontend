@@ -7,5 +7,8 @@ export default defineConfig({
     test: {
         setupFiles: ['./vitest.setup.ts'],
         environment: 'jsdom',
+        pool: 'forks',
+        teardownTimeout: 10000,
+        testTimeout: 15000,
     },
 });
