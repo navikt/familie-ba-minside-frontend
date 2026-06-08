@@ -2,11 +2,12 @@ import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
-import { erDev, erLokalt } from '@/util/miljø';
+import { erDev } from '@/util/miljø';
 import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
 import { AxeCoreReact } from '@/test/AxeCoreReact';
 import { KillSwitch } from '@/komponenter/KillSwitch';
 import { initialiserUnleash } from '@/util/unleash';
+
 interface RootLayoutProps {
     children: React.ReactNode;
 }
@@ -17,20 +18,6 @@ export default async function RootLayout({ children }: Readonly<RootLayoutProps>
     });
 
     await initialiserUnleash();
-
-    if (erLokalt()) {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const { server } = require('../test/mock/node');
-        server.listen({
-            onUnhandledRequest(request: Request, print: { warning: () => void }) {
-                if (request.url.includes('dekoratoren/api/version')) {
-                    return;
-                }
-
-                print.warning();
-            },
-        });
-    }
 
     return (
         <html lang="no">
