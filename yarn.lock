@@ -936,25 +936,25 @@
   dependencies:
     "@tybys/wasm-util" "^0.10.1"
 
-"@navikt/aksel-icons@8.10.5", "@navikt/aksel-icons@^8.10.5":
-  version "8.10.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/aksel-icons/8.10.5/5904f4043e27a4f7f7005fd9fd2fe1ceed130d3b#5904f4043e27a4f7f7005fd9fd2fe1ceed130d3b"
-  integrity sha512-XDmygarYMyGhGxE5x5uVDCxPPW5dty2A0yVvdT+I6VyRjvDDY/jtAw0NU/HV5itAm7prCwO19IKf1DvjuzU31g==
+"@navikt/aksel-icons@8.11.1", "@navikt/aksel-icons@^8.11.1":
+  version "8.11.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/aksel-icons/8.11.1/3e09f9941a2cb819aaa2fe83771ab061b0a13456#3e09f9941a2cb819aaa2fe83771ab061b0a13456"
+  integrity sha512-hXvm/5T8s7fcSlZpg2RWrs870PkH2SeCSQBMmDgI4rm+t5gsw+nDa4qOSCrQQJLiNjMx3jbCO10rL4po9QtfdQ==
 
-"@navikt/aksel@^8.10.5":
-  version "8.10.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/aksel/8.10.5/ab3d8166f4b6ba679289e7985feb2b27a0bba233#ab3d8166f4b6ba679289e7985feb2b27a0bba233"
-  integrity sha512-okroGOQW/v/zTDgQl1mRvVsycY3+Q4YdN25WIAcI1qFOU1FYQnrvcD27kl/hv+86N4yQeLpZ/gnsTPx2Gj07+g==
+"@navikt/aksel@^8.11.1":
+  version "8.11.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/aksel/8.11.1/e065d951158c790bcef166d7c79ba0c66d65f786#e065d951158c790bcef166d7c79ba0c66d65f786"
+  integrity sha512-TL/VJrLdo+a+nxA0aCU1KncphD/XLEN6pUxJ+JuedZIl45Gxj2B6MfQDhSKQ+pkVAHa8ysIC77mbgx7dpNtLIg==
   dependencies:
-    "@navikt/ds-css" "^8.10.5"
-    "@navikt/ds-tokens" "^8.10.5"
+    "@navikt/ds-css" "^8.11.1"
+    "@navikt/ds-tokens" "^8.11.1"
     chalk "5.6.2"
     cli-progress "3.12.0"
     clipboardy "5.0.1"
     commander "14.0.3"
     enquirer "2.4.1"
     fast-glob "3.3.3"
-    figlet "1.10.0"
+    figlet "1.11.0"
     is-git-clean "1.1.0"
     jscodeshift "17.3.0"
     jscodeshift-add-imports "1.0.11"
@@ -965,27 +965,27 @@
   resolved "https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942#5919241a6dbb782eb101fff3234ce5c36d16e942"
   integrity sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==
 
-"@navikt/ds-css@8.10.5", "@navikt/ds-css@^8.10.5":
-  version "8.10.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-css/8.10.5/55b51c6fdb86d5123b4b18265f53dc67eb26e6f7#55b51c6fdb86d5123b4b18265f53dc67eb26e6f7"
-  integrity sha512-XJXHPyN0IPQV/zMSVw06uJsqrSyOObgJ7PiQ9wSkw5bLfwv8ksn51HV3EkRXy7h0A8EHnlywFvgROwMVIBqHoA==
+"@navikt/ds-css@8.11.1", "@navikt/ds-css@^8.11.1":
+  version "8.11.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-css/8.11.1/d2edadc20c615f882b95093aea06cdb5960fadd8#d2edadc20c615f882b95093aea06cdb5960fadd8"
+  integrity sha512-fOJ3j4oMkPjS2r1DUIpIDBklUM+XU42fN4b0GcqtAUanB9hJoAIw7Pr2pvR+dF8RCGsPTabX9uGW5mIRm6fPVw==
 
-"@navikt/ds-react@8.10.5":
-  version "8.10.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-react/8.10.5/2390636a2fce5620e48d5bf1b5506eb1e573935c#2390636a2fce5620e48d5bf1b5506eb1e573935c"
-  integrity sha512-6gkdSoeLYuLb0Ko7uUuPJHqZCMJtDbPiltFoVXReTMvAIQjd4TdeWXhD5EB2I31ia/cCBJC5t8b6v9n4/mSG6A==
+"@navikt/ds-react@8.11.1":
+  version "8.11.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-react/8.11.1/ca7cc25e52c58a890ff5a721238a991b8a4a071e#ca7cc25e52c58a890ff5a721238a991b8a4a071e"
+  integrity sha512-KnJmlKuGxN1+EQ85WxbQBphlYfeG27D061N804otrSnBTAzMM3TVtXI9NAr3IYf++lgPr5c4UPge0nOSuG3zvA==
   dependencies:
     "@floating-ui/react" "0.27.19"
     "@floating-ui/react-dom" "^2.1.8"
-    "@navikt/aksel-icons" "^8.10.5"
-    "@navikt/ds-tokens" "^8.10.5"
+    "@navikt/aksel-icons" "^8.11.1"
+    "@navikt/ds-tokens" "^8.11.1"
     date-fns "^4.0.0"
     react-day-picker "9.14.0"
 
-"@navikt/ds-tokens@^8.10.5":
-  version "8.10.5"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/8.10.5/619c59293f85ac18dce41261316160a2bedd676f#619c59293f85ac18dce41261316160a2bedd676f"
-  integrity sha512-U+2zbkjcQrES9i8g+fgeo2XcWkAc/8ss9MB9aePKGqDjBzf16TcQbxzATPJdN+/GBXnG6xxi1bQsxt+w1AqkfQ==
+"@navikt/ds-tokens@^8.11.1":
+  version "8.11.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/8.11.1/15883c8c993965a47c8e12dcf588687095a70a4e#15883c8c993965a47c8e12dcf588687095a70a4e"
+  integrity sha512-jsPer8drVa+TxqdfHHanZVrsUNjowx+3ZcXQ7/+Nb3q81FTnrXmpvV2VeN7TTzSToWdX5/6oGH9LzrSyiN5UGw==
 
 "@navikt/nav-dekoratoren-moduler@4.2.1":
   version "4.2.1"
@@ -2956,10 +2956,10 @@ fdir@^6.5.0:
   resolved "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
-figlet@1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/figlet/-/figlet-1.10.0.tgz#177689d3108ef8db556620dafee31c1297628ad5"
-  integrity sha512-aktIwEZZ6Gp9AWdMXW4YCi0J2Ahuxo67fNJRUIWD81w8pQ0t9TS8FFpbl27ChlTLF06VkwjDesZSzEVzN75rzA==
+figlet@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/figlet/-/figlet-1.11.0.tgz#17b8a438ac75bfdbfbae79ecbc422e6e98d383fa"
+  integrity sha512-EEx3OS/l2bFqcUNN2NM9FPJp8vAMrgbCxsbl2hbcJNNxOEwVe3mEzrhan7TbJQViZa8mMqhihlbCaqD+LyYKTQ==
   dependencies:
     commander "^14.0.0"
 
