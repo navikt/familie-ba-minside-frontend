@@ -23,7 +23,7 @@ function InnholdContainer({ children }: { children: React.ReactNode }) {
     return (
         <Box padding={{ xs: 'space-16', lg: 'space-32' }} borderRadius="12" background="neutral-soft">
             <HStack gap={{ xs: 'space-16', lg: 'space-32' }} align="center">
-                <TeddyBearIcon title="teddy bear" fontSize="4rem" color="var(--a-purple-400)" />
+                <TeddyBearIcon title="teddy bear" fontSize="4rem" color="var(--ax-meta-purple-900)" />
                 <VStack gap={{ xs: 'space-16', lg: 'space-32' }}>{children}</VStack>
             </HStack>
         </Box>
