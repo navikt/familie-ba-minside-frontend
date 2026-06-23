@@ -55,7 +55,7 @@
     "prettier": "3.8.3",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "6.1.1",
-    "vitest": "4.1.8"
+    "vitest": "4.1.9"
   },
   "msw": {
     "workerDirectory": [
