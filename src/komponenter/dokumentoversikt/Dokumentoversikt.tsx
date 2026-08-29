@@ -1,6 +1,7 @@
 'use client';
 
 import { Alert, BodyShort, Box, Button, Link, Pagination, Skeleton, Table } from '@navikt/ds-react';
+import { List } from '@navikt/ds-react/List';
 import {
     TableBody,
     TableDataCell,
@@ -9,10 +10,9 @@ import {
     TableHeaderCell,
     TableRow,
 } from '@navikt/ds-react/Table';
+import { useEffect, useState } from 'react';
+import { Datotype, type Journalpost, Journalposttype } from '@/typer/api/dokumentoversikt';
 import { appUrl } from '@/util/miljø';
-import React, { useEffect, useState } from 'react';
-import { Datotype, Journalpost, Journalposttype } from '@/typer/api/dokumentoversikt';
-import { List } from '@navikt/ds-react/List';
 import { DokumentListItem } from './DokumentListItem';
 import { DokumentoversiktInfo } from './DokumentoversiktInfo';
 

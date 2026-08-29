@@ -1,6 +1,6 @@
-import { Box, BoxProps, Heading, HGrid, HGridProps, VStack, VStackProps } from '@navikt/ds-react';
+import { Box, type BoxProps, Heading, HGrid, type HGridProps, VStack, type VStackProps } from '@navikt/ds-react';
 import { PageBlock } from '@navikt/ds-react/Page';
-import React, { PropsWithChildren, ReactNode } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 
 interface SeksjonProps {
     background?: BoxProps['background'];

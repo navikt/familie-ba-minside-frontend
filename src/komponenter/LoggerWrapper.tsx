@@ -1,7 +1,7 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
 import { configureLogger } from '@navikt/next-logger';
+import type { PropsWithChildren } from 'react';
 
 configureLogger({
     basePath: '/',

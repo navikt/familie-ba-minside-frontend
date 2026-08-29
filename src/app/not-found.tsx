@@ -1,7 +1,7 @@
 'use client';
-import { Seksjon } from '@/komponenter/Seksjon';
-import { BodyShort, Button, Heading, Link, List, VStack } from '@navikt/ds-react';
 import { BugIcon } from '@navikt/aksel-icons';
+import { BodyShort, Button, Heading, Link, List, VStack } from '@navikt/ds-react';
+import { Seksjon } from '@/komponenter/Seksjon';
 
 export default function NotFound() {
     return (

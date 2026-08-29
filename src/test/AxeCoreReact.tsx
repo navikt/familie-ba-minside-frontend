@@ -1,9 +1,8 @@
 'use client';
 
-import { erLokalt } from '@/util/miljø';
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { erLokalt } from '@/util/miljø';
 
 export function AxeCoreReact() {
     useEffect(() => {

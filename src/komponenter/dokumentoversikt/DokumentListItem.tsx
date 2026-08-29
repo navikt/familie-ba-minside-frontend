@@ -1,11 +1,10 @@
 'use client';
 
 import { Alert, Box, Link, Loader, VStack } from '@navikt/ds-react';
-
-import { appUrl } from '@/util/miljø';
-import React, { useState } from 'react';
-import { DokumentInfo, Journalpost } from '@/typer/api/dokumentoversikt';
 import { ListItem } from '@navikt/ds-react/List';
+import { useState } from 'react';
+import type { DokumentInfo, Journalpost } from '@/typer/api/dokumentoversikt';
+import { appUrl } from '@/util/miljø';
 
 enum DokumentStatus {
     IDLE = 'IDLE',

@@ -1,7 +1,7 @@
-import { PropsWithChildren } from 'react';
-import { erToggleSkruddPå, UnleashToggle } from '@/util/unleash';
 import { BodyShort, Button, Heading, VStack } from '@navikt/ds-react';
+import type { PropsWithChildren } from 'react';
 import { Seksjon } from '@/komponenter/Seksjon';
+import { erToggleSkruddPå, UnleashToggle } from '@/util/unleash';
 
 export function KillSwitch(props: PropsWithChildren) {
     const visFeilside = erToggleSkruddPå(UnleashToggle.DISABLE_MINSIDE);

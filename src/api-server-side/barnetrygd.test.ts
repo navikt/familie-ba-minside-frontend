@@ -1,9 +1,9 @@
+import { HttpResponse, http } from 'msw';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { server } from '@/test/mock/node';
-import { http, HttpResponse } from 'msw';
+import type { HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
+import { hentFamilieBaSakBaseUrl } from '@/util/miljø';
 import { hentBarnetrygdOversikt } from './barnetrygd';
-import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
-import { hentFamilieBaSakBaseUrl } from '../util/miljø';
 
 describe('Barnetrygd server side henting', () => {
     vi.mock('next/headers', () => {
@@ -14,7 +14,7 @@ describe('Barnetrygd server side henting', () => {
         vi.resetAllMocks();
     });
 
-    const barnetrygdUrl = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';
+    const barnetrygdUrl = `${hentFamilieBaSakBaseUrl()}/api/minside/barnetrygd`;
 
     test('skal feile hvis hvis token ikke er gyldig', async () => {
         // Arrange

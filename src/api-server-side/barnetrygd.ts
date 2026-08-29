@@ -1,12 +1,12 @@
 'use server';
 
-import { AudienceBaSak } from '@/util/audience';
-import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
-import { erProd, hentFamilieBaSakBaseUrl } from '@/util/miljø';
-import { v4 as uuidv4 } from 'uuid';
-import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
 import { headers } from 'next/headers';
+import { v4 as uuidv4 } from 'uuid';
 import { hentOboToken } from '@/server/auth/hentOboToken';
+import type { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import type { HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
+import { AudienceBaSak } from '@/util/audience';
+import { erProd, hentFamilieBaSakBaseUrl } from '@/util/miljø';
 
 export async function hentBarnetrygdOversikt(): Promise<HentMinSideBarnetrygdSuksess | HentMinSideBarnetrygdFeil> {
     try {
@@ -20,7 +20,7 @@ export async function hentBarnetrygdOversikt(): Promise<HentMinSideBarnetrygdSuk
             throw new Error(oboToken.error);
         }
 
-        const url = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';
+        const url = `${hentFamilieBaSakBaseUrl()}/api/minside/barnetrygd`;
 
         const response = await fetch(url, {
             method: 'GET',

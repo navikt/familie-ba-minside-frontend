@@ -1,16 +1,16 @@
-import { describe, expect, test } from 'vitest';
-import { render } from '@/test/testrender';
-import { server } from '@/test/mock/node';
-import { http, HttpResponse } from 'msw';
-import {
-    Datotype,
-    DokumentInfo,
-    Dokumentvariant,
-    Journalpost,
-    Journalposttype,
-    Variantformat,
-} from '../../typer/api/dokumentoversikt';
 import userEvent from '@testing-library/user-event';
+import { HttpResponse, http } from 'msw';
+import { describe, expect, test } from 'vitest';
+import { server } from '@/test/mock/node';
+import { render } from '@/test/testrender';
+import {
+    type Datotype,
+    type DokumentInfo,
+    type Dokumentvariant,
+    type Journalpost,
+    type Journalposttype,
+    Variantformat,
+} from '@/typer/api/dokumentoversikt';
 import { Dokumentoversikt } from './Dokumentoversikt';
 
 describe('Dokumentoversikt', () => {
