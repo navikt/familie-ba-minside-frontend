@@ -1,0 +1,8 @@
+.github
+.husky
+.idea
+.nais
+.vscode
+node_modules
+src
+public

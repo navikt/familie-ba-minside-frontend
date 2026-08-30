@@ -1,0 +1,18 @@
+# Flat node_modules (som yarn) slik at oppløsningen av avhengigheter blir som
+# før migreringen. Samme oppsett som ba-sak-frontend/ks-sak-frontend.
+nodeLinker: hoisted
+# Nye avhengigheter pinnes eksakt (pnpm 11 leser bare auth/registry fra .npmrc,
+# så save-exact der har ingen effekt — tilsvarer 'save-exact true' i .yarnrc).
+saveExact: true
+# Avhengigheter får ikke kjøre (pre|post)install-scripts (sikkerhetstiltak).
+# Tilsvarer 'ignore-scripts true' som lå i .yarnrc. Legg til 'pakke: false'
+# her hvis pnpm rapporterer "Ignored build scripts" ved en senere install.
+allowBuilds:
+  msw: false
+  sharp: false
+  unrs-resolver: false
+# Egne pakker fra GitHub Packages tas i bruk med en gang (pnpm venter ellers
+# minimumReleaseAge, som standard 1 dag, før nye versjoner installeres).
+minimumReleaseAgeExclude:
+  - '@navikt/*'
+  - '@nais/*'
