@@ -1,10 +1,10 @@
-import React from 'react';
-import { Barnetrygd, HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
-import { Alert, BodyShort, Box, Heading, HStack, Link, List, Skeleton, VStack } from '@navikt/ds-react';
-import { AsyncResult } from '@/typer/api/asyncResult';
-import { hentBarnetrygdOversikt } from '@/api-server-side/barnetrygd';
 import { TeddyBearIcon } from '@navikt/aksel-icons';
+import { Alert, BodyShort, Box, Heading, HStack, Link, List, Skeleton, VStack } from '@navikt/ds-react';
 import { ListItem } from '@navikt/ds-react/List';
+import type React from 'react';
+import { hentBarnetrygdOversikt } from '@/api-server-side/barnetrygd';
+import { AsyncResult } from '@/typer/api/asyncResult';
+import type { Barnetrygd, HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
 
 async function hentBarnetrygd(): Promise<AsyncResult<Barnetrygd | undefined>> {
     const data = await hentBarnetrygdOversikt();

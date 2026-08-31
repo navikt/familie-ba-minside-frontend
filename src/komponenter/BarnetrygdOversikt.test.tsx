@@ -1,11 +1,11 @@
+import { afterEach } from 'node:test';
+import { HttpResponse, http } from 'msw';
 import { describe, expect, test, vi } from 'vitest';
-import { render } from '@/test/testrender';
 import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
 import { server } from '@/test/mock/node';
-import { http, HttpResponse } from 'msw';
-import { HentMinSideBarnetrygdSuksess, HentMinSideBarnetrygdFeil } from '@/typer/api/barnetrygd';
-import { hentFamilieBaSakBaseUrl } from '../util/miljø';
-import { afterEach } from 'node:test';
+import { render } from '@/test/testrender';
+import type { HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
+import { hentFamilieBaSakBaseUrl } from '@/util/miljø';
 
 describe('BarnetrygdOversikt', () => {
     vi.mock('next/headers', () => {
@@ -16,7 +16,7 @@ describe('BarnetrygdOversikt', () => {
         vi.resetAllMocks();
     });
 
-    const barnetrygdUrl = hentFamilieBaSakBaseUrl() + '/api/minside/barnetrygd';
+    const barnetrygdUrl = `${hentFamilieBaSakBaseUrl()}/api/minside/barnetrygd`;
 
     test('skal rendre komponent med feilmelding hvis API-kallet feilet', async () => {
         server.use(

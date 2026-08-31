@@ -1,2 +1,1 @@
-yarn lint
-yarn prettier
+yarn biome-check

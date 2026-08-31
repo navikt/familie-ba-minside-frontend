@@ -1,17 +1,17 @@
-import { describe, expect, test, vi } from 'vitest';
-import { render } from '@/test/testrender';
-import { server } from '@/test/mock/node';
-import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { DokumentListItem } from './DokumentListItem';
+import { HttpResponse, http } from 'msw';
+import { describe, expect, test, vi } from 'vitest';
+import { server } from '@/test/mock/node';
+import { render } from '@/test/testrender';
 import {
-    Datotype,
-    DokumentInfo,
-    Dokumentvariant,
-    Journalpost,
-    Journalposttype,
+    type Datotype,
+    type DokumentInfo,
+    type Dokumentvariant,
+    type Journalpost,
+    type Journalposttype,
     Variantformat,
 } from '@/typer/api/dokumentoversikt';
+import { DokumentListItem } from './DokumentListItem';
 
 describe('DokumentListItem', () => {
     const dokumentvariantMock = (overrides: Partial<Dokumentvariant> = {}): Dokumentvariant => ({

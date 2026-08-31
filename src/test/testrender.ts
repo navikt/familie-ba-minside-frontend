@@ -1,12 +1,12 @@
-import React from 'react';
-import userEvent, { UserEvent } from '@testing-library/user-event';
 import {
+    type RenderOptions as RtlRenderOptions,
+    type RenderResult as RtlRenderResult,
+    type Screen as RtlScreen,
     render as rtlRender,
-    RenderOptions as RtlRenderOptions,
-    RenderResult as RtlRenderResult,
-    Screen as RtlScreen,
     screen as rtlScreen,
 } from '@testing-library/react';
+import userEvent, { type UserEvent } from '@testing-library/user-event';
+import type React from 'react';
 
 type RenderOptions = Omit<RtlRenderOptions, 'queries'>;
 

@@ -1,17 +1,16 @@
 import { Chat2Icon, ChevronRightIcon, ClockIcon, GavelIcon, HouseIcon, ThumbDownIcon } from '@navikt/aksel-icons';
 import { BodyLong, BodyShort, Box, Heading, HStack, Link, LinkCard } from '@navikt/ds-react';
-
-import { Seksjon } from '@/komponenter/Seksjon';
-import { Pictogram } from '@/komponenter/Pictogram';
-import { Barnetrygd } from '@/komponenter/pictogramSvgInnhold/Barnetrygd';
-import { Alene } from '@/komponenter/pictogramSvgInnhold/Alene';
-import { UtvidetBarnetrygd } from '@/komponenter/pictogramSvgInnhold/UtvidetBarnetrygd';
-import { AnsvarForAndresBarn } from '@/komponenter/pictogramSvgInnhold/AnsvarForAndresBarn';
+import { LinkCardAnchor, LinkCardDescription, LinkCardIcon, LinkCardTitle } from '@navikt/ds-react/LinkCard';
 import { Suspense } from 'react';
 import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
-import { LinkCardAnchor, LinkCardDescription, LinkCardIcon, LinkCardTitle } from '@navikt/ds-react/LinkCard';
 import { Dokumentoversikt } from '@/komponenter/dokumentoversikt/Dokumentoversikt';
+import { Pictogram } from '@/komponenter/Pictogram';
+import { Alene } from '@/komponenter/pictogramSvgInnhold/Alene';
+import { AnsvarForAndresBarn } from '@/komponenter/pictogramSvgInnhold/AnsvarForAndresBarn';
+import { Barnetrygd } from '@/komponenter/pictogramSvgInnhold/Barnetrygd';
 import { HarIkkeBarnehageplass } from '@/komponenter/pictogramSvgInnhold/HarIkkeBarnehageplass';
+import { UtvidetBarnetrygd } from '@/komponenter/pictogramSvgInnhold/UtvidetBarnetrygd';
+import { Seksjon } from '@/komponenter/Seksjon';
 
 export default function Page() {
     return (

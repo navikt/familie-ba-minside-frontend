@@ -1,8 +1,8 @@
 'use client';
-import { Seksjon } from '@/komponenter/Seksjon';
 import { BodyShort, Button, Heading, Link, List, VStack } from '@navikt/ds-react';
+import { Seksjon } from '@/komponenter/Seksjon';
 
-export default function Error() {
+export default function ErrorPage() {
     return (
         <Seksjon>
             <Seksjon.Innhold>

@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { render } from '@/test/testrender';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
+import { render } from '@/test/testrender';
 import Page from './page';
 
 expect.extend(toHaveNoViolations);

@@ -1,8 +1,8 @@
-import { integrasjonerAudience } from '@/util/audience';
-import { NextRequest, NextResponse } from 'next/server';
-import { hentOboToken } from '@/server/auth/hentOboToken';
-import { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
+import { hentOboToken } from '@/server/auth/hentOboToken';
+import type { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import { integrasjonerAudience } from '@/util/audience';
 import { erProd, hentFamilieIntegrasjonerBaseUrl } from '@/util/miljø';
 
 export async function GET(req: NextRequest) {

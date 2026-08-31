@@ -2,10 +2,10 @@ import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
 import Script from 'next/script';
 import './index.css';
 import { Page, PageBlock } from '@navikt/ds-react/Page';
-import { erDev } from '@/util/miljø';
+import { KillSwitch } from '@/komponenter/KillSwitch';
 import { LoggerWrapper } from '@/komponenter/LoggerWrapper';
 import { AxeCoreReact } from '@/test/AxeCoreReact';
-import { KillSwitch } from '@/komponenter/KillSwitch';
+import { erDev } from '@/util/miljø';
 import { initialiserUnleash } from '@/util/unleash';
 
 interface RootLayoutProps {
