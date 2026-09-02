@@ -9,11 +9,11 @@ Lag fila `.env.local` i hovedmappa, hent eller generer et Unleash-token fra [unl
 UNLEASH_SERVER_API_TOKEN=unleash-token-her
 ```
 
-Kjør opp utviklingsserveren:
+Aktiver riktig pnpm-versjon med `corepack enable` (henter versjonen fra `packageManager` i package.json), og kjør opp utviklingsserveren:
 
 ```
-yarn
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 Åpne [http://localhost:3000/barnetrygd/min-barnetrygd](http://localhost:3000/barnetrygd/min-barnetrygd) for å se løsningen kjørende lokalt.

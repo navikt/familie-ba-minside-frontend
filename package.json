@@ -1,12 +1,13 @@
 {
     "name": "familie-ba-minside-frontend",
     "version": "0.1.0",
+    "packageManager": "pnpm@11.15.0",
     "private": true,
     "scripts": {
         "dev": "next dev | pino-pretty --messageKey=message",
         "build": "next build",
         "start": "next start",
-        "start:dev": "yarn clean && concurrently \"yarn dev\" \"open http://localhost:3000/barnetrygd/min-barnetrygd\"",
+        "start:dev": "pnpm clean && concurrently \"pnpm dev\" \"open http://localhost:3000/barnetrygd/min-barnetrygd\"",
         "lint": "biome lint .",
         "lint:fix": "biome lint --write .",
         "format": "biome format .",
@@ -16,7 +17,7 @@
         "prepare": "husky",
         "test": "vitest",
         "clean": "rm -rf dist",
-        "validate": "yarn typecheck && yarn biome-check",
+        "validate": "pnpm typecheck && pnpm biome-check",
         "typecheck": "tsc --noEmit -p tsconfig.json"
     },
     "dependencies": {
@@ -38,7 +39,7 @@
     },
     "devDependencies": {
         "@axe-core/react": "4.11.3",
-        "@navikt/aksel": "^8.11.1",
+        "@navikt/aksel": "8.11.1",
         "@testing-library/dom": "10.4.1",
         "@testing-library/jest-dom": "6.9.1",
         "@testing-library/react": "16.3.2",
