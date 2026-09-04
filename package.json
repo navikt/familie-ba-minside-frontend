@@ -34,7 +34,7 @@
         "pino": "10.3.1",
         "react": "19.2.6",
         "react-dom": "19.2.6",
-        "unleash-client": "6.11.0",
+        "unleash-client": "6.12.1",
         "uuid": "14.0.0"
     },
     "devDependencies": {
