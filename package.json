@@ -48,7 +48,7 @@
         "@types/node": "24.13.3",
         "@types/react": "19.2.18",
         "@types/react-dom": "19.2.5",
-        "@biomejs/biome": "2.5.11",
+        "@biomejs/biome": "2.5.13",
         "@vitejs/plugin-react": "6.1.1",
         "concurrently": "10.0.5",
         "husky": "9.1.7",
