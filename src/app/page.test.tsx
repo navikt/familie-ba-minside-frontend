@@ -3,6 +3,12 @@ import { describe, expect, it } from 'vitest';
 import { render } from '@/test/testrender';
 import Page from './page';
 
+declare module 'vitest' {
+    interface Matchers<R extends void | Promise<void> = void | Promise<void>, T = unknown> {
+        toHaveNoViolations(): R;
+    }
+}
+
 expect.extend(toHaveNoViolations);
 
 describe('Page', () => {
@@ -19,5 +25,12 @@ describe('Page', () => {
         const { container } = render(<Page />);
         const results = await axe(container);
         expect(results).toHaveNoViolations();
+    });
+
+    it('fanger opp a11y-feil når et bilde mangler alternativ tekst', async () => {
+        const results = await axe('<img src="illustrasjon.png">');
+
+        expect(results.violations.map(({ id }) => id)).toContain('image-alt');
+        expect(results).not.toHaveNoViolations();
     });
 });
