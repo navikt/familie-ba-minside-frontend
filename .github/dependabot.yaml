@@ -49,6 +49,7 @@ updates:
           - '@testing-library/user-event'
           - '@types/jest-axe'
           - 'jest-axe'
+          - 'jsdom'
           - 'msw'
           - 'vitest'
           - 'vite-tsconfig-paths'
