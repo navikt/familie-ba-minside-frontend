@@ -5,11 +5,11 @@ import type { HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/
 import { hentFamilieBaSakBaseUrl } from '@/util/miljø';
 import { hentBarnetrygdOversikt } from './barnetrygd';
 
-describe('Barnetrygd server side henting', () => {
-    vi.mock('next/headers', () => {
-        return { headers: async () => new Headers() };
-    });
+vi.mock('next/headers', () => {
+    return { headers: async () => new Headers() };
+});
 
+describe('Barnetrygd server side henting', () => {
     afterEach(() => {
         vi.resetAllMocks();
     });

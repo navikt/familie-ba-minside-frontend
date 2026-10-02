@@ -1,17 +1,16 @@
-import { afterEach } from 'node:test';
 import { HttpResponse, http } from 'msw';
-import { describe, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 import { BarnetrygdOversikt } from '@/komponenter/BarnetrygdOversikt';
 import { server } from '@/test/mock/node';
 import { render } from '@/test/testrender';
 import type { HentMinSideBarnetrygdFeil, HentMinSideBarnetrygdSuksess } from '@/typer/api/barnetrygd';
 import { hentFamilieBaSakBaseUrl } from '@/util/miljø';
 
-describe('BarnetrygdOversikt', () => {
-    vi.mock('next/headers', () => {
-        return { headers: async () => new Headers() };
-    });
+vi.mock('next/headers', () => {
+    return { headers: async () => new Headers() };
+});
 
+describe('BarnetrygdOversikt', () => {
     afterEach(() => {
         vi.resetAllMocks();
     });
