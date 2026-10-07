@@ -4,11 +4,14 @@ export async function register() {
         if (erLokalt()) {
             const { server } = await import('./test/mock/node');
             server.listen({
-                onUnhandledRequest(request: Request, print: { warning: () => void }) {
-                    if (request.url.includes('dekoratoren/api/version')) {
-                        return;
+                onUnhandledFrame({ frame, defaults }) {
+                    if (frame.protocol === 'http') {
+                        const { request } = frame.data as { request: Request };
+                        if (request.url.includes('dekoratoren/api/version')) {
+                            return;
+                        }
                     }
-                    print.warning();
+                    defaults.warn();
                 },
             });
         }
