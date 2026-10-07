@@ -95,6 +95,6 @@ describe('Barnetrygd server side henting', () => {
         const barnetrygdOversikt = (await hentBarnetrygdOversikt()) as HentMinSideBarnetrygdFeil;
 
         // Expect
-        expect(barnetrygdOversikt.feilmelding).toBe('Failed to fetch');
+        expect(barnetrygdOversikt.feilmelding).toBe('fetch failed');
     });
 });
