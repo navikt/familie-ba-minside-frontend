@@ -21,9 +21,9 @@
         "typecheck": "tsc --noEmit -p tsconfig.json"
     },
     "dependencies": {
-        "@navikt/aksel-icons": "8.17.2",
-        "@navikt/ds-css": "8.17.2",
-        "@navikt/ds-react": "8.17.2",
+        "@navikt/aksel-icons": "8.18.0",
+        "@navikt/ds-css": "8.18.0",
+        "@navikt/ds-react": "8.18.0",
         "@navikt/nav-dekoratoren-moduler": "4.5.0",
         "@navikt/next-logger": "5.0.1",
         "@navikt/oasis": "4.2.2",
@@ -38,7 +38,7 @@
     },
     "devDependencies": {
         "@axe-core/react": "4.13.0",
-        "@navikt/aksel": "8.17.2",
+        "@navikt/aksel": "8.18.0",
         "@testing-library/dom": "10.4.2",
         "@testing-library/jest-dom": "7.0.1",
         "@testing-library/react": "16.3.3",
