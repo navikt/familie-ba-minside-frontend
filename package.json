@@ -37,7 +37,7 @@
         "uuid": "14.0.3"
     },
     "devDependencies": {
-        "@axe-core/react": "4.13.0",
+        "@axe-core/react": "4.14.0",
         "@navikt/aksel": "8.19.2",
         "@testing-library/dom": "10.4.2",
         "@testing-library/jest-dom": "7.0.1",

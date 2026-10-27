@@ -52,8 +52,8 @@ importers:
         version: 14.0.3
     devDependencies:
       '@axe-core/react':
-        specifier: 4.13.0
-        version: 4.13.0
+        specifier: 4.14.0
+        version: 4.14.0
       '@biomejs/biome':
         specifier: 2.5.15
         version: 2.5.15
@@ -128,8 +128,9 @@ packages:
     resolution: {integrity: sha512-A6f1nKy99I6tyoK82U6kBHvQQZmdHmTmPzJYPY/0eaOW0r8/qPmEOwjGHs+hL/vCgOwQTupu4LT1XtXNUuDruA==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  '@axe-core/react@4.13.0':
-    resolution: {integrity: sha512-/4l+CSBS/VJ2VGtdohuQMqK3NfQoZgDHsXsRt4pAZzZTFhwXs9KQCBinVmPAgTF3wIYK0qvXYAfbmUQ1QT4GJQ==}
+  '@axe-core/react@4.14.0':
+    resolution: {integrity: sha512-qzlj2XY+Jj9ZX3jILgTrm6Gjl+NdAA35UV5yOH9Lcc8uTeAMBTsSWjNP4/50DhWwT/KD+qJ185bUd965u7cKow==}
+    engines: {node: '>=22.12.0'}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -1175,8 +1176,8 @@ packages:
     resolution: {integrity: sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==}
     engines: {node: '>=4'}
 
-  axe-core@4.13.0:
-    resolution: {integrity: sha512-UzGt8zg7Ny8djbYMhxl2zuEevVa7r2gJjYY5Lwr1xM7+XU2nd6CkIWFTVcCIbAP63vSz71NaVyyuSk9lHKcy0A==}
+  axe-core@4.14.0:
+    resolution: {integrity: sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==}
     engines: {node: '>=4'}
 
   backoff@2.5.0:
@@ -2809,9 +2810,9 @@ snapshots:
       is-potential-custom-element-name: 1.0.1
       lru-cache: 11.5.3
 
-  '@axe-core/react@4.13.0':
+  '@axe-core/react@4.14.0':
     dependencies:
-      axe-core: 4.13.0
+      axe-core: 4.14.0
       requestidlecallback: 0.3.0
 
   '@babel/code-frame@7.29.7':
@@ -3740,7 +3741,7 @@ snapshots:
 
   axe-core@4.12.1: {}
 
-  axe-core@4.13.0: {}
+  axe-core@4.14.0: {}
 
   backoff@2.5.0:
     dependencies:
