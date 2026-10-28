@@ -28,7 +28,7 @@
         "@navikt/next-logger": "5.0.1",
         "@navikt/oasis": "4.2.2",
         "csp-header": "6.4.0",
-        "html-react-parser": "6.1.8",
+        "html-react-parser": "6.1.9",
         "next": "16.4.2",
         "pino": "10.4.0",
         "react": "19.3.1",

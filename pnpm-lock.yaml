@@ -19,7 +19,7 @@ importers:
         version: 8.19.2(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@navikt/nav-dekoratoren-moduler':
         specifier: 4.5.1
-        version: 4.5.1(html-react-parser@6.1.8(@types/react@19.3.0)(react@19.3.1))(react@19.3.1)
+        version: 4.5.1(html-react-parser@6.1.9(@types/react@19.3.0)(react@19.3.1))(react@19.3.1)
       '@navikt/next-logger':
         specifier: 5.0.1
         version: 5.0.1(next@16.4.2(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.1)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(pino@10.4.0)
@@ -30,8 +30,8 @@ importers:
         specifier: 6.4.0
         version: 6.4.0
       html-react-parser:
-        specifier: 6.1.8
-        version: 6.1.8(@types/react@19.3.0)(react@19.3.1)
+        specifier: 6.1.9
+        version: 6.1.9(@types/react@19.3.0)(react@19.3.1)
       next:
         specifier: 16.4.2
         version: 16.4.2(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.1)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -1577,8 +1577,8 @@ packages:
     resolution: {integrity: sha512-UikN5yr7xsCDAq87Or5or0PAlD3HJJOKVzM05az588WnpDJ4Ux7a2A53Qi6gofGg2/EtvF/H4hCi/TXfCW4Y6w==}
     engines: {node: ^22.13.0 || >=24.0.0}
 
-  html-react-parser@6.1.8:
-    resolution: {integrity: sha512-tlLNVnvtAhGabZTyboRJ/5/ZTD1iZzN5oAQZkW37gUvpcR/XkVNUvcB25Vpo+/tosbJNyfHbx/8H30k3Ug638Q==}
+  html-react-parser@6.1.9:
+    resolution: {integrity: sha512-5lQzzUQXrFe1+OR7GOGkATsm/2h3UIIWQvPkl+84+A9vYG6zbGxhZJjrCDlGvmQs7qPMbffO3XYizVrHekLZbA==}
     peerDependencies:
       '@types/react': 0.14 || 15 || 16 || 17 || 18 || 19
       react: 0.14 || 15 || 16 || 17 || 18 || 19
@@ -3415,11 +3415,11 @@ snapshots:
 
   '@navikt/ds-tokens@8.20.1': {}
 
-  '@navikt/nav-dekoratoren-moduler@4.5.1(html-react-parser@6.1.8(@types/react@19.3.0)(react@19.3.1))(react@19.3.1)':
+  '@navikt/nav-dekoratoren-moduler@4.5.1(html-react-parser@6.1.9(@types/react@19.3.0)(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@navikt/analytics-types': 0.0.9
       csp-header: 6.4.0
-      html-react-parser: 6.1.8(@types/react@19.3.0)(react@19.3.1)
+      html-react-parser: 6.1.9(@types/react@19.3.0)(react@19.3.1)
       js-cookie: 3.0.8
       react: 19.3.1
 
@@ -4136,7 +4136,7 @@ snapshots:
     transitivePeerDependencies:
       - '@noble/hashes'
 
-  html-react-parser@6.1.8(@types/react@19.3.0)(react@19.3.1):
+  html-react-parser@6.1.9(@types/react@19.3.0)(react@19.3.1):
     dependencies:
       domhandler: 6.0.1
       html-dom-parser: 8.0.2
