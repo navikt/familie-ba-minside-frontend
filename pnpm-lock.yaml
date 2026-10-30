@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@navikt/aksel-icons':
-        specifier: 8.19.2
-        version: 8.19.2
+        specifier: 8.20.0
+        version: 8.20.0
       '@navikt/ds-css':
-        specifier: 8.19.2
-        version: 8.19.2
+        specifier: 8.20.0
+        version: 8.20.0
       '@navikt/ds-react':
-        specifier: 8.19.2
-        version: 8.19.2(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        specifier: 8.20.0
+        version: 8.20.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@navikt/nav-dekoratoren-moduler':
         specifier: 4.5.1
         version: 4.5.1(html-react-parser@6.1.8(@types/react@19.3.0)(react@19.3.1))(react@19.3.1)
@@ -58,8 +58,8 @@ importers:
         specifier: 2.5.15
         version: 2.5.15
       '@navikt/aksel':
-        specifier: 8.19.2
-        version: 8.19.2(supports-color@10.2.2)
+        specifier: 8.20.0
+        version: 8.20.0(supports-color@10.2.2)
       '@testing-library/dom':
         specifier: 10.4.2
         version: 10.4.2
@@ -717,11 +717,11 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@navikt/aksel-icons@8.19.2':
-    resolution: {integrity: sha512-QFqO/2GFNKgB1NLQ2KAhWNegn/+Tevj1wlvrImSRdWPg6QGvlrBRjDbZxclRrosqMtYqYzF3BWMtAb5f8tmvgw==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.19.2/93c1fb9b90a3f3cff84b1f4b430940b51f1caa18}
+  '@navikt/aksel-icons@8.20.0':
+    resolution: {integrity: sha512-5FVFg9Xba++NpvdBlqE/VoGbOie34M1sSLYqSUZEy6IZUjBwh4QrbKCU1hcamuBJ2pQFINwOAqxmw8Ri1AIDyw==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.20.0/b5d97e6736ed7c9245e0b02aa9ce8a89ecf6b72e}
 
-  '@navikt/aksel@8.19.2':
-    resolution: {integrity: sha512-VpgLv23QZEIYSM+V2wedx5jEC3UjmkVVJuFjb79R+AOZxznu0lBkqKBAiG9XB17fyPnf8SixDFmg/KNbUyH6sA==, tarball: https://npm.pkg.github.com/download/@navikt/aksel/8.19.2/9bb530235521167e436dca4f06d9d99d9c9e1cab}
+  '@navikt/aksel@8.20.0':
+    resolution: {integrity: sha512-sO5WV7KGHeZGhO6BI9ymISPvA2+k5cQrJrl3GH/KrnsTAUQkjhINdaYJ5+nNtYXcqwFsBHsxMQHY6hnZ9jjuPw==, tarball: https://npm.pkg.github.com/download/@navikt/aksel/8.20.0/91a4f5f369e6506dfffcd4158620e8af631cbe50}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -729,11 +729,11 @@ packages:
     resolution: {integrity: sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==, tarball: https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942}
     engines: {node: '>=20.0.0', npm: '>=9.0.0'}
 
-  '@navikt/ds-css@8.19.2':
-    resolution: {integrity: sha512-sSOJN3M+fVJ1ewtLKZw60c5ptqf7XPCQ9YiOJdlheSxj36MmvjWhaIQAnOXvMZLsyWEtBtVJtzUOii/9vcU2kw==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.19.2/cfefb305a0dbee5bb3c459ae7bbc795685f75d89}
+  '@navikt/ds-css@8.20.0':
+    resolution: {integrity: sha512-rhDZXQCN/mPyB9ubKRvr95PwAbYp+4xBb64LW5hQnAJJLJiHXksjVfpg8naDM71wIYpNwnShD5lTOwoBfBlPkQ==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.20.0/88a7b56e0e7d92964ee193628adced8e70b54e19}
 
-  '@navikt/ds-react@8.19.2':
-    resolution: {integrity: sha512-hRIP2jjxjI0Ecign/M12MyLuo/p6ToP132kxdKsnUd3HTDqJzJvpKuesbBRmsMWpHla/feK7C8NzAFriI5FrfQ==, tarball: https://npm.pkg.github.com/download/@navikt/ds-react/8.19.2/472481962606fa6e7b44b75e0f88e338277a8441}
+  '@navikt/ds-react@8.20.0':
+    resolution: {integrity: sha512-HbSQh4Ck3ci/8ZAcJYAkYSYKN7zr/9ty2Zam1m4k4in2SxO6SCAWZqDi/vEAmPdosMC5Ey6qiF7QXHwrlln9UQ==, tarball: https://npm.pkg.github.com/download/@navikt/ds-react/8.20.0/05ba9d09dc5ae7981bf78fbf4c5a13cd0a7b934e}
     peerDependencies:
       '@types/react': ^17.0.30 || ^18 || ^19
       react: ^17 || ^18 || ^19
@@ -1484,8 +1484,8 @@ packages:
       picomatch:
         optional: true
 
-  figlet@1.11.3:
-    resolution: {integrity: sha512-7+OS4S6VjQXI2XRvfZlOdHhItd25lI0NgrR1j5UHfuyZfmMh44v65tMQUlb2bSriYGPCHAtGhuY5u23vqelvmg==}
+  figlet@1.12.0:
+    resolution: {integrity: sha512-Ith3WsUi0N/EqGt+0/F6XnWhT04sohhH2tT0Dq7GdUmWbMTIoCbg2Jq9qKggmTO62ST5kRCfB311EmIMbizGyA==}
     engines: {node: '>= 17.0.0'}
     hasBin: true
 
@@ -1505,12 +1505,12 @@ packages:
     resolution: {integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==}
     engines: {node: '>=6'}
 
-  flow-estree@0.336.0:
-    resolution: {integrity: sha512-0VaGWHJourzh88otU5bVJ4Z/oIsD+R6yaeR0Q8t8dezsKQI/RLi5m3fNzkiLYLhJ+YwM3JRSKlOqGplOI5Yo3w==}
+  flow-estree@0.337.0:
+    resolution: {integrity: sha512-8u9x/Ur45zWAdlD8SKHq3MnMttR6MB0x2xna3mNlwfs8BSJ0rCH/1Cyrfvq7eSq61ppshRHZbmQhOp870WmAOA==}
     engines: {node: '>=18'}
 
-  flow-parser@0.336.0:
-    resolution: {integrity: sha512-O8QvQf/B3rBF+eagcc9/WMAjfJoaKckdgSd8PT/qvMIIe4ZjVKrSqV5SDnRFAKY0VrE8r5C4ADYgvYhmwkWADA==}
+  flow-parser@0.337.0:
+    resolution: {integrity: sha512-jGsqT5qJ6J/7gD870pKgL7K8x8l6IzUvtBlRX+OdLP4EGrpDF+3sUqF8HpyR/YcAJs2mVMVhW2GZsxmtXc+aIw==}
     engines: {node: '>=0.4.0'}
 
   fs-minipass@3.0.3:
@@ -3379,9 +3379,9 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
-  '@navikt/aksel-icons@8.19.2': {}
+  '@navikt/aksel-icons@8.20.0': {}
 
-  '@navikt/aksel@8.19.2(supports-color@10.2.2)':
+  '@navikt/aksel@8.20.0(supports-color@10.2.2)':
     dependencies:
       chalk: 5.6.2
       cli-progress: 3.12.0
@@ -3389,7 +3389,7 @@ snapshots:
       commander: 15.0.0
       enquirer: 2.4.1
       fast-glob: 3.3.3
-      figlet: 1.11.3
+      figlet: 1.12.0
       is-git-clean: 1.1.0
       jscodeshift: 17.4.0(supports-color@10.2.2)
       lodash: 4.18.1
@@ -3399,13 +3399,13 @@ snapshots:
 
   '@navikt/analytics-types@0.0.9': {}
 
-  '@navikt/ds-css@8.19.2': {}
+  '@navikt/ds-css@8.20.0': {}
 
-  '@navikt/ds-react@8.19.2(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+  '@navikt/ds-react@8.20.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@floating-ui/react': 0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/react-dom': 2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@navikt/aksel-icons': 8.19.2
+      '@navikt/aksel-icons': 8.20.0
       '@navikt/ds-tokens': 8.20.1
       '@types/react': 19.3.0
       date-fns: 4.4.0
@@ -4051,7 +4051,7 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.7
 
-  figlet@1.11.3:
+  figlet@1.12.0:
     dependencies:
       commander: 14.0.3
 
@@ -4073,11 +4073,11 @@ snapshots:
     dependencies:
       locate-path: 3.0.0
 
-  flow-estree@0.336.0: {}
+  flow-estree@0.337.0: {}
 
-  flow-parser@0.336.0:
+  flow-parser@0.337.0:
     dependencies:
-      flow-estree: 0.336.0
+      flow-estree: 0.337.0
 
   fs-minipass@3.0.3:
     dependencies:
@@ -4331,7 +4331,7 @@ snapshots:
       '@babel/preset-flow': 7.29.7(@babel/core@7.29.7(supports-color@10.2.2))
       '@babel/preset-typescript': 7.29.7(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       '@babel/register': 7.29.7(@babel/core@7.29.7(supports-color@10.2.2))
-      flow-parser: 0.336.0
+      flow-parser: 0.337.0
       graceful-fs: 4.2.11
       neo-async: 2.6.2
       picocolors: 1.1.1
