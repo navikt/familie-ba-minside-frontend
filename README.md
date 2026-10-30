@@ -9,7 +9,7 @@ Lag fila `.env.local` i hovedmappa, hent eller generer et Unleash-token fra [unl
 UNLEASH_SERVER_API_TOKEN=unleash-token-her
 ```
 
-Aktiver riktig pnpm-versjon med `corepack enable` (henter versjonen fra `packageManager` i package.json), og kjør opp utviklingsserveren:
+Installer Corepack med `npm install -g corepack` (følger ikke lenger med Node) og aktiver riktig pnpm-versjon med `corepack enable` (henter versjonen fra `packageManager` i package.json), og kjør opp utviklingsserveren:
 
 ```
 pnpm install
