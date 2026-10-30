@@ -13,8 +13,8 @@ updates:
     ignore:
       - dependency-name: "@types/node"
         versions:
-          - "25"
-          - "26"
+          - "27"
+          - "28"
     groups:
       aksel:
         patterns:
