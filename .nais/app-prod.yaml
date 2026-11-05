@@ -42,6 +42,7 @@ spec:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+        - application: familie-integrasjoner
       external:
         - host: teamfamilie-unleash-api.nav.cloud.nais.io
         - host: familie-integrasjoner.prod-fss-pub.nais.io

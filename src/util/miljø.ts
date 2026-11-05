@@ -51,7 +51,10 @@ export function hentFamilieBaSakBaseUrl(): string {
     return 'http://localhost:8089';
 }
 
-export function hentFamilieIntegrasjonerBaseUrl(): string {
+export function hentFamilieIntegrasjonerBaseUrl(brukGcp = false): string {
+    if (brukGcp) {
+        return 'http://familie-integrasjoner';
+    }
     if (erProd()) {
         return 'https://familie-integrasjoner.prod-fss-pub.nais.io';
     } else {

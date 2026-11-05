@@ -1,6 +1,8 @@
 export enum integrasjonerAudience {
     PROD = 'prod-fss:teamfamilie:familie-integrasjoner',
     DEV = 'dev-fss:teamfamilie:familie-integrasjoner',
+    PROD_GCP = 'prod-gcp:teamfamilie:familie-integrasjoner',
+    DEV_GCP = 'dev-gcp:teamfamilie:familie-integrasjoner',
 }
 
 export enum AudienceBaSak {

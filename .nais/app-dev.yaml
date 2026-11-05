@@ -43,6 +43,7 @@ spec:
           namespace: personbruker
         - application: familie-integrasjoner
           cluster: dev-fss
+        - application: familie-integrasjoner
       external:
         - host: teamfamilie-unleash-api.nav.cloud.nais.io
         - host: familie-integrasjoner.dev-fss-pub.nais.io

@@ -2,19 +2,16 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import type { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
+import { hentFamilieIntegrasjonerConfig } from '@/server/familieIntegrasjoner';
 import type { Dokumentoversikt, Journalpost } from '@/typer/api/dokumentoversikt';
-import { integrasjonerAudience } from '@/util/audience';
-import { erProd, hentFamilieIntegrasjonerBaseUrl } from '@/util/miljø';
 
 export async function GET(req: NextRequest) {
-    const oboToken: OboTokenResponse = await hentOboToken(
-        req,
-        erProd() ? integrasjonerAudience.PROD : integrasjonerAudience.DEV
-    );
+    const { audience, integrasjonerBaseUrl } = await hentFamilieIntegrasjonerConfig();
+    const oboToken: OboTokenResponse = await hentOboToken(req, audience);
     if (!oboToken.ok) {
         return new NextResponse(oboToken.error, { status: 401 });
     }
-    const url = `${hentFamilieIntegrasjonerBaseUrl()}/api/journalpostselvbetjening/dokumentoversikt/BAR`;
+    const url = `${integrasjonerBaseUrl}/api/journalpostselvbetjening/dokumentoversikt/BAR`;
 
     const response = await fetch(url, {
         headers: {

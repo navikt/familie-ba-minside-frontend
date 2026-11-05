@@ -2,14 +2,11 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
 import { hentOboToken } from '@/server/auth/hentOboToken';
 import type { OboTokenResponse } from '@/server/auth/typer/OboTokenResponse';
-import { integrasjonerAudience } from '@/util/audience';
-import { erProd, hentFamilieIntegrasjonerBaseUrl } from '@/util/miljø';
+import { hentFamilieIntegrasjonerConfig } from '@/server/familieIntegrasjoner';
 
 export async function GET(req: NextRequest) {
-    const oboToken: OboTokenResponse = await hentOboToken(
-        req,
-        erProd() ? integrasjonerAudience.PROD : integrasjonerAudience.DEV
-    );
+    const { audience, integrasjonerBaseUrl } = await hentFamilieIntegrasjonerConfig();
+    const oboToken: OboTokenResponse = await hentOboToken(req, audience);
     if (!oboToken.ok) {
         return new NextResponse(oboToken.error, { status: 401 });
     }
@@ -17,7 +14,7 @@ export async function GET(req: NextRequest) {
     const dokumentInfoId = req.nextUrl.searchParams.get('dokumentInfoId');
     const journalpostId = req.nextUrl.searchParams.get('journalpostId');
 
-    const url = `${hentFamilieIntegrasjonerBaseUrl()}/api/journalpostselvbetjening/${journalpostId}/dokument/${dokumentInfoId}`;
+    const url = `${integrasjonerBaseUrl}/api/journalpostselvbetjening/${journalpostId}/dokument/${dokumentInfoId}`;
 
     const response = await fetch(url, {
         headers: {
