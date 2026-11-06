@@ -3,6 +3,7 @@ import { startUnleash, type Unleash } from 'unleash-client';
 
 export enum UnleashToggle {
     DISABLE_MINSIDE = 'familie-ba-minside-frontend.disable-minside',
+    BRUK_FAMILIE_INTEGRASJONER_I_GCP = 'familie-ba-minside-frontend.bruk-familie-integrasjoner-i-gcp',
 }
 
 const url = process.env.UNLEASH_SERVER_API_URL
