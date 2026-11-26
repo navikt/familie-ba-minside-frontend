@@ -24,7 +24,7 @@
         "@navikt/aksel-icons": "8.23.0",
         "@navikt/ds-css": "8.23.0",
         "@navikt/ds-react": "8.23.0",
-        "@navikt/nav-dekoratoren-moduler": "4.5.1",
+        "@navikt/nav-dekoratoren-moduler": "4.6.0",
         "@navikt/next-logger": "5.0.2",
         "@navikt/oasis": "4.2.3",
         "csp-header": "6.4.0",
